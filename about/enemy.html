@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enemy &mdash; Bullet</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bullet
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">运行日志</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../note/index.html">笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheatsheet/index.html">速查表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fragment/index.html">知识碎片</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bullet</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Enemy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enemy">
+<h1>Enemy<a class="headerlink" href="#enemy" title="永久链接至标题">¶</a></h1>
+<div class="line-block">
+<div class="line">我的敌人在哪里</div>
+<div class="line">这是你的敌人</div>
+<div class="line">那是你的敌人</div>
+<div class="line">你的敌人毫无疑问就是这个</div>
+<div class="line">我们的敌人也就是你的敌人啊</div>
+<div class="line">这答案是如此的清爽</div>
+<div class="line">难道你还不明白吗</div>
+<div class="line">你还不是真正在生活着</div>
+<div class="line">你的话语</div>
+<div class="line">说明你熟视无睹</div>
+<div class="line">懈怠之人</div>
+<div class="line">懈怠之人 懈怠之人</div>
+<div class="line">懈怠之人 你一生都无法遇到你的敌人</div>
+<div class="line">你一生都不会真正的活着</div>
+<div class="line">不</div>
+<div class="line">我在寻找着寻找着我的敌人</div>
+<div class="line">或者说那才是真正的敌人</div>
+<div class="line">敌人已不像过去一样披盔戴甲</div>
+<div class="line">如今</div>
+<div class="line">他们是用计算尺高等数学</div>
+<div class="line">以及各种数据计算出来的</div>
+<div class="line">但是 这种敌人却总是无法让我振奋</div>
+<div class="line">一旦纠结在一起</div>
+<div class="line">得到的不过是一些诱饵</div>
+<div class="line">甚至是同伴</div>
+<div class="line">这是你所担心的</div>
+<div class="line">敌人并不用寻找</div>
+<div class="line">他们始终是在包围着我们</div>
+<div class="line">不</div>
+<div class="line">我在等待着</div>
+<div class="line">等待着我的敌人</div>
+<div class="line">不用去等待敌人</div>
+<div class="line">他们时时刻刻都在侵犯我们</div>
+<div class="line">不</div>
+<div class="line">邂逅终将到来直到那一天</div>
+<div class="line">我的指甲 牙 耳朵 手脚甚至连头发都无法反抗</div>
+<div class="line">当我能高呼我的敌人时</div>
+<div class="line">当我能高呼我的敌人时</div>
+<div class="line">肯定会有一个邂逅.</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Shengyu Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    利用 <a href="http://sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">主题</a>
+    
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

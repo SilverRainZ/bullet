@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GDB &mdash; Bullet</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Git" href="git.html" />
+    <link rel="prev" title="速查表" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bullet
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">运行日志</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../note/index.html">笔记</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">速查表</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnupg.html">GnuPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irc.html">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="krita.html">Krita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst.html">reStructuredText 语法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fragment/index.html">知识碎片</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bullet</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">速查表</a> &raquo;</li>
+        
+      <li>GDB</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gdb">
+<h1>GDB<a class="headerlink" href="#gdb" title="永久链接至标题">¶</a></h1>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html">gdb Debugging Full Example (Tutorial):
+ncurses</a></p></li>
+</ul>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shell</span></code> 暂时进入 shell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>/<code class="docutils literal notranslate"><span class="pre">s</span></code> 单条语句，步过/步入</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ni</span></code>/<code class="docutils literal notranslate"><span class="pre">ns</span></code> 单条指令，步过/步入</p></li>
+</ul>
+</div>
+<div class="section" id="breakpoint">
+<h2>Breakpoint<a class="headerlink" href="#breakpoint" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="n">main</span>          <span class="c1"># 对函数下断点</span>
+<span class="n">b</span> <span class="o">*</span><span class="mh">0xbeef</span>       <span class="c1"># 对地址下断点</span>
+<span class="n">b</span> <span class="o">*</span><span class="n">main</span> <span class="o">+</span> <span class="mh">0x10</span>  <span class="c1"># 对函数偏移下断点</span>
+
+<span class="n">watch</span> <span class="o">*</span><span class="mh">0xbeef</span>   <span class="c1"># 硬件断点</span>
+
+<span class="n">info</span> <span class="n">breakpoints</span>    <span class="c1"># 查看断点</span>
+
+<span class="n">delete</span> <span class="o">&lt;</span><span class="n">num</span><span class="o">&gt;</span>    <span class="c1"># 据编号删除断点</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="print">
+<h2>Print<a class="headerlink" href="#print" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/FMT</span> <span class="pre">ADDRESS</span></code> 打印内存内容，FMT: A repeat count followed by a
+format letter and a size letter.</p>
+<ul class="simple">
+<li><p>Fromat: <code class="docutils literal notranslate"><span class="pre">/x</span></code> 十六进制，<code class="docutils literal notranslate"><span class="pre">d</span></code> 十进制，<code class="docutils literal notranslate"><span class="pre">u</span></code>
+十六进制无符号，<code class="docutils literal notranslate"><span class="pre">i</span></code> 指令， <code class="docutils literal notranslate"><span class="pre">o</span></code> 八进制， <code class="docutils literal notranslate"><span class="pre">t</span></code> 二进制，<code class="docutils literal notranslate"><span class="pre">a</span></code>
+地址 (?)，<code class="docutils literal notranslate"><span class="pre">c</span></code> 字符，<code class="docutils literal notranslate"><span class="pre">f</span></code> 浮点数， <code class="docutils literal notranslate"><span class="pre">s</span></code> C Style 字符串</p></li>
+<li><p>Size: <code class="docutils literal notranslate"><span class="pre">b</span></code> byte, <code class="docutils literal notranslate"><span class="pre">h</span></code> halfword, <code class="docutils literal notranslate"><span class="pre">w</span></code> word, <code class="docutils literal notranslate"><span class="pre">g</span></code> giant, 8 bytes</p></li>
+</ul>
+<p>对于某些 format letter，size letter 不一定有用。</p>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> 打印变量和表达式，支持部分 format letter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>print $rdi              # 查看 rdi 寄存器值
+print $1                # 查看第一次 print 的输出
+print var               # 打印 var 的值
+print *var              # 打印 var 内存单元中的值
+# ^ 还搞不明白 * 的具体含义……
+# 比如 print main 和 print *main 的输出相同
+print *array@len        # 打印长度为 len 的数组
+print {void *}argv@argc # 查看所有启动参数地址
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$NUM</span></code> 代表历史 print 输出，<code class="docutils literal notranslate"><span class="pre">$xxx</span></code> 代表当前寄存器的值， 若
+<code class="docutils literal notranslate"><span class="pre">xxx</span></code> 非寄存器名，fallback 到用户自定义变量</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{TYPE}ADREXP</span></code> 对 <code class="docutils literal notranslate"><span class="pre">ADREXP</span></code> 用类型 <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> 解析，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;NUM</span></code> 将地址视为长度为 <code class="docutils literal notranslate"><span class="pre">NUM</span></code> 的数组起点</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="git.html" class="btn btn-neutral float-right" title="Git" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="速查表" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> 上一页</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Shengyu Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    利用 <a href="http://sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">主题</a>
+    
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
