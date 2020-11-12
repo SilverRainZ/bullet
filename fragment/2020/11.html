@@ -360,6 +360,176 @@ e.g. 沪深300、道琼斯工业指数 等。</p>
 </dd>
 </dl>
 </div>
+<div class="section" id="android">
+<h2>Android 上的照片管理软件<a class="headerlink" href="#android" title="永久链接至标题">¶</a></h2>
+<dl class="simple">
+<dt>Camera Roll</dt><dd><dl class="simple">
+<dt>Pros:</dt><dd><p>忘了……</p>
+</dd>
+<dt>Cons:</dt><dd><ul class="simple">
+<li><p>速度慢</p></li>
+<li><p>UI 不讨喜</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Scene</dt><dd><dl class="simple">
+<dt>Pros:</dt><dd><ul class="simple">
+<li><p>界面好看</p></li>
+<li><p>有专门的整理界面且交互非常好</p></li>
+<li><p>有同步功能</p></li>
+</ul>
+</dd>
+<dt>Cons:</dt><dd><ul class="simple">
+<li><p>订阅制付费，不能买断</p></li>
+<li><p>免费版无法添加视频到相册</p></li>
+<li><p>登陆帐号时同步无法关闭</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>SlideBox</dt><dd><dl class="simple">
+<dt>Pros:</dt><dd><ul class="simple">
+<li><p>专门的照片整理应用，对于简单的照片整理非常方便</p></li>
+</ul>
+</dd>
+<dt>Cons:</dt><dd><ul class="simple">
+<li><p>为旧版安卓设计，大概很久不更新</p></li>
+<li><p>设计太过精简，从大量照片中抽取若干张不方便</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Google 图库精简版</dt><dd><p>什么都没有</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Google 相册</dt><dd><dl class="simple">
+<dt>Pros:</dt><dd><ul>
+<li><p>好看，和系统集成度高</p></li>
+</ul>
+</dd>
+<dt>Cons:</dt><dd><ul>
+<li><p>影集功能不好用，创建都要联网</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="cctalk-pdf">
+<h2>CCTalk 课件转 PDF<a class="headerlink" href="#cctalk-pdf" title="永久链接至标题">¶</a></h2>
+<div class="admonition-todo admonition" id="id21">
+<p class="admonition-title">待处理</p>
+<p>帮妹子做的，待记录</p>
+</div>
+</div>
+<div class="section" id="the-docutils-document-tree">
+<h2>The Docutils Document Tree <a class="footnote-reference brackets" href="#id23" id="id22">9</a><a class="headerlink" href="#the-docutils-document-tree" title="永久链接至标题">¶</a></h2>
+<p>这篇文档介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">document</span>  <span class="p">[</span><span class="n">may</span> <span class="n">begin</span> <span class="k">with</span> <span class="n">a</span> <span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="p">,</span> <span class="n">decoration</span><span class="p">,</span> <span class="n">docinfo</span><span class="p">]</span>  <span class="o">|</span>
+<span class="o">|</span>                             <span class="o">+--------------------------------------+</span>
+<span class="o">|</span>                             <span class="o">|</span> <span class="n">sections</span>  <span class="p">[</span><span class="n">each</span> <span class="n">begins</span> <span class="k">with</span> <span class="n">a</span> <span class="n">title</span><span class="p">]</span> <span class="o">|</span>
+<span class="o">+-----------------------------+-------------------------+------------+</span>
+<span class="o">|</span> <span class="p">[</span><span class="n">body</span> <span class="n">elements</span><span class="p">:]</span>                                      <span class="o">|</span> <span class="p">(</span><span class="n">sections</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span> <span class="o">-</span> <span class="n">literal</span> <span class="o">|</span> <span class="o">-</span> <span class="n">lists</span>  <span class="o">|</span>       <span class="o">|</span> <span class="o">-</span> <span class="n">hyperlink</span>  <span class="o">+------------+</span>
+<span class="o">|</span>         <span class="o">|</span>   <span class="n">blocks</span>  <span class="o">|</span> <span class="o">-</span> <span class="n">tables</span> <span class="o">|</span>       <span class="o">|</span>   <span class="n">targets</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">para</span><span class="o">-</span>   <span class="o">|</span> <span class="o">-</span> <span class="n">doctest</span> <span class="o">|</span> <span class="o">-</span> <span class="n">block</span>  <span class="o">|</span> <span class="n">foot</span><span class="o">-</span> <span class="o">|</span> <span class="o">-</span> <span class="n">sub</span><span class="o">.</span> <span class="n">defs</span>  <span class="o">|</span>
+<span class="o">|</span> <span class="n">graphs</span>  <span class="o">|</span>   <span class="n">blocks</span>  <span class="o">|</span>   <span class="n">quotes</span> <span class="o">|</span> <span class="n">notes</span> <span class="o">|</span> <span class="o">-</span> <span class="n">comments</span>   <span class="o">|</span>
+<span class="o">+---------+-----------+----------+-------+--------------+</span>
+<span class="o">|</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span><span class="o">+</span> <span class="o">|</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>    <span class="o">|</span> <span class="p">(</span><span class="n">body</span> <span class="n">elements</span><span class="p">)</span>  <span class="o">|</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="p">(</span><span class="n">inline</span> <span class="o">+-----------+------------------+--------------+</span>
+<span class="o">|</span> <span class="n">markup</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+---------+</span>
+</pre></div>
+</div>
+<p>表的含义可以看原文，几个比较重要的信息：</p>
+<ul class="simple">
+<li><p>document 总是 root 节点</p></li>
+<li><p>section 可以递归地包含自身</p></li>
+<li><p>部分的 body elements 可以包含 body elements</p></li>
+<li><p>inline markup 没有提到 (?)</p></li>
+</ul>
+<div class="section" id="content-model">
+<h3>Content Model<a class="headerlink" href="#content-model" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>The Docutils document model uses strict element content models.
+Every element has a unique structure and semantics,
+but elements may be classified into general categories (below).</p>
+</div></blockquote>
+<p>doctree 采用了严格的元素内容模型，相比 HTML 则松散得多。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这里的元素内容模型（element content model）应该类似 HTML 的
+<a class="reference external" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories">Content categories</a> 。
+模型描述了某个元素可以包含何种内容。</p>
+</div>
+<blockquote>
+<div><p>Only elements which are meant to directly contain text data have a mixed content model,
+where text data and inline elements may be intermixed.
+This is unlike the much looser HTML document model,
+where paragraphs and text data may occur at the same level.</p>
+</div></blockquote>
+<p>只有能够直接包含文本（text data）的元素才拥有一个混合的内容模型（mixed content model），
+即能够混排文本（text data）和内联元素（inline elements ）（下述）。
+HTML 则宽松得多，段落和文本是能在同一嵌套级别出现的（比如 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;prargraph&lt;/p&gt;text</span></code> ）。</p>
+</div>
+<div class="section" id="element-categories">
+<h3>Element Categories<a class="headerlink" href="#element-categories" title="永久链接至标题">¶</a></h3>
+<p>doctree 上的元素可分为如下几类：</p>
+<dl>
+<dt>Structural Elements</dt><dd><p>不能包含文本，只能包含子元素，且 Structural Elements 的父元素必须是 Structural Elements
+（e.g <code class="docutils literal notranslate"><span class="pre">document</span></code> ）</p>
+<dl>
+<dt>Structural Subelements</dt><dd><p>必须被特定的 Structural Elements 包含，简单的 Structural Subelements
+可以直接包含文本（e.g <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">subtitle</span></code>, <code class="docutils literal notranslate"><span class="pre">docinfo</span></code> ）</p>
+<dl class="simple">
+<dt>Bibliographic Elements</dt><dd><p><code class="docutils literal notranslate"><span class="pre">docinfo</span></code> 是 <code class="docutils literal notranslate"><span class="pre">document</span></code> 可选的子元素，用于描述文档的 metadata，
+Bibliographic Elements 的父元素只能是 <code class="docutils literal notranslate"><span class="pre">docinfo``（e.g.</span> <span class="pre">``author</span></code>, <code class="docutils literal notranslate"><span class="pre">copyright</span></code> ）</p>
+</dd>
+<dt>Decorative Elements</dt><dd><p>是 <code class="docutils literal notranslate"><span class="pre">document</span></code> 可选的子元素，用于生成文档的页头与页脚
+（e.g. <code class="docutils literal notranslate"><span class="pre">header</span></code>, <code class="docutils literal notranslate"><span class="pre">footer</span></code> ）</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Body Elements</dt><dd><p>只能被 Structural Elements 或者复合的（compound）Body Elements 包含。</p>
+<dl>
+<dt>Simple Body Elements</dt><dd><p>只能包含文本或者不包含任何内容，能包含文本的 Simple Body Elements
+同样能包含 Inline Elements，即前述的 “mixed content model”。
+不包含任何内容的 Simple Body Elements 是 doctree 的叶子节点
+（e.g.  <code class="docutils literal notranslate"><span class="pre">paragraph</span></code>, <code class="docutils literal notranslate"><span class="pre">comment</span></code> ）</p>
+</dd>
+<dt>Compound Body Elements</dt><dd><p>不直接包含文本，能够包含 Body Subelements 和其他的 Body Elements。</p>
+<dl class="simple">
+<dt>Body Subelements</dt><dd><p>必须被特定的 Compound Body Elements 包含
+（ e.g. <code class="docutils literal notranslate"><span class="pre">bullet_list</span></code> 包含 <code class="docutils literal notranslate"><span class="pre">list_item</span></code> ）
+Body Subelements 本身可以包含其他的 Compound Body Elements</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Inline Elements</dt><dd><p>直接包含文本，也可能包含其他的 Inline Elements。Inline Elements 只能被
+Simple Body Elements 包含。大部分的 Inline Elements 都支持 “mixed content model”。
+（e.g. <code class="docutils literal notranslate"><span class="pre">strong</span></code>, <code class="docutils literal notranslate"><span class="pre">subscript</span></code> ）</p>
+</dd>
+</dl>
+<dl class="footnote brackets">
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id22">9</a></span></dt>
+<dd><p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html">https://docutils.sourceforge.io/docs/ref/doctree.html</a></p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 
 
