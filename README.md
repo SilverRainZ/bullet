@@ -1,3 +1,3 @@
 GitHub Pages of [SilverRainZ/bullet](https://github.com/SilverRainZ/bullet.git)
 ===
-Sphinx html documentation of [dc5ea2fe](https://github.com/SilverRainZ/bullet/tree/dc5ea2fe7ffadf382ed0ec81ce0c3c25f2f1e903)
+Sphinx html documentation of [ba5aa596](https://github.com/SilverRainZ/bullet/tree/ba5aa5969d0387acd955ca6bbb08d459f6cb5ef6)
