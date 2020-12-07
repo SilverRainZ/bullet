@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docutils Hacker’s Guide &mdash; Bullet</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="GDB" href="../../man/gdb.html" />
+    <link rel="prev" title="The Docutils Document Tree" href="doctree.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bullet
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../score-collection/index.html">乐谱夹</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Use Sphinx As My PIM System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gnupg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText 语法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">杂物</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Bullet</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Use Sphinx As My PIM System</a> &raquo;</li>
+        
+      <li>Docutils Hacker’s Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docutils-hacker-s-guide">
+<h1>Docutils Hacker’s Guide<a class="headerlink" href="#docutils-hacker-s-guide" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2020-11-12</p>
+</dd>
+<dt class="field-even">reference</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docutils.sourceforge.io/docs/dev/hacking.html">https://docutils.sourceforge.io/docs/dev/hacking.html</a></p>
+</dd>
+</dl>
+<p>Doctuils 是 Python 编写的通用文档处理软件，使用 reStructedText 作为 markup language。
+提供了 <code class="docutils literal notranslate"><span class="pre">rst2{html,man,xml,xetext}</span></code> 等命令行工具（ <code class="docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-Ql</span> <span class="pre">python-docutils</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">/usr/bin/</span></code> ）。</p>
+<p>Docutils Hacker’s Guide 简要解释了 Docutils 的工作原理：
+将一个 rst 文件转换为目标格式的文档（比如 HTML）需要经过：
+Read ( <code class="file docutils literal notranslate"><span class="pre">docutils/readers</span></code> ) -&gt; Parse ( <code class="file docutils literal notranslate"><span class="pre">docutils/parsers</span></code> )
+-&gt; Transform ( <code class="file docutils literal notranslate"><span class="pre">docutils/transforms</span></code> )-&gt; Write ( <code class="file docutils literal notranslate"><span class="pre">docutils/writers</span></code> )
+四个阶段。</p>
+<p>Parse 阶段将 Read 读取的文件解析为一棵节点树，目前仅实现了 reStructuredText
+parser ( <code class="file docutils literal notranslate"><span class="pre">docutils/parsers/rst</span></code> )。对于如下 rst 文档:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">My</span> <span class="o">*</span><span class="n">favorite</span><span class="o">*</span> <span class="n">language</span> <span class="ow">is</span> <span class="n">Python_</span><span class="o">.</span>
+
+<span class="o">..</span> <span class="n">_Python</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>使用 <code class="file docutils literal notranslate"><span class="pre">docutils/tools/quicktest.py</span></code> 可以查看 rst 文档的节点树
+（层级用缩进表示）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">document</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;test.txt&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">paragraph</span><span class="o">&gt;</span>
+    <span class="n">My</span>
+    <span class="o">&lt;</span><span class="n">emphasis</span><span class="o">&gt;</span>
+        <span class="n">favorite</span>
+     <span class="n">language</span> <span class="ow">is</span>
+    <span class="o">&lt;</span><span class="n">reference</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span> <span class="n">refname</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="o">&gt;</span>
+        <span class="n">Python</span>
+    <span class="o">.</span>
+<span class="o">&lt;</span><span class="n">target</span> <span class="n">ids</span><span class="o">=</span><span class="s2">&quot;python&quot;</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;python&quot;</span> <span class="n">refuri</span><span class="o">=</span><span class="s2">&quot;http://www.python.org/&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>标签内的节点（ <code class="docutils literal notranslate"><span class="pre">document</span></code> 、 <code class="docutils literal notranslate"><span class="pre">paragraph</span></code> …）在 <code class="file docutils literal notranslate"><span class="pre">docutils/nodes.py</span></code>
+中都能找到对应的实现。
+可以用 <a class="reference external" href="https://epydoc.sourceforge.net/">epydoc</a> 查看节点的继承关系。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>树上的文本譬如 “My”、”language is”、”.” 同样是节点，
+对应的实现为 <code class="docutils literal notranslate"><span class="pre">docutils.nodes.Text</span></code></p>
+</div>
+<p>Transform 阶段利用 <a class="reference external" href="https://zh.wikipedia.org/wiki/访问者模式">访问者模式</a> 对语法树进行各种变换，
+本例中 <code class="docutils literal notranslate"><span class="pre">ExternalTargets</span></code> transform ( <code class="file docutils literal notranslate"><span class="pre">docutils/transforms/references.py</span></code> )
+会解析 <code class="docutils literal notranslate"><span class="pre">reference</span></code> 节点，寻找 ID 为 “python” 的 target 节点，
+并设置 <code class="docutils literal notranslate"><span class="pre">reference</span></code> 节点的 <code class="docutils literal notranslate"><span class="pre">refuri</span></code> 属性。 使用 <code class="docutils literal notranslate"><span class="pre">rst2pseudoxml</span></code> 可以看到
+Transform 阶段后的节点树:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">document</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;test.txt&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">paragraph</span><span class="o">&gt;</span>
+    <span class="n">My</span>
+    <span class="o">&lt;</span><span class="n">emphasis</span><span class="o">&gt;</span>
+        <span class="n">favorite</span>
+     <span class="n">language</span> <span class="ow">is</span>
+    <span class="o">&lt;</span><span class="n">reference</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span> <span class="n">refuri</span><span class="o">=</span><span class="s2">&quot;http://www.python.org/&quot;</span><span class="o">&gt;</span>
+        <span class="n">Python</span>
+    <span class="o">.</span>
+<span class="o">&lt;</span><span class="n">target</span> <span class="n">ids</span><span class="o">=</span><span class="s2">&quot;python&quot;</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;python&quot;</span> <span class="n">refuri</span><span class="o">=</span><span class="s2">&quot;http://www.python.org/&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../man/gdb.html" class="btn btn-neutral float-right" title="GDB" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="doctree.html" class="btn btn-neutral float-left" title="The Docutils Document Tree" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> 上一页</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Shengyu Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    利用 <a href="http://sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">主题</a>
+    
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
