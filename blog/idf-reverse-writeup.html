@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDF 实验室逆向题部分题解 &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/idf-reverse-writeup.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="idf">
+<h1>IDF 实验室逆向题部分题解<a class="headerlink" href="#idf" title="永久链接至标题">¶</a></h1>
+<p>地址在这里：<a class="reference external" href="http://ctf.idf.cn/index.php?g=game&amp;m=list&amp;a=index&amp;id=21">IDF逆向题</a>
+这些题都比较水，好在我和它一样水。</p>
+<div class="section" id="python-btyecode">
+<h2>Python BtyeCode:<a class="headerlink" href="#python-btyecode" title="永久链接至标题">¶</a></h2>
+<p>好像是用Cpython编译的, 手头没工具, 用的是师兄给的反编译出来的代码:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="n">rst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">rst</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">seed</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">seed</span><span class="p">]))</span> <span class="o">%</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="p">(</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rst</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;Welcome to idf&#39;s python crackme&quot;</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the Flag: &#39;</span><span class="p">)</span>
+    <span class="n">KEY1</span> <span class="o">=</span> <span class="s1">&#39;Maybe you are good at decryptint Byte Code, have a try!&#39;</span>
+    <span class="n">KEY2</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="mi">124</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">122</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">232</span><span class="p">]</span>
+    <span class="n">en_out</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">KEY1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">KEY2</span> <span class="o">==</span> <span class="n">en_out</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;You Win&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;Try Again !&#39;</span>
+    <span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="n">rst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">rst</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">seed</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">seed</span><span class="p">]))</span> <span class="o">%</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="p">(</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rst</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;Welcome to idf&#39;s python crackme&quot;</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the Flag: &#39;</span><span class="p">)</span>
+    <span class="n">KEY1</span> <span class="o">=</span> <span class="s1">&#39;Maybe you are good at decryptint Byte Code, have a try!&#39;</span>
+    <span class="n">KEY2</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="mi">124</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">122</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">232</span><span class="p">]</span>
+    <span class="n">en_out</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">KEY1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">KEY2</span> <span class="o">==</span> <span class="n">en_out</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;You Win&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;Try Again !&#39;</span>
+</pre></div>
+</div>
+<p>正常人反着推肯定是写: <code class="docutils literal notranslate"><span class="pre">arr[i]</span> <span class="pre">-</span>&#160; <span class="pre">(key[seed]</span> <span class="pre">^</span> <span class="pre">seed)</span></code> 不过这样肯定推不出来,
+因为出题人写错了… (师兄想出来的… 打死我也不知道是题目错了啊…),
+出题的用了正确的算法给出密文之后, 把 <code class="docutils literal notranslate"><span class="pre">rst.append((ord(v)</span> <span class="pre">^</span> <span class="pre">ord(key[seed])</span> <span class="pre">+</span> <span class="pre">seed)</span> <span class="pre">%</span> <span class="pre">255)</span></code>
+写成了: <code class="docutils literal notranslate"><span class="pre">rst.append((ord(v)</span> <span class="pre">+</span> <span class="pre">seed</span> <span class="pre">^</span> <span class="pre">ord(key[seed]))</span> <span class="pre">%</span> <span class="pre">255)</span></code>
+所以没必要深究什么了,代码:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">124</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span>
+        <span class="mi">62</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="mi">22</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">key</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Maybe you are good at decryptint Byte Code, have a try!&quot;</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">seed</span><span class="p">])</span> <span class="o">-</span> <span class="n">seed</span><span class="p">;</span>
+        <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span><span class="n">abs</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="o">%</span><span class="mi">127</span><span class="p">;</span> <span class="c1">//事实上为什么要%127也不太清楚</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">32</span> <span class="o">||</span> <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">127</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">)</span> <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">255</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">127</span><span class="p">)</span> <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">255</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;arr[%d] = %d; key[%d] = %d; ^ = %d flag[%d] = %d;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+                <span class="n">i</span><span class="p">,</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">seed</span><span class="p">,</span> <span class="n">key</span><span class="p">[</span><span class="n">seed</span><span class="p">],</span><span class="n">key</span><span class="p">[</span><span class="n">seed</span><span class="p">]</span><span class="o">^</span><span class="n">seed</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="p">(</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">strlen</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">puts</span><span class="p">(</span><span class="n">flag</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">WCTF{ILOVEPYTHONSOMUCH}</span></code></p>
+</div>
+<div class="section" id="elf">
+<h2>简单的ELF逆向:<a class="headerlink" href="#elf" title="永久链接至标题">¶</a></h2>
+<p>这题是ELFx64位的CrackMe, 只能用IDA啦, 载入之,师兄叫我用F4 F5,不过64位的IDA好像没有F5,
+找到main函数, F4, 得到代码:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">addr_0x400900_12</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="n">v13</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">v3</span> <span class="o">!=</span> <span class="mi">22</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">v13</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">v14</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">((</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)(</span><span class="n">uint1_t</span><span class="p">)(</span><span class="n">v14</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">eax15</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="n">v8</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">((</span><span class="kt">int32_t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">eax15</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">v13</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="o">*</span><span class="p">(</span><span class="kt">int32_t</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">rsi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="o">*</span><span class="p">((</span><span class="kt">int32_t</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">rsi</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="o">++</span><span class="n">v14</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">eax16</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="n">v17</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">eax16</span> <span class="o">!=</span> <span class="mi">48</span>
+            <span class="o">||</span> <span class="p">((</span><span class="n">eax18</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="n">v19</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">eax18</span> <span class="o">!=</span> <span class="mi">56</span><span class="p">)</span>
+                <span class="o">||</span> <span class="p">((</span><span class="n">eax20</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="n">v21</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">eax20</span> <span class="o">!=</span> <span class="mi">50</span><span class="p">)</span>
+                    <span class="o">||</span> <span class="p">((</span><span class="n">eax22</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="n">v23</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">eax22</span> <span class="o">!=</span> <span class="mi">51</span><span class="p">)</span>
+                        <span class="o">||</span> <span class="p">(</span><span class="n">eax24</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="n">v25</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">eax24</span> <span class="o">!=</span> <span class="mh">0x7d</span><span class="p">)))))</span> <span class="p">{</span>
+        <span class="n">v13</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">rsi</span><span class="p">);</span>
+    <span class="cm">/* v13 应该是一个标志变量 */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">v13</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">puts</span><span class="p">(</span><span class="s">&quot;u r wrong</span><span class="se">\r\n\r</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">rsi</span><span class="p">);</span>
+        <span class="n">rax26</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="s">&quot;u r wrong</span><span class="se">\r\n\r</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">rsi</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">puts</span><span class="p">(</span><span class="s">&quot;u r right!</span><span class="se">\r</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">rsi</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nl">addr_0x4008ff_7</span><span class="p">:</span>
+    <span class="k">goto</span> <span class="n">addr_0x400900_12</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>果然代码的可读性不是很好, 前面的printf之类的被我省去了, 重点放在while循环和那个if上,
+可以看到if要求的是几个变量必须分别为 <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">8,</span> <span class="pre">2,</span> <span class="pre">3,}</span></code>
+应该就是flag 的后部分了, 从最后的判断right和wrong可以看出v13是判断正确与否的变量.</p>
+<p>while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic View模式, 这样汇编代码显得很清晰,
+把重点放在while循环对应的那部分, 简单分析得到, 红笔标注的地方就是程序内为数不多的循环了,
+循环之后多条并排的绿线那里是多路if,最后的是正确与否的判断以及输出.</p>
+<a class=""
+               data-lightbox="group-default"
+               href="../_images/idf-reverse-writeup-11.png"
+               title=""
+               data-title=""
+               ><img src="../_images/idf-reverse-writeup-11.png"
+                     class=""
+                     width="48%"
+                     height="auto"
+                     alt="1"/>
+                </a><p>关键代码如下, interator 对应var_14, arr_1 对应var_40, arr_2 对应 var_c0:</p>
+<div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nl">loc_40097C:</span>
+<span class="nf">cmp</span>     <span class="p">[</span><span class="nb">rbp</span><span class="o">+</span><span class="nv">iterator</span><span class="p">],</span> <span class="mh">10h</span>    <span class="c1">; 循环总次数</span>
+<span class="nf">setle</span>   <span class="nb">al</span>
+<span class="nf">test</span>    <span class="nb">al</span><span class="p">,</span> <span class="nb">al</span>
+<span class="nf">jnz</span>     <span class="nv">short</span> <span class="nv">loc_40091D</span>
+
+<span class="nl">loc_40091D:</span>
+<span class="nf">mov</span>     <span class="nb">eax</span><span class="p">,</span> <span class="p">[</span><span class="nb">rbp</span><span class="o">+</span><span class="nv">iterator</span><span class="p">]</span>    <span class="c1">; 装入循环变量</span>
+<span class="nf">cdqe</span>
+<span class="nf">movzx</span>   <span class="nb">eax</span><span class="p">,</span> <span class="p">[</span><span class="nb">rbp</span><span class="o">+</span><span class="nb">rax</span><span class="o">+</span><span class="nv">arr_1</span><span class="p">]</span>
+<span class="nf">movsx</span>   <span class="nb">edx</span><span class="p">,</span> <span class="nb">al</span>        <span class="c1">; 取出(unsigned char)arr_1[iterator], 数组元素只有一个字节</span>
+<span class="nf">mov</span>     <span class="nb">eax</span><span class="p">,</span> <span class="p">[</span><span class="nb">rbp</span><span class="o">+</span><span class="nv">iterator</span><span class="p">]</span>
+<span class="nf">cdqe</span>
+<span class="nf">mov</span>     <span class="nb">eax</span><span class="p">,</span> <span class="p">[</span><span class="nb">rbp</span><span class="o">+</span><span class="nb">rax</span> <span class="o">*</span> <span class="mi">4</span><span class="o">+</span><span class="nv">arr_2</span><span class="p">]</span> <span class="c1">; 取出(int)arr_2[iterator], 四个字节</span>
+<span class="nf">sub</span>     <span class="nb">eax</span><span class="p">,</span> <span class="mi">1</span>        <span class="c1">; eax = eax - 1</span>
+<span class="nf">mov</span>     <span class="nb">ecx</span><span class="p">,</span> <span class="nb">eax</span>     <span class="c1">; ecx = eax</span>
+<span class="nf">shr</span>     <span class="nb">ecx</span><span class="p">,</span> <span class="mh">1Fh</span>    <span class="c1">; ecx = ecx &gt;&gt; 0x1f</span>
+<span class="nf">lea</span>     <span class="nb">eax</span><span class="p">,</span> <span class="p">[</span><span class="nb">rcx</span><span class="o">+</span><span class="nb">rax</span><span class="p">]</span>    <span class="c1">; 装入地址其实就是 eax = ecx + eax;</span>
+<span class="nf">sar</span>     <span class="nb">eax</span><span class="p">,</span> <span class="mi">1</span>         <span class="c1">; eax = eax &gt;&gt; 1</span>
+<span class="nf">cmp</span>     <span class="nb">edx</span><span class="p">,</span> <span class="nb">eax</span>     <span class="c1">; 比较arr_2[iterator]经过运算的值是否等于arr_1[iterator]</span>
+<span class="nf">jz</span>      <span class="nv">short</span> <span class="nv">loc_400978</span>    <span class="c1">; 等于则跳</span>
+
+<span class="nl">loc_400978:</span>
+<span class="nf">add</span>     <span class="p">[</span><span class="nb">rbp</span><span class="o">+</span><span class="nv">iterator</span><span class="p">],</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>经过以上分析可以知道 arr_1 应该是我们输入的key, 所以有必要知道arr_2 的值, 跳转到arr_2的定义:</p>
+<a class=""
+               data-lightbox="group-default"
+               href="../_images/idf-reverse-writeup-21.png"
+               title=""
+               data-title=""
+               ><img src="../_images/idf-reverse-writeup-21.png"
+                     class=""
+                     width="48%"
+                     height="auto"
+                     alt="2"/>
+                </a><p>是空的…
+但是我们回到代码中, 对arr_2有这样的操作:</p>
+<a class=""
+               data-lightbox="group-default"
+               href="../_images/idf-reverse-writeup-31.png"
+               title=""
+               data-title=""
+               ><img src="../_images/idf-reverse-writeup-31.png"
+                     class=""
+                     width="48%"
+                     height="auto"
+                     alt="3"/>
+                </a><p>刚好17个项(0-10h),
+所以说 <code class="docutils literal notranslate"><span class="pre">arr_i[i]</span> <span class="pre">=</span> <span class="pre">((arr_2[i]</span> <span class="pre">–</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">(arr_2[i]</span> <span class="pre">–</span> <span class="pre">1)&gt;&gt;0x1f)&gt;&gt;1</span></code>
+(忽略了shr 和 sar 以及各种细节问题… 所幸没有出错)
+(vim 来处理这些最爽了)</p>
+<p>代码:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
+<span class="cp">#define N 17</span>
+<span class="kt">int</span> <span class="n">arr_2</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x0EF</span><span class="p">,</span> <span class="mh">0x0C7</span><span class="p">,</span> <span class="mh">0x0E9</span><span class="p">,</span> <span class="mh">0x0CD</span><span class="p">,</span> <span class="mh">0x0F7</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">,</span> <span class="mh">0x0D9</span><span class="p">,</span>
+    <span class="mh">0x8D</span><span class="p">,</span> <span class="mh">0x0BF</span><span class="p">,</span> <span class="mh">0x0D9</span><span class="p">,</span> <span class="mh">0x0DD</span><span class="p">,</span> <span class="mh">0x0B1</span><span class="p">,</span> <span class="mh">0x0BF</span><span class="p">,</span> <span class="mh">0x87</span><span class="p">,</span>
+    <span class="mh">0x0D7</span><span class="p">,</span> <span class="mh">0x0DB</span><span class="p">,</span> <span class="mh">0x0BF</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">ch</span> <span class="o">=</span> <span class="p">((</span><span class="n">arr_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">arr_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mh">0x1f</span><span class="p">))</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+        <span class="cm">/*注意一下 &gt;&gt; 的优先级*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="n">ch</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0823}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&quot;pause.&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">wctf{ElF_lnX_Ckm_0823}</span></code></p>
+</div>
+<div class="section" id="pe">
+<h2>简单的PE文件逆向:<a class="headerlink" href="#pe" title="永久链接至标题">¶</a></h2>
+<p>x86平台, 双击没法运行, 应该需要某个古老的C++运行时, 那就放弃用OD了, IDA载入,
+稍微翻一翻(其实是不知道如何有效定位), 0x4113a0处就是关键处, F5之, 这次代码好看多了,
+可以看出和上一个CrackMe基本相同…</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">v76</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">byte_415768</span><span class="p">[</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="n">v53</span> <span class="o">+</span> <span class="n">i</span><span class="p">)]</span> <span class="p">)</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">v77</span> <span class="o">!=</span> <span class="mi">49</span> <span class="o">||</span> <span class="n">v78</span> <span class="o">!=</span> <span class="mi">48</span> <span class="o">||</span> <span class="n">v79</span> <span class="o">!=</span> <span class="mi">50</span> <span class="o">||</span> <span class="n">v80</span> <span class="o">!=</span> <span class="mi">52</span> <span class="o">||</span> <span class="n">v81</span> <span class="o">!=</span> <span class="mi">125</span> <span class="p">)</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">v76</span><span class="p">[</span><span class="n">v75</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">sub_411136</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">flag</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;u r wrong</span><span class="se">\r\n\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">sub_411136</span><span class="p">();</span>
+    <span class="n">sub_41113B</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;u r right!</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">sub_411136</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>同样是把flag分成两部分, 后面五个必须是1024},前面的在一个for循环里算出:
+<code class="docutils literal notranslate"><span class="pre">v76[i]</span> <span class="pre">!=</span> <span class="pre">byte_415768[*(&amp;v53</span> <span class="pre">+</span> <span class="pre">i)]</span></code>
+通过一个数组v53[]运算出下标, 再用下标从另一个数组byte_415768[]取出值来, 数组是:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>v53 = 1;
+v54 = 4;
+v55 = 14;
+v56 = 10;
+v57 = 5;
+v58 = 36;
+v59 = 23;
+v60 = 42;
+v61 = 13;
+v62 = 19;
+v63 = 28;
+v64 = 13;
+v65 = 27;
+v66 = 39;
+v67 = 48;
+v68 = 41;
+v69 = 42;
+byte_415768 db 73h
+    db &#39;wfxc{gdv}fwfctslydRddoepsckaNDMSRITPNsmr1_=2cdsef66246087138&#39;,0
+</pre></div>
+</div>
+<p>要注意byte_415768[]的一个元素s(73h)没有被识别.
+所以:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="n">v53</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">19</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">4</span>
+<span class="p">};</span>
+<span class="kt">char</span> <span class="n">byte_415768</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;swfxc{gdv}fwfctslydRddoepsckaNDMSRITPNsmr1_=2cdsef66246087138</span><span class="se">\0</span><span class="s">&quot;</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="n">byte_415768</span><span class="p">[</span><span class="n">v53</span><span class="p">[</span><span class="n">i</span><span class="p">]]);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;1024}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&quot;pause&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">wctf{Pe_cRackme1c1024}</span></code></p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="haskell-beginning.html">
+      Hello Haskell 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2015-01-02 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="tag/reverse.html">Reverse</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016-sum-up.html"
+      >29 September - GSoC 2016 小记 - 误打误撞三个月</a
+    >
+  </li>
+  
+  <li>
+    <a href="practical-makefile-for-packaging.html"
+      >25 June - 编写便于打包的 Makefile</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

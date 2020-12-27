@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSoC 2016 小记 - 误打误撞三个月 &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/gsoc-2016-sum-up.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="gsoc-2016">
+<h1><a class="toc-backref" href="#id12">GSoC 2016 小记 - 误打误撞三个月</a><a class="headerlink" href="#gsoc-2016" title="永久链接至标题">¶</a></h1>
+<p>这是一篇拖了一个月的流水帐……</p>
+<p>谷歌编程之夏（Google Summer of Code/GSoC）是 Google 举办的年度编程活动，
+征集学生为开源社区编写代码，时间持续三个月，成功完成项目的学生可以得到 Google
+$5500 的报酬，同时开源社区也能得到 $500 的赞助。</p>
+<a class=""
+               data-lightbox="group-default"
+               href="../_images/gsoc-2016-proj1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/gsoc-2016-proj1.png"
+                     class=""
+                     width="48%"
+                     height="auto"
+                     alt="GSoC 2013 Project"/>
+                </a><p>我有幸参加了 2016 年的 Google Summoer of Code，为 GNU/Hurd 项目工作并完成预期目标，
+在此记录。</p>
+<div class="contents topic" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#gsoc-2016" id="id12">GSoC 2016 小记 - 误打误撞三个月</a></p>
+<ul>
+<li><p><a class="reference internal" href="#proposal" id="id13">从写 Proposal 到放弃</a></p></li>
+<li><p><a class="reference internal" href="#welcome-to-gsoc-2016" id="id14">Welcome to GSoC 2016!</a></p></li>
+<li><p><a class="reference internal" href="#community-bonding" id="id15">焦虑的 Community Bonding</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id16">编程之夏</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id17">夏日的怠惰尾声</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id18">总结</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id19">相关链接</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="proposal">
+<h2><a class="toc-backref" href="#id13">从写 Proposal 到放弃</a><a class="headerlink" href="#proposal" title="永久链接至标题">¶</a></h2>
+<p>三月初的时候在 #archlinux-cn 听 {% include friend name=”quininer” %} 说今年 Tox
+社区要参加 GSoC 并开始招人的事情，<a href="#id2"><span class="problematic" id="id3">:raw-html-m2r:`&lt;del&gt;当然也提及了 Tox 去年闹出的一桩事：
+`Current situation of Tox #1379 &lt;https://github.com/irungentoo/toxcore/issues/1379&gt;`_</span></a>。&lt;/del&gt;`
+这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
+便萌生了要试试的想法。</p>
+<p>参与的学生需要在 <a class="reference external" href="http://summerofcode.withgoogle.com/">Google Summer of Code</a> 上注册，
+并寻找你心仪的 organization，并在网站上针对 organization 的某个项目提交提案（Proposal），
+这些组织一般都是著名的开源社区，比如 GNU、Linux Fundation、GNOME、KDE、Wine、Apache 等等。
+Proposal 用来告诉社区你为什么认为自己能胜任这个项目，将如何做这个项目，以及你的时间安排等，
+有些社区会提供一些 proposal 模板，告知你一些必须回答的问题。 一个学生可以提交至多五份提案。</p>
+<p>于是开始挑 organization，因为我比较熟悉的语言就只有 C，写过 toy kernel 和 GTK 程序，
+因此最后敲定了两个组织： GNU 和 GNOME，前者有 Hurd 内核项目，后者用 GTK 框架写程序，
+大概能算是我比较擅长的部分吧。</p>
+<p>接着开始在网上找资料写 proposal，上了一下 #hurd 频道打了一下招呼，然后就没有然后了……
+看到其他人写的 proposal 和网上的描述，开始觉得 GSoC 以我的能力是参加不了的，
+于是一字未写，在心里默默跟自己说放弃好了。</p>
+<p>到了 3 月 23 号，那天早上不知道为什么突然来了劲儿，决定只报一个项目：
+GNU/Hurd 的 <a class="reference external" href="https://www.gnu.org/software/hurd/community/gsoc/project_ideas/xattr.html">Implement xattr Support</a>。
+在当天早上把 proposal 写好并马上提交了最终版…… 然后给学生证拍了张照片作为入学证明上传。</p>
+<p>3 月 29 号，被邮件告知「Your GSoC 2016 Proof of Enrollment form was rejected because:
+not english/missing translation.」，仅仅拍学生证不够，还需要加上写英文说明，
+当时我的想法是，反正 proposal 也过不了，于是没搭理邮件。</p>
+<p>4 月 7 号，在我没有采取任何行动的情况下，Google 又发邮件说 Proof of Enrollment
+已经通过验证了…… :-| 大概是找了华人员工来审核的吧，当时心理暗想 Google
+的工作人员真的好负责啊……</p>
+<p>再往后，每天跟着舍友去图书馆，写还当时未成型的 <a class="reference external" href="https://github.com/SilverRainZ/srain">Srain</a>，
+其间有 GNU 的成员在我的 proposal 上留言评论……我也没去回复，
+渐渐把这件事忘记了。</p>
+</div>
+<div class="section" id="welcome-to-gsoc-2016">
+<h2><a class="toc-backref" href="#id14">Welcome to GSoC 2016!</a><a class="headerlink" href="#welcome-to-gsoc-2016" title="永久链接至标题">¶</a></h2>
+<p>4 月 23 号，刚起床看到有封邮件，</p>
+<blockquote>
+<div><p>GSoC 2016: Congratulations, your proposal with GNU Project has been accepted!</p>
+</div></blockquote>
+<p>觉得有点激动又难以置信，还特意发了篇<a class="reference internal" href="gsoc-2016.html"><span class="doc">博客</span></a>得瑟了一下。</p>
+<p>接下来就根据邮件的要求：</p>
+<ul class="simple">
+<li><p>看<a class="reference external" href="https://developers.google.com/open-source/gsoc/help/accepted-students">学生须知</a>，</p></li>
+<li><p>上传税务表（Tax form），国外的学生只需要下载
+<a class="reference external" href="https://developers.google.com/open-source/gsoc/help/images/foreign-certification.pdf">Foreign Certification Form</a>
+打印出来签名扫描上传便好</p></li>
+<li><p>注册 Payoneer 帐号设置收款账户 :-D</p></li>
+<li><p>完善个人信息</p></li>
+</ul>
+<p>做完以上事情后，GSoC 就可以正式开始了，从 4 月 23 号到 5 月 22 号是 Community
+Bonding Period，用来和社区成员交流，配置开发环境，熟悉工作流程等。</p>
+</div>
+<div class="section" id="community-bonding">
+<h2><a class="toc-backref" href="#id15">焦虑的 Community Bonding</a><a class="headerlink" href="#community-bonding" title="永久链接至标题">¶</a></h2>
+<p>Hurd 当前的开发者基本在欧洲，我的两位 mentor：
+{% include person name=”Richard Braun” url=”<a class="reference external" href="https://www.sceen.net/~rbraun/resume.pdf">https://www.sceen.net/~rbraun/resume.pdf</a>” %} 和
+{% include person name=”Justus Winter” url=”<a class="reference external" href="https://github.com/teythoon">https://github.com/teythoon</a>” %} 也是，
+由于时区相差太大，一般在下午五点以后跟他们用 IRC 联系。</p>
+<p>在同 mentor 们联系之后，我开始看 Hurd 的<a class="reference external" href="https://www.gnu.org/software/hurd/index.html">文档</a>，
+作为一个除了开发者之外几乎没人用的系统 :-( ……除了 Wiki 之外没有任何参考的资料，
+甚至项目中的文档也是严重过期的。</p>
+<p>我的项目是 <a class="reference external" href="https://www.gnu.org/software/hurd/community/gsoc/project_ideas/xattr.html">Implement xattr Support</a>：
+在 Hurd 的 ext2 文件系统上（是的，Hurd 依然在用 1993 年发明的的文件系统 :-(）
+上实现文件扩展属性（Extended file attributes/xattr），xattr 是一种文件系统的特性，
+能为磁盘上的文件添加键值对（Key/Value pair），文件之于 xattr，类似进程之于环境变量。
+并使用 xattr 来储存 Hurd 所需的元信息。</p>
+<p>Hurd 并不是一个内核，而只是一套微内核守护进程，真正的内核是 GNU Mach，
+大部分的功能都使用 translator 实现在用户态。</p>
+<p>Translator 是一类程序，相当于一个 Server，translator 需要与一个文件绑定，
+用户通过访问这个文件来实现对 Server 的请求，如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch hello
+$ cat hello
+$ settrans hello /hurd/hello
+$ cat hello
+&quot;Hello World!&quot;
+$ settrans -g hello
+$ cat hello
+</pre></div>
+</div>
+<p>Translator 分为 passive translator 和 active translator，passive translator
+只是一个命令行，储存在磁盘中，当该文件首次被访问时执行，在我实现 xattr 之前，
+passive translator 一直是简单地储存在一个临时申请的块中（这就是 Hurd 需要 xattr
+的原因：用更通用的方式来储存 passive translator）。</p>
+<p>ext2 文件系统的 translator 叫做 ext2fs，位于 <code class="docutils literal notranslate"><span class="pre">/hurd</span></code> 目录下，我的全部工作，就是
+为 ext2fs 的代码添加 xattr 支持，因此，虽说是内核项目，但是全过程都在用户态下进行。</p>
+<p>这些东西也都是后来才慢慢知道的，一开始我只是埋头看文档，Hurd is not Linux，
+很多概念都和 Linux 差别极大……我本来的英文就很差，效率也不行，越看越乱，
+每天都坐在电脑前配合着 Google 翻译看文档，一天八九个小时下来，
+集中精神看的时间可能不到十分之一，Braun 每天都会询问我进度，我又支支吾吾说不出来。</p>
+<p>有时候会遇到些看不懂的句子，问 mentor 们的时候又因为英文问题而交流不畅，那时候真恨不得
+自己变成个外国人。</p>
+<p>那时候我开始觉得到我可能胜任不了这份工作，GSoC 每年大概有近 10% 的学生无法完成任务（Fail），
+我会是那 10 % 么？</p>
+<p>这样焦虑的日子持续了一两个星期，终于有一天在讨论 Hurd 中 port 的概念时，Braun 说：</p>
+<blockquote>
+<div><p>“i think next years, we’ll make sure students understand this before they get accepted,
+as part of the communit bonding period”</p>
+</div></blockquote>
+<p>这个时候再不行动，被 fail 就是可预见的未来了，我已经没有心情和自制力去继续看文档了，
+还是直接写代码吧。</p>
+<blockquote>
+<div><p>不过，看文档的这段时间虽然很痛苦，但是也不是没收获，我从中了解到了一些 micro kernel
+的概念，并且也不再像以前那样害怕英文文档了。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id16">编程之夏</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>大概从 5 月 18 号开始，我从无脑看文档转为写代码， 写代码比看文档愉快多了 ——
+这大概也是我编程能力止步不前的原因吧，瞎写代码不看书。
+mentor 们显然对我之前看文档表现出来的低下的效率和理解力很不满意，但依然对我的问题有问必答。</p>
+<p>其实 Hurd 在  06 年的时候就有人提交过 xattr 的 patch：<a class="reference external" href="https://savannah.gnu.org/patch/?5126">GNU Savannah patch #5126</a>，
+当然那个 patch 很不完善（于是就这样搁置了 10 年吗 orz），到现在更是完全跑不起来了。</p>
+<blockquote>
+<div><p>所以其实项目的最小目标就是：把这个 patch 修好 —— 当然这是后话了，那时候我不知道项目原来这么简单……</p>
+</div></blockquote>
+<p>于是我开始修 patch，参照 ext2fs 的其他代码，把旧函数用新函数替代，
+把能看懂的地方看懂，加上注释，看不懂的地方标注出来，在接口代码上打洞，
+方便从外部测试这些代码。</p>
+<p>修完之后便参考 <a class="reference external" href="http://www.nongnu.org/ext2-doc/ext2.html#CONTRIB-EXTENDED-ATTRIBUTES">The Second Extended File System</a>
+和 <a class="reference external" href="http://lxr.free-electrons.com/source/fs/ext2/xattr.c">Linux Kernel</a> 的代码，
+修正原来代码中的 Bug，补全缺失的 xattr 函数。</p>
+<p>写代码比起看文档有实实在在的产出，也就有东西向 mentor 们汇报了，相比他们对我的评价也有所上升，
+从 5 月 18 号到 7 月 4 号，我完成了大部分的功能并进行了调试，实现并导出了如下四个函数：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">列出节点的所有</span> <span class="n">key</span> <span class="o">*/</span>
+<span class="n">error_t</span> <span class="n">ext2_list_xattr</span> <span class="p">(</span><span class="n">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">np</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span><span class="nb">len</span><span class="p">);</span>
+<span class="o">/*</span> <span class="n">获取节点指定</span> <span class="n">key</span> <span class="n">的值</span> <span class="o">*/</span>
+<span class="n">error_t</span> <span class="n">ext2_get_xattr</span> <span class="p">(</span><span class="n">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">np</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span><span class="nb">len</span><span class="p">);</span>
+<span class="o">/*</span> <span class="n">设置节点指定</span> <span class="n">key</span> <span class="n">的值</span> <span class="o">*/</span>
+<span class="n">error_t</span> <span class="n">ext2_set_xattr</span> <span class="p">(</span><span class="n">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">np</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="nb">len</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">);</span>
+<span class="o">/*</span> <span class="n">删除储存</span> <span class="n">xattr</span> <span class="n">信息的块</span> <span class="o">*/</span>
+<span class="n">error_t</span> <span class="n">ext2_free_xattr_block</span> <span class="p">(</span><span class="n">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">np</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>5 月 18 号到 6 月 28 号，这段时间每天都保持着 6-7 * 6 个小时的工作时长，
+用这么长时间是为了弥补我的低下的工作效率…… 6 月 28 日后，由于脑残学院的规定，
+我不得不离开宿舍到一个恶心的培训公司实训，并在那个公司度过了大量不愉快的时间，
+详情不表。我从来没有这么讨厌过自己的学校，待我毕业后一定要上知乎狠狠撕一下这个愚蠢的实训制度。#FLAG</p>
+<p>这段时间的代码都提交在
+<a class="reference external" href="https://github.com/SilverRainZ/hurd/tree/gsoc-2016-xattr">SilverRainZ/hurd at gsoc-2016-xattr</a> 上。</p>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id17">夏日的怠惰尾声</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>就如同上面所说的，只要修好这个 patch 并补全 xattr 的功能，项目就算完成了，
+「GSoC 原来这么水啊……」，我开始产生了这种想法，一旦完成了最小目标，我就开始松懈，
+在接下来的时间我更多地把精力放在了 Srain 的开发上。</p>
+<p>对于 GSoC 那边，仅仅是整理了代码和 commit 并再次测试，两位 mentor 对我后期的怠惰倒是没什么意见，
+虽然我本来可以做更多的…… 预期的目标是在实现 xattr 之后实现 libdiskfs
+（文件系统 translator 库，类似 vfs）以及 libc 接口，并把 xattr 的一系列工具 port 过来：
+这些最后都因为我的懒惰而没有动手。</p>
+<p>这段时间我也不再天天挂在 IRC 上，而是每隔两三天上一次，mentor 们也没有向我询问进度，
+反而是我一直在催他们 review 我的代码，征求他们的建议。他们似乎很忙，总体来看并没有积极地
+reivew，这让我有点失望。但建议还是收到一些的，改了一些关于兼容旧 passive translation
+的代码，apply 了几个 justus 的小 patch。</p>
+<p>摸鱼的日子一天天过去，迎来了 final evaluations，根据 mentor 的指导写了 GNU style 的
+changelog，把整理好的两个 patch 发给他们，并写了一封总结邮件
+<a class="reference external" href="http://lists.gnu.org/archive/html/bug-hurd/2016-08/msg00075.html">[GSoC] Implement xattr Support Update</a>
+到 Hurd 的邮件列表。接着又到 GSoC 的网站上完成了 final evaluations。</p>
+<p>8 月 30 号，收到了 GSoC 完成的通知，结束了这个不算完美的夏天。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id18">总结</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>我之所以能被 accept，和我的选择是有密切关系的：</p>
+<ul class="simple">
+<li><p>内核项目门槛稍高</p></li>
+<li><p>Hurd 是冷门（想也知道）项目，</p></li>
+<li><p>Implement xattr Support 是比较重要的项目</p></li>
+<li><p>申请的学生里之前普遍没有参与过 Hurd 的开发</p></li>
+</ul>
+<p>因此，和我竞争的学生大概只有 6、7 位，Hurd 最终 accept 了两位学生，除我之外，
+另一位是 <a class="reference external" href="https://github.com/Phant0mas">Phant0mas</a>，去年的 GSoC 也为 Hurd
+贡献了代码，我觉得如果申请的学生中存在本项目的开发者的话，其他人大概都没什么戏。
+当时在选择 Hurd 的时候，其实也怀着「冷门项目大概没什么人报吧」这样的想法。</p>
+<p>对于这次的 GSoC，我不满意，自己的参与度不够，一方面受制于自己的英语水平，
+一方面自己依然没办法打败自己 —— 自制力太低，效率太低。导致我最终仅仅是名义上地完成了项目，
+没有继续贡献社区，也没有交到什么朋友，甚至连自己的代码能不能 merge 到主线都说不准。</p>
+<p>在这其间我收到了 Google 的三笔付款 <code class="docutils literal notranslate"><span class="pre">3234.86</span> <span class="pre">+</span> <span class="pre">14635.59</span> <span class="pre">+</span> <span class="pre">17959.75</span></code> 总计 35830.2 元，
+一只圆珠笔，一本本子，一封 PDF 形式的电子证书，还有一件还在路上的 T-shirt，
+物质收入颇丰。</p>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id19">相关链接</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://summerofcode.withgoogle.com/">GSoC 官网</a></p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/hurd/hurd.html">Hurd 官网</a></p></li>
+<li><p><a class="reference external" href="https://summerofcode.withgoogle.com/archive/2016/projects/5786848613892096">我的项目链接</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SilverRainZ/gsoc-2016">Patch 和脚本</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SilverRainZ/hurd">我的 Hurd fork</a></p></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="practical-makefile-for-packaging.html">
+       编写便于打包的 Makefile
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html">
+      用 Sphinx + reStructuredText 构建笔记系统 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2016-09-29 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="tag/gsoc.html">GSoC</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="practical-makefile-for-packaging.html"
+      >25 June - 编写便于打包的 Makefile</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016.html"
+      >23 April - GSoC 2016</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

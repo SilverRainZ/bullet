@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用 Haskell 实现的矩阵运算 &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/matrix-arithmetic-in-haskell.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="haskell">
+<h1>用 Haskell 实现的矩阵运算<a class="headerlink" href="#haskell" title="永久链接至标题">¶</a></h1>
+<p>这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
+想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
+好吧原来这么久简单的东西花了我那么多时间.</p>
+<p>虽然到现在的我都没把趣学指南看完因为课有点多<a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;del&gt;事实上是太懒了&lt;/del&gt;`</span></a>, 只看到了State Monad这里吧,
+还不是太懂, 一旦碰到「作为Monad值的函数」,「作为Applicate值的函数」这种东西我就抓瞎了.</p>
+<p>说回矩阵吧, 用Haskell写这个还是挺爽的, 相较于C来说:</p>
+<ul class="simple">
+<li><p>不用和各种数组下标打交道</p></li>
+<li><p>经常编译不过, 但一旦通过编译, 往往就得到正确的结果了</p></li>
+<li><p>函数出乎意料地短, 数乘和矩阵加减本来都是用递归实现的, 写完后发现原来分别可以用map和zipWith来替代,
+一下子长度就缩短了一半不止</p></li>
+</ul>
+<p>各种类型错误让我想起了以前写Delphi的时候…</p>
+<p>实现矩阵转置的时候卡了一下, 我原来写的是</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">transpose</span> <span class="ow">::</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span>
+<span class="nf">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="kt">[]</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="kt">[]</span>
+<span class="nf">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">head</span> <span class="n">ys</span> <span class="kt">:</span> <span class="n">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="o">$</span> <span class="n">map</span> <span class="n">tail</span> <span class="n">ys</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>一直爆empty list exception, 因为pattern matching 不到 ys, 最后一步是<code class="docutils literal notranslate"><span class="pre">[[],[]...]</span></code>
+而不是<code class="docutils literal notranslate"><span class="pre">[]</span></code>, 上网查了一下矩阵转置函数才知道可以用<code class="docutils literal notranslate"><span class="pre">[]:_</span></code>来匹配.</p>
+<p>对于矩阵乘法, 我采取的是将右边那个矩阵转置, 这样就可以简化成行乘行, 左边矩阵拆成单行乘过去.</p>
+<p>在用<code class="docutils literal notranslate"><span class="pre">$</span></code>的时候总是遇到问题…总是报错, 也不知道为什么…我把简单地$当成让函数右结合的操作符,
+但是如果写: <code class="docutils literal notranslate"><span class="pre">getMartix</span> <span class="pre">$</span> <span class="pre">Matrix</span> <span class="pre">xs</span> <span class="pre">`mmul`</span> <span class="pre">ys</span></code> 就错误.
+看来理解还是有偏差的.</p>
+<p>下面的代码分别实现了:</p>
+<ul class="simple">
+<li><p>矩阵加法 plus</p></li>
+<li><p>矩阵减法 sub</p></li>
+<li><p>矩阵数乘 smul</p></li>
+<li><p>矩阵乘积 mmul</p></li>
+<li><p>矩阵的Eq实例和show实例</p></li>
+</ul>
+<p>到底乘法用的是 multiplication 还是 product 呢… 好奇怪.</p>
+<p>因为定义矩阵直接用了 <code class="docutils literal notranslate"><span class="pre">[[Int]]</span></code>, 无法限制每个list的长度,
+所以并不能保证这个Matrix里面肯定是一个符合定义的矩阵, 这个不知道怎么加以限制.</p>
+<p>看看接下来教的什么或许可以再往代码里加点东西, 改天看看别人是怎么写的.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span> <span class="kt">Matrix</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="p">{</span><span class="n">getMartix</span> <span class="ow">::</span> <span class="p">[[</span><span class="kt">Int</span><span class="p">]]}</span>
+
+<span class="nf">smul</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span>
+<span class="nf">i</span> <span class="p">`</span><span class="n">smul</span><span class="p">`</span> <span class="kt">Matrix</span> <span class="n">xs</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="n">map</span> <span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="p">))</span> <span class="n">xs</span>
+
+<span class="nf">plus</span> <span class="ow">::</span>  <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span>
+<span class="kt">Matrix</span> <span class="n">xs</span> <span class="p">`</span><span class="n">plus</span><span class="p">`</span> <span class="kt">Matrix</span> <span class="n">ys</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="o">$</span> <span class="n">zipWith</span> <span class="p">(</span><span class="n">zipWith</span> <span class="p">(</span><span class="o">+</span><span class="p">))</span> <span class="n">xs</span> <span class="n">ys</span>
+
+<span class="nf">sub</span> <span class="ow">::</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span>
+<span class="kt">Matrix</span> <span class="n">xs</span> <span class="p">`</span><span class="n">sub</span><span class="p">`</span> <span class="kt">Matrix</span> <span class="n">ys</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="o">$</span> <span class="n">zipWith</span> <span class="p">(</span><span class="n">zipWith</span> <span class="p">(</span><span class="o">-</span><span class="p">))</span> <span class="n">xs</span> <span class="n">ys</span>
+
+<span class="nf">transpose</span> <span class="ow">::</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span>
+<span class="nf">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="p">(</span><span class="kt">[]:</span><span class="kr">_</span><span class="p">))</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="kt">[]</span>
+<span class="nf">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="n">xs</span><span class="p">)</span> <span class="ow">=</span>
+    <span class="kt">Matrix</span> <span class="o">$</span> <span class="n">map</span> <span class="n">head</span> <span class="n">xs</span> <span class="kt">:</span> <span class="n">getMartix</span> <span class="p">(</span><span class="n">transpose</span> <span class="o">$</span> <span class="kt">Matrix</span> <span class="o">$</span> <span class="n">map</span> <span class="n">tail</span> <span class="n">xs</span><span class="p">)</span>
+
+<span class="nf">mmul</span> <span class="ow">::</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span> <span class="ow">-&gt;</span> <span class="kt">Matrix</span>
+<span class="kt">Matrix</span> <span class="kt">[]</span> <span class="p">`</span><span class="n">mmul</span><span class="p">`</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="kt">[]</span>
+<span class="kt">Matrix</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="p">`</span><span class="n">mmul</span><span class="p">`</span> <span class="n">ys</span> <span class="ow">=</span>
+    <span class="kt">Matrix</span> <span class="o">$</span> <span class="p">(</span><span class="n">mul_</span> <span class="n">x</span> <span class="o">$</span> <span class="n">getMartix</span> <span class="p">(</span><span class="n">transpose</span> <span class="n">ys</span><span class="p">))</span> <span class="kt">:</span> <span class="n">getMartix</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="n">xs</span> <span class="p">`</span><span class="n">mmul</span><span class="p">`</span> <span class="n">ys</span><span class="p">)</span>
+
+<span class="nf">mul_</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[[</span><span class="kt">Int</span><span class="p">]]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="nf">mul_</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">mul_</span> <span class="n">x</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="n">sum</span> <span class="p">(</span><span class="n">zipWith</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span> <span class="kt">:</span> <span class="n">mul_</span> <span class="n">x</span> <span class="n">ys</span>
+
+<span class="kr">instance</span> <span class="kt">Eq</span> <span class="kt">Matrix</span> <span class="kr">where</span>
+    <span class="kt">Matrix</span> <span class="kt">[]</span> <span class="o">==</span> <span class="kt">Matrix</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">True</span>
+    <span class="kt">Matrix</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">==</span> <span class="kt">Matrix</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span>
+        <span class="n">length</span> <span class="n">x</span> <span class="o">==</span> <span class="n">length</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">and</span> <span class="p">(</span><span class="n">zipWith</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="kt">Matrix</span> <span class="n">xs</span> <span class="o">==</span> <span class="kt">Matrix</span> <span class="n">ys</span>
+
+<span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Matrix</span> <span class="kr">where</span>
+    <span class="n">show</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="kt">[]</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;&quot;</span>
+    <span class="n">show</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">))</span> <span class="ow">=</span> <span class="n">show</span> <span class="n">x</span> <span class="o">++</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="windows-chinese-username.html">
+       把 Windows 中文用户名改为英文
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="some-minds-about-linux.html">
+      不求甚解者用不好 Linux 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2015-03-17 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="tag/haskell.html">Haskell</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016-sum-up.html"
+      >29 September - GSoC 2016 小记 - 误打误撞三个月</a
+    >
+  </li>
+  
+  <li>
+    <a href="practical-makefile-for-packaging.html"
+      >25 June - 编写便于打包的 Makefile</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

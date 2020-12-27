@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>不求甚解者用不好 Linux &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/some-minds-about-linux.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="linux">
+<h1>不求甚解者用不好 Linux<a class="headerlink" href="#linux" title="永久链接至标题">¶</a></h1>
+<p>今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.</p>
+<p>因为这学期又开始做手头的OS67, 打代码的环境就又切换到Linux下来了, Linux用得频繁了,
+自然就会想折腾了. 但是在这几天的折腾过程中, 我发现我似乎不是那么适合使用Linux.</p>
+<p>虽然从开始装双系统到现在小半年有余, 可我还是不能顺利的解决我遇到的问题,
+并且每次的解决方案总是做到「刚刚好能解决问题」为止, 从遇到问题开始,
+搜索答案 -&gt; 尝试解决 -&gt; 找到解决方案, 然后这个周期就结束了.</p>
+<p>我很少去仔细思考, 「为什么会发生这种问题」「为什么这样做能解决问题」,
+而发生问题的时候我也很难冷静下来看资料, 经常是随便把页面里的代码试一遍,
+我甚至不知道用什么关键词去Google.</p>
+<p>比如说呢, 这个暑假回家带了一台旧笔记本回来, 想要在上面只装一个openSUSE 13.2,
+安装过程一切顺利, 安装完毕后把系统更新到最新后就没法开机了, grub似乎正常,
+卡在了<code class="docutils literal notranslate"><span class="pre">initrd</span> <span class="pre">/boot/initrd-3.16.7-7-desktop</span></code>这里, 可选的另一个是<code class="docutils literal notranslate"><span class="pre">initrd-3.16.6-2-desktop</span></code>,
+这似乎是内核版本? 在网上搜索了很久, 凡是贴近这种情况的资料几乎都是英文的,
+基本看不懂. 而且我连Rescue CD都不会用, 谈何修复?  最后我只能忍着不<code class="docutils literal notranslate"><span class="pre">zypper</span> <span class="pre">up</span></code>,
+用着不更新的openSUSE.</p>
+<p>又比如今天折腾wine, (我甚至觉得这根本不是折腾…),
+openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他很方便地安装
+「符合中国国情」的各种软件, 比如QQ, 斗地主, 美图什么的.
+当然我只是想用QQ(或许再加上个网易云音乐?). winetricks 本来是一个脚本,
+用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了.</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:hillwoodroc/winetricks-zh.git<a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;br&gt;`</span></a>
+cd winetricks-zh<a href="#id3"><span class="problematic" id="id4">:raw-html-m2r:`&lt;br&gt;`</span></a>
+cp winetricks /usr/bin/winetricks<a href="#id5"><span class="problematic" id="id6">:raw-html-m2r:`&lt;br&gt;`</span></a>
+cd verb<a href="#id7"><span class="problematic" id="id8">:raw-html-m2r:`&lt;br&gt;`</span></a>
+winetricks <a href="#id9"><span class="problematic" id="id10">:raw-html-m2r:`&lt;要安装的应用对应的verb文件&gt;`</span></a></p>
+</div></blockquote>
+<p>最开始安装的是QQ轻聊版, 在winetricks qqlight.verb时遇到问题, 首先脚本要从Sourceforge上拉东西,
+要备一张梯子(所以也折腾了一会儿的GoAgent), 安装好了之后打开来, QQ却莫名假死,
+不能操作, 而且在安装完成后启动一次, 桌面上没有启动器, 我以为要自己去挂载的磁盘上找,
+但是也找不到.</p>
+<p>尝试几次都得到错误的结果后我就怀疑是wine-64bit的问题, 如果你只安装wine-32bit的话,
+winetricks就会提示 wineserver not found, 不能启动, 安装了完整的wine包,
+默认的wine却是64bit的, 但是再切换32bit之后依然错误.</p>
+<p>在这之后我就把所有的配置<code class="docutils literal notranslate"><span class="pre">~/.wine</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.local/share/applictions</span></code>和<code class="docutils literal notranslate"><span class="pre">~/.local/share/wineprefixs</span></code>
+全都删除了, 再把和wine有关的包统统删掉, 又重新安装了一次, 桌面终于出现了启动器,
+但是依然卡死.  最后我放弃了用轻聊版, 用了QQ正式版, 出乎意料地顺利(checksum错误竟然没问题?)
+勉强安装是安装成功了, 速度还好.</p>
+<p>但是在这整个的过程中, 我感觉我并没有学到了什么, 在不断地尝试中我只是把Linux看成了一种玄学,
+「或许多试几次就成功了呢?」,「把这里改一下或许就不报错了呢?」</p>
+<p>然后在好不容易成功了之后, 我就几乎不想再去动它了, 我还是不明白为什么这样做成功了,
+那样做为什么就不对…</p>
+<p>是否就是这种不求甚解的心态阻止了我的前进呢? 我怕麻烦, 觉得弄不懂, Linux的世界太复杂了,
+不明白苏姐他们到底经过了怎样一番努力才能如此熟悉一个发行版.</p>
+<p>不求甚解者, 玩不好Linux, 这句话其实还可以继续推广,
+不求甚解者, 当不好黑客, 写不好代码, 画不好画……</p>
+<p>我曾经在知乎上提了一个问题, <a class="reference external" href="http://www.zhihu.com/question/26956394">发现自己不愿意思考怎么办</a>,
+现在想想, 「不求甚解」也是浮躁的一种表现吧?</p>
+<p>感觉我的问题, 白提了呢.</p>
+<p>睡觉吧, 或许明天起来后, 突然就知道应该这么做了.</p>
+<p>顺道一说, 今晚水了一道AliCTF的Reverse题…估计也就这一道了.</p>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="matrix-arithmetic-in-haskell.html">
+       用 Haskell 实现的矩阵运算
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="do-notation-and-bind-of-haskell.html">
+      do 记法和 >>= 的等效表达 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2015-03-27 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016-sum-up.html"
+      >29 September - GSoC 2016 小记 - 误打误撞三个月</a
+    >
+  </li>
+  
+  <li>
+    <a href="practical-makefile-for-packaging.html"
+      >25 June - 编写便于打包的 Makefile</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

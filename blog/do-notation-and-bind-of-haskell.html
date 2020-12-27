@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>do 记法和 &gt;&gt;= 的等效表达 &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="do">
+<h1>do 记法和 &gt;&gt;= 的等效表达<a class="headerlink" href="#do" title="永久链接至标题">¶</a></h1>
+<p>明明在开学的时候，《趣学指南》就只剩下三十来页了，但是还书日在即，
+我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
+可是至今没看完。</p>
+<p>当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
+看到State Monad那一段就懵了。</p>
+<p>今晚看了挺久的，勉强算有点思路，当然对它的理解应该还是在一个比较low的水平上。
+就算是看了大半本书， 知乎上对Haskell的讨论还是又非常多看不懂。</p>
+<p>State Monad是一种函数，当然也是一种Monad，是一种带状态的计算，等待着一个状态，
+如果得到状态后会产生一个值和新的状态。</p>
+<p>书里用栈作为例子，实现了push和pop，但是只提供了do记法的示例，自己尝试用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写并没有成功。</p>
+<p>State Monad对于bind(&gt;&gt;=)的一种解释是这样子的：
+来自：<a class="reference external" href="https://wiki.haskell.org/State_Monad">https://wiki.haskell.org/State_Monad</a></p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="p">`</span><span class="o">&gt;&gt;=</span><span class="p">`</span> <span class="ow">::</span> <span class="kt">State</span> <span class="n">s</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">State</span> <span class="n">s</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">State</span> <span class="n">s</span> <span class="n">b</span>
+<span class="p">(</span><span class="n">act1</span> <span class="o">&gt;&gt;=</span> <span class="n">fact2</span><span class="p">)</span> <span class="n">s</span> <span class="ow">=</span> <span class="n">runState</span> <span class="n">act2</span> <span class="n">is</span>
+                <span class="kr">where</span> <span class="p">(</span><span class="n">iv</span><span class="p">,</span><span class="n">is</span><span class="p">)</span> <span class="ow">=</span> <span class="n">runState</span> <span class="n">act1</span> <span class="n">s</span>
+                      <span class="n">act2</span> <span class="ow">=</span> <span class="n">fact2</span> <span class="n">iv</span>
+</pre></div>
+</div>
+<p>可以看到<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接受一个State，和一个生成State的函数，最后生成一个State，
+注意最后生成的这个State是一个函数，还需要一个状态。</p>
+<p>act1是一个带状态计算，接受状态s后（不能直接接受，必须用runState「脱壳」）生成一个tuple，
+左边是值，右边是新的状态。从fact2的类型签名可以知道，act2是fact2应用值iv后得到的 <strong>带状态计算</strong> 。
+那么它还需要一个状态，这个<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>函数的最终值就是act2脱壳后应用新状态的值。</p>
+<p>注意上面这段代码是表示了当带有<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>的运算遇到一个状态时所做的操作，似乎少了一个runState?</p>
+<p>那么对于：</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span> <span class="kt">Stack</span> <span class="ow">=</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+
+<span class="nf">pop</span> <span class="ow">::</span> <span class="kt">State</span> <span class="kt">Stack</span> <span class="kt">Int</span>
+<span class="nf">pop</span> <span class="ow">=</span> <span class="n">state</span> <span class="o">$</span> <span class="nf">\</span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xs</span><span class="p">)</span>
+
+<span class="nf">push</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">State</span> <span class="kt">Stack</span> <span class="nb">()</span>
+<span class="nf">push</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">state</span> <span class="o">$</span> <span class="nf">\</span><span class="n">xs</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="nb">()</span><span class="p">,</span> <span class="n">a</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span>
+
+<span class="nf">test</span> <span class="ow">::</span> <span class="kt">State</span> <span class="kt">Stack</span> <span class="kt">Int</span>
+<span class="nf">test</span> <span class="ow">=</span> <span class="kr">do</span>
+    <span class="n">push</span> <span class="mi">3</span>
+    <span class="n">push</span> <span class="mi">4</span>
+    <span class="n">push</span> <span class="mi">5</span>
+    <span class="n">pop</span>
+</pre></div>
+</div>
+<p>结果应该是：</p>
+<blockquote>
+<div><p>ghci&gt; runState test []<a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;br&gt;`</span></a>
+(5,[4,3])</p>
+</div></blockquote>
+<p>怎么用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写上面的do notation呢？</p>
+<p>do实际上是嵌套的&gt;&gt;=的一个语法糖，<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">foo</span></code> 就是一个绑定， 而且一旦绑定，
+在之后的语句里也可以使用x了，所以相当于<code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">&gt;&gt;=</span> <span class="pre">(\x</span> <span class="pre">-&gt;</span> <span class="pre">后面的语句)</span></code>。
+下面的两段程序是等价的，第二段程序为了最后能用<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">（x*y）</span></code>，
+就得两个lambda嵌套起来。</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">i</span> <span class="ow">=</span> <span class="kr">do</span>
+    <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">f</span> <span class="mi">3</span>
+    <span class="n">y</span> <span class="ow">&lt;-</span> <span class="n">f</span> <span class="mi">4</span>
+    <span class="n">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nf">j</span> <span class="ow">=</span> <span class="n">f</span> <span class="mi">3</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span>
+    <span class="n">f</span> <span class="mi">4</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="n">y</span> <span class="ow">-&gt;</span>
+    <span class="n">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>但是do里面也可以不用绑定，不用绑定的话，<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>也可以不必嵌套，而且和上面的不同，
+这里有push和pop两个函数，pop相当于act1，push则是fact2，他们的行为不同，
+<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> 的前面必须是一个act1类型，后面必须是fact2类型，
+如果用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>串起来应该是 <code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span></code>，
+但是要push三个值，push并不需要从<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接收值，
+可以用lambda来更改(因为没有利用到前面的值，所以这里嵌套与否都没问题)：</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span>test&#39; :: State Stack Int
+test&#39; = push 3 &gt;&gt;= (\_ -&gt; push 4) &gt;&gt;= (\_ -&gt; push 5） &gt;&gt;= (\_ -&gt; pop)
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ghci&gt; runState test&#39; []
+(5,[4,3])
+</pre></div>
+</div>
+<p>最后，书里的<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> 实现是这样子的：</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">State</span> <span class="n">h</span><span class="p">)</span> <span class="o">&gt;&gt;=</span> <span class="n">f</span> <span class="ow">=</span> <span class="kt">State</span> <span class="o">$</span> <span class="nf">\</span><span class="n">s</span> <span class="ow">-&gt;</span> <span class="kr">let</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">newState</span><span class="p">)</span> <span class="ow">=</span> <span class="n">h</span> <span class="n">s</span>
+                                    <span class="p">(</span><span class="kt">State</span> <span class="n">g</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">a</span>
+                                <span class="kr">in</span>  <span class="n">g</span> <span class="n">newState</span>
+</pre></div>
+</div>
+<p>现在看来就好懂多了。对于State Monad，<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>的意义是，等待一个初始状态，
+取一个带状态计算，讲初始状态应用到带状态计算上，得到一个值和新状态，
+值和<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>右边的函数应用得到新的带状态计算，这个带状态计算又和新状态作用，
+得到最终值和最终状态。当然这里的值和状态都可以继续传递下去，形成一条链。</p>
+<p>（我觉得State Monad有个反人类的地方就是，本来按顺序沿着<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>处理状态，
+偏偏初始状态是放在最右的)</p>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="some-minds-about-linux.html">
+       不求甚解者用不好 Linux
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="record-of-a-boring-hack.html">
+      记一次毫无技术含量的 Hack 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2015-04-09 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="tag/haskell.html">Haskell</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016-sum-up.html"
+      >29 September - GSoC 2016 小记 - 误打误撞三个月</a
+    >
+  </li>
+  
+  <li>
+    <a href="practical-makefile-for-packaging.html"
+      >25 June - 编写便于打包的 Makefile</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

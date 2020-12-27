@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GnuPG &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/man/gpg.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="ImageMagick" href="imagemagick.html" />
+    <link rel="prev" title="Git" href="git.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="gnupg">
+<h1>GnuPG<a class="headerlink" href="#gnupg" title="永久链接至标题">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>TODO</p>
+<ul class="simple">
+<li><p>学习一下 GPG agent forward，zfox49 推荐：<a class="reference external" href="https://bigeagle.me/2016/07/GPG-and-SSH-agent-forwarding/">https://bigeagle.me/2016/07/GPG-and-SSH-agent-forwarding/</a></p></li>
+<li><p>买一个帅气的 yubikey</p></li>
+</ul>
+</div>
+<div class="section" id="q-a">
+<h2>Q &amp; A<a class="headerlink" href="#q-a" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h3>命令行输出含义<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>这是我的新 key 的输出啦：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gpg -k i@srain.im
+<span class="go">pub   rsa4096 2017-08-16 [SC] [expires: 2018-08-16]</span>
+<span class="go">      99399D88F7B752BF364CD485A85E3925A6211F05</span>
+<span class="go">uid           [ultimate] Shengyu Zhang (SilverRainZ) &lt;i@srain.im&gt;</span>
+<span class="go">sub   rsa4096 2017-08-16 [E] [expires: 2018-08-16]</span>
+
+<span class="gp">$</span> gpg -K i@srain.im
+<span class="go">sec   rsa4096 2017-08-16 [SC] [expires: 2018-08-16]</span>
+<span class="go">      99399D88F7B752BF364CD485A85E3925A6211F05</span>
+<span class="go">uid           [ultimate] Shengyu Zhang (SilverRainZ) &lt;i@srain.im&gt;</span>
+<span class="go">ssb   rsa4096 2017-08-16 [E] [expires: 2018-08-16]</span>
+</pre></div>
+</div>
+<p>每个密钥的输出都有四行，大概是这么个意思：</p>
+<div class="highlight-none notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>密钥类型 算法&amp;位长 创建时间 [用途] [expires: 过期时间]
+    密钥指纹
+用户ID [信任级别] 真实姓名 (注释) &lt;电子邮箱&gt;
+同第一行
+</pre></div>
+</td></tr></table></div>
+<p>第四行也是一个密钥，并且根据下面的解释，它是一个子密钥，其出现的原因见：
+<a class="reference internal" href="#id3">为什么新密钥也会有子钥</a></p>
+<p>根据 这篇文章 <a class="footnote-reference brackets" href="#id8" id="id2">1</a> 的说法，密钥类型的其含义为（很糟糕的缩写）：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sec =&gt; ‘SECret key’</p></li>
+<li><p>ssb =&gt; ‘Secret SuBkey’</p></li>
+<li><p>pub =&gt; ‘PUBlic key’</p></li>
+<li><p>sub =&gt; ‘public SUBkey’</p></li>
+</ul>
+</div></blockquote>
+<p>用途(Usage flag)中大写字母的含义为：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>S =&gt; PUBKEY_USAGE_SIG  =&gt; key is good for signing</p></li>
+<li><p>C =&gt; PUBKEY_USAGE_CERT =&gt; key is good for certifying other signatures</p></li>
+<li><p>E =&gt; PUBKEY_USAGE_ENC  =&gt; key is good for encryption</p></li>
+<li><p>A =&gt; PUBKEY_USAGE_AUTH =&gt; key is good for authentication</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>用户 ID:</dt><dd><p>以 uid 开头的行代表这一行的信息都是有效的用户 ID，能够确定密钥的任意信息，
+包括姓名，注释，邮箱，GPG 对 uid 的处理比较灵活，因此某些情况下会出现歧义
+这个时候可以用密钥的短 ID 或者完整的指纹来确定密钥。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="key-server">
+<h3>Key Server 上的密钥过期了怎么办<a class="headerlink" href="#key-server" title="永久链接至标题">¶</a></h3>
+<p>上传到 key server 上的只是公钥，过期(Expire)也是相对于公钥而言的，因为私钥应当
+永远被保密，且其控制权完全在于拥有者。拥有私钥的人有权控制公钥的有效期，因此在
+gpg 中，仅需 <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--edit-key</span> <span class="pre">&lt;uid&gt;</span></code> ，选中相应的密钥对，执行 <code class="docutils literal notranslate"><span class="pre">expire</span></code> 命令
+重设有效时间，然后再次上传公钥 <code class="docutils literal notranslate"><span class="pre">gpp</span> <span class="pre">--keyserver</span> <span class="pre">xxxx</span> <span class="pre">--sendkey</span> <span class="pre">xxxx</span></code> 即可。</p>
+</div>
+<div class="section" id="id3">
+<h3>为什么新密钥也会有子钥<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>Debian Wiki <a class="footnote-reference brackets" href="#id9" id="id4">2</a> 如是说：</p>
+<blockquote>
+<div><p>GnuPG actually uses a signing-only key as the master key, and creates an
+encryption subkey automatically.</p>
+</div></blockquote>
+<p>即 GPG 创建密钥时，主密钥仅用于签名，若用户有加密的需求，会另外创建一个子密钥用
+于加密， 对照上面的输出:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pub</span>   <span class="n">rsa4096</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="p">[</span><span class="n">SC</span><span class="p">]</span> <span class="p">[</span><span class="n">expires</span><span class="p">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">sub</span>   <span class="n">rsa4096</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="p">[</span><span class="n">E</span><span class="p">]</span> <span class="p">[</span><span class="n">expires</span><span class="p">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>子密钥确实是只用于加密 <code class="docutils literal notranslate"><span class="pre">[E]</span></code> 的，另，可以通过 <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--full-gen-key</span></code> 创建一个
+仅用于签名的密钥，你会发现它的输出就只有三行，不再包含额外的子钥。</p>
+</div>
+<div class="section" id="id5">
+<h3>如何添加子钥<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--edit-keys</span> <span class="pre">&lt;keyid&gt;</span></code> 之后用 <code class="docutils literal notranslate"><span class="pre">addkey</span></code> 命令添加即可，子钥没有独立的
+UID，也没法单独从 key server 获取下来，所以大概没办法只用子钥在社区源打包了。</p>
+</div>
+<div class="section" id="id6">
+<h3>对 key server 的操作是不可撤销的<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>即使你的密钥已经过期，key server 也不会将它删除，而仅仅是显示 “revoked”，即你
+可以标记你的操作已经失效但没办法撤销这个操作 :-(，同理，如果你上传了错误的 UID，
+错误的 subkey，即使在本地将其删除再上传也没办法将其删除，只能将其 revoke。</p>
+</div>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>使用 USTCLUG 的崔主席密钥服务器：<a class="reference external" href="https://sks.ustclug.org/">https://sks.ustclug.org/</a>，<code class="docutils literal notranslate"><span class="pre">--recv-keys</span></code>
+速度飞快。</p></li>
+<li><p>GPG 默认将 <code class="code docutils literal notranslate"><span class="pre">~/.gunpu</span></code> 的权限设置为 700，只有你自己才能访问你的密钥</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>命令行参数备忘<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>列出本机上的密钥</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="n">keys</span>
+</pre></div>
+</div>
+<p>删除公钥</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">delete</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">ID</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>删除私钥</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">delete</span><span class="o">-</span><span class="n">secret</span><span class="o">-</span><span class="n">key</span> <span class="o">&lt;</span><span class="n">ID</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>导出 ASCII 形式的公钥</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">armor</span> <span class="o">--</span><span class="n">output</span> <span class="n">public</span><span class="o">-</span><span class="n">key</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">export</span> <span class="o">&lt;</span><span class="n">ID</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>生成指纹</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">fingerprint</span> <span class="o">&lt;</span><span class="n">ID</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>加密解密</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">recipient</span> <span class="o">&lt;</span><span class="n">ID</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">output</span> <span class="n">demo</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">encrypt</span> <span class="n">demo</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">gpg</span> <span class="o">--</span><span class="n">decrypt</span> <span class="n">demo</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">output</span> <span class="n">demo</span><span class="o">.</span><span class="n">de</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>签名</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 为文件生成单独的签名</span>
+<span class="n">gpg</span> <span class="o">--</span><span class="n">detach</span><span class="o">-</span><span class="n">sign</span> <span class="n">demo</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># 生成单独的 ASCII 格式的签名</span>
+<span class="n">gpg</span> <span class="o">--</span><span class="n">armor</span> <span class="o">--</span><span class="n">detach</span><span class="o">-</span><span class="n">sign</span> <span class="n">demo</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># 校验签名</span>
+<span class="n">gpg</span> <span class="o">--</span><span class="n">verify</span> <span class="n">demo</span><span class="o">.</span><span class="n">txt</span><span class="o">.</span><span class="n">sig</span> <span class="n">demo</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.void.gr/kargig/blog/2013/12/02/creating-a-new-gpg-key-with-subkeys/">https://www.void.gr/kargig/blog/2013/12/02/creating-a-new-gpg-key-with-subkeys/</a></p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p><a class="reference external" href="https://wiki.debian.org/Subkeys#What_are_subkeys.3F">https://wiki.debian.org/Subkeys#What_are_subkeys.3F</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/scores/index.html">乐谱夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/use-sphinx-as-pim/index.html">Use Sphinx As My PIM System</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="awk.html">The Awk Lanuage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="css.html">The Cascading Style Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fzf.html">The fzf Fuzzy Finder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imagemagick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../misc/2020/index.html">2020</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="git.html" title="上一章">Git</a></li>
+      <li>Next: <a href="imagemagick.html" title="下一章">ImageMagick</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

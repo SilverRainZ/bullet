@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>编写便于打包的 Makefile &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/practical-makefile-for-packaging.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="makefile">
+<h1><a class="toc-backref" href="#id12">编写便于打包的 Makefile</a><a class="headerlink" href="#makefile" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p>Note: 这篇文章假设你已经知道基本的 Makefile 编写规则</p>
+</div></blockquote>
+<div class="contents topic" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#makefile" id="id12">编写便于打包的 Makefile</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id13">前言</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id14">安装图标</a></p></li>
+<li><p><a class="reference internal" href="#prefix" id="id15">PREFIX</a></p></li>
+<li><p><a class="reference internal" href="#destdir" id="id16">DESTDIR</a></p></li>
+<li><p><a class="reference internal" href="#configure" id="id17">Configure</a></p></li>
+<li><p><a class="reference internal" href="#archlinux-pkgbuild" id="id18">编写 Archlinux 的打包脚本 PKGBUILD</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id19">参考</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id13">前言</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>安装基于 make 构建的程序基本上就是两个步骤：<code class="docutils literal notranslate"><span class="pre">make</span></code> 然后 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>，
+前者把程序按依赖关系编译，后者把文档、数据、编译出来的二进制安装到系统中。
+网络上关于 GNU Make 的教程不少，但似乎都止于「如何用 Makefile 自动编译程序」（<code class="docutils literal notranslate"><span class="pre">make</span></code>），
+而关于用 Makefile 编写安装脚本（<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>）的文章却寥寥无几。</p>
+<blockquote>
+<div><p>2016-08-10: 经 盖子 提醒，make 本来就不适合做这种事情，于是才有了 autotools
+这「更好」的构建工具。</p>
+</div></blockquote>
+<p>最近在写 <a class="reference external" href="https://github.com/SilverRainZ/srain">Srain</a> 的时候，
+算是摸索出了对于 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 的比较正确的写法：</p>
+<p>首先，对于项目生成产物只是单个可执行文件的情况下，直接在 install 目标里写
+<code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">-Dm755</span> <span class="pre">xxx</span> <span class="pre">/usr/bin/xxx</span></code> 就好了。
+但是并非所有项目都只包含单个可执行文件，程序可能还包含了 man 文档，icons，
+图片，配置文件等，这些都要被安装到文件系统相应的位置上。</p>
+<p>我们先假设项目的结构如下，代码写了什么不重要~</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── build
+├── data
+│   ├── pixmaps
+│   │   └── srain-avatar.png
+│   └── icons
+│       └── 16x16
+│           └── srain-icon.png
+├── Makefile
+└── srain.c
+</pre></div>
+</div>
+<p>build 是存放编译中间文件和编译出来的二进制文件的地方，srain.c 是主程序代码，
+srain-avatar.png 是程序要用到的图片。srain-icon.png 是程序图标。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id14">安装图标</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>对于图标，Icon Theme Specification<a class="footnote-reference brackets" href="#fn-icon-theme-spec" id="id4">1</a>
+规定了图标在文件系统上的位置，程序只需要根据图标的名称（即文件名去掉扩展名）
+和大小就可以获得图标文件的路径
+（当然要借助各种库函数，比如 gtk 的 <code class="docutils literal notranslate"><span class="pre">gtk_image_new_from_icon_name</span></code>），
+因此我们只要将图标文件复制到对应的位置上即可。</p>
+<p>根据上面的 spec，程序寻找图标时应该依次检查 <code class="docutils literal notranslate"><span class="pre">$HOME/.icons</span></code>、<code class="docutils literal notranslate"><span class="pre">$XDG_DATA_DIRS/icons</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/usr/share/pixmaps</span></code>。</p>
+<p>参照 XDG Base Directory Specification<a class="footnote-reference brackets" href="#fn-xdg-base-dir-spec" id="id5">2</a> 看，
+当 <code class="docutils literal notranslate"><span class="pre">$XDG_DATA_DIRS</span></code> 为空时，<code class="docutils literal notranslate"><span class="pre">$XDG_DATA_DIRS</span></code> 会默认为 <code class="docutils literal notranslate"><span class="pre">/usr/local/share/:/usr/share/</span></code>
+（感谢 csslayer 指出）。</p>
+<p>因此把图标安装在 <code class="docutils literal notranslate"><span class="pre">/usr/share/pixmaps</span></code>、<code class="docutils literal notranslate"><span class="pre">/usr/local/share/icons</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/usr/share/icons</span></code>
+下都是可行的，Arch Linux 偏向于安装在最后一个目录。
+于是安装 <em>大小为 16x16 的图标</em> 的脚本可以这么写：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> data/icons/16x16<span class="p">;</span> <span class="se">\</span>
+    <span class="k">for</span> png in *.png<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        install -Dm644 <span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">png&quot;</span> <span class="se">\</span>
+            <span class="s2">&quot;</span><span class="k">$(</span>DESTDIR<span class="k">)</span><span class="s2">/usr/share/icons/hicolor/16x16/apps/</span><span class="nv">$$</span><span class="s2">png&quot;</span><span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+</pre></div>
+</div>
+<p>这里先不管 <code class="docutils literal notranslate"><span class="pre">$(DESTDIR)</span></code> 是什么东西，把它当作空变量即可：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>install -Dm644 <span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">png&quot;</span> <span class="se">\</span>
+    <span class="s2">&quot;/usr/share/icons/hicolor/16x16/apps/</span><span class="nv">$$</span><span class="s2">png&quot;</span><span class="p">;</span> <span class="se">\</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prefix">
+<h2><a class="toc-backref" href="#id15">PREFIX</a><a class="headerlink" href="#prefix" title="永久链接至标题">¶</a></h2>
+<p>除了图标之外，其他的数据文件应该如何组织？
+至少我们应该做到的是：</p>
+<ul class="simple">
+<li><p>保证程序一定能找到数据文件</p></li>
+<li><p>一定程度上允许用户自定义安装的位置</p></li>
+</ul>
+<p>GNU make 提供了 prefix 等变量确定各种文件安装的位置<a class="footnote-reference brackets" href="#fn-prefix" id="id6">3</a>：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> 是下述变量的前缀，默认的 prefix 值应该是 <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">exec_prefix</span></code> 是下述变量的前缀，通常和 <code class="docutils literal notranslate"><span class="pre">prefix</span></code> 相等</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bindir</span></code> 安装可执行文件的位置，其值应为 <code class="docutils literal notranslate"><span class="pre">$(exec_prefix)/bin</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datarootdir</span></code> 用来安装只读的，架构无关的数据文件，其值应为 <code class="docutils literal notranslate"><span class="pre">$(prefix)/share</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysconfdir</span></code> 用来安装只读的配置文件，其值应为 <code class="docutils literal notranslate"><span class="pre">$(predix)/etc</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+<p>上面列出了各种用途的变量，但事实上我们不需要把数据文件分成那么细的粒度。
+对于简单的项目，只有 prefix 是必要的，其他路径都可以 hardcode。</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 可以这么写（为了命名统一，prefix 用大写）：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">PREFIX</span> <span class="o">=</span> /usr/local
+
+<span class="nf">install</span><span class="o">:</span>
+    install -Dm755 <span class="s2">&quot;build/srain&quot;</span> <span class="s2">&quot;</span><span class="k">$(</span>PREFIX<span class="k">)</span><span class="s2">/bin/srain&quot;</span>
+    <span class="nb">cd</span> data/pixmaps<span class="p">;</span> <span class="se">\</span>
+        <span class="k">for</span> png in *.png<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+            install -Dm644 <span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">png&quot;</span> <span class="se">\</span>
+                <span class="s2">&quot;</span><span class="k">$(</span>PREFIX<span class="k">)</span><span class="s2">/share/srain/pixmaps/</span><span class="nv">$$</span><span class="s2">png&quot;</span><span class="p">;</span> <span class="se">\</span>
+        <span class="k">done</span>
+</pre></div>
+</div>
+<p>放置各种文件的规范有了，但程序应该如何找到他的数据文件呢？
+用 gcc 的 <code class="docutils literal notranslate"><span class="pre">-D</span></code> 参数声明一个宏，在编译的时候告诉程序的 prefix：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">CFLAGS</span> <span class="o">=</span> -O2 -Wall
+<span class="nv">DEFS</span> <span class="o">=</span> -DPACKAGE_DATA_DIR<span class="o">=</span><span class="se">\&quot;</span><span class="k">$(</span>PREFIX<span class="k">)</span><span class="se">\&quot;</span>
+
+<span class="nv">TARGET</span> <span class="o">=</span> build/srain
+
+<span class="nf">$(TARGET)</span><span class="o">:</span> <span class="n">srain</span>.<span class="n">c</span>
+    <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> <span class="k">$(</span>DEFS<span class="k">)</span> $^ -o <span class="nv">$@</span>
+</pre></div>
+</div>
+<p>在程序中你就可以根据这个宏在获得你的数据文件：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef PACKAGE_DATA_DIR</span>
+<span class="cp">#define PACKAGE_DATA_DIR &quot;/usr/local&quot;</span>
+<span class="cp">#endif</span>
+
+<span class="n">gchar</span> <span class="o">*</span><span class="nf">get_pixmap_path</span><span class="p">(</span><span class="k">const</span> <span class="n">gchar</span> <span class="o">*</span><span class="n">filename</span><span class="p">){</span>
+    <span class="n">gchar</span> <span class="o">*</span><span class="n">path</span><span class="p">;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">g_build_filename</span><span class="p">(</span><span class="n">PACKAGE_DATA_DIR</span><span class="p">,</span> <span class="s">&quot;share&quot;</span><span class="p">,</span>
+            <span class="s">&quot;srain&quot;</span><span class="p">,</span> <span class="s">&quot;pixmaps&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">g_file_test</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">G_FILE_TEST_EXISTS</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="n">path</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">g_free</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>注意上面的代码使用了 glib 函数库，当指定 prefix 为 <code class="docutils literal notranslate"><span class="pre">/usr</span></code>，
+程序便会从 <code class="docutils literal notranslate"><span class="pre">/usr/share/srain/pixmaps</span></code> 里寻找图片。</p>
+<blockquote>
+<div><p>自行编译安装的程序通常被安装在 <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>, 这也是 GNU 推荐的 prefix，
+Arch Linux 的包的 prefix 通常是 <code class="docutils literal notranslate"><span class="pre">/usr</span></code>。</p>
+</div></blockquote>
+<p>如上一番设定后，程序经过编译和安装后便可以运行指定的任意目录上了，
+你也可以指定为 <code class="docutils literal notranslate"><span class="pre">$(PWD)/build</span></code> 方便调试。</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">PREFIX=/usr;</span> <span class="pre">make</span> <span class="pre">PREFIX=/usr</span> <span class="pre">install</span></code> 后，产生的文件如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">srain</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">srain</span><span class="o">/</span><span class="n">pixmaps</span><span class="o">/</span><span class="n">srain</span><span class="o">-</span><span class="n">avatar</span><span class="o">.</span><span class="n">png</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">icons</span><span class="o">/</span><span class="n">hicolor</span><span class="o">/</span><span class="mi">16</span><span class="n">x16</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">srain</span><span class="o">-</span><span class="n">icon</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">PREFIX=/home/la/tmp;</span> <span class="pre">make</span> <span class="pre">PREFIX=/home/la/tmp</span> <span class="pre">install</span></code> 则是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">la</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">srain</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">la</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">srain</span><span class="o">/</span><span class="n">pixmaps</span><span class="o">/</span><span class="n">srain</span><span class="o">-</span><span class="n">avatar</span><span class="o">.</span><span class="n">png</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">icons</span><span class="o">/</span><span class="n">hicolor</span><span class="o">/</span><span class="mi">16</span><span class="n">x16</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">srain</span><span class="o">-</span><span class="n">icon</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="destdir">
+<h2><a class="toc-backref" href="#id16">DESTDIR</a><a class="headerlink" href="#destdir" title="永久链接至标题">¶</a></h2>
+<p>上面的 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 直接将各种文件安装在了目的文件系统上，如果 Makefile 写错的话，
+可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>
+得到程序所有文件的列表和路径，再由包管理器把这些文件和路径存为软件包，
+安装的时候根据路径把文件放到应该放的位置（这大概就是 Staged Install？）。
+（这里感谢青蛙老师 {% include person name=”hexchain” url = “<a class="reference external" href="https://hexchain.org/">https://hexchain.org/</a>” %} 的指导）</p>
+<p>变量 <code class="docutils literal notranslate"><span class="pre">DESTDIR</span></code><a class="footnote-reference brackets" href="#fn-destdir" id="id7">4</a> 就是用来实现 Staged Install 的，把之前的 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 改成这样：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">PREFIX</span> <span class="o">=</span> /usr/local
+<span class="nf">install</span><span class="o">:</span>
+    install -Dm755 <span class="s2">&quot;build/srain&quot;</span> <span class="s2">&quot;</span><span class="k">$(</span>DESTDIR<span class="k">)$(</span>PREFIX<span class="k">)</span><span class="s2">/bin/srain&quot;</span>
+    <span class="nb">cd</span> data/pixmaps<span class="p">;</span> <span class="se">\</span>
+        <span class="k">for</span> png in *.png<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+            install -Dm644 <span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">png&quot;</span> <span class="se">\</span>
+                <span class="s2">&quot;</span><span class="k">$(</span>DESTDIR<span class="k">)$(</span>PREFIX<span class="k">)</span><span class="s2">/share/srain/pixmaps/</span><span class="nv">$$</span><span class="s2">png&quot;</span><span class="p">;</span> <span class="se">\</span>
+        <span class="k">done</span>
+</pre></div>
+</div>
+<p>注意 DESTDIR 变量只应该作用在 install 阶段，<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">PREFIX=/usr;</span> <span class="pre">make</span> <span class="pre">PREFIX=/usr</span> <span class="pre">DESTDIR=/tmp/</span></code>
+会把所有文件都安装在 <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> 下， 所有的影响都被限制在该目录内。这次生成的文件应该是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">srain</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">srain</span><span class="o">/</span><span class="n">pixmaps</span><span class="o">/</span><span class="n">srain</span><span class="o">-</span><span class="n">avatar</span><span class="o">.</span><span class="n">png</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">icons</span><span class="o">/</span><span class="n">hicolor</span><span class="o">/</span><span class="mi">16</span><span class="n">x16</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">srain</span><span class="o">-</span><span class="n">icon</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>之后再由包管理器把这些文件打成包，安装到系统中。</p>
+</div>
+<div class="section" id="configure">
+<h2><a class="toc-backref" href="#id17">Configure</a><a class="headerlink" href="#configure" title="永久链接至标题">¶</a></h2>
+<p>上面的 Makefile 有处不优雅的地方是，<code class="docutils literal notranslate"><span class="pre">make</span></code> 和 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 的时候必须指定相同的 PREFIX，
+不然安装后的程序肯定是运行不了的，而 make 本身并不能解决这个问题，因为 make 是「无状态」的。</p>
+<p>这里<a class="footnote-reference brackets" href="#fn-practical-makefiles" id="id8">5</a>提供了一个脚本来让解决这个问题，将 Makefile 改名为 Makefile.in，
+运行 <code class="docutils literal notranslate"><span class="pre">./configure</span> <span class="pre">--prefix=xxx</span></code> 来获得一个拥有指定 prefix 的 Makefile，
+这样就可以不用每次敲 make 都输入 <code class="docutils literal notranslate"><span class="pre">PREFIX=xxx</span></code> 了。</p>
+<p><a href="#id9"><span class="problematic" id="id10">:raw-html-m2r:`&lt;del&gt;于是大家都去用 autotools 了&lt;/del&gt;`</span></a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">prefix</span><span class="o">=</span>/usr/local
+
+<span class="k">for</span> arg in <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
+    <span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$arg</span><span class="s2">&quot;</span> in
+    --prefix<span class="o">=</span>*<span class="o">)</span>
+        <span class="nv">prefix</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$arg</span> <span class="p">|</span> sed <span class="s1">&#39;s/--prefix=//&#39;</span><span class="sb">`</span>
+        <span class="p">;;</span>
+
+    --help<span class="o">)</span>
+        <span class="nb">echo</span> <span class="s1">&#39;usage: ./configure [options]&#39;</span>
+        <span class="nb">echo</span> <span class="s1">&#39;options:&#39;</span>
+        <span class="nb">echo</span> <span class="s1">&#39;  --prefix=&lt;path&gt;: installation prefix&#39;</span>
+        <span class="nb">echo</span> <span class="s1">&#39;all invalid options are silently ignored&#39;</span>
+        <span class="nb">exit</span> <span class="m">0</span>
+        <span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;generating makefile ...&#39;</span>
+<span class="nb">echo</span> <span class="s2">&quot;PREFIX = </span><span class="nv">$prefix</span><span class="s2">&quot;</span> &gt;Makefile
+cat Makefile.in &gt;&gt;Makefile
+<span class="nb">echo</span> <span class="s1">&#39;configuration complete, type make to build.&#39;</span>
+</pre></div>
+</div>
+<p>如上，执行 <code class="docutils literal notranslate"><span class="pre">./configure</span> <span class="pre">--prefix=/usr</span></code> 就会把 Makefile.in 复制为 Makefile，并在
+Makefile 最前面加上一句 <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">=</span> <span class="pre">/usr</span></code>（实际操作顺序是反过来的你们懂就好）。</p>
+</div>
+<div class="section" id="archlinux-pkgbuild">
+<h2><a class="toc-backref" href="#id18">编写 Archlinux 的打包脚本 PKGBUILD</a><a class="headerlink" href="#archlinux-pkgbuild" title="永久链接至标题">¶</a></h2>
+<p>这样的一个项目打包起来是很愉快的 :)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">pkgname</span><span class="o">=</span>srain
+
+...
+build<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">cd</span> <span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span>
+    mkdir build <span class="o">||</span> <span class="nb">true</span>
+    ./configure --prefix<span class="o">=</span>/usr
+    make
+<span class="o">}</span>
+
+package<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">cd</span> <span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span>
+    make <span class="nv">DESTDIR</span><span class="o">=</span><span class="nv">$pkgdir</span> install
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>完整的脚本请见：<a class="reference external" href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=srain">srain.git - AUR Package Repositories</a>，
+可能稍有出入。</p>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id19">参考</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="fn-icon-theme-spec"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p><a class="reference external" href="https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html">Icon Theme Specification</a></p>
+</dd>
+<dt class="label" id="fn-xdg-base-dir-spec"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p><a class="reference external" href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html#Environment%20variables">XDG Base Directory Specification#Environment variables</a></p>
+</dd>
+<dt class="label" id="fn-prefix"><span class="brackets"><a class="fn-backref" href="#id6">3</a></span></dt>
+<dd><p><a class="reference external" href="https://www.gnu.org/prep/standards/html_node/Directory-Variables.html">GNU Coding Standards#Variables for Installation Directories</a></p>
+</dd>
+<dt class="label" id="fn-destdir"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
+<dd><p><a class="reference external" href="https://www.gnu.org/prep/standards/standards.html#DESTDIR">GNU Coding Standards#DESTDIR: Support for Staged Installs</a></p>
+</dd>
+<dt class="label" id="fn-practical-makefiles"><span class="brackets"><a class="fn-backref" href="#id8">5</a></span></dt>
+<dd><p><a class="reference external" href="http://nuclear.mutantstargoat.com/articles/make">Practical Makefiles, by example</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="gsoc-2016.html">
+       GSoC 2016
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="gsoc-2016-sum-up.html">
+      GSoC 2016 小记 - 误打误撞三个月 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2016-06-25 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tags: </span
+  >
+   
+  <a href="tag/linux.html">Linux</a>   
+  <a href="tag/c.html">C</a>   
+  <a href="tag/makefile.html">Makefile</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016-sum-up.html"
+      >29 September - GSoC 2016 小记 - 误打误撞三个月</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016.html"
+      >23 April - GSoC 2016</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OverTheWire Leviathan &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/overthewire-leviathan.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="overthewire-leviathan">
+<h1>OverTheWire Leviathan<a class="headerlink" href="#overthewire-leviathan" title="永久链接至标题">¶</a></h1>
+<p>地址: <a class="reference external" href="http://overthewire.org/wargames/leviathan/">OverTheWire: Leviathan</a>.</p>
+<p>说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？</p>
+<p>完整的笔记在 <a class="reference external" href="https://github.com/SilverRainZ/no-silver-bullet/blob/master/ctf/wargame-leviathan/wargame-leviathan.md">这里</a>，
+其中有点意思的是 leviathan3，所以特地摘抄出来：</p>
+<p>登入机器后发现家目录有个带 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="docutils literal notranslate"><span class="pre">printfile</span></code>，属主是 <code class="docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ll printfile
+-r-sr-x--- 1 leviathan3 leviathan2 7498 Nov 14  2014 printfile*
+leviathan2@melinda:~$ ./printfile
+*** File Printer ***
+Usage: ./printfile filename
+leviathan2@melinda:~$ ./printfile /etc/leviathan_pass/leviathan3
+You cant have that file...
+</pre></div>
+</div>
+<p>从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印 <code class="docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan3</span></code> 却提示 <code class="docutils literal notranslate"><span class="pre">You</span> <span class="pre">cant</span> <span class="pre">have</span> <span class="pre">that</span> <span class="pre">file...</span></code>，上 gdb 分析看看。</p>
+<p>以下是 <code class="docutils literal notranslate"><span class="pre">diaasm</span> <span class="pre">main</span></code> 的结果，假设执行了 <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">filename</span></code>：</p>
+<div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">0x0804852d &lt;+0&gt;:     push   %ebp</span>
+<span class="x">0x0804852e &lt;+1&gt;:     mov    %esp,%ebp</span>
+<span class="x">0x08048530 &lt;+3&gt;:     and    $0xfffffff0,%esp</span>
+<span class="x">0x08048533 &lt;+6&gt;:     sub    $0x230,%esp</span>
+<span class="x">0x08048539 &lt;+12&gt;:    mov    0xc(%ebp),%eax           ; argv 参数地址</span>
+<span class="x">0x0804853c &lt;+15&gt;:    mov    %eax,0x1c(%esp)          ; argv 保存到 [esp + 0x1c]</span>
+<span class="x">0x08048540 &lt;+19&gt;:    mov    %gs:0x14,%eax            ; Thread-Local Storage, 不知道是什么</span>
+<span class="x">0x08048546 &lt;+25&gt;:    mov    %eax,0x22c(%esp)</span>
+<span class="x">0x0804854d &lt;+32&gt;:    xor    %eax,%eax</span>
+<span class="x">0x0804854f &lt;+34&gt;:    cmpl   $0x1,0x8(%ebp)           ; argc 和 1 比较，此处 argc 应该为 2</span>
+<span class="x">0x08048553 &lt;+38&gt;:    jg     0x804857e &lt;main+81&gt;      ; / argc &gt; 1 则跳</span>
+<span class="x">0x08048555 &lt;+40&gt;:    movl   $0x8048690,(%esp)</span>
+<span class="x">0x0804855c &lt;+47&gt;:    call   0x80483d0 &lt;puts@plt&gt;</span>
+<span class="x">0x08048561 &lt;+52&gt;:    mov    0x1c(%esp),%eax</span>
+<span class="x">0x08048565 &lt;+56&gt;:    mov    (%eax),%eax</span>
+<span class="x">0x08048567 &lt;+58&gt;:    mov    %eax,0x4(%esp)</span>
+<span class="x">0x0804856b &lt;+62&gt;:    movl   $0x80486a5,(%esp)</span>
+<span class="x">0x08048572 &lt;+69&gt;:    call   0x80483b0 &lt;printf@plt&gt;</span>
+<span class="x">0x08048577 &lt;+74&gt;:    mov    $0xffffffff,%eax</span>
+<span class="x">0x0804857c &lt;+79&gt;:    jmp    0x80485e8 &lt;main+187&gt;</span>
+
+<span class="x">; -&gt; 来自 0x08048553 &lt;+38&gt; 的跳转，以上代码不必分析了</span>
+<span class="x">0x0804857e &lt;+81&gt;:    mov    0x1c(%esp),%eax          ; 取出储存的 argv</span>
+<span class="x">0x08048582 &lt;+85&gt;:    add    $0x4,%eax                ; 移动到 argv 的第一个参数（从 0 计数）</span>
+<span class="x">0x08048585 &lt;+88&gt;:    mov    (%eax),%eax              ; 取出 argv[1] 的值，指向字符串 ‘filename’</span>
+<span class="x">0x08048587 &lt;+90&gt;:    movl   $0x4,0x4(%esp)           ; 参数二：int amode</span>
+<span class="x">0x0804858f &lt;+98&gt;:    mov    %eax,(%esp)              ; | argv[1] 作参数一： char *path</span>
+<span class="x">0x08048592 &lt;+101&gt;:   call   0x8048420 &lt;access@plt&gt;   ; / access(argv[1], 4)，成功返回 0</span>
+<span class="x">0x08048597 &lt;+106&gt;:   test   %eax,%eax</span>
+<span class="x">0x08048599 &lt;+108&gt;:   je     0x80485ae &lt;main+129&gt;     ; 跳</span>
+<span class="x">0x0804859b &lt;+110&gt;:   movl   $0x80486b9,(%esp)</span>
+<span class="x">0x080485a2 &lt;+117&gt;:   call   0x80483d0 &lt;puts@plt&gt;</span>
+<span class="x">0x080485a7 &lt;+122&gt;:   mov    $0x1,%eax</span>
+<span class="x">0x080485ac &lt;+127&gt;:   jmp    0x80485e8 &lt;main+187&gt;</span>
+
+<span class="x">; -&gt; 来自 0x08048599 &lt;+108&gt; 的跳转</span>
+<span class="x">0x080485ae &lt;+129&gt;:   mov    0x1c(%esp),%eax          ; \</span>
+<span class="x">0x080485b2 &lt;+133&gt;:   add    $0x4,%eax                ; | 取得 argv[1]</span>
+<span class="x">0x080485b5 &lt;+136&gt;:   mov    (%eax),%eax              ; /</span>
+<span class="x">0x080485b7 &lt;+138&gt;:   mov    %eax,0xc(%esp)           ; ...: argv[1]</span>
+<span class="x">0x080485bb &lt;+142&gt;:   movl   $0x80486d4,0x8(%esp)     ; | char *format: string &quot;/bin/cat %s&quot;</span>
+<span class="x">0x080485c3 &lt;+150&gt;:   movl   $0x1ff,0x4(%esp)         ; | size_t size: 511</span>
+<span class="x">0x080485cb &lt;+158&gt;:   lea    0x2c(%esp),%eax          ; |</span>
+<span class="x">0x080485cf &lt;+162&gt;:   mov    %eax,(%esp)              ; | char *str</span>
+<span class="x">0x080485d2 &lt;+165&gt;:   call   0x8048410 &lt;snprintf@plt&gt; ; / snprintf(str, 511, &quot;/bin/cat %s&quot;, argv[1]);</span>
+<span class="x">0x080485d7 &lt;+170&gt;:   lea    0x2c(%esp),%eax</span>
+<span class="x">0x080485db &lt;+174&gt;:   mov    %eax,(%esp)              ; \</span>
+<span class="x">0x080485de &lt;+177&gt;:   call   0x80483e0 &lt;system@plt&gt;   ; / system(&quot;/bin/cat filename&quot;);</span>
+<span class="x">0x080485e3 &lt;+182&gt;:   mov    $0x0,%eax</span>
+<span class="x">0x080485e8 &lt;+187&gt;:   mov    0x22c(%esp),%edx</span>
+<span class="x">0x080485ef &lt;+194&gt;:   xor    %gs:0x14,%edx</span>
+<span class="x">0x080485f6 &lt;+201&gt;:   je     0x80485fd &lt;main+208&gt;</span>
+<span class="x">0x080485f8 &lt;+203&gt;:   call   0x80483c0 &lt;__stack_chk_fail@plt&gt;</span>
+<span class="x">0x080485fd &lt;+208&gt;:   leave</span>
+<span class="x">0x080485fe &lt;+209&gt;:   ret</span>
+</pre></div>
+</div>
+<p>可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell 命令 “/bin/cat filename”。</p>
+<p>问题出在 <code class="docutils literal notranslate"><span class="pre">access</span></code> 函数， man 是这样说的：</p>
+<blockquote>
+<div><p>The access() function shall check the file named by the pathname pointed to by the path argument for accessibility according to the bit pattern contained in amode, <strong>using the real user ID in place of the effective user ID and the real group ID in place of the effective group ID.</strong></p>
+</div></blockquote>
+<p>而 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行 <code class="docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access 函数总是失败的。</p>
+<p>但是用 gdb 改变程序的流程也是<a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs">**不可行**</a>的，非 root 的 gdb 调试带 suid 权限的程序时，程序不会获得本来应该有的权限（否则 gdb 就可以任意地改变程序的行为了），即使绕过了 access 函数，你依然会得到一个 <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>。</p>
+<p>到这里我就没辙了，只能看别人的 writeup 了：<a class="reference external" href="https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/">OverTheWire Leviathan Wargame Solution 2</a>，看完发现脑洞确实不够大。</p>
+<p><strong>Solution:</strong></p>
+<p>access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的，执行 <code class="docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>，对于 access 函数来说是执行了 <code class="docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，而对 cat 来说是这样的 <code class="docutils literal notranslate"><span class="pre">system(&quot;cat</span> <span class="pre">flag</span> <span class="pre">here&quot;)</span></code>，因此可以利用这个区别来绕过 access 函数。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:/tmp$ mkdir slove
+leviathan2@melinda:/tmp$ <span class="nb">cd</span> slove
+leviathan2@melinda:/tmp/slove$ touch <span class="s1">&#39;flag here&#39;</span>    <span class="c1"># 带空格的文件名</span>
+leviathan2@melinda:/tmp/slove$ ln -s /etc/leviathan_pass/leviathan3 flag
+leviathan2@melinda:/tmp/slove$ ls
+flag  flag here
+leviathan2@melinda:/tmp/slove$ ~/printfile <span class="s1">&#39;flag here&#39;</span>  <span class="c1"># access 检测的是刚刚建立的新文件， cat 显示的则是 flag 和 here</span>
+Ahdiemoo1j
+/bin/cat: here: No such file or directory
+</pre></div>
+</div>
+<p>另外发现了一个新工具 ltrace，能够跟踪库函数的调用，就不用像刚才那样分析整个程序了（后面的题目大多数是过一遍 ltrace 就行了）：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ltrace ~/printfile /etc/leviathan_pass/leviathan2
+__libc_start_main<span class="o">(</span>0x804852d, <span class="m">2</span>, 0xffffd6f4, 0x8048600 &lt;unfinished ...&gt;
+access<span class="o">(</span><span class="s2">&quot;/etc/leviathan_pass/leviathan2&quot;</span>, <span class="m">4</span><span class="o">)</span>                                       <span class="o">=</span> <span class="m">0</span>
+snprintf<span class="o">(</span><span class="s2">&quot;/bin/cat /etc/leviathan_pass/lev&quot;</span>..., <span class="m">511</span>, <span class="s2">&quot;/bin/cat %s&quot;</span>, <span class="s2">&quot;/etc/leviathan_pass/leviathan2&quot;</span><span class="o">)</span> <span class="o">=</span> <span class="m">39</span>
+system<span class="o">(</span><span class="s2">&quot;/bin/cat /etc/leviathan_pass/lev&quot;</span>...ougahZi8Ta
+ &lt;no <span class="k">return</span> ...&gt;
+--- SIGCHLD <span class="o">(</span>Child exited<span class="o">)</span> ---
+&lt;... system resumed&gt; <span class="o">)</span>                                                            <span class="o">=</span> <span class="m">0</span>
++++ exited <span class="o">(</span>status <span class="m">0</span><span class="o">)</span> +++
+</pre></div>
+</div>
+<p>元旦快乐，希望新的一年不要那么痛苦了。</p>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     Previous:
+    
+    <a href="gen-graph-from-c-code.html">
+       从 C 源码生成 函数/模块 调用图
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     Next: 
+    <a href="get-teeworlds-server-information.html">
+      获取 teeworlds 服务器信息 
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   
+  2016-01-01 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    >Author:</span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    >Language:</span
+  >
+   
+  <a href="language/chinese.html">Chinese</a>  
+</li>
+  
+<li id="tags">
+  <span
+    >Tag:</span
+  >
+   
+  <a href="tag/ctf.html">CTF</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+  <li>
+    <a href="gsoc-2016-sum-up.html"
+      >29 September - GSoC 2016 小记 - 误打误撞三个月</a
+    >
+  </li>
+  
+  <li>
+    <a href="practical-makefile-for-packaging.html"
+      >25 June - 编写便于打包的 Makefile</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2020.html">2020 (1)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

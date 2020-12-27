@@ -1,383 +1,225 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>reStructuredText 语法 &mdash; Bullet</title>
-  
 
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reStructuredText &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/man/rst.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="2020" href="../misc/2020/index.html" />
-    <link rel="prev" title="Krita" href="krita.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="next" title="Shell Script" href="sh.html" />
+    <link rel="prev" title="Python" href="py.html" /> 
    
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
 
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bullet
-          
+          <div class="body" role="main">
+             <div class="section" id="restructuredtext">
+<h1>reStructuredText<a class="headerlink" href="#restructuredtext" title="永久链接至标题">¶</a></h1>
+<div class="section" id="section-header-level">
+<h2>Section header level<a class="headerlink" href="#section-header-level" title="永久链接至标题">¶</a></h2>
+<p>任何 non-alphanumeric characters <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">-</span> <span class="pre">`</span> <span class="pre">:</span> <span class="pre">'</span> <span class="pre">&quot;</span> <span class="pre">~</span> <span class="pre">^</span> <span class="pre">_</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">#</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span></code> 都可以作为
+section header。官方推荐的顺序如下： <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
+<blockquote>
+<div><div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Chapter 1 Title</span>
+<span class="gh">===============</span>
 
-          
-          </a>
+<span class="gh">Section 1.1 Title</span>
+<span class="gh">-----------------</span>
 
-          
-            
-            
-          
+<span class="gh">Subsection 1.1.1 Title</span>
+<span class="gh">~~~~~~~~~~~~~~~~~~~~~~</span>
 
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="在文档中搜索" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<span class="gh">Section 1.2 Title</span>
+<span class="gh">-----------------</span>
+
+<span class="gh">Chapter 2 Title</span>
+<span class="gh">===============</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickstart.html#structure">https://docutils.sourceforge.io/docs/user/rst/quickstart.html#structure</a></p>
+</dd>
+</dl>
+</div>
 </div>
 
+<div class="section">
+   
+</div>
+
+          </div>
           
         </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
 
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">笔记</span></p>
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/interval-of-music.html">音程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/score-collection/index.html">乐谱夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/scores/index.html">乐谱夹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/use-sphinx-as-pim/index.html">Use Sphinx As My PIM System</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">所有日志</a></li>
 </ul>
 <p class="caption"><span class="caption-text">手册</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="awk.html">The Awk Lanuage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="css.html">The Cascading Style Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fzf.html">The fzf Fuzzy Finder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gnupg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imagemagick.html">ImageMagick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="krita.html">Krita</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">reStructuredText 语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py.html">Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
 </ul>
-<p class="caption"><span class="caption-text">杂物</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2020/index.html">2020</a></li>
 </ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Bullet</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>reStructuredText 语法</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="restructuredtext">
-<h1>reStructuredText 语法<a class="headerlink" href="#restructuredtext" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id1">
-<h2>超链接<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
-<li><p>reST 会自动识别文中出现的超链接，比如 <a class="reference external" href="http://silverrainz.me/">http://silverrainz.me/</a></p></li>
-<li><p>指定链接标题的情况，使用:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>这是一个 `标题 &lt;http://silverrainz.me&gt;`_
-</pre></div>
-</div>
-<p>效果： 这是一个 <a class="reference external" href="http://silverrainz.me">标题</a></p>
-</li>
-<li><p>标题和链接分离:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>这是一个 `标题`_
+<li class="toctree-l1"><a class="reference internal" href="../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/friends.html">友人帐</a></li>
+</ul>
 
-.. _标题: http://silverrainz.me
-</pre></div>
-</div>
-<p>效果：这是一个 <a class="reference external" href="http://silverrainz.me">标题</a></p>
-</li>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="py.html" title="上一章">Python</a></li>
+      <li>Next: <a href="sh.html" title="下一章">Shell Script</a></li>
+  </ul></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>章节符号<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<p>可用的章节符号有： <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">*</span> <span class="pre">=</span> <span class="pre">-</span> <span class="pre">^</span> <span class="pre">&quot;</span> <span class="pre">~</span></code> 。</p>
-<p>个人约定：<code class="docutils literal notranslate"><span class="pre">#</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">=</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">-</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">~</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">*</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">^</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p>
-</div>
-<div class="section" id="id5">
-<h2>显式标记<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
-<p>显式标记以 <code class="docutils literal notranslate"><span class="pre">..</span></code> 开始，后跟空白符。</p>
-<div class="section" id="id6">
-<h3>指令<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
-<p>指令是显式标记中最常用的模块。</p>
-<p>指令由名字，参数，选项及内容组成:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">function</span><span class="p">::</span> <span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-              <span class="n">foo</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-   <span class="p">:</span><span class="n">module</span><span class="p">:</span> <span class="n">some</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">name</span>
-
-<span class="n">返回用户输入的一行文本</span><span class="o">.</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">function</span></code> 是指令名字，在第一行和第二行给出了两个参数, 及一个选项 <code class="docutils literal notranslate"><span class="pre">module</span></code> 。
-选项在参数后给出，由冒号包围。选项必须与指令有一样的缩进。
-指令的内容在隔开一个空行后，与指令有一样的缩进。</p>
-</div>
-<div class="section" id="id7">
-<h3>图像<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
-<p>图像指令:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">empowered</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">gnu</span><span class="o">.</span><span class="n">svg</span>
-   <span class="p">:</span><span class="n">width</span><span class="p">:</span> <span class="mi">50</span> <span class="o">%</span>
-</pre></div>
-</div>
-<p>效果：</p>
-<a class=""
-               data-lightbox="group-default"
-               href="https://www.gnu.org/graphics/empowered-by-gnu.svg"
-               title=""
-               data-title=""
-               ><img src="https://www.gnu.org/graphics/empowered-by-gnu.svg"
-                     class=""
-                     width="50%"
-                     height="auto"
-                     alt=""/>
-                </a></div>
-<div class="section" id="id8">
-<h3>脚注<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">[#name]_</span></code> 标记命名脚注的位置，使用 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">[#name]</span> <span class="pre">xxx</span></code> 定义脚注:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">这是脚注</span> <span class="p">[</span><span class="c1">#f1]_ ，这也是脚注 [#f2]_ 。</span>
-
-<span class="o">..</span> <span class="p">[</span><span class="c1">#f1] 第一条脚注的文本.</span>
-<span class="o">..</span> <span class="p">[</span><span class="c1">#f2] 第二条脚注的文本.</span>
-</pre></div>
-</div>
-<p>效果：</p>
-<p>这是脚注 <a class="footnote-reference brackets" href="#f1" id="id9">1</a> ，这也是脚注 <a class="footnote-reference brackets" href="#f2" id="id10">2</a> 。</p>
-<dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id9">1</a></span></dt>
-<dd><p>第一条脚注的文本.</p>
-</dd>
-<dt class="label" id="f2"><span class="brackets"><a class="fn-backref" href="#id10">2</a></span></dt>
-<dd><p>第二条脚注的文本.</p>
-</dd>
-</dl>
-<p><code class="docutils literal notranslate"><span class="pre">[#]_</span></code> 是自动排序的脚注， <code class="docutils literal notranslate"><span class="pre">[9]_</span></code> 是强制编号的脚注:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">这是脚注</span> <span class="p">[</span><span class="c1">#]_ ，这也是脚注 [#]_ ，强制编号的脚注 [9]_ 。</span>
-
-<span class="o">..</span> <span class="p">[</span><span class="c1">#] 第一条脚注的文本.</span>
-<span class="o">..</span> <span class="p">[</span><span class="c1">#] 第二条脚注的文本.</span>
-<span class="o">..</span> <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">强制编号脚注的文本</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>效果：</p>
-<p>这是脚注 <a class="footnote-reference brackets" href="#id14" id="id11">3</a> ，这也是脚注 <a class="footnote-reference brackets" href="#id15" id="id12">4</a> ，强制编号的脚注 <a class="footnote-reference brackets" href="#id16" id="id13">9</a> 。</p>
-<dl class="footnote brackets">
-<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id11">3</a></span></dt>
-<dd><p>第一条脚注的文本.</p>
-</dd>
-<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id12">4</a></span></dt>
-<dd><p>第二条脚注的文本.</p>
-</dd>
-<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id13">9</a></span></dt>
-<dd><p>强制编号脚注的文本.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="id17">
-<h3>引用<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">警告</p>
-<p>并没有在标准里找到 <code class="docutils literal notranslate"><span class="pre">[]_</span></code> 的用法。</p>
-</div>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">[ref]_</span></code> 来标记引用的位置，使用 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">[ref]_</span> <span class="pre">xxx</span></code> 来声明一个引用:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">这篇笔记参考了</span> <span class="p">[</span><span class="n">reStructuredText</span> <span class="n">简介</span><span class="p">]</span><span class="n">_</span>
-
-<span class="o">..</span> <span class="p">[</span><span class="n">reStructuredText</span> <span class="n">简介</span><span class="p">]</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">zh</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">doc</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">rest</span><span class="o">.</span><span class="n">html</span>
-</pre></div>
-</div>
-<p>效果：</p>
-<p>这篇笔记参考了 <a class="reference internal" href="#id19" id="id18"><span>[reStructuredText简介]</span></a>  。</p>
-<dl class="citation">
-<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id18">reStructuredText简介</a></span></dt>
-<dd><p><a class="reference external" href="http://zh-sphinx-doc.readthedocs.io/en/latest/rest.html">http://zh-sphinx-doc.readthedocs.io/en/latest/rest.html</a></p>
-</dd>
-</dl>
-</div>
-<div class="section" id="id20">
-<h3>替换<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">|something|</span></code> 来标记一个替换的位置。使用 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">|something|</span> <span class="pre">directive</span> <span class="pre">xxx</span></code> 来定义一个替换。</p>
-<div class="admonition note">
-<p class="admonition-title">注解</p>
-<p>替换的内容必须是一个指令。</p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>不如意事常 |89| ，可与人言无 |23| 。
-
-.. |89| replace:: **八九**
-.. |23| replace:: **二三**
-</pre></div>
-</div>
-<p>效果：</p>
-<p>不如意事常 <strong>八九</strong> ，可与人言无 <strong>二三</strong> 。</p>
-</div>
-<div class="section" id="id21">
-<h3>注释<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
-<p>有效但是未定义的显示标记就是注释。</p>
-</div>
-</div>
-</div>
-
-
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../misc/2020/index.html" class="btn btn-neutral float-right" title="2020" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="krita.html" class="btn btn-neutral float-left" title="Krita" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> 上一页</a>
-      
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
     </div>
-  
+</div>
+<script>$('#searchbox').show(0);</script>
 
-  <hr/>
 
-  <div role="contentinfo">
-    <p>
-        
-        &copy; 版权所有 2020, Shengyu Zhang
 
-    </p>
-  </div>
-    
-    
-    
-    利用 <a href="http://sphinx-doc.org/">Sphinx</a> 构建，使用了 
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">主题</a>
-    
-    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
 
-</footer>
+
+
+
 
         </div>
       </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
 
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
     
-   
 
-</body>
+    
+  </body>
 </html>

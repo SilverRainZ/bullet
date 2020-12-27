@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>乐谱夹 &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/scores/index.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Use Sphinx As My PIM System" href="../use-sphinx-as-pim/index.html" />
+    <link rel="prev" title="录歌方案" href="../draft/way-of-guitar-recoding.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="id1">
+<h1>乐谱夹<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>存放一些各处收集来的谱子。</p>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#alice" id="id3">Alice</a></p></li>
+<li><p><a class="reference internal" href="#witch-sprint-i-op" id="id4">Witch Sprint I OP</a></p></li>
+</ul>
+</div>
+<div class="section" id="alice">
+<h2>Alice<a class="headerlink" href="#alice" title="永久链接至标题">¶</a></h2>
+<p>来源网络，用 LilyPond 重新打了。</p>
+<div class="lilypond">
+<p><figure style="display:table;">
+<img class="lilypond-score" src="../.././_lilypond/9c9ba6eef617c9857172058ba1b929611c6b7eaa/music-page1.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;Alice&quot;
+  composer = &quot;古川本舖&quot;
+  arranger = &quot;Osamuraisan&quot;
+  copyright = &quot;SilverRainZ&quot;
+}
+
+prelude = \repeat unfold 2 {
+    e,4 c g d
+    f, c g d
+    g, c g d
+    g,8(a,8\6) c4 g d
+}
+
+interlude = \repeat unfold 2 {
+  &lt;e, g&gt;4 c' d' g'
+  &lt;f, g&gt;4 c' d' g'
+  &lt;g, g&gt;4 c' d' g'
+  &lt;f, g&gt;4 c' d' g'
+}
+
+pieceA = {
+  &lt;a, c'&gt;4 e' &lt;e, g'&gt; g
+}
+
+pieceAi = {
+  &lt;f, c'&gt;4 g' &lt;c g'&gt; g
+}
+
+pieceB = {
+  &lt;c a'&gt;4 g8 c'8 &lt;f, c'&gt;4 d
+}
+
+pieceBi = {
+  &lt;d g'&gt;4 (c'') &lt;a c''&gt; g
+}
+
+pieceBii = {
+  &lt;c c'&gt;4 d &lt;g, d'&gt; d'
+}
+
+pieceBiii = {
+  &lt;c c'&gt;4 d &lt;g, d'&gt; f'
+}
+
+pieceC = {
+  &lt;c a&gt;4 c' &lt;g, e'&gt; d
+}
+
+pieceCi = {
+  &lt;d c'&gt;4 g &lt;g, e'&gt; g
+}
+
+pieceCii = {
+  &lt;c c'&gt;4 d' &lt;a, e'&gt; g8 e'8
+}
+
+pieceCiii = {
+  &lt;d e'&gt;4 c' &lt;a, c'&gt; g8 e'8
+}
+
+pieceCiv = {
+  &lt;c c'&gt;4 d' &lt;a, e'&gt; g
+}
+
+pieceD = {
+  &lt;g, d'&gt;4 c' &lt;a, c'&gt; g
+}
+
+pieceDi = {
+  &lt;g, d'&gt;4 f' &lt;a, e'&gt; d
+}
+
+pieceDii = {
+  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;4 d8 e'8
+}
+
+pieceDiii = {
+  &lt;g, d'&gt;4 c' &lt;f, c'&gt; g
+}
+
+pieceDiv = {
+  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;2
+}
+
+symbols =  {
+  \time 4/4
+  \tempo  &quot;Allegro&quot; 4 = 150
+
+  % 1
+  \prelude
+
+  %9
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %13
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi
+
+  %17
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %21
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceD
+
+  %25
+  \pieceA
+  \pieceB
+  &lt;c a&gt;4 c' &lt;g, e'&gt; &lt;d f'&gt;
+  \pieceD
+
+  %29
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi
+
+  %33
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %37
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDii
+
+  \bar &quot;||&quot;
+
+  %41
+  \pieceDiii
+
+  %42
+  \pieceAi
+  \pieceBii
+  \pieceCii
+  \pieceDiii
+
+  %46
+  \pieceAi
+  \pieceBiii
+  \pieceCiii
+  \pieceDiii
+
+  %50
+  \pieceAi
+  \pieceBiii
+  \pieceCiv
+
+  %53
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDii
+
+  \bar &quot;||&quot;
+
+  %57
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %61
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi
+
+  %65
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %69
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDiv
+
+  \bar &quot;||&quot;
+
+  %73
+  \prelude
+
+  %81
+  \interlude
+
+  \bar &quot;||&quot;
+
+  %89
+  r1
+  r1
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    \new TabStaff {
+      \tabFullNotation
+      \symbols
+    }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}"/>
+<img class="lilypond-score" src="../.././_lilypond/9c9ba6eef617c9857172058ba1b929611c6b7eaa/music-page2.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;Alice&quot;
+  composer = &quot;古川本舖&quot;
+  arranger = &quot;Osamuraisan&quot;
+  copyright = &quot;SilverRainZ&quot;
+}
+
+prelude = \repeat unfold 2 {
+    e,4 c g d
+    f, c g d
+    g, c g d
+    g,8(a,8\6) c4 g d
+}
+
+interlude = \repeat unfold 2 {
+  &lt;e, g&gt;4 c' d' g'
+  &lt;f, g&gt;4 c' d' g'
+  &lt;g, g&gt;4 c' d' g'
+  &lt;f, g&gt;4 c' d' g'
+}
+
+pieceA = {
+  &lt;a, c'&gt;4 e' &lt;e, g'&gt; g
+}
+
+pieceAi = {
+  &lt;f, c'&gt;4 g' &lt;c g'&gt; g
+}
+
+pieceB = {
+  &lt;c a'&gt;4 g8 c'8 &lt;f, c'&gt;4 d
+}
+
+pieceBi = {
+  &lt;d g'&gt;4 (c'') &lt;a c''&gt; g
+}
+
+pieceBii = {
+  &lt;c c'&gt;4 d &lt;g, d'&gt; d'
+}
+
+pieceBiii = {
+  &lt;c c'&gt;4 d &lt;g, d'&gt; f'
+}
+
+pieceC = {
+  &lt;c a&gt;4 c' &lt;g, e'&gt; d
+}
+
+pieceCi = {
+  &lt;d c'&gt;4 g &lt;g, e'&gt; g
+}
+
+pieceCii = {
+  &lt;c c'&gt;4 d' &lt;a, e'&gt; g8 e'8
+}
+
+pieceCiii = {
+  &lt;d e'&gt;4 c' &lt;a, c'&gt; g8 e'8
+}
+
+pieceCiv = {
+  &lt;c c'&gt;4 d' &lt;a, e'&gt; g
+}
+
+pieceD = {
+  &lt;g, d'&gt;4 c' &lt;a, c'&gt; g
+}
+
+pieceDi = {
+  &lt;g, d'&gt;4 f' &lt;a, e'&gt; d
+}
+
+pieceDii = {
+  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;4 d8 e'8
+}
+
+pieceDiii = {
+  &lt;g, d'&gt;4 c' &lt;f, c'&gt; g
+}
+
+pieceDiv = {
+  &lt;g, d'&gt;4 d8 c'8 &lt;a, c'&gt;2
+}
+
+symbols =  {
+  \time 4/4
+  \tempo  &quot;Allegro&quot; 4 = 150
+
+  % 1
+  \prelude
+
+  %9
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %13
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi
+
+  %17
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %21
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceD
+
+  %25
+  \pieceA
+  \pieceB
+  &lt;c a&gt;4 c' &lt;g, e'&gt; &lt;d f'&gt;
+  \pieceD
+
+  %29
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi
+
+  %33
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %37
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDii
+
+  \bar &quot;||&quot;
+
+  %41
+  \pieceDiii
+
+  %42
+  \pieceAi
+  \pieceBii
+  \pieceCii
+  \pieceDiii
+
+  %46
+  \pieceAi
+  \pieceBiii
+  \pieceCiii
+  \pieceDiii
+
+  %50
+  \pieceAi
+  \pieceBiii
+  \pieceCiv
+
+  %53
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDii
+
+  \bar &quot;||&quot;
+
+  %57
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %61
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceDi
+
+  %65
+  \pieceA
+  \pieceB
+  \pieceC
+  \pieceD
+
+  %69
+  \pieceA
+  \pieceBi
+  \pieceCi
+  \pieceDiv
+
+  \bar &quot;||&quot;
+
+  %73
+  \prelude
+
+  %81
+  \interlude
+
+  \bar &quot;||&quot;
+
+  %89
+  r1
+  r1
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    \new TabStaff {
+      \tabFullNotation
+      \symbols
+    }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}"/>
+<figcaption style="display:table-caption; caption-side:bottom; padding:10px">
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/9c9ba6eef617c9857172058ba1b929611c6b7eaa/music.wav"/>
+</figcaption>
+</figure>
+</p></div></div>
+<div class="section" id="witch-sprint-i-op">
+<h2>Witch Sprint I OP<a class="headerlink" href="#witch-sprint-i-op" title="永久链接至标题">¶</a></h2>
+<p>自己扒的。</p>
+<div class="lilypond">
+<p><figure style="display:table;">
+<img class="lilypond-score" src="../.././_lilypond/1b4ad249b3f215ef8355c0c79fd2c21745300ab7/music.png" alt="\version &quot;2.20.0&quot;
+\header {
+  title = &quot;《魔女之泉 1》开场音乐&quot;
+  composer = &quot;Kiwi Walks&quot;
+  arranger = &quot;SilverRainZ&quot;
+}
+
+symbols =  {
+  \time 4/4
+  \tempo  &quot;Allegretto&quot; 4 = 110
+
+  % 1
+  c'4 c' c' c'8 b8
+  c'4 g' c' c'8 b8
+  c'4 g' (c'') c''8 b'8
+  c''2 r2
+
+  %14
+  e'4 g c'2
+  a8 c'8 c'8 d'8 c'2
+
+  e'4 g' c'2
+  c'4 d'8 e'8 c'4 g
+
+  e'4 g c'2
+  a8 c'8 c'8 d'8 e'4 c'
+
+  g4 f e f8 g8
+
+  \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \new Staff {
+      \clef &quot;G_8&quot;
+      \symbols
+    }
+    \new TabStaff {
+      \tabFullNotation
+      \symbols
+    }
+  &gt;&gt;
+
+  \midi { }
+  \layout { }
+}"/>
+<figcaption style="display:table-caption; caption-side:bottom; padding:10px">
+<audio controls class="lilypond-score" style="width:100%;" src="../.././_lilypond/1b4ad249b3f215ef8355c0c79fd2c21745300ab7/music.wav"/>
+</figcaption>
+</figure>
+</p></div></div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">乐谱夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../use-sphinx-as-pim/index.html">Use Sphinx As My PIM System</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">The Awk Lanuage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/css.html">The Cascading Style Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/fzf.html">The fzf Fuzzy Finder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/imagemagick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../draft/way-of-guitar-recoding.html" title="上一章">录歌方案</a></li>
+      <li>Next: <a href="../use-sphinx-as-pim/index.html" title="下一章">Use Sphinx As My PIM System</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
