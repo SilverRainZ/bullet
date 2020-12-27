@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Docutils Document Tree &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/sphinx-as-pim/doctree.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Docutils Hacker’s Guide" href="docutils-hacker-guide.html" />
+    <link rel="prev" title="Sphinx As PIM System" href="index.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="the-docutils-document-tree">
+<h1>The Docutils Document Tree<a class="headerlink" href="#the-docutils-document-tree" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2020-11-12</p>
+</dd>
+<dt class="field-even">reference</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/doctree.html">https://docutils.sourceforge.io/docs/ref/doctree.html</a></p>
+</dd>
+</dl>
+<p>这篇文档介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">document</span>  <span class="p">[</span><span class="n">may</span> <span class="n">begin</span> <span class="k">with</span> <span class="n">a</span> <span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="p">,</span> <span class="n">decoration</span><span class="p">,</span> <span class="n">docinfo</span><span class="p">]</span>  <span class="o">|</span>
+<span class="o">|</span>                             <span class="o">+--------------------------------------+</span>
+<span class="o">|</span>                             <span class="o">|</span> <span class="n">sections</span>  <span class="p">[</span><span class="n">each</span> <span class="n">begins</span> <span class="k">with</span> <span class="n">a</span> <span class="n">title</span><span class="p">]</span> <span class="o">|</span>
+<span class="o">+-----------------------------+-------------------------+------------+</span>
+<span class="o">|</span> <span class="p">[</span><span class="n">body</span> <span class="n">elements</span><span class="p">:]</span>                                      <span class="o">|</span> <span class="p">(</span><span class="n">sections</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span> <span class="o">-</span> <span class="n">literal</span> <span class="o">|</span> <span class="o">-</span> <span class="n">lists</span>  <span class="o">|</span>       <span class="o">|</span> <span class="o">-</span> <span class="n">hyperlink</span>  <span class="o">+------------+</span>
+<span class="o">|</span>         <span class="o">|</span>   <span class="n">blocks</span>  <span class="o">|</span> <span class="o">-</span> <span class="n">tables</span> <span class="o">|</span>       <span class="o">|</span>   <span class="n">targets</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">para</span><span class="o">-</span>   <span class="o">|</span> <span class="o">-</span> <span class="n">doctest</span> <span class="o">|</span> <span class="o">-</span> <span class="n">block</span>  <span class="o">|</span> <span class="n">foot</span><span class="o">-</span> <span class="o">|</span> <span class="o">-</span> <span class="n">sub</span><span class="o">.</span> <span class="n">defs</span>  <span class="o">|</span>
+<span class="o">|</span> <span class="n">graphs</span>  <span class="o">|</span>   <span class="n">blocks</span>  <span class="o">|</span>   <span class="n">quotes</span> <span class="o">|</span> <span class="n">notes</span> <span class="o">|</span> <span class="o">-</span> <span class="n">comments</span>   <span class="o">|</span>
+<span class="o">+---------+-----------+----------+-------+--------------+</span>
+<span class="o">|</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span><span class="o">+</span> <span class="o">|</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>    <span class="o">|</span> <span class="p">(</span><span class="n">body</span> <span class="n">elements</span><span class="p">)</span>  <span class="o">|</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="p">(</span><span class="n">inline</span> <span class="o">+-----------+------------------+--------------+</span>
+<span class="o">|</span> <span class="n">markup</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+---------+</span>
+</pre></div>
+</div>
+<p>表的含义可以看原文，几个比较重要的信息：</p>
+<ul class="simple">
+<li><p>document 总是 root 节点</p></li>
+<li><p>section 可以递归地包含自身</p></li>
+<li><p>部分的 body elements 可以包含 body elements</p></li>
+<li><p>inline markup 没有提到 (?)</p></li>
+</ul>
+<div class="section" id="content-model">
+<h2>Content Model<a class="headerlink" href="#content-model" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>The Docutils document model uses strict element content models.
+Every element has a unique structure and semantics,
+but elements may be classified into general categories (below).</p>
+</div></blockquote>
+<p>doctree 采用了严格的元素内容模型，相比 HTML 则松散得多。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这里的元素内容模型（element content model）应该类似 HTML 的
+<a class="reference external" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories">Content categories</a> 。
+模型描述了某个元素可以包含何种内容。</p>
+</div>
+<blockquote>
+<div><p>Only elements which are meant to directly contain text data have a mixed content model,
+where text data and inline elements may be intermixed.
+This is unlike the much looser HTML document model,
+where paragraphs and text data may occur at the same level.</p>
+</div></blockquote>
+<p>只有能够直接包含文本（text data）的元素才拥有一个混合的内容模型（mixed content model），
+即能够混排文本（text data）和内联元素（inline elements ）（下述）。
+HTML 则宽松得多，段落和文本是能在同一嵌套级别出现的（比如 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;prargraph&lt;/p&gt;text</span></code> ）。</p>
+</div>
+<div class="section" id="element-categories">
+<h2>Element Categories<a class="headerlink" href="#element-categories" title="永久链接至标题">¶</a></h2>
+<p>doctree 上的元素可分为如下几类：</p>
+<dl>
+<dt>Structural Elements</dt><dd><p>不能包含文本，只能包含子元素，且 Structural Elements 的父元素必须是 Structural Elements
+（e.g <code class="docutils literal notranslate"><span class="pre">document</span></code> ）</p>
+<dl>
+<dt>Structural Subelements</dt><dd><p>必须被特定的 Structural Elements 包含，简单的 Structural Subelements
+可以直接包含文本（e.g <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">subtitle</span></code>, <code class="docutils literal notranslate"><span class="pre">docinfo</span></code> ）</p>
+<dl class="simple">
+<dt>Bibliographic Elements</dt><dd><p><code class="docutils literal notranslate"><span class="pre">docinfo</span></code> 是 <code class="docutils literal notranslate"><span class="pre">document</span></code> 可选的子元素，用于描述文档的 metadata，
+Bibliographic Elements 的父元素只能是 <code class="docutils literal notranslate"><span class="pre">docinfo``（e.g.</span> <span class="pre">``author</span></code>, <code class="docutils literal notranslate"><span class="pre">copyright</span></code> ）</p>
+</dd>
+<dt>Decorative Elements</dt><dd><p>是 <code class="docutils literal notranslate"><span class="pre">document</span></code> 可选的子元素，用于生成文档的页头与页脚
+（e.g. <code class="docutils literal notranslate"><span class="pre">header</span></code>, <code class="docutils literal notranslate"><span class="pre">footer</span></code> ）</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Body Elements</dt><dd><p>只能被 Structural Elements 或者复合的（compound）Body Elements 包含。</p>
+<dl>
+<dt>Simple Body Elements</dt><dd><p>只能包含文本或者不包含任何内容，能包含文本的 Simple Body Elements
+同样能包含 Inline Elements，即前述的 “mixed content model”。
+不包含任何内容的 Simple Body Elements 是 doctree 的叶子节点
+（e.g.  <code class="docutils literal notranslate"><span class="pre">paragraph</span></code>, <code class="docutils literal notranslate"><span class="pre">comment</span></code> ）</p>
+</dd>
+<dt>Compound Body Elements</dt><dd><p>不直接包含文本，能够包含 Body Subelements 和其他的 Body Elements。</p>
+<dl class="simple">
+<dt>Body Subelements</dt><dd><p>必须被特定的 Compound Body Elements 包含
+（ e.g. <code class="docutils literal notranslate"><span class="pre">bullet_list</span></code> 包含 <code class="docutils literal notranslate"><span class="pre">list_item</span></code> ）
+Body Subelements 本身可以包含其他的 Compound Body Elements</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Inline Elements</dt><dd><p>直接包含文本，也可能包含其他的 Inline Elements。Inline Elements 只能被
+Simple Body Elements 包含。大部分的 Inline Elements 都支持 “mixed content model”。
+（e.g. <code class="docutils literal notranslate"><span class="pre">strong</span></code>, <code class="docutils literal notranslate"><span class="pre">subscript</span></code> ）</p>
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scores/index.html">乐谱夹</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Sphinx As PIM System</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/fzf.html">fzf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Sphinx As PIM System</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">Sphinx As PIM System</a></li>
+      <li>Next: <a href="docutils-hacker-guide.html" title="下一章">Docutils Hacker’s Guide</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

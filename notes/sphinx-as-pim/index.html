@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sphinx As PIM System &#8212; Silver Bullet</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/sphinx-as-pim/index.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="The Docutils Document Tree" href="doctree.html" />
+    <link rel="prev" title="乐谱夹" href="../scores/index.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="sphinx-as-pim-system">
+<h1>Sphinx As PIM System<a class="headerlink" href="#sphinx-as-pim-system" title="永久链接至标题">¶</a></h1>
+<dl class="field-list">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2020-06-19</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>Work In Progress</p>
+<p><a class="reference internal" href="../../about/enemy.html#friend-SilverRainZ" title="SilverRainZ friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;SilverRainZ</span></code></a> （指我自己）在使用一个还未存在的自建笔记系统，
+每次想写点东西都因为「无法解决依赖」而失败。* <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
+</dd>
+</dl>
+<p>不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。
+想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。想写一篇博客，
+文章里有一些交叉引用，不想用粗暴的 <code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=xxx&gt;</span></code> ，所以不写。
+因噎废食大概就是这样吧。</p>
+<p>我并非没有在找合适的记录工具，大学时用 Onenote，那时候云同步功能还不够好，
+在一次误操作中丢失了笔记，从此不再用 Onenote。后来成为 Linux 用户，
+用 Gitbook 管理笔记，nodejs 太慢而 markdown 表达力太孱弱，
+再后来 <a class="reference internal" href="../../blog/use-sphinx-and-rst-to-manage-your-notes.html"><span class="doc">使用 Sphinx</span></a> ，
+restructedText 很接近我心中理想的 markup language 的样子。可是从那时到现在，
+已经过去了三年，我记录下了些什么呢？</p>
+<blockquote>
+<div><p>「什么都没有」。</p>
+</div></blockquote>
+<p><a class="reference external" href="https://sphinxcontrib-needs.readthedocs.io/">https://sphinxcontrib-needs.readthedocs.io/</a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>和 <a class="reference internal" href="../../about/friends.html#friend-VOID001" title="VOID001 friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;VOID001</span></code></a> 的 <a class="reference external" href="https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530">对话节选</a></p>
+</dd>
+</dl>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">No silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scores/index.html">乐谱夹</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx As PIM System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctree.html">The Docutils Document Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docutils-hacker-guide.html">Docutils Hacker’s Guide</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/fzf.html">fzf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../scores/index.html" title="上一章">乐谱夹</a></li>
+      <li>Next: <a href="doctree.html" title="下一章">The Docutils Document Tree</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
