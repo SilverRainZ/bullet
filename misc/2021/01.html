@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2020-01 &#8212; 银色子弹</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/misc/2021/01.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Me" href="../../about/me.html" />
+    <link rel="prev" title="2021" href="index.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="id1">
+<h1>2020-01<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="migrating-from-gtk-3-x-to-gtk-4">
+<h2>Migrating from GTK 3.x to GTK 4 <a class="footnote-reference brackets" href="#id5" id="id2">1</a><a class="headerlink" href="#migrating-from-gtk-3-x-to-gtk-4" title="永久链接至标题">¶</a></h2>
+<p>列举 Srain 需要变更的部分：</p>
+<div class="section" id="preparation-in-gtk-3-x">
+<h3>Preparation in GTK 3.x<a class="headerlink" href="#preparation-in-gtk-3-x" title="永久链接至标题">¶</a></h3>
+<p>Do not use widget style properties</p>
+<dl>
+<dt>Stop using GtkBox padding, fill and expand child properties</dt><dd><p>GtkBox child properties 被 GtkWidget 的 properties 替代</p>
+</dd>
+<dt>Stop using <code class="docutils literal notranslate"><span class="pre">gdk_pixbuf_get_from_window()</span></code> and</dt><dd><p><code class="docutils literal notranslate"><span class="pre">gdk_cairo_set_source_surface()</span></code></p>
+</dd>
+<dt>Stop using GtkWidget event signals</dt><dd><p>相关的 signal 被 event controllers key 和 gestures 替代</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">key-release-event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GtkEventControllerKey</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">button-press-event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GtkGesture</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">button-release-event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GtkGesture</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Custom widgets in GTK 4 – Input</em> <a class="footnote-reference brackets" href="#id6" id="id3">2</a> 给出了 event controller 的简单用法。</p>
+</dd>
+<dt>Reduce the use of <code class="docutils literal notranslate"><span class="pre">gtk_widget_destroy()</span></code></dt><dd><p>使用更安全的 <code class="docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 或 <code class="docutils literal notranslate"><span class="pre">g_object_unref()</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 不是已经废弃了吗？？？</p>
+</div>
+</dd>
+<dt>Reduce the use of generic container APIs</dt><dd><p><code class="docutils literal notranslate"><span class="pre">gtk_container_add()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 已被移除，
+使用容器自带的 add 和 remove 函数</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="changes-that-need-to-be-done-at-the-time-of-the-switch">
+<h3>Changes that need to be done at the time of the switch<a class="headerlink" href="#changes-that-need-to-be-done-at-the-time-of-the-switch" title="永久链接至标题">¶</a></h3>
+<dl class="simple">
+<dt>Subclassing</dt><dd><p>Many widgets can no longer be subclassed. In most cases,
+you should look deriving your widget directly from GtkWidget
+and use complex widgets as child widgets instead of deriving from them.</p>
+</dd>
+<dt>Life-cycle handling</dt><dd><p>The “destroy” signal can no longer be used to break reference cycles.</p>
+</dd>
+<dt>Stop using <code class="docutils literal notranslate"><span class="pre">gtk_get_current_...</span></code> APIs</dt><dd><p>The function gtk_get_current_event() and its variants have been
+replaced by equivalent event controller APIs:
+<code class="docutils literal notranslate"><span class="pre">gtk_event_controller_get_current_event()</span></code>, etc.</p>
+</dd>
+<dt>Convert your ui files</dt><dd><p>The <code class="file docutils literal notranslate"><span class="pre">gtk4-builder-tool</span></code> simplify command can perform many of the
+necessary changes automatically, when called with the <code class="docutils literal notranslate"><span class="pre">–3to4</span></code> option.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="adapt-to-gtkbuilder-api-changes">
+<h3>Adapt to GtkBuilder API changes<a class="headerlink" href="#adapt-to-gtkbuilder-api-changes" title="永久链接至标题">¶</a></h3>
+<p>太长不看</p>
+</div>
+<div class="section" id="changes-to-consider-after-the-switch">
+<h3>Changes to consider after the switch<a class="headerlink" href="#changes-to-consider-after-the-switch" title="永久链接至标题">¶</a></h3>
+<p>只有一个吗…… Orz</p>
+<dl class="simple">
+<dt>Consider porting to the new list widgets</dt><dd><p>GTK 4 brings a new family of widgets for this purpose that uses list models
+instead of tree models, and widgets instead of cell renderers.
+See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#id7" id="id4">3</a></p>
+</dd>
+</dl>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://developer.gnome.org/gtk4/unstable/gtk-migrating-3-to-4.html">https://developer.gnome.org/gtk4/unstable/gtk-migrating-3-to-4.html</a></p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="https://blog.gtk.org/2020/04/29/custom-widgets-in-gtk-4-input/">https://blog.gtk.org/2020/04/29/custom-widgets-in-gtk-4-input/</a></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p><a class="reference external" href="https://developer.gnome.org/gtk4/unstable/ListContainers.html#ListWidget">https://developer.gnome.org/gtk4/unstable/ListContainers.html#ListWidget</a></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="fzf-intro">
+<h2>Fzf Intro<a class="headerlink" href="#fzf-intro" title="永久链接至标题">¶</a></h2>
+<p>Fzf <a class="footnote-reference brackets" href="#id9" id="id8">4</a> 是一个命令行下通用模糊查找工具。通常搭配其他工具使用。</p>
+<dl class="simple">
+<dt>UI key binding</dt><dd><ul class="simple">
+<li><p><kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd>-<kbd class="kbd docutils literal notranslate">j</kbd></kbd>, <kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd>-<kbd class="kbd docutils literal notranslate">k</kbd></kbd> 上下移动</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">enter</kbd> 选中, <kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd>-<kbd class="kbd docutils literal notranslate">c</kbd></kbd> 放弃</p></li>
+<li><p>多选模式(-m), 用 <kbd class="kbd docutils literal notranslate">tab</kbd> 和 <kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">shift</kbd>-<kbd class="kbd docutils literal notranslate">tab</kbd></kbd> 多选</p></li>
+<li><p>其他的键位基本是 Emacs 风格</p></li>
+<li><p>支持鼠标</p></li>
+</ul>
+</dd>
+</dl>
+<p>Search syntax</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 37%" />
+<col style="width: 53%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Token</p></td>
+<td><p>Match type</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>sbtrkt</p></td>
+<td><p>fuzzy-match</p></td>
+<td><p>Items that match sbtrkt</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘wild</p></td>
+<td><p>exact-match (quoted)</p></td>
+<td><p>Items that include wild</p></td>
+</tr>
+<tr class="row-even"><td><p>^music</p></td>
+<td><p>prefix-exact-match</p></td>
+<td><p>Items that start with music</p></td>
+</tr>
+<tr class="row-odd"><td><p>.mp3$</p></td>
+<td><p>suffix-exact-match</p></td>
+<td><p>Items that end with .mp3</p></td>
+</tr>
+<tr class="row-even"><td><p>!fire</p></td>
+<td><p>inverse-exact-match</p></td>
+<td><p>Items that do not include fire</p></td>
+</tr>
+<tr class="row-odd"><td><p>!^music</p></td>
+<td><p>inverse-prefix-exact-match</p></td>
+<td><p>Items that do not start with music</p></td>
+</tr>
+<tr class="row-even"><td><p>!.mp3$</p></td>
+<td><p>inverse-suffix-exact-match</p></td>
+<td><p>Items that do not end with .mp3</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Shell key binding</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><kbd class="kbd docutils literal notranslate">**&lt;tab&gt;</kbd> 补全命令</p></li>
+<li><p><kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd>-<kbd class="kbd docutils literal notranslate">t</kbd></kbd> 补全文件</p></li>
+<li><p><kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd>-<kbd class="kbd docutils literal notranslate">r</kbd></kbd> 补全历史命令</p></li>
+<li><p><kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">alt</kbd>-<kbd class="kbd docutils literal notranslate">c</kbd></kbd> 补全目录</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>根据配置可能会有所改变</p>
+</div>
+</div></blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id8">4</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/scores/index.html">乐谱夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/fzf.html">fzf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../2020/index.html">2020</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2021</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2020-01</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">2021</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">2021</a></li>
+      <li>Next: <a href="../../about/me.html" title="下一章">Me</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

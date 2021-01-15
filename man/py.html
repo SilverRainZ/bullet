@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -28,7 +28,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="reStructuredText" href="rst.html" />
-    <link rel="prev" title="Makefile" href="make.html" /> 
+    <link rel="prev" title="Meson Build System" href="meson.html" /> 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -80,10 +80,34 @@
           <div class="body" role="main">
              <div class="section" id="python">
 <h1>Python<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
-<dl class="simple">
-<dt>Deep copy object:</dt><dd><p>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code>.</p>
-</dd>
-</dl>
+<div class="section" id="deep-copy-object">
+<h2>Deep Copy Object<a class="headerlink" href="#deep-copy-object" title="永久链接至标题">¶</a></h2>
+<p>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code>.</p>
+</div>
+<div class="section" id="auto-enumerations">
+<h2>Auto Enumerations<a class="headerlink" href="#auto-enumerations" title="永久链接至标题">¶</a></h2>
+<p>Like <code class="docutils literal notranslate"><span class="pre">iota</span></code> in golang:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sort-tuple-list">
+<h2>Sort Tuple List<a class="headerlink" href="#sort-tuple-list" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tup_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tup</span><span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iterate-with-index">
+<h2>Iterate with Index<a class="headerlink" href="#iterate-with-index" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 <div class="section">
@@ -141,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lily.html">LilyPond</a></li>
 <li class="toctree-l1"><a class="reference internal" href="magick.html">ImageMagick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meson.html">Meson Build System</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
@@ -148,6 +173,7 @@
 <p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/2021/index.html">2021</a></li>
 </ul>
 <p class="caption"><span class="caption-text">关于</span></p>
 <ul>
@@ -160,7 +186,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="make.html" title="上一章">Makefile</a></li>
+      <li>Previous: <a href="meson.html" title="上一章">Meson Build System</a></li>
       <li>Next: <a href="rst.html" title="下一章">reStructuredText</a></li>
   </ul></li>
 </ul>
@@ -191,7 +217,7 @@
       &copy;2020, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
