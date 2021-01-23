@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="Me" href="../../about/me.html" />
+    <link rel="next" title="Art Works" href="../../collections/art-works/index.html" />
     <link rel="prev" title="2021" href="index.html" /> 
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -242,6 +242,74 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 </dd>
 </dl>
 </div>
+<div class="section" id="awesome-list-of-python-cn-version">
+<h2>Awesome List of Python, CN version <a class="footnote-reference brackets" href="#id16" id="id10">5</a><a class="headerlink" href="#awesome-list-of-python-cn-version" title="永久链接至标题">¶</a></h2>
+<p>不喜欢 awesome list programer，但列表本身是有价值的。随便看看：</p>
+<dl class="simple">
+<dt>pyinstaller <a class="footnote-reference brackets" href="#id17" id="id11">6</a></dt><dd><p>将 Python 程序转换成独立的执行文件（跨平台）</p>
+</dd>
+<dt>pangu.py <a class="footnote-reference brackets" href="#id18" id="id12">7</a></dt><dd><p>在中日韩语字符和数字字母之间添加空格。</p>
+</dd>
+<dt>pypinyin <a class="footnote-reference brackets" href="#id19" id="id13">8</a></dt><dd><p>汉字拼音转换工具</p>
+</dd>
+<dt>pycco <a class="footnote-reference brackets" href="#id20" id="id14">9</a></dt><dd><p>文学编程（literate-programming）风格的文档生成器。</p>
+</dd>
+<dt>rich <a class="footnote-reference brackets" href="#id21" id="id15">10</a></dt><dd><p>一个在终端中支持富文本和格式美化的 Python 库，
+同时提供了 RichHandler 日志处理程序。</p>
+</dd>
+</dl>
+<dl class="footnote brackets">
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id10">5</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/jobbole/awesome-python-cn">https://github.com/jobbole/awesome-python-cn</a></p>
+</dd>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id11">6</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/pyinstaller/pyinstaller">https://github.com/pyinstaller/pyinstaller</a></p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id12">7</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/vinta/pangu.py">https://github.com/vinta/pangu.py</a></p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id13">8</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/mozillazg/python-pinyin">https://github.com/mozillazg/python-pinyin</a></p>
+</dd>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id14">9</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/pycco-docs/pycco">https://github.com/pycco-docs/pycco</a></p>
+</dd>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id15">10</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/willmcgugan/rich">https://github.com/willmcgugan/rich</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="plumbum-shell-combinators-and-more">
+<h2>Plumbum: Shell Combinators and More <a class="footnote-reference brackets" href="#id23" id="id22">11</a><a class="headerlink" href="#plumbum-shell-combinators-and-more" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2021-01-16</p>
+</dd>
+</dl>
+<p>肉眼可见的香：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">plumbum.cmd</span> <span class="k">import</span> <span class="n">ls</span><span class="p">,</span> <span class="n">grep</span><span class="p">,</span> <span class="n">wc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chain</span> <span class="o">=</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;-a&quot;</span><span class="p">]</span> <span class="o">|</span> <span class="n">grep</span><span class="p">[</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\.py&quot;</span><span class="p">]</span> <span class="o">|</span> <span class="n">wc</span><span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
+<span class="go">/bin/ls -a | /bin/grep -v &#39;\.py&#39; | /usr/bin/wc -l</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chain</span><span class="p">()</span>
+<span class="go">&#39;27\n&#39;</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id22">11</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/tomerfiliba/plumbum">https://github.com/tomerfiliba/plumbum</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id24">
+<h2>乐利和爱克林的乳制品包装垄断<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2021-01-23</p>
+</dd>
+</dl>
+<p>TODO</p>
+</div>
 </div>
 
 <div class="section">
@@ -276,10 +344,11 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <li class="toctree-l1"><a class="reference internal" href="../../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/painters.html">基于艺术家的艺术史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/books/index.html">读书笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/ionian/index.html">大调训练计划</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../notes/scores/index.html">乐谱夹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
 </ul>
 <p class="caption"><span class="caption-text">博客</span></p>
@@ -290,7 +359,6 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/css.html">CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../man/fzf.html">fzf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
@@ -312,6 +380,11 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
 <p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
@@ -325,7 +398,7 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="index.html">2021</a><ul>
       <li>Previous: <a href="index.html" title="上一章">2021</a></li>
-      <li>Next: <a href="../../about/me.html" title="下一章">Me</a></li>
+      <li>Next: <a href="../../collections/art-works/index.html" title="下一章">Art Works</a></li>
   </ul></li>
   </ul></li>
 </ul>
