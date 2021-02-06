@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me</id>
-  <title>Blog</title>
-  <updated>2021-02-06T10:47:59.659602+00:00</updated>
+  <title>银色子弹</title>
+  <updated>2021-02-06T11:01:03.750252+00:00</updated>
   <link href="https://silverrainz.me"/>
   <link href="https://silverrainz.me/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
+  <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.me/blog/idf-reverse-writeup.html</id>
     <title>IDF 实验室逆向题部分题解</title>
