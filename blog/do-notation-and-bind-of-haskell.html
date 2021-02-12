@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -88,7 +85,7 @@
           <div class="body" role="main">
              <div class="section" id="do">
 <h1>do 记法和 &gt;&gt;= 的等效表达<a class="headerlink" href="#do" title="永久链接至标题">¶</a></h1>
-<p>明明在开学的时候，《趣学指南》就只剩下三十来页了，但是还书日在即，
+<p>明明在开学的时候，<a class="reference internal" href="../todo.html#book-Haskell" title="Haskell 趣学指南 book"><code class="xref any any-book docutils literal notranslate"><span class="pre">Haskell</span> <span class="pre">趣学指南</span></code></a> 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。</p>
 <p>当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
@@ -129,11 +126,11 @@
     <span class="n">pop</span>
 </pre></div>
 </div>
-<p>结果应该是：</p>
-<blockquote>
-<div><p>ghci&gt; runState test []<a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;br&gt;`</span></a>
-(5,[4,3])</p>
-</div></blockquote>
+<p>结果应该是:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghci</span><span class="o">&gt;</span> <span class="n">runState</span> <span class="n">test</span> <span class="p">[]</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>怎么用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写上面的do notation呢？</p>
 <p>do实际上是嵌套的&gt;&gt;=的一个语法糖，<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">foo</span></code> 就是一个绑定， 而且一旦绑定，
 在之后的语句里也可以使用x了，所以相当于<code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">&gt;&gt;=</span> <span class="pre">(\x</span> <span class="pre">-&gt;</span> <span class="pre">后面的语句)</span></code>。
@@ -155,8 +152,8 @@
 如果用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>串起来应该是 <code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span></code>，
 但是要push三个值，push并不需要从<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接收值，
 可以用lambda来更改(因为没有利用到前面的值，所以这里嵌套与否都没问题)：</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span>test&#39; :: State Stack Int
-test&#39; = push 3 &gt;&gt;= (\_ -&gt; push 4) &gt;&gt;= (\_ -&gt; push 5） &gt;&gt;= (\_ -&gt; pop)
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">test&#39;</span> <span class="ow">::</span> <span class="kt">State</span> <span class="kt">Stack</span> <span class="kt">Int</span>
+<span class="nf">test&#39;</span> <span class="ow">=</span> <span class="n">push</span> <span class="mi">3</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">push</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">push</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">pop</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ghci&gt; runState test&#39; []

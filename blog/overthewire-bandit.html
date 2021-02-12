@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/overthewire-bandit.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -91,7 +88,7 @@
 <p>题目地址: <a class="reference external" href="http://overthewire.org/wargames/bandit/">OverTheWire: Bandit</a>.</p>
 <p>考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思…
-<a href="#id2"><span class="problematic" id="id3">:raw-html-m2r:`&lt;del&gt;有意思的意思是我不会做&lt;/del&gt;`</span></a>.</p>
+<span class="sphinxnotes-strike">有意思的意思是我不会做</span>.</p>
 <div class="section" id="wechall">
 <h2>WeChall 计分板<a class="headerlink" href="#wechall" title="永久链接至标题">¶</a></h2>
 <p>OverTheWire 使用 Wechall 的计分板来计分,
@@ -114,8 +111,8 @@
 <p>在 ssh 连接的时候就会把你的帐号信息发送给远程主机.</p>
 <p>在登入一个新的关卡后, 执行 <code class="docutils literal notranslate"><span class="pre">wechall</span></code> 便可获得该关卡的分数.</p>
 </div>
-<div class="section" id="id4">
-<h2>题目<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2>题目<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="section" id="bandit17">
 <h3>bandit17<a class="headerlink" href="#bandit17" title="永久链接至标题">¶</a></h3>
 <blockquote>
@@ -142,33 +139,45 @@ ssh -i bandit17.key bandit17@bandit.labs.overthewire.org
 cat /etc/bandit_pass/bandit17
 </pre></div>
 </div>
-<blockquote>
-<div><p>key: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="bandit21">
 <h3>bandit21<a class="headerlink" href="#bandit21" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
-<p><strong>NOTE:</strong> To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.<a href="#id5"><span class="problematic" id="id6">:raw-html-m2r:`&lt;br&gt;`</span></a>
-<strong>NOTE 2:</strong> Try connecting to your own network daemon to see if it works as you think</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Try connecting to your own network daemon to see if it works as you think</p>
+</div>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">bandit20</span></code> 的家目录下提供了一个程序 <code class="docutils literal notranslate"><span class="pre">suconnect</span></code>, 会从你指定的端口读取 <code class="docutils literal notranslate"><span class="pre">bandit20</span></code> 的密码,
 如果正确的话返回本关卡的密码.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> GbKksEFF4yrVs6il55v6gwY5aVje5f0j <span class="p">|</span> nc -l -p <span class="m">1234</span> <span class="p">&amp;</span> ./suconnect <span class="m">1234</span>
 </pre></div>
 </div>
-<p>这里主要是 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 的用法, 使两个命令同时执行.</p>
-<blockquote>
-<div><p>key: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</p>
-</div></blockquote>
+<p>这里主要是 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 的用法, 使两个命令同时执行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="bandit24">
 <h3>bandit24<a class="headerlink" href="#bandit24" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.</p>
-<p><strong>NOTE:</strong> This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!<a href="#id7"><span class="problematic" id="id8">:raw-html-m2r:`&lt;br&gt;`</span></a>
-<strong>NOTE 2:</strong> Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…</p>
+</div>
 </div></blockquote>
 <p>这题我觉得有点意思.</p>
 <p>cron 是一个定时执行工具, 任务可以通过命令 <code class="docutils literal notranslate"><span class="pre">crontab</span></code> 设定,
@@ -208,10 +217,10 @@ chmod <span class="m">666</span> /tmp/tmp.xxx/
 另外, 不能用重定向导出 <code class="docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码, 因为没有权限(为什么没有权限我就不清楚了).</p>
 <p>脚本写完后, <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>, 再把它复制到 <code class="docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 目录下, 记得备份,
 每隔一分钟该目录就会被清空.</p>
-<p>脚本执行后, 到 <code class="docutils literal notranslate"><span class="pre">/tmp/tmp.xxx</span></code> 里就可以看到存有 key 的文件了.</p>
-<blockquote>
-<div><p>key: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</p>
-</div></blockquote>
+<p>脚本执行后, 到 <code class="docutils literal notranslate"><span class="pre">/tmp/tmp.xxx</span></code> 里就可以看到存有 key 的文件了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</span>
+</pre></div>
+</div>
 <div class="section" id="bandit25">
 <h4>bandit25<a class="headerlink" href="#bandit25" title="永久链接至标题">¶</a></h4>
 <blockquote>
@@ -220,25 +229,25 @@ chmod <span class="m">666</span> /tmp/tmp.xxx/
 <p>有一个守护进程在 <code class="docutils literal notranslate"><span class="pre">30002</span></code> 端口监听, 把 <code class="docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码和一个四位数字组成的 pincode 传给它,
 如果密码和 pincode 都正确的话会返回 <code class="docutils literal notranslate"><span class="pre">bandit25</span></code> 的密码.</p>
 <p>所以自然是爆破了, 直接用 nc 链接该端口会提示:</p>
-<blockquote>
-<div><p>I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">am</span> <span class="n">the</span> <span class="n">pincode</span> <span class="n">checker</span> <span class="k">for</span> <span class="n">user</span> <span class="n">bandit25</span><span class="o">.</span> <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">password</span> <span class="k">for</span> <span class="n">user</span> <span class="n">bandit24</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">secret</span> <span class="n">pincode</span> <span class="n">on</span> <span class="n">a</span> <span class="n">single</span> <span class="n">line</span><span class="p">,</span> <span class="n">separated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
+</pre></div>
+</div>
 <p>所以按照格式来, 生成 10000 个 密码 + pincode 的序列传给该端口.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i in <span class="o">{</span><span class="m">0000</span>..9999<span class="o">}</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ </span><span class="nv">$i</span><span class="s2">&quot;</span> &gt;&gt; /tmp/pin<span class="p">;</span> <span class="k">done</span>
 cat /tmp/pin <span class="p">|</span> nc localhost <span class="m">30002</span> &gt; /tmp/log
 cat /tmp/log <span class="p">|</span> grep <span class="s2">&quot;Corr&quot;</span> -n1
 </pre></div>
 </div>
-<p>其实答案就是最后一个端口…</p>
-<blockquote>
-<div><p>5670-Wrong! Please enter the correct pincode. Try again.<a href="#id9"><span class="problematic" id="id10">:raw-html-m2r:`&lt;br&gt;`</span></a>
-5671:Correct!<a href="#id11"><span class="problematic" id="id12">:raw-html-m2r:`&lt;br&gt;`</span></a>
-5672-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG</p>
-</div></blockquote>
+<p>其实答案就是最后一个端口:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>5670-Wrong! Please enter the correct pincode. Try again.
+5671:Correct!
+5672-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+</pre></div>
+</div>
 <p>所以:</p>
-<blockquote>
-<div><p>key: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="bandit26">
 <h4>bandit26<a class="headerlink" href="#bandit26" title="永久链接至标题">¶</a></h4>
@@ -260,9 +269,9 @@ cat /tmp/log <span class="p">|</span> grep <span class="s2">&quot;Corr&quot;</sp
 </pre></div>
 </div>
 <p>执行 <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/passwd</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">bandit26</span></code> 得到:</p>
-<blockquote>
-<div><p><strong>bandit26</strong>:x:11026:11026:bandit level 26:/home/<strong>bandit26</strong>:/usr/bin/showtext</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">bandit26</span><span class="o">**</span>\ <span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">11026</span><span class="p">:</span><span class="mi">11026</span><span class="p">:</span><span class="n">bandit</span> <span class="n">level</span> <span class="mi">26</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span>\ <span class="o">**</span><span class="n">bandit26</span><span class="o">**</span>\ <span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">showtext</span>
+</pre></div>
+</div>
 <p>(我到这里就卡住了)</p>
 <p>发现 <code class="docutils literal notranslate"><span class="pre">showtext</span></code> 是一个 shell 脚本, 内容如下</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
@@ -272,23 +281,26 @@ more ~/text.txt
 </pre></div>
 </div>
 <p>即 ssh 连上去后执行默认 shell, 用 <code class="docutils literal notranslate"><span class="pre">more</span></code> 打印出了 ~/text.txt 之后就退出了, 如图:</p>
+<img alt="../_images/overthewire-bandit26-1.png" src="../_images/overthewire-bandit26-1.png" />
 <p>一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 <code class="docutils literal notranslate"><span class="pre">-t</span></code> + 命令 是不行的,
 这个命令不会被解释, 因为 <code class="docutils literal notranslate"><span class="pre">bash</span></code> 没有执行.</p>
 <p>正确答案是通过 <code class="docutils literal notranslate"><span class="pre">more</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">more</span></code> 在要输出的内容行数多于终端行数的时候会停下来, 等待你翻页,
 所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, <code class="docutils literal notranslate"><span class="pre">more</span></code> 就停下来了. (好脑洞)</p>
+<img alt="../_images/overthewire-bandit26-2.png" src="../_images/overthewire-bandit26-2.png" />
 <p>在 <code class="docutils literal notranslate"><span class="pre">more</span></code> 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 <code class="docutils literal notranslate"><span class="pre">vi</span></code>,
 有了 <code class="docutils literal notranslate"><span class="pre">vi</span></code>, 就相当于有了一个终端.</p>
 <p>在命令模式执行 <code class="docutils literal notranslate"><span class="pre">:r</span> <span class="pre">/etc/bandit_pass/bandit26</span></code>, 密码的内容就会被读入.</p>
+<img alt="../_images/overthewire-bandit26-3.png" src="../_images/overthewire-bandit26-3.png" />
 <p>要打开 <code class="docutils literal notranslate"><span class="pre">sh</span></code> 的话, 可以:</p>
 <div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="k">set</span> <span class="k">shell</span> <span class="k">sh</span><span class="p">=</span><span class="sr">/bin/</span><span class="k">sh</span>
 <span class="p">:</span><span class="k">sh</span>
 </pre></div>
 </div>
-<p>这样就可以执行 <code class="docutils literal notranslate"><span class="pre">wechall</span></code> 拿分了.</p>
-<blockquote>
-<div><p>key: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z</p>
-</div></blockquote>
+<p>这样就可以执行 <code class="docutils literal notranslate"><span class="pre">wechall</span></code> 拿分了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="mi">5</span><span class="n">czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

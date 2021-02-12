@@ -19,25 +19,22 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/man/sh.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="2020" href="../misc/2020/index.html" />
+    <link rel="next" title="Vim" href="vim.html" />
     <link rel="prev" title="reStructuredText" href="rst.html" /> 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -100,7 +97,23 @@
 <dd class="field-even"><p>1</p>
 </dd>
 </dl>
-<p>Heredoc syntax:</p>
+<div class="section" id="string">
+<h3>String<a class="headerlink" href="#string" title="永久链接至标题">¶</a></h3>
+<p>Get length:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="si">${#</span><span class="nv">str</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>Substring / Slice:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">1</span><span class="p">:</span><span class="nv">4</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>Replace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="si">${</span><span class="nv">v</span><span class="p">%.md</span><span class="si">}</span>.rst
+</pre></div>
+</div>
+<div class="section" id="heredoc">
+<h4>Heredoc<a class="headerlink" href="#heredoc" title="永久链接至标题">¶</a></h4>
+<p>Syntax:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF</span>
 <span class="s">... Heredoc content</span>
 <span class="s">EOF</span>
@@ -110,15 +123,33 @@
 <p class="admonition-title">注解</p>
 <p>Shell variables in heredoc will be expanded</p>
 </div>
-<p>Avoid shell expanding variables in heredoc:</p>
+<p>Avoid shell expanding variables:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;&#39;EOF&#39;</span>
 <span class="s">... Heredoc ${content}</span>
 <span class="s">EOF</span>
 </pre></div>
 </div>
-<p>Replace ext in filename</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="si">${</span><span class="nv">v</span><span class="p">%.md</span><span class="si">}</span>.rst
+</div>
+</div>
+<div class="section" id="command-line-arguments">
+<h3>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="永久链接至标题">¶</a></h3>
+<p>Number of pass-in arguments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$#</span>
 </pre></div>
+</div>
+<p>The “pass-in argument list:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$*</span> <span class="c1"># Default, an **array**</span>
+<span class="nv">$@</span> <span class="c1"># Default, a **string**</span>
+</pre></div>
+</div>
+<p>The arguments of previous command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!^      <span class="c1"># First one</span>
+!$      <span class="c1"># Last one</span>
+!*      <span class="c1"># All</span>
+!:n     <span class="c1"># N-th</span>
+!:n-m   <span class="c1"># Range n~m</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -155,7 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/interval-of-music.html">音程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/painters.html">基于艺术家的艺术史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/painters.html">艺术家史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/books/index.html">读书笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
@@ -169,7 +200,6 @@
 <p class="caption"><span class="caption-text">手册</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="awk.html">Awk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="css.html">CSS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpg.html">GnuPG</a></li>
@@ -179,9 +209,11 @@
 <li class="toctree-l1"><a class="reference internal" href="magick.html">ImageMagick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="make.html">Makefile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="py.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vim.html">Vim</a></li>
 </ul>
 <p class="caption"><span class="caption-text">随记</span></p>
 <ul>
@@ -205,7 +237,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="rst.html" title="上一章">reStructuredText</a></li>
-      <li>Next: <a href="../misc/2020/index.html" title="下一章">2020</a></li>
+      <li>Next: <a href="vim.html" title="下一章">Vim</a></li>
   </ul></li>
 </ul>
 </div>

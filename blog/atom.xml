@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me</id>
   <title>银色子弹</title>
-  <updated>2021-02-11T07:56:55.868793+00:00</updated>
+  <updated>2021-02-12T09:48:00.659058+00:00</updated>
   <link href="https://silverrainz.me"/>
   <link href="https://silverrainz.me/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -147,17 +147,8 @@
 &lt;p&gt;while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic View模式, 这样汇编代码显得很清晰,
 把重点放在while循环对应的那部分, 简单分析得到, 红笔标注的地方就是程序内为数不多的循环了,
 循环之后多条并排的绿线那里是多路if,最后的是正确与否的判断以及输出.&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/idf-reverse-writeup-11.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/idf-reverse-writeup-11.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt="1"/&gt;
-                &lt;/a&gt;&lt;p&gt;关键代码如下, interator 对应var_14, arr_1 对应var_40, arr_2 对应 var_c0:&lt;/p&gt;
+&lt;img alt="1" src="_images/idf-reverse-writeup-1.png" /&gt;
+&lt;p&gt;关键代码如下, interator 对应var_14, arr_1 对应var_40, arr_2 对应 var_c0:&lt;/p&gt;
 &lt;div class="highlight-nasm notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nl"&gt;loc_40097C:&lt;/span&gt;
 &lt;span class="nf"&gt;cmp&lt;/span&gt;     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;rbp&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mh"&gt;10h&lt;/span&gt;    &lt;span class="c1"&gt;; 循环总次数&lt;/span&gt;
 &lt;span class="nf"&gt;setle&lt;/span&gt;   &lt;span class="nb"&gt;al&lt;/span&gt;
@@ -185,29 +176,11 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;经过以上分析可以知道 arr_1 应该是我们输入的key, 所以有必要知道arr_2 的值, 跳转到arr_2的定义:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/idf-reverse-writeup-21.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/idf-reverse-writeup-21.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt="2"/&gt;
-                &lt;/a&gt;&lt;p&gt;是空的…
+&lt;img alt="2" src="_images/idf-reverse-writeup-2.png" /&gt;
+&lt;p&gt;是空的…
 但是我们回到代码中, 对arr_2有这样的操作:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/idf-reverse-writeup-31.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/idf-reverse-writeup-31.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt="3"/&gt;
-                &lt;/a&gt;&lt;p&gt;刚好17个项(0-10h),
+&lt;img alt="3" src="_images/idf-reverse-writeup-3.png" /&gt;
+&lt;p&gt;刚好17个项(0-10h),
 所以说 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;arr_i[i]&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;((arr_2[i]&lt;/span&gt; &lt;span class="pre"&gt;–&lt;/span&gt; &lt;span class="pre"&gt;1)&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;(arr_2[i]&lt;/span&gt; &lt;span class="pre"&gt;–&lt;/span&gt; &lt;span class="pre"&gt;1)&amp;gt;&amp;gt;0x1f)&amp;gt;&amp;gt;1&lt;/span&gt;&lt;/code&gt;
 (忽略了shr 和 sar 以及各种细节问题… 所幸没有出错)
 (vim 来处理这些最爽了)&lt;/p&gt;
@@ -322,19 +295,33 @@ byte_415768 db 73h
     </author>
     <content type="html">&lt;div class="section" id="hello-haskell"&gt;
 
-&lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本「Haskell趣学指南」，
-这下子更没有不学的理由了。&lt;/p&gt;
-&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 Fleurer，我曾经好几次发邮件询问他有关OS的事情，
-没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的宋方睿大神，, 曾经在中大听过蓝莲花的宣讲会，
+&lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
+&lt;a class="reference internal" href="todo.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
+&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;Fleurer&lt;/span&gt;&lt;/code&gt; ，我曾经好几次发邮件询问他有关OS的事情，
+没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;MaskRay&lt;/span&gt;&lt;/code&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
+&lt;div class="topic"&gt;
+&lt;p class="topic-title"&gt;2021-02-12&lt;/p&gt;
+&lt;p&gt;当时在宣讲会上的是诸葛建伟老师和 &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:people:`ztrix &amp;lt;https://ztrix.me&amp;gt;`&lt;/span&gt;&lt;/a&gt; ，
+后来我加入长亭科技，ztrix 自然也成为了我的老板。&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 19)&lt;/p&gt;
+&lt;p&gt;No role entry for “people” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “people” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 19); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “people”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;好了说点正事。&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;div class="section" id="id3"&gt;
 &lt;h2&gt;安装&lt;/h2&gt;
 &lt;p&gt;Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sudo&lt;/span&gt; &lt;span class="pre"&gt;zypper&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;ghc&lt;/span&gt;&lt;/code&gt;,
 但是比ghc更方便的是Haskell Platform, 安装同样可以&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sudo&lt;/span&gt; &lt;span class="pre"&gt;zypper&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;haskell-platform&lt;/span&gt;&lt;/code&gt;,
 在 Windows 上则可以直接去官网下载安装包。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;div class="section" id="id4"&gt;
 &lt;h2&gt;随便说说&lt;/h2&gt;
 &lt;p&gt;因为借书的时候已经是考试周的前夕，所以到现在翻看书的时间仅限于之前在阅览室里无聊的那一会还有回家的路上，
 现在是第五章，似乎有点初窥门径的感觉，又怕是自己想得太简单了。 总得来说是这么些感受吧：&lt;/p&gt;
@@ -357,12 +344,10 @@ byte_415768 db 73h
 &lt;span class="nf"&gt;multThree&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;你可以将函数看做小工厂， 它们会取一些原材料，然后生产一些东西，对于上面的代码，
+&lt;p&gt;你可以将函数看做小工厂， 它们会取一些原材料，然后生产一些东西，对于上面的代码，
 执行 multThree 3 5 9，我们将数值3喂给multThree工厂，这个工厂产生了一个更小的工厂，
 这家小工厂得到数值5，继续搞出来一家小工厂， 第三家工厂得到数值9,产出最终的结果，
 也就是135。&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
 &lt;div class="highlight-haskell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;qsort&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Ord&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="nf"&gt;qsort&lt;/span&gt; &lt;span class="kt"&gt;[]&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;[]&lt;/span&gt;
 &lt;span class="nf"&gt;qsort&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="kt"&gt;:&lt;/span&gt;&lt;span class="n"&gt;xs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;qsort&lt;/span&gt; &lt;span class="n"&gt;lteq&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="n"&gt;qsort&lt;/span&gt; &lt;span class="n"&gt;gt&lt;/span&gt;
@@ -390,9 +375,18 @@ byte_415768 db 73h
 &lt;p&gt;书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。&lt;/p&gt;
 &lt;p&gt;不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，
 有个想法就是将整段代码按是否高亮划分为一些元素:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;关键字，字符，宏，字符串，块注释，行注释，数字，函数，空白，其他&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;关键字&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;字符&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;宏&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;字符串&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;块注释&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;行注释&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;数字&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;函数&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;空白&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过这个想法暂时没实现。&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;正则&lt;/h2&gt;
@@ -407,43 +401,32 @@ byte_415768 db 73h
 &lt;p&gt;写正则实在是太烧脑子了，匹配奇数个可以用 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;[^\\]((\\\\)*\\&amp;quot;)&lt;/span&gt;&lt;/code&gt; ，
 然后最后面的引号只能左侧包含偶数个引号 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;[^\\]((\\\\)*&amp;quot;)&lt;/span&gt;&lt;/code&gt;
 （本来可以将两个分组用后向引用省略了，试了一下发现错误，也不知道怎么解决）
-最后写出来是恶心的表达式：&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;(.|[^\\](\\\\)*&amp;quot;)*?[^\\](\\\\)*&amp;quot;&lt;/span&gt;&lt;/code&gt;，但是还是有问题：&lt;/p&gt;
+最后写出来是恶心的表达式：&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;(.|[^\\](\\\\)*&amp;quot;)*?[^\\](\\\\)*&amp;quot;&lt;/span&gt;&lt;/code&gt;，但是还是有问题:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;“regexp”                    匹配 “regexp”&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-“regexp&amp;quot;regexp”            匹配 “regexp&amp;quot;regexp”&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-“reg &amp;quot; exp”reg”exp”       匹配 “reg &amp;quot; 和 “reg”&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-“reg &amp;quot;””regexp”           匹配 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;reg&lt;/span&gt; &lt;span class="pre"&gt;\\&amp;quot;&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;&amp;quot;regexp&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 46)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id3"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 46); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 46)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id5"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 46); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 46)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id7"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 46); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;div&gt;&lt;table class="docutils align-default"&gt;
+&lt;colgroup&gt;
+&lt;col style="width: 43%" /&gt;
+&lt;col style="width: 57%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;“regexp”&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;匹配 “regexp”&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;“regexp&amp;quot;regexp”&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;匹配 “regexp&amp;quot;regexp”&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;“reg &amp;quot; exp”reg”exp”&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;匹配 “reg &amp;quot; 和 “reg”&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;“reg &amp;quot;””regexp”&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;匹配 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;reg&lt;/span&gt; &lt;span class="pre"&gt;\\&amp;quot;&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;&amp;quot;regexp&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;就最后一个错了，因为”也是满足&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;[^\\](\\\\)*&amp;quot;&lt;/span&gt;&lt;/code&gt;的，懒得再想了。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
+&lt;div class="section" id="id3"&gt;
 &lt;h3&gt;反斜杠的转义&lt;/h3&gt;
 &lt;p&gt;还有一个问题，也是转义，本来为了代码的简洁，将正则表达式写在了文件里，每行一个，
 逐行读取，接下来读每个正则对应的颜色，代码很漂亮：&lt;/p&gt;
@@ -457,27 +440,25 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 而当你从文件里面读 “n” 的时候，他就真的是“n” 了，他代表一个反斜杠和一个字符n。
 你没法从文件的一行里面读取一个回车吧，并且n后面还有内容，所以这种方案失败，
 我只把关键字放在了文件里。代码变成了：&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;```haskell
-pattern&amp;#39; = [ &amp;quot;/\\*(.|\n|\r)*\\*/&amp;quot;
-           , &amp;quot;//.*&amp;quot;
-           , &amp;quot;#.*&amp;quot;
-           , &amp;quot;\&amp;quot;(.|(\\\\\\\\)*\\\\\&amp;quot;)*[^\\\\](\\\\\\\\)*\&amp;quot;&amp;quot;
-           ]
-color = [&amp;quot;Purple&amp;quot;, &amp;quot;Gray&amp;quot;, &amp;quot;Red&amp;quot;, &amp;quot;Green&amp;quot;, &amp;quot;Blue&amp;quot;]
-main = do
-        keywords &amp;lt;- readFile &amp;quot;keywords.txt&amp;quot;
-        let pattern = pattern&amp;#39; ++ [keywords]
-            patCol = zip pattern color
-```
+&lt;div class="highlight-haskell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;pattern&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;*(.|&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;|&lt;/span&gt;&lt;span class="se"&gt;\r&lt;/span&gt;&lt;span class="s"&gt;)*&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;*/&amp;quot;&lt;/span&gt;
+           &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;//.*&amp;quot;&lt;/span&gt;
+           &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;#.*&amp;quot;&lt;/span&gt;
+           &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;(.|(&lt;/span&gt;&lt;span class="se"&gt;\\\\\\\\&lt;/span&gt;&lt;span class="s"&gt;)*&lt;/span&gt;&lt;span class="se"&gt;\\\\\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;)*[^&lt;/span&gt;&lt;span class="se"&gt;\\\\&lt;/span&gt;&lt;span class="s"&gt;](&lt;/span&gt;&lt;span class="se"&gt;\\\\\\\\&lt;/span&gt;&lt;span class="s"&gt;)*&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;
+           &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nf"&gt;color&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Purple&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Gray&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Green&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nf"&gt;main&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+        &lt;span class="n"&gt;keywords&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;readFile&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;keywords.txt&amp;quot;&lt;/span&gt;
+        &lt;span class="kr"&gt;let&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pattern&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;keywords&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="n"&gt;patCol&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zip&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;这里又引发一个问题是：之前本来不用转义的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;quot;&lt;/span&gt;&lt;/code&gt; 变成了 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;\&amp;quot;&lt;/span&gt;&lt;/code&gt;，需要转义一次的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;\\&lt;/span&gt;&lt;/code&gt;，变成了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;\\\\&lt;/span&gt;&lt;/code&gt;，
 表达式更难看了。 而且需要注意到的是最难看的那个表达式里面的懒惰匹配 “?” 没有出现，
 我一加他就出错。所以出现了更多的问题，效果比在测试器里面的还差。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;&lt;strong&gt;2015.3.2: 事实上Haskell的Posix库的底层是C的Regex.h,
-并且Posix规范的正则并不支持懒惰匹配。&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="topic"&gt;
+&lt;p class="topic-title"&gt;2015.3.2 update:&lt;/p&gt;
+&lt;p&gt;事实上Haskell的Posix库的底层是C的Regex.h,并且Posix规范的正则并不支持懒惰匹配。&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="haskell"&gt;
@@ -490,7 +471,7 @@ main = do
 调用这个函数的函数也必须是IO操作，这一循环直到main才终止。当然Haskell这样做肯定是有它的理由的，
 但是他们所说的“纯粹与非纯粹的分离”，我还暂时体会不到这样做的好处。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
+&lt;div class="section" id="id4"&gt;
 &lt;h3&gt;不知道这么写是否合适&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;我将正则保存在一个列表，将每个正则对应的颜色保存在另一个列表，
@@ -544,186 +525,7 @@ main = do
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;最后的结果如下：&lt;/p&gt;
-&lt;p&gt;{::nomarkdown}&lt;/p&gt;
-&lt;p&gt;&lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;:raw-html-m2r:`&amp;lt;div style=&amp;quot;background: #ffffff; color: black; padding:8px&amp;quot;&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 171)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id11"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 171); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;:raw-html-m2r:`&amp;lt;pre&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;import&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; javax.swing.&lt;em&gt;;
-:raw-html-m2r:`&amp;lt;font color=Purple&amp;gt;`/&lt;/em&gt; Test &lt;em&gt;/
-:raw-html-m2r:`&amp;lt;font color=Red&amp;gt;#Test&amp;lt;/font&amp;gt;`
-/&lt;/em&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 173)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id13"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 173); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 173)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id15"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 173); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Block Comment
-&lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;*&lt;/span&gt;&lt;/a&gt;/&amp;lt;/font&amp;gt;
-&lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;public&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; &lt;a href="#id21"&gt;&lt;span class="problematic" id="id22"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;static&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; &lt;a href="#id23"&gt;&lt;span class="problematic" id="id24"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;void&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; main(String args){&lt;/p&gt;
-&lt;div class="system-message" id="id17"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Inline emphasis start-string without end-string.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id19"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id21"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179); &lt;em&gt;&lt;a href="#id22"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id23"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 179); &lt;em&gt;&lt;a href="#id24"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;Unexpected indentation.&lt;/p&gt;
-&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;&lt;a href="#id25"&gt;&lt;span class="problematic" id="id26"&gt;:raw-html-m2r:`&amp;lt;font color=Gray&amp;gt;// Line Comment&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-&lt;a href="#id27"&gt;&lt;span class="problematic" id="id28"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;int&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; a;
-&lt;a href="#id29"&gt;&lt;span class="problematic" id="id30"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;char&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; b = ‘a’;
-String str1 = &lt;a href="#id31"&gt;&lt;span class="problematic" id="id32"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;new&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; String(&lt;a href="#id33"&gt;&lt;span class="problematic" id="id34"&gt;:raw-html-m2r:`&amp;lt;font color=Green&amp;gt;&amp;quot;Who cares?&amp;quot;&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt;);
-String str2 = &lt;a href="#id35"&gt;&lt;span class="problematic" id="id36"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;new&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; String(&lt;a href="#id37"&gt;&lt;span class="problematic" id="id38"&gt;:raw-html-m2r:`&amp;lt;font color=Green&amp;gt;&amp;quot;Who\&amp;quot; cares?&amp;quot;&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt;);
-String str1 = &lt;a href="#id39"&gt;&lt;span class="problematic" id="id40"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;new&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; String(&lt;a href="#id41"&gt;&lt;span class="problematic" id="id42"&gt;:raw-html-m2r:`&amp;lt;font color=Green&amp;gt;&amp;quot;Who \\&amp;quot;cares?&amp;quot;&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt;);
-a = a + b;
-&lt;a href="#id43"&gt;&lt;span class="problematic" id="id44"&gt;:raw-html-m2r:`&amp;lt;font color=Blue&amp;gt;return&amp;lt;/font&amp;gt;`&lt;/span&gt;&lt;/a&gt; 0;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id25"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id26"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id27"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id28"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id29"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id30"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id31"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id32"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id33"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id34"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id35"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id36"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id37"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id38"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id39"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id40"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id41"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id42"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id43"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 182); &lt;em&gt;&lt;a href="#id44"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/syntax-highlight-in-haskell.rst&lt;/span&gt;, line 190)&lt;/p&gt;
-&lt;p&gt;Block quote ends without a blank line; unexpected unindent.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;}&amp;lt;/pre&amp;gt; &amp;lt;/div&amp;gt;
-{:/nomarkdown}&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;img alt="_images/2021-02-12_14:56:46.png" src="_images/2021-02-12_14:56:46.png" /&gt;
 &lt;p&gt;可以看到最后一个字符串是着色错误的。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -787,17 +589,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;p&gt;这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
 想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
 好吧原来这么久简单的东西花了我那么多时间.&lt;/p&gt;
-&lt;p&gt;虽然到现在的我都没把趣学指南看完因为课有点多&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;事实上是太懒了&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;, 只看到了State Monad这里吧,
+&lt;p&gt;虽然到现在的我都没把趣学指南看完因为课有点多&lt;span class="sphinxnotes-strike"&gt;事实上是太懒了&lt;/span&gt;, 只看到了State Monad这里吧,
 还不是太懂, 一旦碰到「作为Monad值的函数」,「作为Applicate值的函数」这种东西我就抓瞎了.&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/matrix-arithmetic-in-haskell.rst&lt;/span&gt;, line 16)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/matrix-arithmetic-in-haskell.rst&lt;/span&gt;, line 16); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
 &lt;p&gt;说回矩阵吧, 用Haskell写这个还是挺爽的, 相较于C来说:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;不用和各种数组下标打交道&lt;/p&gt;&lt;/li&gt;
@@ -898,59 +691,14 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他很方便地安装
 「符合中国国情」的各种软件, 比如QQ, 斗地主, 美图什么的.
 当然我只是想用QQ(或许再加上个网易云音乐?). winetricks 本来是一个脚本,
-用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;git clone &lt;a class="reference external" href="mailto:git&amp;#37;&amp;#52;&amp;#48;github&amp;#46;com"&gt;git&lt;span&gt;&amp;#64;&lt;/span&gt;github&lt;span&gt;&amp;#46;&lt;/span&gt;com&lt;/a&gt;:hillwoodroc/winetricks-zh.git&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-cd winetricks-zh&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-cp winetricks /usr/bin/winetricks&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-cd verb&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-winetricks &lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;:raw-html-m2r:`&amp;lt;要安装的应用对应的verb文件&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
+用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="nd"&gt;@github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;hillwoodroc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;winetricks&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;winetricks&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zh&lt;/span&gt;
+&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;winetricks&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;winetricks&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;verb&lt;/span&gt;
+&lt;span class="n"&gt;winetricks&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id3"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id5"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id7"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id9"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/some-minds-about-linux.rst&lt;/span&gt;, line 40); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;最开始安装的是QQ轻聊版, 在winetricks qqlight.verb时遇到问题, 首先脚本要从Sourceforge上拉东西,
 要备一张梯子(所以也折腾了一会儿的GoAgent), 安装好了之后打开来, QQ却莫名假死,
 不能操作, 而且在安装完成后启动一次, 桌面上没有启动器, 我以为要自己去挂载的磁盘上找,
@@ -989,7 +737,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;div class="section" id="do"&gt;
 
-&lt;p&gt;明明在开学的时候，《趣学指南》就只剩下三十来页了，但是还书日在即，
+&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="todo.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。&lt;/p&gt;
 &lt;p&gt;当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
@@ -1030,20 +778,11 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     &lt;span class="n"&gt;pop&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;结果应该是：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;ghci&amp;gt; runState test []&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-(5,[4,3])&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/do-notation-and-bind-of-haskell.rst&lt;/span&gt;, line 70)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
+&lt;p&gt;结果应该是:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ghci&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;runState&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/do-notation-and-bind-of-haskell.rst&lt;/span&gt;, line 70); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;怎么用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;改写上面的do notation呢？&lt;/p&gt;
 &lt;p&gt;do实际上是嵌套的&amp;gt;&amp;gt;=的一个语法糖，&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;x&lt;/span&gt; &lt;span class="pre"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="pre"&gt;foo&lt;/span&gt;&lt;/code&gt; 就是一个绑定， 而且一旦绑定，
 在之后的语句里也可以使用x了，所以相当于&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;foo&lt;/span&gt; &lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="pre"&gt;(\x&lt;/span&gt; &lt;span class="pre"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="pre"&gt;后面的语句)&lt;/span&gt;&lt;/code&gt;。
@@ -1065,8 +804,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 如果用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;串起来应该是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pop&lt;/span&gt; &lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="pre"&gt;push&lt;/span&gt; &lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="pre"&gt;push&lt;/span&gt; &lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="pre"&gt;push&lt;/span&gt;&lt;/code&gt;，
 但是要push三个值，push并不需要从&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;接收值，
 可以用lambda来更改(因为没有利用到前面的值，所以这里嵌套与否都没问题)：&lt;/p&gt;
-&lt;div class="highlight-haskell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;test&amp;#39; :: State Stack Int
-test&amp;#39; = push 3 &amp;gt;&amp;gt;= (\_ -&amp;gt; push 4) &amp;gt;&amp;gt;= (\_ -&amp;gt; push 5） &amp;gt;&amp;gt;= (\_ -&amp;gt; pop)
+&lt;div class="highlight-haskell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;test&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;State&lt;/span&gt; &lt;span class="kt"&gt;Stack&lt;/span&gt; &lt;span class="kt"&gt;Int&lt;/span&gt;
+&lt;span class="nf"&gt;test&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="kr"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="kr"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="kr"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="highlight-text notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ghci&amp;gt; runState test&amp;#39; []
@@ -1636,16 +1375,7 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;脚本&lt;/h2&gt;
 &lt;p&gt;这个脚本的功能很简单, 就是根据指定的参数, 把指定的配置从仓库中复制到用户目录(deploy),
-或者把用户目录下的配置复制到仓库(collect).&lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;这样都能写100多行!&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/first-attempt-of-python.rst&lt;/span&gt;, line 30)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id2"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/first-attempt-of-python.rst&lt;/span&gt;, line 30); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+或者把用户目录下的配置复制到仓库(collect).&lt;span class="sphinxnotes-strike"&gt;这样都能写100多行!&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;现在只支持我常用的三个软件的配置: vim, pentadacytl, zsh.&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sync&lt;/span&gt;   &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;used&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;sync&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt;
 &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;sync&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;operation&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -1664,21 +1394,21 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;div class="section" id="id2"&gt;
 &lt;h2&gt;缩进&lt;/h2&gt;
 &lt;p&gt;Python 的一大特点就是用缩进来划分代码块, 这会让 if 的嵌套变得很不清晰,
 偏偏又不提供 switch 语句或者 Pattern Matching, 所以代码中的各种 if 又省不了,
 这个有点痛苦. 不过 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;if&lt;/span&gt; &lt;span class="pre"&gt;xx&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;[...]&lt;/span&gt;&lt;/code&gt; 这样的语法我倒是觉得挺好的,
 避免了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;if&lt;/span&gt; &lt;span class="pre"&gt;a==xx&lt;/span&gt; &lt;span class="pre"&gt;||&lt;/span&gt; &lt;span class="pre"&gt;a&lt;/span&gt; &lt;span class="pre"&gt;==&lt;/span&gt; &lt;span class="pre"&gt;xxx&lt;/span&gt; &lt;span class="pre"&gt;||&lt;/span&gt; &lt;span class="pre"&gt;...&lt;/span&gt;&lt;/code&gt; 这样的超长 if.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;div class="section" id="id3"&gt;
 &lt;h2&gt;函数式特性&lt;/h2&gt;
 &lt;p&gt;再跑一下题, 我在这学期看了F叔的「Haskell趣学指南」, 自觉 Haskell 这门语言难以入门,
 至今写过的代码也不过寥寥数行, 只能算是大概了解了他的语法, 却因此沾染上了一些「恶习」,
 老想在其他语言里使用那些FP的语法特性, 或者是当用这些特定可以让代码更好的时候,
 抱怨 xxx 怎么没有这个语法. 我自己都觉得有点可笑, 不过, Python 一定程度上满足了我这奇怪的要求.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;div class="section" id="id4"&gt;
 &lt;h2&gt;高阶函数&lt;/h2&gt;
 &lt;p&gt;很高兴 Python 里面提供了部分函数式语言的特性, 我在这个小脚本里用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;map&lt;/span&gt;&lt;/code&gt;用得很爽.
 sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信息, 本来我是这样写的:&lt;/p&gt;
@@ -1704,7 +1434,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
+&lt;div class="section" id="id5"&gt;
 &lt;h2&gt;被弃用的元组参数解包&lt;/h2&gt;
 &lt;p&gt;本来上面那个翻转元组的 lambda 在 Python 2+ 可以这么写:&lt;/p&gt;
 &lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1712,7 +1442,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/div&gt;
 &lt;p&gt;类似模式匹配的写法感觉很不错, 可是不知道为什么在 3.0 中这个语法被移除了.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
+&lt;div class="section" id="id6"&gt;
 &lt;h2&gt;部分应用&lt;/h2&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;map&lt;/span&gt;&lt;/code&gt;只能对 list 映射只有一个参数的函数, 在 Haskell 中我们可以用部分应用
 获得一个只需要一个参数的函数, 在 Python 中似乎不能直接做到, 但我们有折衷的办法:&lt;/p&gt;
@@ -1723,22 +1453,13 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/div&gt;
 &lt;p&gt;用一个 lambda 来使得&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;deploy&lt;/span&gt;&lt;/code&gt;对外只有一个参数.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
+&lt;div class="section" id="id7"&gt;
 &lt;h2&gt;库&lt;/h2&gt;
 &lt;p&gt;Python 库大概是 Python 备受推崇的一个重要原因, 可惜我的脚本只是在做文件复制,
 没有用到什么特别的库.&lt;/p&gt;
 &lt;p&gt;不过拜 Python 良好的跨平台能力, 我不需要为处理 Windows 和 Linux 下不同的文件操作各写一份代码,
 只需要对路径做些处理就行了.&lt;/p&gt;
-&lt;p&gt;&lt;a href="#id10"&gt;&lt;span class="problematic" id="id11"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;感觉好像什么都没写啊(摔...&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/first-attempt-of-python.rst&lt;/span&gt;, line 136)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id10"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/first-attempt-of-python.rst&lt;/span&gt;, line 136); &lt;em&gt;&lt;a href="#id11"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;感觉好像什么都没写啊(摔…&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
@@ -1852,20 +1573,20 @@ Plugin &lt;span class="s1"&gt;&amp;#39;Valloric/YouCompleteMe&amp;#39;&lt;/span&
 &lt;p&gt;首先从 &lt;a class="reference external" href="ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2"&gt;vim-7.4.tar.bz2&lt;/a&gt;
 下载 vim 7.4 的源码, 解压.&lt;/p&gt;
 &lt;p&gt;删除原来的 vim&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;➜  ~  zypper rm gvim
-➜  ~  zypper rm vim
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ~  zypper rm gvim
+$ ~  zypper rm vim
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;先安装各种依赖包:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;➜  ~  zypper in python-devel
-➜  ~  zypper in ruby-devel
-➜  ~  zypper in lua-devel
-➜  ~  zypper in ncurses-devel
-➜  ~  zypper in libx11-devel
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ~  zypper in python-devel
+$ ~  zypper in ruby-devel
+$ ~  zypper in lua-devel
+$ ~  zypper in ncurses-devel
+$ ~  zypper in libx11-devel
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;编译:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;➜  ~ ./configure --with-features&lt;span class="o"&gt;=&lt;/span&gt;huge &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ~ ./configure --with-features&lt;span class="o"&gt;=&lt;/span&gt;huge &lt;span class="se"&gt;\&lt;/span&gt;
             --enable-rubyinterp  &lt;span class="se"&gt;\&lt;/span&gt;
             --enable-pythoninterp &lt;span class="se"&gt;\&lt;/span&gt;
             --with-python-config-dir&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib64/python2.7/config &lt;span class="se"&gt;\&lt;/span&gt;
@@ -1878,18 +1599,19 @@ Plugin &lt;span class="s1"&gt;&amp;#39;Valloric/YouCompleteMe&amp;#39;&lt;/span&
             --enable-multibyte &lt;span class="se"&gt;\&lt;/span&gt;
             --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr &lt;span class="se"&gt;\&lt;/span&gt;
             --enable-fail-if-missing
-➜  ~ make
-➜  ~ sudo make install
+$ ~ make
+$ ~ sudo make install
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;安装后就可以编译 YCM 了:&lt;/p&gt;
-&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;➜  ~ zypper in llvm-clang cmake
-➜  ~ &lt;span class="nb"&gt;cd&lt;/span&gt; .vim/bundle/YouCompleteMe
-➜  ~ ./install.sh
+&lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ~ zypper in llvm-clang cmake
+$ ~ &lt;span class="nb"&gt;cd&lt;/span&gt; .vim/bundle/YouCompleteMe
+$ ~ ./install.sh
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;安装完成.&lt;/p&gt;
 &lt;p&gt;截图一张:&lt;/p&gt;
+&lt;img alt="_images/vim-plugin-screenshot.png" src="_images/vim-plugin-screenshot.png" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
@@ -1907,50 +1629,34 @@ Plugin &lt;span class="s1"&gt;&amp;#39;Valloric/YouCompleteMe&amp;#39;&lt;/span&
 
 &lt;p&gt;这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/archlinux-screenshot1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/archlinux-screenshot1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Index&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;img alt="" src="_images/archlinux-screenshot.png" /&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 21)&lt;/p&gt;
-&lt;p&gt;Bullet list ends without a blank line; unexpected unindent.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 21)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 19)&lt;/p&gt;
 &lt;p&gt;No directive entry for “contents” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#arch-linux" id="id16"&gt;Arch Linux 折腾小记&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#arch-linux" id="id6"&gt;Arch Linux 折腾小记&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#xmonad-wm" id="id17"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id10" id="id18"&gt;无线网络管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#im" id="id19"&gt;IM&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#xmonad-wm" id="id7"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id2" id="id8"&gt;无线网络管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#im" id="id9"&gt;IM&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#qq" id="id20"&gt;QQ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id11" id="id21"&gt;其他&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#qq" id="id10"&gt;QQ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;其他&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gtk" id="id22"&gt;GTK&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id14" id="id23"&gt;输入法:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id15" id="id24"&gt;配置文件&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gtk" id="id12"&gt;GTK&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id13"&gt;输入法:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id5" id="id14"&gt;配置文件&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xmonad-wm"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;没有用 DE, WM 用的是 XMonad.&lt;/p&gt;
 &lt;p&gt;关于 XMonad 的默认快捷键, &lt;a class="reference external" href="http://xmonad.org/tour.html"&gt;XMonad Guide Tour&lt;/a&gt;
 这篇官方的这篇文档很容易看懂.&lt;/p&gt;
@@ -1959,24 +1665,11 @@ Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;xmonad, xmonad-contrib&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;xmobar&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;dmenu&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;trayer&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt; trayer-srg&lt;a href="#id4"&gt;&lt;span class="problematic" id="id5"&gt;:raw-html-m2r:`&amp;lt;sup&amp;gt;AUR&amp;lt;/sup&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;trayer&lt;/span&gt; trayer-srg&lt;sup&gt;AUR&lt;/sup&gt;&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 37)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id2"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 37); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 37)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id4"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 37); &lt;em&gt;&lt;a href="#id5"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 35)&lt;/p&gt;
+&lt;p&gt;No role entry for “sup” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for role “sup”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;feh&lt;/p&gt;&lt;/li&gt;
@@ -1984,16 +1677,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;compton&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;xmobar, 配置文件在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.xmobarrc&lt;/span&gt;&lt;/code&gt;, 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
-也可以自己获取系统信息, &lt;a href="#id6"&gt;&lt;span class="problematic" id="id7"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 42)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id6"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 42); &lt;em&gt;&lt;a href="#id7"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+也可以自己获取系统信息, &lt;span class="sphinxnotes-strike"&gt;我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;2015-8-30: 使用 ArchLinux Wiki 中建议的字体, 效果良好.
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;font&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;&amp;quot;xft:Bitstream&lt;/span&gt; &lt;span class="pre"&gt;Vera&lt;/span&gt; &lt;span class="pre"&gt;Sans&lt;/span&gt; &lt;span class="pre"&gt;Mono:size=9:bold:antialias=true&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
@@ -2001,16 +1685,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;p&gt;dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mod&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;q&lt;/span&gt;&lt;/code&gt;触发.&lt;/p&gt;
 &lt;p&gt;trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg&lt;a href="#id8"&gt;&lt;span class="problematic" id="id9"&gt;:raw-html-m2r:`&amp;lt;sup&amp;gt;AUR&amp;lt;/sup&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 57)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id8"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 57); &lt;em&gt;&lt;a href="#id9"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;div&gt;&lt;p&gt;2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg&lt;sup&gt;AUR&lt;/sup&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;trayer --edge top --align right --widthtype percent --width &lt;span class="m"&gt;11&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
        --SetDockType &lt;span class="nb"&gt;true&lt;/span&gt; --SetPartialStrut &lt;span class="nb"&gt;true&lt;/span&gt; --transparent &lt;span class="nb"&gt;true&lt;/span&gt; --alpha &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
@@ -2038,8 +1713,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 只能在截图后用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-e&lt;/span&gt; &lt;span class="pre"&gt;'mv&lt;/span&gt; &lt;span class="pre"&gt;$f&lt;/span&gt; &lt;span class="pre"&gt;~/Pictures/Screenshots'&lt;/span&gt;&lt;/code&gt;把截图放到指定目录.&lt;/p&gt;
 &lt;p&gt;上面这些配置大多写在启动脚本&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;startup.sh&lt;/span&gt;&lt;/code&gt;里, 每个命令后边都得加上一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;amp;&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;无线网络管理&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;无线网络管理&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为了更方便地连接无线网络, 安装如下包:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;networkmanager&lt;/p&gt;&lt;/li&gt;
@@ -2052,9 +1727,9 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;p&gt;似乎不安装 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-keyring&lt;/span&gt;&lt;/code&gt;的话就无法连上加密的无线网络.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="im"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;IM&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;IM&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="qq"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;QQ&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;QQ&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 &lt;a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773"&gt;邓攀打包的TM2013&lt;/a&gt;,
 似乎没有预期中的 out of box, 字体不行, 密码输入也不行.
@@ -2064,8 +1739,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;其他&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;其他&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;IRC 客户端用火狐的 ChatZilla&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Telegram 客户端用 Cutegram, 得装 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fcitx-qt5&lt;/span&gt;&lt;/code&gt; 才能正常输入,
@@ -2075,29 +1750,25 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gtk"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;GTK&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;GTK&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;默认的 gtk 界面在 XMonad 下相当地丑, 可以安装&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;lxappearance&lt;/span&gt;&lt;/code&gt;来调整 GTK 的主题.&lt;/p&gt;
 &lt;p&gt;对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;2015-7-24: 经过 IRC 里 {% include friend name=”farseerfc” %} 前辈和
-{% include friend name=”quininer” %} 的&lt;a href="#id12"&gt;&lt;span class="problematic" id="id13"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;调教&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;, 发现原来 dolphin 还是 kde4
-而 konsole 已经是 kde5 了.&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 145)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 141)&lt;/p&gt;
+&lt;p&gt;No directive entry for “topic” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id12"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 145); &lt;em&gt;&lt;a href="#id13"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;div class="topic"&gt;
+&lt;p class="topic-title"&gt;Update&lt;/p&gt;
+&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 前辈和 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike"&gt;调教&lt;/span&gt; ,
+发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.&lt;/p&gt;
 &lt;p&gt;2015-8-30: 安装社区源&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-breeze-git&lt;/span&gt;&lt;/code&gt;主题, 以及 plasma5 的&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;breeze&lt;/span&gt;&lt;/code&gt;主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;QT_STYLE_OVERRIDE=breeze&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id14"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;输入法:&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;输入法:&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;~/.xprofile&lt;/span&gt;&lt;/code&gt;中加入:&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;GTK_IM_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;fcitx
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;QT_IM_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;fcitx
@@ -2106,8 +1777,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;并在启动脚本里启动 fcitx.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id15"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;配置文件&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;配置文件&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面有提到的全部配置文件参见:&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ/dotfiles"&gt;SilverRainZ/dotfiles - Github&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2128,16 +1799,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;p&gt;题目地址: &lt;a class="reference external" href="http://overthewire.org/wargames/bandit/"&gt;OverTheWire: Bandit&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思…
-&lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;有意思的意思是我不会做&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 14)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id2"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 14); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;span class="sphinxnotes-strike"&gt;有意思的意思是我不会做&lt;/span&gt;.&lt;/p&gt;
 &lt;div class="section" id="wechall"&gt;
 &lt;h2&gt;WeChall 计分板&lt;/h2&gt;
 &lt;p&gt;OverTheWire 使用 Wechall 的计分板来计分,
@@ -2160,7 +1822,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;p&gt;在 ssh 连接的时候就会把你的帐号信息发送给远程主机.&lt;/p&gt;
 &lt;p&gt;在登入一个新的关卡后, 执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;wechall&lt;/span&gt;&lt;/code&gt; 便可获得该关卡的分数.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;div class="section" id="id2"&gt;
 &lt;h2&gt;题目&lt;/h2&gt;
 &lt;div class="section" id="bandit17"&gt;
 &lt;h3&gt;bandit17&lt;/h3&gt;
@@ -2188,24 +1850,26 @@ ssh -i bandit17.key bandit17@bandit.labs.overthewire.org
 cat /etc/bandit_pass/bandit17
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;key: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bandit21"&gt;
 &lt;h3&gt;bandit21&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-&lt;strong&gt;NOTE 2:&lt;/strong&gt; Try connecting to your own network daemon to see if it works as you think&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 100)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 97)&lt;/p&gt;
+&lt;p&gt;No directive entry for “note” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “note”.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id5"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 100); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;Try connecting to your own network daemon to see if it works as you think&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bandit20&lt;/span&gt;&lt;/code&gt; 的家目录下提供了一个程序 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;suconnect&lt;/span&gt;&lt;/code&gt;, 会从你指定的端口读取 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bandit20&lt;/span&gt;&lt;/code&gt; 的密码,
@@ -2213,25 +1877,22 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; GbKksEFF4yrVs6il55v6gwY5aVje5f0j &lt;span class="p"&gt;|&lt;/span&gt; nc -l -p &lt;span class="m"&gt;1234&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt; ./suconnect &lt;span class="m"&gt;1234&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;这里主要是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;amp;&lt;/span&gt;&lt;/code&gt; 的用法, 使两个命令同时执行.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;key: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;这里主要是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;amp;&lt;/span&gt;&lt;/code&gt; 的用法, 使两个命令同时执行:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bandit24"&gt;
 &lt;h3&gt;bandit24&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-&lt;strong&gt;NOTE 2:&lt;/strong&gt; Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 125)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id7"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 125); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;这题我觉得有点意思.&lt;/p&gt;
@@ -2272,10 +1933,10 @@ chmod &lt;span class="m"&gt;666&lt;/span&gt; /tmp/tmp.xxx/
 另外, 不能用重定向导出 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bandit24&lt;/span&gt;&lt;/code&gt; 的密码, 因为没有权限(为什么没有权限我就不清楚了).&lt;/p&gt;
 &lt;p&gt;脚本写完后, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;chmod&lt;/span&gt; &lt;span class="pre"&gt;+x&lt;/span&gt;&lt;/code&gt;, 再把它复制到 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/var/spool/bandit24&lt;/span&gt;&lt;/code&gt; 目录下, 记得备份,
 每隔一分钟该目录就会被清空.&lt;/p&gt;
-&lt;p&gt;脚本执行后, 到 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/tmp/tmp.xxx&lt;/span&gt;&lt;/code&gt; 里就可以看到存有 key 的文件了.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;key: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;脚本执行后, 到 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/tmp/tmp.xxx&lt;/span&gt;&lt;/code&gt; 里就可以看到存有 key 的文件了:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="section" id="bandit25"&gt;
 &lt;h4&gt;bandit25&lt;/h4&gt;
 &lt;blockquote&gt;
@@ -2284,43 +1945,25 @@ chmod &lt;span class="m"&gt;666&lt;/span&gt; /tmp/tmp.xxx/
 &lt;p&gt;有一个守护进程在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;30002&lt;/span&gt;&lt;/code&gt; 端口监听, 把 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bandit24&lt;/span&gt;&lt;/code&gt; 的密码和一个四位数字组成的 pincode 传给它,
 如果密码和 pincode 都正确的话会返回 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bandit25&lt;/span&gt;&lt;/code&gt; 的密码.&lt;/p&gt;
 &lt;p&gt;所以自然是爆破了, 直接用 nc 链接该端口会提示:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;am&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pincode&lt;/span&gt; &lt;span class="n"&gt;checker&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;bandit25&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;enter&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;bandit24&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;secret&lt;/span&gt; &lt;span class="n"&gt;pincode&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;single&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;separated&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;space&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;所以按照格式来, 生成 10000 个 密码 + pincode 的序列传给该端口.&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;0000&lt;/span&gt;..9999&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ &lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /tmp/pin&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
 cat /tmp/pin &lt;span class="p"&gt;|&lt;/span&gt; nc localhost &lt;span class="m"&gt;30002&lt;/span&gt; &amp;gt; /tmp/log
 cat /tmp/log &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;Corr&amp;quot;&lt;/span&gt; -n1
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;其实答案就是最后一个端口…&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;5670-Wrong! Please enter the correct pincode. Try again.&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-5671:Correct!&lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;:raw-html-m2r:`&amp;lt;br&amp;gt;`&lt;/span&gt;&lt;/a&gt;
-5672-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 215)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
+&lt;p&gt;其实答案就是最后一个端口:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;5670-Wrong! Please enter the correct pincode. Try again.
+5671:Correct!
+5672-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id9"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 215); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 215)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id11"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 215); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;所以:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;key: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bandit26"&gt;
 &lt;h4&gt;bandit26&lt;/h4&gt;
@@ -2342,9 +1985,9 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;cat&lt;/span&gt; &lt;span class="pre"&gt;/etc/passwd&lt;/span&gt; &lt;span class="pre"&gt;|&lt;/span&gt; &lt;span class="pre"&gt;grep&lt;/span&gt; &lt;span class="pre"&gt;bandit26&lt;/span&gt;&lt;/code&gt; 得到:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;&lt;strong&gt;bandit26&lt;/strong&gt;:x:11026:11026:bandit level 26:/home/&lt;strong&gt;bandit26&lt;/strong&gt;:/usr/bin/showtext&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;bandit26&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;\ &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11026&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11026&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;bandit&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;\ &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;bandit26&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;\ &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;showtext&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;(我到这里就卡住了)&lt;/p&gt;
 &lt;p&gt;发现 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;showtext&lt;/span&gt;&lt;/code&gt; 是一个 shell 脚本, 内容如下&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
@@ -2354,53 +1997,26 @@ more ~/text.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;即 ssh 连上去后执行默认 shell, 用 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 打印出了 ~/text.txt 之后就退出了, 如图:&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 274)&lt;/p&gt;
-&lt;p&gt;Error in “image” directive:
-maximum 1 argument(s) allowed, 3 supplied.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="p"&gt;{{&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="p"&gt;}}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;alt&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;img alt="_images/overthewire-bandit26-1.png" src="_images/overthewire-bandit26-1.png" /&gt;
 &lt;p&gt;一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-t&lt;/span&gt;&lt;/code&gt; + 命令 是不行的,
 这个命令不会被解释, 因为 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bash&lt;/span&gt;&lt;/code&gt; 没有执行.&lt;/p&gt;
 &lt;p&gt;正确答案是通过 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 在要输出的内容行数多于终端行数的时候会停下来, 等待你翻页,
 所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 就停下来了. (好脑洞)&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 287)&lt;/p&gt;
-&lt;p&gt;Error in “image” directive:
-maximum 1 argument(s) allowed, 3 supplied.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="p"&gt;{{&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="p"&gt;}}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;alt&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;img alt="_images/overthewire-bandit26-2.png" src="_images/overthewire-bandit26-2.png" /&gt;
 &lt;p&gt;在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;vi&lt;/span&gt;&lt;/code&gt;,
 有了 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;vi&lt;/span&gt;&lt;/code&gt;, 就相当于有了一个终端.&lt;/p&gt;
 &lt;p&gt;在命令模式执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:r&lt;/span&gt; &lt;span class="pre"&gt;/etc/bandit_pass/bandit26&lt;/span&gt;&lt;/code&gt;, 密码的内容就会被读入.&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 297)&lt;/p&gt;
-&lt;p&gt;Error in “image” directive:
-maximum 1 argument(s) allowed, 3 supplied.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="p"&gt;{{&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="p"&gt;}}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;3.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;alt&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;img alt="_images/overthewire-bandit26-3.png" src="_images/overthewire-bandit26-3.png" /&gt;
 &lt;p&gt;要打开 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sh&lt;/span&gt;&lt;/code&gt; 的话, 可以:&lt;/p&gt;
 &lt;div class="highlight-vim notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="k"&gt;shell&lt;/span&gt; &lt;span class="k"&gt;sh&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="sr"&gt;/bin/&lt;/span&gt;&lt;span class="k"&gt;sh&lt;/span&gt;
 &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;sh&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;这样就可以执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;wechall&lt;/span&gt;&lt;/code&gt; 拿分了.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;key: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;这样就可以执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;wechall&lt;/span&gt;&lt;/code&gt; 拿分了:&lt;/p&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2428,54 +2044,54 @@ maximum 1 argument(s) allowed, 3 supplied.&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#minix-v1" id="id10"&gt;Minix v1 文件系统的实现&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#minix-v1" id="id8"&gt;Minix v1 文件系统的实现&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#minix-fs" id="id11"&gt;Minix FS&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#xv-6" id="id12"&gt;xv 6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id2" id="id13"&gt;建立磁盘&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#minix" id="id14"&gt;Minix 文件系统结构&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#minix-fs" id="id9"&gt;Minix FS&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#xv-6" id="id10"&gt;xv 6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id2" id="id11"&gt;建立磁盘&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#minix" id="id12"&gt;Minix 文件系统结构&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#i" id="id15"&gt;i 节点&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#boot-secotr" id="id16"&gt;引导扇区(boot secotr):&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#super-block" id="id17"&gt;超级块(super block)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#inode-zone-bitmap" id="id18"&gt;位图(inode &amp;amp; zone bitmap)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#i-inode" id="id19"&gt;i 节点块(inode)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#data" id="id20"&gt;数据块(data)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#i" id="id13"&gt;i 节点&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#boot-secotr" id="id14"&gt;引导扇区(boot secotr):&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#super-block" id="id15"&gt;超级块(super block)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#inode-zone-bitmap" id="id16"&gt;位图(inode &amp;amp; zone bitmap)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#i-inode" id="id17"&gt;i 节点块(inode)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#data" id="id18"&gt;数据块(data)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id21"&gt;系统层次&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;系统层次&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#os67-fs-ide-c" id="id22"&gt;磁盘驱动层 OS67/fs/ide.c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#os67-fs-bcache-c" id="id23"&gt;块缓冲层 OS67/fs/bcache.c&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#os67-fs-ide-c" id="id20"&gt;磁盘驱动层 OS67/fs/ide.c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#os67-fs-bcache-c" id="id21"&gt;块缓冲层 OS67/fs/bcache.c&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#braed" id="id24"&gt;braed&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#bget" id="id25"&gt;bget&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#braed" id="id22"&gt;braed&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#bget" id="id23"&gt;bget&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#i-os67-fs-inode-c-os67-fs-bitmap-c" id="id26"&gt;i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#i-os67-fs-inode-c-os67-fs-bitmap-c" id="id24"&gt;i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id27"&gt;申请和分配:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id5" id="id28"&gt;i 节点操作:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id25"&gt;申请和分配:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id5" id="id26"&gt;i 节点操作:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#os67-fs-dir-c-os-fs-p2i-c" id="id29"&gt;目录层 OS67/fs/dir.c OS/fs/p2i.c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id6" id="id30"&gt;文件和系统调用&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#os67-fs-dir-c-os-fs-p2i-c" id="id27"&gt;目录层 OS67/fs/dir.c OS/fs/p2i.c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id6" id="id28"&gt;文件和系统调用&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id31"&gt;参考&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id29"&gt;参考&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="minix-fs"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Minix FS&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Minix FS&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Minix file system 是 Andrew S. Tanenbaum 在 198x 年发明的文件系统,
 并随着 Minix 1.0 版一起于 1987 年释出, Linus 编写 Linux 0.11时,
 使用的也是 Minix FS, Linux 至今依然提供了对 Minix FS 的支持.
 Minix FS 结构简单, 易于理解, 并且资料相当丰富.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xv-6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;xv 6&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;xv 6&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;其实最开始并没有用 Minix FS 的想法, 在实现 Minix FS 之前,
 我先看了 xv6 中的文件系统部分, 在抄了一遍它的代码之后,
 才发现原来 xv6 实现的不是现有的任何一个文件系统, 虽然在原理上和 Minix 没有太大差别
@@ -2488,7 +2104,7 @@ Minix FS 结构简单, 易于理解, 并且资料相当丰富.&lt;/p&gt;
 &lt;a class="reference external" href="https://github.com/SilverRainZ/OS67"&gt;OS67&lt;/a&gt; 上实现了一个精简版的 Minix FS.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;建立磁盘&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;建立磁盘&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bximage&lt;/span&gt;&lt;/code&gt;建立一个硬盘镜像文件, 再用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mkfs.minix&lt;/span&gt;&lt;/code&gt;建立文件系统,
 如果需要复制文件进去的话, 用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mount&lt;/span&gt;&lt;/code&gt;挂载.&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bximage bin/rootfs.img -hd&lt;span class="o"&gt;=&lt;/span&gt;10M -imgmode&lt;span class="o"&gt;=&lt;/span&gt;flat -mode&lt;span class="o"&gt;=&lt;/span&gt;create -q
@@ -2527,7 +2143,7 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="minix"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Minix 文件系统结构&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Minix 文件系统结构&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Minix 文件系统的结构如下:&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Minix&lt;/span&gt; &lt;span class="n"&gt;v1&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="n"&gt;structure&lt;/span&gt;
 &lt;span class="n"&gt;zone&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;           &lt;span class="mi"&gt;1&lt;/span&gt;              &lt;span class="mi"&gt;2&lt;/span&gt;             &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;imap_blk&lt;/span&gt;        &lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="o"&gt;...&lt;/span&gt;
@@ -2542,7 +2158,7 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 一个虚拟块的大小是 1024 byte, 而磁盘的物理扇区大小常常是 512 byte.&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;div class="section" id="i"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;i 节点&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;i 节点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;i 节点是 Minix FS 中最重要的结构体, 其定义如下:&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;// OS67/inc/minix.h&lt;/span&gt;
 &lt;span class="cm"&gt;/* in-disk minix inode */&lt;/span&gt;
@@ -2593,27 +2209,18 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;zone[8]&lt;/span&gt;&lt;/code&gt; 指向一个双重间接块.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;用图说话比较清晰:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/inode-struct1.gif"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/inode-struct1.gif"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt="Inode structure"/&gt;
-                &lt;/a&gt;&lt;p&gt;ref: &lt;a class="reference external" href="http://jan.newmarch.name/OS/l6_1.html"&gt;http://jan.newmarch.name/OS/l6_1.html&lt;/a&gt;&lt;/p&gt;
+&lt;img alt="Inode structure" src="_images/inode-struct.gif" /&gt;
+&lt;p&gt;ref: &lt;a class="reference external" href="http://jan.newmarch.name/OS/l6_1.html"&gt;http://jan.newmarch.name/OS/l6_1.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;因此, Minix FS 支持的最大文件大小为 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;(7&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2*1024/2)&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;1024&lt;/span&gt; &lt;span class="pre"&gt;byte&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;256&lt;/span&gt; &lt;span class="pre"&gt;MB&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;OS67 并没有使用双重间接块, 因此支持的最大文件大小仅为 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;(7&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2)&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;1024&lt;/span&gt; &lt;span class="pre"&gt;byte&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;519&lt;/span&gt; &lt;span class="pre"&gt;KB&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="boot-secotr"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;引导扇区(boot secotr):&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;引导扇区(boot secotr):&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;磁盘的第一个虚拟块作是引导扇区, 这个通常和文件系统没有关系.&lt;/p&gt;
 &lt;p&gt;OS67 的 bootsector 实现在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/boot/bootsect.asm&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="super-block"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;超级块(super block)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;超级块(super block)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;超级块(superblock), 用来存放整个文件系统的元信息, 比如磁盘大小, i节点数目,
 虚拟块数目, Magic nubmer 等.  Minix FS 的超级块结构如下:&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;// OS67/inc/minix.h&lt;/span&gt;
@@ -2633,7 +2240,7 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="inode-zone-bitmap"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;位图(inode &amp;amp; zone bitmap)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;位图(inode &amp;amp; zone bitmap)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;有关位图的实现在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/fs/bitmap.c&lt;/span&gt;&lt;/code&gt;中.&lt;/p&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/inc/minix.h&lt;/span&gt;&lt;/code&gt;实现了两个宏来定位这些位图块.&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* bit per block */&lt;/span&gt;
@@ -2658,23 +2265,23 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="i-inode"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;i 节点块(inode)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;i 节点块(inode)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这些块用来储存 i 节点, 用宏&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;IBLK&lt;/span&gt;&lt;/code&gt;根据 i 节点号, 定位到块号, 同样注意 i 节点从 1 开始计数.&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#define IBLK(sb, i) (2 + ((sb).imap_blk) + ((sb).zmap_blk) + ((i) - 1)/IPB)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="data"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;数据块(data)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;数据块(data)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这些块被用来储存数据, 从&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;superblock.fst_data_zone&lt;/span&gt;&lt;/code&gt;开始.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;系统层次&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;系统层次&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;整个文件系统的实现被分为五个层次, 代码基本上继承自 xv6, 在摸清楚代码的意思之后,
 把 xv6 文件系统代码改成 Minix FS 是很简单的事情, 甚至有些文件不需要改动…&lt;/p&gt;
 &lt;div class="section" id="os67-fs-ide-c"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;磁盘驱动层 OS67/fs/ide.c&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;磁盘驱动层 OS67/fs/ide.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层通过 ins outs 指令, 负责从磁盘读取扇区到高速缓冲区 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;buf&lt;/span&gt;&lt;/code&gt;,
 并且限制在一个块只能被一个进程访问(通过 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;B_BUSY&lt;/span&gt;&lt;/code&gt; 锁住).&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2690,11 +2297,11 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="os67-fs-bcache-c"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;块缓冲层 OS67/fs/bcache.c&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;块缓冲层 OS67/fs/bcache.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;维护了一个高速缓冲的链表(数组),  为上层提供了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bread&lt;/span&gt;&lt;/code&gt;和&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bwrite&lt;/span&gt;&lt;/code&gt;函数,
 而&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bget&lt;/span&gt;&lt;/code&gt;则用来分配缓冲区.&lt;/p&gt;
 &lt;div class="section" id="braed"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id24"&gt;braed&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id22"&gt;braed&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;当请求一个块的数据的时候(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bread&lt;/span&gt;&lt;/code&gt;), 如果一个块已经被缓存, 并且这个块的内容是有效的(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;B_VAILD&lt;/span&gt;&lt;/code&gt;),
 块缓存层可以直接返回当前缓冲区的内容, 而不用重新读取扇区.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2704,7 +2311,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bget"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id25"&gt;bget&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;bget&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;当根据虚拟块的块号(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;buf-&amp;gt;blkno&lt;/span&gt;&lt;/code&gt;)请求一个缓冲区的时候(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bget&lt;/span&gt;&lt;/code&gt;),
 程序会沿着链表从头到尾寻找这个缓冲区是否被缓存,是的话直接返回, 如果没有被缓存,
 会从链表从尾到头搜索第一个可用的空缓冲区, 每次释放缓冲区的时候(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;brelse&lt;/span&gt;&lt;/code&gt;),
@@ -2726,7 +2333,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="i-os67-fs-inode-c-os67-fs-bitmap-c"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层开始和文件系统密切相关, i 节点层为使用中的磁盘中的 i 节点(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;d_inode&lt;/span&gt;&lt;/code&gt;)
 提供了内存中的拷贝(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inode&lt;/span&gt;&lt;/code&gt;), 可以类比块缓冲和虚拟块的关系.&lt;/p&gt;
 &lt;p&gt;磁盘中的 i 节点结构上面已经讲过了, 内存中的 i 节点&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inode&lt;/span&gt;&lt;/code&gt;结构如下:&lt;/p&gt;
@@ -2755,7 +2362,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;
 &lt;p&gt;这一层提供了对 inode 的各种操作&lt;/p&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id27"&gt;申请和分配:&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id25"&gt;申请和分配:&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_ialloc&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_ifree&lt;/span&gt;&lt;/code&gt; 在磁盘上分配和释放新的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;d_inode&lt;/span&gt;&lt;/code&gt;;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;balloc&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bfree&lt;/span&gt;&lt;/code&gt; 在磁盘上分配和释放新的数据块, 供 i 节点使用.&lt;/p&gt;&lt;/li&gt;
@@ -2765,7 +2372,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 把它和内存中的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inode&lt;/span&gt;&lt;/code&gt;联系起来.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id28"&gt;i 节点操作:&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;i 节点操作:&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;iget&lt;/span&gt;&lt;/code&gt; 从 i 节点缓冲中获得指定 i 节点号码的缓冲区, 类似&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bget&lt;/span&gt;&lt;/code&gt;;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ilock&lt;/span&gt;&lt;/code&gt; 将 i 节点锁住(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;I_BUSY&lt;/span&gt;&lt;/code&gt;), 并从磁盘中将 i 节点内容读出,
@@ -2781,7 +2388,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="os67-fs-dir-c-os-fs-p2i-c"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;目录层 OS67/fs/dir.c OS/fs/p2i.c&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;目录层 OS67/fs/dir.c OS/fs/p2i.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层开始有文件名和路径的出现, 为上层提供了一个将路径名转换为 对应 i 节点的函数.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;dir_lookup&lt;/span&gt;&lt;/code&gt; 在一个类型为目录的 i 节点中寻找指定名字的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;dir_entry&lt;/span&gt;&lt;/code&gt;
@@ -2791,23 +2398,14 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;文件和系统调用&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;文件和系统调用&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层是最上一层, 文件是对 i 节点的简单封装, 提供了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fread&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fwrite&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fclose&lt;/span&gt;&lt;/code&gt;等函数.
-此处涉及到进程的文件表, 因此这一层暂时没有&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;抄&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;写.&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/minix-v1-file-system.rst&lt;/span&gt;, line 400)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id7"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/minix-v1-file-system.rst&lt;/span&gt;, line 400); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+此处涉及到进程的文件表, 因此这一层暂时没有&lt;span class="sphinxnotes-strike"&gt;抄&lt;/span&gt;写.&lt;/p&gt;
 &lt;p&gt;不过在前面几层的基础上, 实现这一层应该没什么问题.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id31"&gt;参考&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;参考&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://book.douban.com/subject/1231236/"&gt;《Linux 内核完全注释》&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/Fleurer/fleurix"&gt;fleurix&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -2831,17 +2429,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
     <content type="html">&lt;div class="section" id="flag"&gt;
 
 &lt;p&gt;现在不开始的话, 以后也不会开始了.&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg"
-               title=""
-               data-title=""
-               &gt;&lt;img src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;/div&gt;
+&lt;img alt="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/flag.html" rel="alternate"/>
     <published>2015-09-09T00:00:00+00:00</published>
@@ -2861,27 +2450,27 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;div class="contents topic" id="id2"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id1" id="id16"&gt;用户态进程的简单实现及调度(一)&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id1" id="id14"&gt;用户态进程的简单实现及调度(一)&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id17"&gt;特权级转换&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gdt" id="id18"&gt;GDT&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#idt" id="id19"&gt;IDT&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#tss" id="id20"&gt;TSS&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id21"&gt;两个上下文&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id15"&gt;特权级转换&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gdt" id="id16"&gt;GDT&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#idt" id="id17"&gt;IDT&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#tss" id="id18"&gt;TSS&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id19"&gt;两个上下文&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id5" id="id22"&gt;中断上下文&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id6" id="id23"&gt;进程上下文&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id5" id="id20"&gt;中断上下文&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id6" id="id21"&gt;进程上下文&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id24"&gt;虚拟内存映射&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id8" id="id25"&gt;第一个进程&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id22"&gt;虚拟内存映射&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id8" id="id23"&gt;第一个进程&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id26"&gt;构造&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id27"&gt;运行&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id24"&gt;构造&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id25"&gt;运行&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id13" id="id28"&gt;调度&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#e-n-d" id="id29"&gt;E.N.D.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id13" id="id26"&gt;调度&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#e-n-d" id="id27"&gt;E.N.D.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2898,7 +2487,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 不需要考虑由于多核导致的进程间的竞争和同步, 因此 xv6 中关于锁的代码都可以忽略.&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;特权级转换&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;特权级转换&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;几个关于特权级的概念:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;intel 8086 的特权级分为 0 1 2 3 四级, 这里只使用 0 和 3&lt;/p&gt;&lt;/li&gt;
@@ -2908,7 +2497,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gdt"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;GDT&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;GDT&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这里使用的用户态的特权级为 3, 因此用户态的程序, 其所在的数据段代码段的 DPL,
 段寄存器低 2 位的 RPL 都得是 3, 因此设置的 全局段描述符表(GDT) 如下:&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;// OS67/kern/gdt.c&lt;/span&gt;
@@ -2931,7 +2520,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 那如何让代码从特权级为 0 的段(内核态)转移到特权级为 3 的段(用户态)呢? 用中断.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="idt"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;IDT&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;IDT&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为了让用户空间的程序顺利进入内核态, 需要对 中断描述符表(IDT) 做一些设置.&lt;/p&gt;
 &lt;p&gt;(以下内容摘自 xv6 中文文档, 有小改动)&lt;/p&gt;
 &lt;p&gt;我们假设一个用户态程序执行&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;int&lt;/span&gt; &lt;span class="pre"&gt;n&lt;/span&gt;&lt;/code&gt;指令触发中断, 则 CPU 会取得中断号 n, 进行如下步骤:
@@ -2968,7 +2557,7 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="tss"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;TSS&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;TSS&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在特权级转换的时候, 需要从任务状态段取出&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ss0&lt;/span&gt;&lt;/code&gt;和&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;esp0&lt;/span&gt;&lt;/code&gt;, 因此在转换之前需要设置 TSS.&lt;/p&gt;
 &lt;p&gt;CPU 会从寄存器&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tr&lt;/span&gt;&lt;/code&gt;获得 TSS 的选择子, 然后从 GDT 表里面找出对应的描述符,
 由描述符就可以获得 TSS 的基址了.&lt;/p&gt;
@@ -2993,9 +2582,9 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;两个上下文&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;两个上下文&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;中断上下文&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;中断上下文&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;从上面关于中断过程的解释可以看到, 从用户态执行中断转入内核态是可能的,
 重点在与设置一个 DPL = 3 的 IDT 和一个 TSS 段.&lt;/p&gt;
 &lt;p&gt;那如何从内核态返回用户态呢? iret 指令会按 int 压栈的顺序逆序将寄存器们出栈,
@@ -3047,7 +2636,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 关于这些 ISR 的详情…太长了表示扯不下去了… :(&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;进程上下文&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;进程上下文&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;中断上下文已经让程序能够程序成功进入内核并从内核中返回,
 接下来通过切换进程上下文来实现进程的切换.&lt;/p&gt;
 &lt;p&gt;进程上下文看起来比中断上下文简单许多, 不过更富技巧性.&lt;/p&gt;
@@ -3095,7 +2684,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;虚拟内存映射&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;虚拟内存映射&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;由于之前的思路问题, 因此 OS67 的内存管理方式不得不和 xv6 不太一样.&lt;/p&gt;
 &lt;p&gt;OS67 的内存分配实现在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/mm/pmm.c&lt;/span&gt;&lt;/code&gt;, 使用一个简单的栈来存放未分配的内存页,
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;malloc&lt;/span&gt;&lt;/code&gt; 就是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pop&lt;/span&gt;&lt;/code&gt; 而 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mfree&lt;/span&gt;&lt;/code&gt; 就是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;push&lt;/span&gt;&lt;/code&gt;. 这么做简单明了,
@@ -3110,9 +2699,9 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 也许有更多的缺点还没发现.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id8"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id25"&gt;第一个进程&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;第一个进程&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;构造&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;构造&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;结构体 proc 用来储存一个进程的信息, 内核中有一个数组&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;struct&lt;/span&gt; &lt;span class="pre"&gt;ptable[NPROC]&lt;/span&gt;&lt;/code&gt;来管理所有的进程.
 结构体&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc&lt;/span&gt;&lt;/code&gt;定义如下:&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
@@ -3169,7 +2758,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;以上是比较关键的步骤, 现在可以准备运行第一个进程了.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id12"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;运行&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;运行&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;执行了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc_init&lt;/span&gt;&lt;/code&gt;之后, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt;紧接其后,
 它在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ptable&lt;/span&gt;&lt;/code&gt;中寻找第一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;state&lt;/span&gt;&lt;/code&gt;为&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;的进程,
 调用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;uvm_switch&lt;/span&gt;&lt;/code&gt;切换到该进程的页表并设置好 TSS.&lt;/p&gt;
@@ -3181,27 +2770,18 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id13"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;调度&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;调度&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这里使用非常简单的轮转法, 每次触发时钟中断都会执行&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sched&lt;/span&gt;&lt;/code&gt;,
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sched&lt;/span&gt;&lt;/code&gt;把当前进程状态由&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNNING&lt;/span&gt;&lt;/code&gt;变更为&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;. 接着执行&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;context_switch&lt;/span&gt;&lt;/code&gt;.
 这样 CPU 执行流就回到了刚才&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt;中的循环,
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt;继续寻找一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;的进程并切换到它.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="e-n-d"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;E.N.D.&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;E.N.D.&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;至此, 用户级进程已经成功实现并且被调度. 但是没有有效的接口来启动更多的进程.
 我们需要实现一些系统调用比如&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fork&lt;/span&gt;&lt;/code&gt;和&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;exec&lt;/span&gt;&lt;/code&gt;来做这些事情.
 :( 但是我已经写不下去了… 如果可以话下次再写吧.&lt;/p&gt;
-&lt;p&gt;&lt;a href="#id14"&gt;&lt;span class="problematic" id="id15"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;不一定有下次&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/process-scheduler-1.rst&lt;/span&gt;, line 384)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id14"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/process-scheduler-1.rst&lt;/span&gt;, line 384); &lt;em&gt;&lt;a href="#id15"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;不一定有下次&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
@@ -3439,28 +3019,10 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
 报告应该可以随便水过去，据说连答辩都可以省掉了……&lt;/p&gt;
 &lt;p&gt;前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。&lt;/p&gt;
-&lt;p&gt;用到的软件有 graphviz，egypt&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:raw-html-m2r:`&amp;lt;sup&amp;gt;AUR&amp;lt;/sup&amp;gt;`&lt;/span&gt;&lt;/a&gt;，cinclude2dot&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:raw-html-m2r:`&amp;lt;sup&amp;gt;AUR&amp;lt;/sup&amp;gt;`&lt;/span&gt;&lt;/a&gt;，
-{% include friend name=”farseerfc” %} 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
+&lt;p&gt;用到的软件有 graphviz，egypt&lt;sup&gt;AUR&lt;/sup&gt;，cinclude2dot&lt;sup&gt;AUR&lt;/sup&gt;，
+&lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
 然而 AUR 里面没有就作罢了。&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 19)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 19); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 19)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id3"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 19); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;生成函数调用图&lt;/h2&gt;
 &lt;p&gt;安装 egypt 直接 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;yaourt&lt;/span&gt; &lt;span class="pre"&gt;-S&lt;/span&gt; &lt;span class="pre"&gt;egypt&lt;/span&gt;&lt;/code&gt; 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-fdump-rtl-expand&lt;/span&gt;&lt;/code&gt;，
@@ -3486,17 +3048,8 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;dot&lt;/span&gt; &lt;span class="pre"&gt;main.dot&lt;/span&gt; &lt;span class="pre"&gt;-Tpng&lt;/span&gt; &lt;span class="pre"&gt;-o&lt;/span&gt; &lt;span class="pre"&gt;main.png&lt;/span&gt;&lt;/code&gt;，于是从整个 OS67 生成了这么一张可怕的图片：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/os67-fucn-call-graph.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-fucn-call-graph.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
+&lt;img alt="" src="_images/os67-func-call-graph.png" /&gt;
+&lt;p&gt;这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
 没法做什么简化，所以对于整个项目我只生成了后面的模块调用图。&lt;/p&gt;
 &lt;p&gt;既然整个项目的图太大了，那就生成模块内部的调用图好了，OS67 的项目结构长这样，
 模块和文件夹基本上是一一对应的：&lt;/p&gt;
@@ -3534,59 +3087,32 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;生成出来的图片除了 fs 模块比较大之外其他都还行，下面是 kern 模块的 call graph
 （用 kolourpaint 做了点调整）：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/os67-kern-func-call-graph1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-kern-func-call-graph1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;blockquote&gt;
+&lt;img alt="" src="_images/os67-kern-func-call-graph.png" /&gt;
+&lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;注意：这里没有处理 boot 模块和 usr 模块，因为 boot 里面都是汇编程序，
 而 usr 里面的用户程序都有 main 函数会导致冲突而画出奇怪的图，所以就没有包含了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="#id6"&gt;&lt;span class="problematic" id="id7"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 115)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id6"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 115); &lt;em&gt;&lt;a href="#id7"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
+&lt;div class="section" id="id2"&gt;
 &lt;h2&gt;生成模块调用图&lt;/h2&gt;
 &lt;p&gt;接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
 &lt;a class="reference external" href="https://www.flourish.org/cinclude2dot/"&gt;flourish.org/cinclude2dot/&lt;/a&gt;。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;AUR 里面没有所以顺手给打了一个包：
-&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;cinclude2dot\&lt;/span&gt; &lt;span class="pre"&gt;:raw-html-m2r:`&amp;lt;sup&amp;gt;AUR&amp;lt;/sup&amp;gt;&lt;/span&gt;&lt;/code&gt; &amp;lt;&lt;a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/"&gt;https://aur.archlinux.org/packages/cinclude2dot/&lt;/a&gt;&amp;gt;`_，
+&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;cinclude2dot\&lt;/span&gt; &lt;span class="pre"&gt;:sup:`AUR&lt;/span&gt;&lt;/code&gt; &amp;lt;&lt;a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/"&gt;https://aur.archlinux.org/packages/cinclude2dot/&lt;/a&gt;&amp;gt;`_，
 所以现在也可以直接用 yaourt 装 cinclude2dot 了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;cinclude2dot&lt;/span&gt; &lt;span class="pre"&gt;--include&lt;/span&gt; &lt;span class="pre"&gt;inc&lt;/span&gt; &lt;span class="pre"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pre"&gt;main.dot&lt;/span&gt;&lt;/code&gt; 会在当前目录递归地找 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.c&lt;/span&gt;&lt;/code&gt; 文件，
 然后在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inc&lt;/span&gt;&lt;/code&gt; 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
 如果启用 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--merge&lt;/span&gt; &lt;span class="pre"&gt;module&lt;/span&gt;&lt;/code&gt; 的话，会把 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;xxx.c&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;xxx.h&lt;/span&gt;&lt;/code&gt; 合并为一个模块 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;xxx&lt;/span&gt;&lt;/code&gt;，
 然而这样生成的图片还是太大了点。&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/os67-mod-include-graph1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-mod-include-graph1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;cinclude2dot 还提供了一个 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--merge&lt;/span&gt; &lt;span class="pre"&gt;directory&lt;/span&gt;&lt;/code&gt; 选项，把相同目录的文件合并为一个模块，
+&lt;img alt="" src="_images/os67-mod-include-graph.png" /&gt;
+&lt;p&gt;cinclude2dot 还提供了一个 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;--merge&lt;/span&gt; &lt;span class="pre"&gt;directory&lt;/span&gt;&lt;/code&gt; 选项，把相同目录的文件合并为一个模块，
 这正是我想要的功能，然而这样生成的图过分简单，
 所有的目录都指向了存放头文件的目录 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inc&lt;/span&gt;&lt;/code&gt;。试了一下 directory 和 module 选项也不能一起用，
 果然还是得自己在 dot 文件上改一改。&lt;/p&gt;
@@ -3642,17 +3168,8 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;最后我们得到了一张还算不错的， OS67 的模块调用关系图：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/os67-mod-include-graph-goood.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-mod-include-graph-goood.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;好困睡觉。&lt;/p&gt;
+&lt;img alt="" src="_images/os67-mod-include-graph-good.png" /&gt;
+&lt;p&gt;好困睡觉。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
@@ -3856,17 +3373,8 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
     </author>
     <content type="html">&lt;div class="section" id="thinkpad-l450"&gt;
 
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/thinkpad-l4501.jpg"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/thinkpad-l4501.jpg"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
+&lt;img alt="" src="_images/thinkpad-l450.jpg" /&gt;
+&lt;p&gt;元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
 只有 SSD 而没有 HDD 这点颇合我意，毕竟我没有囤积资源的癖好，256G 足矣，而且还能省下一笔 HDD 的钱。
 机子在 ebay 上是 ￥3200，到手花了 ￥3700，以国内的价格来算还是值得的。&lt;/p&gt;
 &lt;p&gt;之前用的电脑是 Lenove G455，这台 10 年生产的机器陪伴着我姐走过了四年大学，
@@ -3901,16 +3409,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
 &lt;li&gt;&lt;p&gt;使用 xbindskey 管理快捷键，而不是用 xmoand 的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;additionalKeys&lt;/span&gt;&lt;/code&gt;
 （听小药壶说可以用 scheme 来写 .xbindskeyrc）&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;使用 terminator 代替 konsole&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;使用 dzen2 + &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;condy&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt; conky 代替 xmobar&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/thinkpad-l450.rst&lt;/span&gt;, line 64)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/thinkpad-l450.rst&lt;/span&gt;, line 64); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;li&gt;&lt;p&gt;使用 dzen2 + &lt;span class="sphinxnotes-strike"&gt;condy&lt;/span&gt; conky 代替 xmobar&lt;/p&gt;
 &lt;p&gt;需要启动两个 dzen2，一个接受 xmoand 的输出，一个接受 conky 的输出，
 需要注意的是 dzen2 &lt;strong&gt;不支持&lt;/strong&gt; 按屏幕的百分比显示，
 我在网上找到了&lt;a class="reference external" href="https://github.com/ervandew/dotfiles/blob/master/bin/dzen2"&gt;这个脚本&lt;/a&gt;，
@@ -4039,17 +3538,8 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;最后再贴一张图：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/thinkpad-l450-arch-screenshot.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/thinkpad-l450-arch-screenshot.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;/div&gt;
+&lt;img alt="" src="_images/thinkpad-l450-screenshot.png" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/thinkpad-l450.html" rel="alternate"/>
     <published>2016-03-11T00:00:00+00:00</published>
@@ -4064,17 +3554,8 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
     <content type="html">&lt;div class="section" id="gsoc-2016"&gt;
 
 &lt;p&gt;;-) 难以置信。&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/gsoc-2016-mail1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/gsoc-2016-mail1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;/div&gt;
+&lt;img alt="" src="_images/gsoc-2016-mail.png" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016.html" rel="alternate"/>
     <published>2016-04-23T00:00:00+00:00</published>
@@ -4275,8 +3756,17 @@ Arch Linux 的包的 prefix 通常是 &lt;code class="docutils literal notransla
 可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt;
 得到程序所有文件的列表和路径，再由包管理器把这些文件和路径存为软件包，
 安装的时候根据路径把文件放到应该放的位置（这大概就是 Staged Install？）。
-（这里感谢青蛙老师 {% include person name=”hexchain” url = “&lt;a class="reference external" href="https://hexchain.org/"&gt;https://hexchain.org/&lt;/a&gt;” %} 的指导）&lt;/p&gt;
-&lt;p&gt;变量 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;DESTDIR&lt;/span&gt;&lt;/code&gt;&lt;a class="footnote-reference brackets" href="#fn-destdir" id="id7"&gt;4&lt;/a&gt; 就是用来实现 Staged Install 的，把之前的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt; 改成这样：&lt;/p&gt;
+（这里感谢青蛙老师 &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;:people:`hexchain &amp;lt;https://hexchain.org&amp;gt;`&lt;/span&gt;&lt;/a&gt; 的指导）&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 198)&lt;/p&gt;
+&lt;p&gt;No role entry for “people” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “people” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 198); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “people”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;变量 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;DESTDIR&lt;/span&gt;&lt;/code&gt;&lt;a class="footnote-reference brackets" href="#fn-destdir" id="id9"&gt;4&lt;/a&gt; 就是用来实现 Staged Install 的，把之前的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt; 改成这样：&lt;/p&gt;
 &lt;div class="highlight-Makefile notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PREFIX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /usr/local
 &lt;span class="nf"&gt;install&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
     install -Dm755 &lt;span class="s2"&gt;&amp;quot;build/srain&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;DESTDIR&lt;span class="k"&gt;)$(&lt;/span&gt;PREFIX&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;/bin/srain&amp;quot;&lt;/span&gt;
@@ -4300,19 +3790,10 @@ Arch Linux 的包的 prefix 通常是 &lt;code class="docutils literal notransla
 &lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Configure&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的 Makefile 有处不优雅的地方是，&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt; 的时候必须指定相同的 PREFIX，
 不然安装后的程序肯定是运行不了的，而 make 本身并不能解决这个问题，因为 make 是「无状态」的。&lt;/p&gt;
-&lt;p&gt;这里&lt;a class="footnote-reference brackets" href="#fn-practical-makefiles" id="id8"&gt;5&lt;/a&gt;提供了一个脚本来让解决这个问题，将 Makefile 改名为 Makefile.in，
+&lt;p&gt;这里&lt;a class="footnote-reference brackets" href="#fn-practical-makefiles" id="id10"&gt;5&lt;/a&gt;提供了一个脚本来让解决这个问题，将 Makefile 改名为 Makefile.in，
 运行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;./configure&lt;/span&gt; &lt;span class="pre"&gt;--prefix=xxx&lt;/span&gt;&lt;/code&gt; 来获得一个拥有指定 prefix 的 Makefile，
 这样就可以不用每次敲 make 都输入 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PREFIX=xxx&lt;/span&gt;&lt;/code&gt; 了。&lt;/p&gt;
-&lt;p&gt;&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;于是大家都去用 autotools 了&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 238)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id9"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 238); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;于是大家都去用 autotools 了&lt;/span&gt;&lt;/p&gt;
 &lt;div class="highlight-sh notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span class="nv"&gt;prefix&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local
@@ -4376,10 +3857,10 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;dt class="label" id="fn-prefix"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id6"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.gnu.org/prep/standards/html_node/Directory-Variables.html"&gt;GNU Coding Standards#Variables for Installation Directories&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
-&lt;dt class="label" id="fn-destdir"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id7"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dt class="label" id="fn-destdir"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id9"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.gnu.org/prep/standards/standards.html#DESTDIR"&gt;GNU Coding Standards#DESTDIR: Support for Staged Installs&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
-&lt;dt class="label" id="fn-practical-makefiles"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id8"&gt;5&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dt class="label" id="fn-practical-makefiles"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id10"&gt;5&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="http://nuclear.mutantstargoat.com/articles/make"&gt;Practical Makefiles, by example&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
@@ -4402,45 +3883,32 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;p&gt;谷歌编程之夏（Google Summer of Code/GSoC）是 Google 举办的年度编程活动，
 征集学生为开源社区编写代码，时间持续三个月，成功完成项目的学生可以得到 Google
 $5500 的报酬，同时开源社区也能得到 $500 的赞助。&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-default"
-               href="_images/gsoc-2016-proj1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/gsoc-2016-proj1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt="GSoC 2013 Project"/&gt;
-                &lt;/a&gt;&lt;p&gt;我有幸参加了 2016 年的 Google Summoer of Code，为 GNU/Hurd 项目工作并完成预期目标，
+&lt;img alt="GSoC 2013 Project" src="_images/gsoc-2016-proj.png" /&gt;
+&lt;p&gt;我有幸参加了 2016 年的 Google Summoer of Code，为 GNU/Hurd 项目工作并完成预期目标，
 在此记录。&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gsoc-2016" id="id12"&gt;GSoC 2016 小记 - 误打误撞三个月&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gsoc-2016" id="id14"&gt;GSoC 2016 小记 - 误打误撞三个月&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#proposal" id="id13"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#welcome-to-gsoc-2016" id="id14"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#community-bonding" id="id15"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id16"&gt;编程之夏&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id8" id="id17"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id18"&gt;总结&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id10" id="id19"&gt;相关链接&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#proposal" id="id15"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#welcome-to-gsoc-2016" id="id16"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#community-bonding" id="id17"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id18"&gt;编程之夏&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id10" id="id19"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id11" id="id20"&gt;总结&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id21"&gt;相关链接&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="proposal"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;三月初的时候在 #archlinux-cn 听 {% include friend name=”quininer” %} 说今年 Tox
-社区要参加 GSoC 并开始招人的事情，&lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;当然也提及了 Tox 去年闹出的一桩事：
-`Current situation of Tox #1379 &amp;lt;https://github.com/irungentoo/toxcore/issues/1379&amp;gt;`_&lt;/span&gt;&lt;/a&gt;。&amp;lt;/del&amp;gt;`
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
+社区要参加 GSoC 并开始招人的事情， &lt;span class="sphinxnotes-strike"&gt;当然也提及了 Tox 去年闹出的一桩事：&lt;/span&gt;
+&lt;a class="reference external" href="https://github.com/irungentoo/toxcore/issues/1379"&gt;Current situation of Tox #1379&lt;/a&gt;
 这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
 便萌生了要试试的想法。&lt;/p&gt;
-&lt;div class="system-message" id="id2"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 29); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Mismatch: both interpreted text role prefix and reference suffix.&lt;/p&gt;
-&lt;/div&gt;
 &lt;p&gt;参与的学生需要在 &lt;a class="reference external" href="http://summerofcode.withgoogle.com/"&gt;Google Summer of Code&lt;/a&gt; 上注册，
 并寻找你心仪的 organization，并在网站上针对 organization 的某个项目提交提案（Proposal），
 这些组织一般都是著名的开源社区，比如 GNU、Linux Fundation、GNOME、KDE、Wine、Apache 等等。
@@ -4466,7 +3934,7 @@ not english/missing translation.」，仅仅拍学生证不够，还需要加上
 渐渐把这件事忘记了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="welcome-to-gsoc-2016"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;4 月 23 号，刚起床看到有封邮件，&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;GSoC 2016: Congratulations, your proposal with GNU Project has been accepted!&lt;/p&gt;
@@ -4485,16 +3953,29 @@ not english/missing translation.」，仅仅拍学生证不够，还需要加上
 Bonding Period，用来和社区成员交流，配置开发环境，熟悉工作流程等。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="community-bonding"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Hurd 当前的开发者基本在欧洲，我的两位 mentor：
-{% include person name=”Richard Braun” url=”&lt;a class="reference external" href="https://www.sceen.net/~rbraun/resume.pdf"&gt;https://www.sceen.net/~rbraun/resume.pdf&lt;/a&gt;” %} 和
-{% include person name=”Justus Winter” url=”&lt;a class="reference external" href="https://github.com/teythoon"&gt;https://github.com/teythoon&lt;/a&gt;” %} 也是，
+&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:people:`Richard Braun &amp;lt;https://www.sceen.net/~rbraun/resume.pdf&amp;gt;`&lt;/span&gt;&lt;/a&gt; 和
+:people:&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;`&lt;/span&gt;&lt;/a&gt;Justus Winter &amp;lt;&lt;a class="reference external" href="https://github.com/teythoon"&gt;https://github.com/teythoon&lt;/a&gt;&amp;gt; 也是，
 由于时区相差太大，一般在下午五点以后跟他们用 IRC 联系。&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93)&lt;/p&gt;
+&lt;p&gt;No role entry for “people” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “people” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “people”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Inline interpreted text or phrase reference start-string without end-string.&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;在同 mentor 们联系之后，我开始看 Hurd 的&lt;a class="reference external" href="https://www.gnu.org/software/hurd/index.html"&gt;文档&lt;/a&gt;，
 作为一个除了开发者之外几乎没人用的系统 :-( ……除了 Wiki 之外没有任何参考的资料，
 甚至项目中的文档也是严重过期的。&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Duplicate explicit target name: “implement xattr support”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;我的项目是 &lt;a class="reference external" href="https://www.gnu.org/software/hurd/community/gsoc/project_ideas/xattr.html"&gt;Implement xattr Support&lt;/a&gt;：
@@ -4541,8 +4022,8 @@ as part of the communit bonding period”&lt;/p&gt;
 的概念，并且也不再像以前那样害怕英文文档了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;编程之夏&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;编程之夏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;大概从 5 月 18 号开始，我从无脑看文档转为写代码， 写代码比看文档愉快多了 ——
 这大概也是我编程能力止步不前的原因吧，瞎写代码不看书。
 mentor 们显然对我之前看文档表现出来的低下的效率和理解力很不满意，但依然对我的问题有问必答。&lt;/p&gt;
@@ -4576,8 +4057,8 @@ mentor 们显然对我之前看文档表现出来的低下的效率和理解力�
 &lt;p&gt;这段时间的代码都提交在
 &lt;a class="reference external" href="https://github.com/SilverRainZ/hurd/tree/gsoc-2016-xattr"&gt;SilverRainZ/hurd at gsoc-2016-xattr&lt;/a&gt; 上。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;就如同上面所说的，只要修好这个 patch 并补全 xattr 的功能，项目就算完成了，
 「GSoC 原来这么水啊……」，我开始产生了这种想法，一旦完成了最小目标，我就开始松懈，
 在接下来的时间我更多地把精力放在了 Srain 的开发上。&lt;/p&gt;
@@ -4596,8 +4077,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;p&gt;8 月 30 号，收到了 GSoC 完成的通知，结束了这个不算完美的夏天。&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;总结&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;总结&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我之所以能被 accept，和我的选择是有密切关系的：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;内核项目门槛稍高&lt;/p&gt;&lt;/li&gt;
@@ -4616,8 +4097,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 一只圆珠笔，一本本子，一封 PDF 形式的电子证书，还有一件还在路上的 T-shirt，
 物质收入颇丰。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;相关链接&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;相关链接&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://summerofcode.withgoogle.com/"&gt;GSoC 官网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.gnu.org/software/hurd/hurd.html"&gt;Hurd 官网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -4906,44 +4387,34 @@ Read The Docs 上的文档。&lt;/p&gt;
 &lt;div class="contents topic" id="id2"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#isso" id="id16"&gt;从多说迁移到 Isso&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#isso" id="id14"&gt;从多说迁移到 Isso&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id17"&gt;为什么是 Isso&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id18"&gt;架设服务&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id15"&gt;为什么是 Isso&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id16"&gt;架设服务&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id10" id="id19"&gt;邮件通知&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id8" id="id17"&gt;邮件通知&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id11" id="id20"&gt;客户端&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id18"&gt;客户端&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#jekyll-s-way" id="id21"&gt;Jekyll’s Way&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#jekyll-s-way" id="id19"&gt;Jekyll’s Way&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#https" id="id22"&gt;HTTPS&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id23"&gt;样式&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id13" id="id24"&gt;数据迁移&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id14" id="id25"&gt;安全&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id15" id="id26"&gt;不足&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#https" id="id20"&gt;HTTPS&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id10" id="id21"&gt;样式&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id11" id="id22"&gt;数据迁移&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id23"&gt;安全&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id13" id="id24"&gt;不足&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;为什么是 Isso&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;为什么是 Isso&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我所见的各种静态博客用得最多的还是 Disqus，曾经我也是 Disqus 的用户，但是 Disqus
 存在着一些问题：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="#id4"&gt;&lt;span class="problematic" id="id5"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;被墙，这当然不是 Disqus 本身的问题，这甚至不算是个问题&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/switch-from-duoshuo-to-isso.rst&lt;/span&gt;, line 31)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id4"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/switch-from-duoshuo-to-isso.rst&lt;/span&gt;, line 31); &lt;em&gt;&lt;a href="#id5"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/li&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;被墙，这当然不是 Disqus 本身的问题，这甚至不算是个问题&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;评论无法彻底被删除，我曾经在 #archlinux-cn 讨论过这个问题，有人说既然你把数据
 公开地 post 到网上来了，就别想着它能够被删除，因为任何人都可以将他备份起来。
 我不敢苟同，数据是公开的没错，但作为这个评论系统的管理员，我应当有权利让这些
@@ -4952,17 +4423,26 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;非 Disqus 用户无法方便地评论，甚至会诱导你注册帐号&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;经过这次多说的关闭，我还是倾向于寻找一个开源的，能自己架设的评论系统。
-{% include person name=”biergaizi” url=”&lt;a class="reference external" href="https://tomli.blog/"&gt;https://tomli.blog/&lt;/a&gt;” %} 在微博推荐了
+&lt;a href="#id4"&gt;&lt;span class="problematic" id="id5"&gt;:people:`biergaizi &amp;lt;https://tomli.blog&amp;gt;`&lt;/span&gt;&lt;/a&gt; 在微博推荐了
 Disqus 的开源替代：&lt;a class="reference external" href="https://posativ.org/isso/"&gt;Isso&lt;/a&gt;，Isso 在 Github 上有 2k+
 的 stars，开发虽然看起来不活跃但也不至于死掉，官网的 Demo 看起来不错，
 AUR 里面还有有现成的包能用，于是就决定是你了，Isso！&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/switch-from-duoshuo-to-isso.rst&lt;/span&gt;, line 39)&lt;/p&gt;
+&lt;p&gt;No role entry for “people” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “people” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id4"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/switch-from-duoshuo-to-isso.rst&lt;/span&gt;, line 39); &lt;em&gt;&lt;a href="#id5"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “people”.&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;我的博客托管在 Github 上，源码存放于：
 &lt;a class="reference external" href="https://github.com/SilverRainZ/tech"&gt;https://github.com/SilverRainZ/tech&lt;/a&gt;，
 Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;strong&gt;以下的操作均针对该代码仓库
 以及 vps 上的 Arch 环境。&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;架设服务&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;架设服务&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先从 AUR 安装安装 Isso：&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ yaourt -S isso
 &lt;/pre&gt;&lt;/div&gt;
@@ -4971,16 +4451,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;strong&gt;�
 我们安装上。AUR 虽好，但在安装的时候最好还是检查一下 PKGBUILD 和 .install 文件，
 以避免来自收到来自一些混乱邪恶的打包者的恶意（比如前阵子就有人在 Pypi 和 Gem
 投了恶意包 Orz）。&lt;/p&gt;
-&lt;p&gt;&lt;a href="#id8"&gt;&lt;span class="problematic" id="id9"&gt;:raw-html-m2r:`&amp;lt;del&amp;gt;考虑把 Isso 收养到 archlinuxcn 源里，这个以后再说吧……&amp;lt;/del&amp;gt;`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/switch-from-duoshuo-to-isso.rst&lt;/span&gt;, line 65)&lt;/p&gt;
-&lt;p&gt;No role entry for “raw-html-m2r” in module “docutils.parsers.rst.languages.zh_cn”.
-Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="system-message" id="id8"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/switch-from-duoshuo-to-isso.rst&lt;/span&gt;, line 65); &lt;em&gt;&lt;a href="#id9"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Unknown interpreted text role “raw-html-m2r”.&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;考虑把 Isso 收养到 archlinuxcn 源里，这个以后再说吧……&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;安装完成后，打开 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/etc/isso.conf&lt;/span&gt;&lt;/code&gt; 文件，文件对各个配置项都有详细的解释，
 需要重点关注的配置如下：&lt;/p&gt;
 &lt;div class="highlight-ini notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Isso configuration file&lt;/span&gt;
@@ -5030,14 +4501,14 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;其中 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;comments.silverrainz.me&lt;/span&gt;&lt;/code&gt; 是指向 vps 的域名，你需要在域名所使用的 DNS
 服务器提供者那里修改 A 记录。&lt;/p&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;邮件通知&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;邮件通知&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;// TODO&lt;/p&gt;
 &lt;p&gt;还不会配 SMTP，先搁着。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;客户端&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;客户端&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;只要在网页中插入如下代码即可插入评论框：&lt;/p&gt;
 &lt;div class="highlight-html notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;data-isso&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;//comments.silverrainz.me/&amp;quot;&lt;/span&gt;
         &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;//comments.silverrainz.me/js/embed.min.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
@@ -5046,10 +4517,9 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="jekyll-s-way"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Jekyll’s Way&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Jekyll’s Way&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;对于 Jekyll 博客，比较好的做法是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_includes&lt;/span&gt;&lt;/code&gt; 目录下在建立 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;comments&lt;/span&gt;&lt;/code&gt; 文件用来
 存放评论框代码：&lt;/p&gt;
-&lt;p&gt;{% raw %}&lt;/p&gt;
 &lt;div class="highlight-html notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ site.baseurl }}/assets/comments.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;data-isso&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;//comments.silverrainz.me/&amp;quot;&lt;/span&gt;
@@ -5060,22 +4530,21 @@ Trying “raw-html-m2r” as canonical role name.&lt;/p&gt;
          &lt;span class="na"&gt;data-isso-id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ page.id }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;{% endraw %}&lt;/p&gt;
 &lt;p&gt;其中 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;data-isso-id&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;data-title&lt;/span&gt;&lt;/code&gt;  用来指定文章的唯一标识符和标题。
-为每个文章指定标识符便于以后的各种迁移。{% raw %} &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{{&lt;/span&gt; &lt;span class="pre"&gt;page.id&lt;/span&gt; &lt;span class="pre"&gt;}}&lt;/span&gt;&lt;/code&gt; {% endraw %}
-和  {% raw %} &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{{&lt;/span&gt; &lt;span class="pre"&gt;page.title&lt;/span&gt; &lt;span class="pre"&gt;}}&lt;/span&gt;&lt;/code&gt; {% endraw %}
+为每个文章指定标识符便于以后的各种迁移。&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{{&lt;/span&gt; &lt;span class="pre"&gt;page.id&lt;/span&gt; &lt;span class="pre"&gt;}}&lt;/span&gt;&lt;/code&gt;
+和  &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{{&lt;/span&gt; &lt;span class="pre"&gt;page.title&lt;/span&gt; &lt;span class="pre"&gt;}}&lt;/span&gt;&lt;/code&gt;
 是 Jekyll 提供的模板，用于获取本页面的 ID 和标题。
 title 和 id 可以在文件的 yaml 头中设置，但 Jekyll 会为 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_posts&lt;/span&gt;&lt;/code&gt; 中的文章自动生成 ID，
 对于 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_post/2017-06-10-switch-from-duoshuo-to-isso.md&lt;/span&gt;&lt;/code&gt;，
 其 ID 是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/2017/06/10/switch-from-duoshuo-to-isso&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;然后在页面模板 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_layouts/page.html&lt;/span&gt;&lt;/code&gt; 里面引用 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;comments&lt;/span&gt;&lt;/code&gt; 文件：
-{% raw %} &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{%&lt;/span&gt; &lt;span class="pre"&gt;include&lt;/span&gt; &lt;span class="pre"&gt;comments&lt;/span&gt; &lt;span class="pre"&gt;%}&lt;/span&gt;&lt;/code&gt; {% endraw %}，
+&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{%&lt;/span&gt; &lt;span class="pre"&gt;include&lt;/span&gt; &lt;span class="pre"&gt;comments&lt;/span&gt; &lt;span class="pre"&gt;%}&lt;/span&gt;&lt;/code&gt;
 就可以在每个使用了 page 模板的网页上显示评论框了。&lt;/p&gt;
 &lt;p&gt;详情请参见：&lt;a class="reference external" href="https://github.com/SilverRainZ/tech/commit/91fba1ed944ddc48d10df6dd21fceae5a0860b74"&gt;Commit: Replace duoshuo with isso&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="https"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;HTTPS&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;HTTPS&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;对于启用了 HTTPS 的博客来说，部署还没有结束：在 HTTPS 页面（博客）中引用的
 HTTP 脚本 (&lt;a class="reference external" href="http://comments.silverrainz.me/js/embed.min.js"&gt;http://comments.silverrainz.me/js/embed.min.js&lt;/a&gt;) 被认为是危险的
 Mixed Content，现代浏览器会拒绝加载它们，因此评论框并不能显示出来。&lt;/p&gt;
@@ -5137,8 +4606,8 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 &lt;/div&gt;
 &lt;p&gt;至此，应当可以通过 HTTPS 访问 Isso 的脚本了。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;样式&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;样式&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍做了一下调整，保存在
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;assets/comments.css&lt;/span&gt;&lt;/code&gt; 中：&lt;/p&gt;
 &lt;div class="highlight-css notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;isso-thread&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -5177,8 +4646,8 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id13"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;数据迁移&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;数据迁移&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;完成部署和简单的美化后，接下来就该把旧数据迁移过来了。&lt;/p&gt;
 &lt;p&gt;在多说宣布关闭的时候我就从后台导出了我的所有评论数据，数据文件的格式是 JSON，
 而 Isso 仅支持 Disqus 和 Wordpress 的 WXR 文件。本着不重复造轮子的原则，我找到了
@@ -5236,7 +4705,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;在多说中我使用 Jekyll 提供的 {% raw %} &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{{&lt;/span&gt; &lt;span class="pre"&gt;page.id&lt;/span&gt; &lt;span class="pre"&gt;}}&lt;/span&gt;&lt;/code&gt; {% endraw %} 来标识文章，
+&lt;p&gt;在多说中我使用 Jekyll 提供的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{{&lt;/span&gt; &lt;span class="pre"&gt;page.id&lt;/span&gt; &lt;span class="pre"&gt;}}&lt;/span&gt;&lt;/code&gt; 来标识文章，
 我在 about 页面设置的 id 是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/about&lt;/span&gt;&lt;/code&gt;，因此在 about 页面的评论框代码会请求获取
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/about&lt;/span&gt;&lt;/code&gt; 页面中的评论，而数据库中的 URI 却是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/about.html&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;从多说评论数据转换而来的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;wp.xml&lt;/span&gt;&lt;/code&gt; 中并没有保留之前的文章 ID (Thread ID)，Isso 应该是
@@ -5245,13 +4714,13 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;p&gt;于是尝试用 vim 把链接里面的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.html&lt;/span&gt;&lt;/code&gt; 去掉：&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:%s/.html&amp;lt;\/link&amp;gt;/&amp;lt;\/link&amp;gt;/&lt;/span&gt;&lt;/code&gt;，重新导入，
 评论就乖乖地出现了。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id14"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id25"&gt;安全&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;安全&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;// TODO&lt;/p&gt;
 &lt;p&gt;Isso 的安全性尚未考证，毫无安全技能点的我也只能先搁着了 :-(。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id15"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;不足&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id13"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;不足&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;当然 Isso 的缺点也是很多的……&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;没有管理界面，要管理评论只能手动操作数据库&lt;/p&gt;&lt;/li&gt;
@@ -5279,8 +4748,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;div&gt;&lt;p&gt;前注：这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
 不知道这里何时能够不荒废。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;p&gt;Srain 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。&lt;/p&gt;
-&lt;p&gt;{% include github-card repo=’SrainApp/srain’ %}&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/SrainApp/srain"&gt;&amp;#64;SrainApp/srain&lt;/a&gt; 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。&lt;/p&gt;
 &lt;p&gt;2015 年末的时候，我刚写完了自己的玩具内核 OS67，处于一段不知道做点什么东西的过渡期。&lt;/p&gt;
 &lt;p&gt;同年我已经开始用 openSUSE，为了解决一些问题尝试在 IRC 上提问。
 再后来开始用 Arch Linux，整天挂在 #archlinux-cn （那个时候还没有 offtopic）里灌水，

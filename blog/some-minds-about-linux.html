@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/some-minds-about-linux.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -107,14 +104,14 @@
 openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他很方便地安装
 「符合中国国情」的各种软件, 比如QQ, 斗地主, 美图什么的.
 当然我只是想用QQ(或许再加上个网易云音乐?). winetricks 本来是一个脚本,
-用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了.</p>
-<blockquote>
-<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:hillwoodroc/winetricks-zh.git<a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;br&gt;`</span></a>
-cd winetricks-zh<a href="#id3"><span class="problematic" id="id4">:raw-html-m2r:`&lt;br&gt;`</span></a>
-cp winetricks /usr/bin/winetricks<a href="#id5"><span class="problematic" id="id6">:raw-html-m2r:`&lt;br&gt;`</span></a>
-cd verb<a href="#id7"><span class="problematic" id="id8">:raw-html-m2r:`&lt;br&gt;`</span></a>
-winetricks <a href="#id9"><span class="problematic" id="id10">:raw-html-m2r:`&lt;要安装的应用对应的verb文件&gt;`</span></a></p>
-</div></blockquote>
+用来快速下载wine下能跑的Windows软件的, 它的使用已经相当简单了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">hillwoodroc</span><span class="o">/</span><span class="n">winetricks</span><span class="o">-</span><span class="n">zh</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">winetricks</span><span class="o">-</span><span class="n">zh</span>
+<span class="n">cp</span> <span class="n">winetricks</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">winetricks</span>
+<span class="n">cd</span> <span class="n">verb</span>
+<span class="n">winetricks</span>
+</pre></div>
+</div>
 <p>最开始安装的是QQ轻聊版, 在winetricks qqlight.verb时遇到问题, 首先脚本要从Sourceforge上拉东西,
 要备一张梯子(所以也折腾了一会儿的GoAgent), 安装好了之后打开来, QQ却莫名假死,
 不能操作, 而且在安装完成后启动一次, 桌面上没有启动器, 我以为要自己去挂载的磁盘上找,

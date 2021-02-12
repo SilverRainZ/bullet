@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/haskell-beginning.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -88,20 +85,25 @@
           <div class="body" role="main">
              <div class="section" id="hello-haskell">
 <h1>Hello Haskell<a class="headerlink" href="#hello-haskell" title="永久链接至标题">¶</a></h1>
-<p>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本「Haskell趣学指南」，
-这下子更没有不学的理由了。</p>
-<p>多说一句，有趣的是这本书的译者之一竟然是 Fleurer，我曾经好几次发邮件询问他有关OS的事情，
-没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的宋方睿大神，, 曾经在中大听过蓝莲花的宣讲会，
+<p>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
+<a class="reference internal" href="../todo.html#book-Haskell" title="Haskell 趣学指南 book"><code class="xref any any-book docutils literal notranslate"><span class="pre">Haskell</span> <span class="pre">趣学指南</span></code></a> ，这下子更没有不学的理由了。</p>
+<p>多说一句，有趣的是这本书的译者之一竟然是 <code class="xref any any-friend docutils literal notranslate"><span class="pre">Fleurer</span></code> ，我曾经好几次发邮件询问他有关OS的事情，
+没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 <code class="xref any any-friend docutils literal notranslate"><span class="pre">MaskRay</span></code> ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.</p>
+<div class="topic">
+<p class="topic-title">2021-02-12</p>
+<p>当时在宣讲会上的是诸葛建伟老师和 <a href="#id1"><span class="problematic" id="id2">:people:`ztrix &lt;https://ztrix.me&gt;`</span></a> ，
+后来我加入长亭科技，ztrix 自然也成为了我的老板。</p>
+</div>
 <p>好了说点正事。</p>
-<div class="section" id="id1">
-<h2>安装<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h2>安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">ghc</span></code>,
 但是比ghc更方便的是Haskell Platform, 安装同样可以<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">haskell-platform</span></code>,
 在 Windows 上则可以直接去官网下载安装包。</p>
 </div>
-<div class="section" id="id2">
-<h2>随便说说<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h2>随便说说<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>因为借书的时候已经是考试周的前夕，所以到现在翻看书的时间仅限于之前在阅览室里无聊的那一会还有回家的路上，
 现在是第五章，似乎有点初窥门径的感觉，又怕是自己想得太简单了。 总得来说是这么些感受吧：</p>
 <ul class="simple">
@@ -123,12 +125,10 @@
 <span class="nf">multThree</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>你可以将函数看做小工厂， 它们会取一些原材料，然后生产一些东西，对于上面的代码，
+<p>你可以将函数看做小工厂， 它们会取一些原材料，然后生产一些东西，对于上面的代码，
 执行 multThree 3 5 9，我们将数值3喂给multThree工厂，这个工厂产生了一个更小的工厂，
 这家小工厂得到数值5，继续搞出来一家小工厂， 第三家工厂得到数值9,产出最终的结果，
 也就是135。</p>
-</div></blockquote>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">qsort</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
 <span class="nf">qsort</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
 <span class="nf">qsort</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">qsort</span> <span class="n">lteq</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">qsort</span> <span class="n">gt</span>

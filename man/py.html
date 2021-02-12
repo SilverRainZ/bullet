@@ -19,26 +19,23 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/man/py.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="reStructuredText" href="rst.html" />
-    <link rel="prev" title="Meson Build System" href="meson.html" /> 
+    <link rel="prev" title="Pacman" href="pacman.html" /> 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -118,50 +115,20 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="list-comprehension">
-<h2>List Comprehension<a class="headerlink" href="#list-comprehension" title="永久链接至标题">¶</a></h2>
+<div class="section" id="python-in-one-line">
+<h2>Python in One Line<a class="headerlink" href="#python-in-one-line" title="永久链接至标题">¶</a></h2>
+<p>List comprehension:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="struct">
-<h2>Struct<a class="headerlink" href="#struct" title="永久链接至标题">¶</a></h2>
-<p>dataclasses <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
-<blockquote>
-<div><p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-
-<span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">InventoryItem</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class for keeping track of an item in inventory.&quot;&quot;&quot;</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">quantity_on_hand</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span> <span class="nf">total_cost</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity_on_hand</span>
+<p>Dict comprehension:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="nb">vars</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Constructor will be automatically generated:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">quantity_on_hand</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span> <span class="o">=</span> <span class="n">unit_price</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">quantity_on_hand</span> <span class="o">=</span> <span class="n">quantity_on_hand</span>
+<p>Labmda:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>namedtuple <a class="footnote-reference brackets" href="#id4" id="id2">2</a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span>
-</pre></div>
-</div>
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
-</dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/2/library/collections.html#collections.namedtuple">https://docs.python.org/2/library/collections.html#collections.namedtuple</a></p>
-</dd>
-</dl>
 </div>
 <div class="section" id="clone-object">
 <h2>Clone Object<a class="headerlink" href="#clone-object" title="永久链接至标题">¶</a></h2>
@@ -192,6 +159,67 @@
 </div>
 <div class="section" id="unit-testing">
 <h2>Unit Testing<a class="headerlink" href="#unit-testing" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="class">
+<h2>Class<a class="headerlink" href="#class" title="永久链接至标题">¶</a></h2>
+<p>Pass all arguments to parent constructor in child class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use class as plain old data structure (POD) via dataclasses <a class="footnote-reference brackets" href="#id2" id="id1">1</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">InventoryItem</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class for keeping track of an item in inventory.&quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">quantity_on_hand</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">total_cost</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity_on_hand</span>
+
+<span class="c1"># Constructor will be automatically generated::</span>
+
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">quantity_on_hand</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span> <span class="o">=</span> <span class="n">unit_price</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">quantity_on_hand</span> <span class="o">=</span> <span class="n">quantity_on_hand</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>New in python 3.7.</p>
+</div>
+</div>
+<div class="section" id="file-operations">
+<h2>File Operations<a class="headerlink" href="#file-operations" title="永久链接至标题">¶</a></h2>
+<p>Temp directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;blahblah&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Delete directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get basename:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get extname:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create soft/symbolic link:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -227,7 +255,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/interval-of-music.html">音程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/painters.html">基于艺术家的艺术史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/painters.html">艺术家史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/books/index.html">读书笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
@@ -241,7 +269,6 @@
 <p class="caption"><span class="caption-text">手册</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="awk.html">Awk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="css.html">CSS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpg.html">GnuPG</a></li>
@@ -251,9 +278,11 @@
 <li class="toctree-l1"><a class="reference internal" href="magick.html">ImageMagick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="make.html">Makefile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pacman.html">Pacman</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vim.html">Vim</a></li>
 </ul>
 <p class="caption"><span class="caption-text">随记</span></p>
 <ul>
@@ -276,7 +305,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="meson.html" title="上一章">Meson Build System</a></li>
+      <li>Previous: <a href="pacman.html" title="上一章">Pacman</a></li>
       <li>Next: <a href="rst.html" title="下一章">reStructuredText</a></li>
   </ul></li>
 </ul>

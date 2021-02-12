@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/syntax-highlight-in-haskell.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -91,9 +88,18 @@
 <p>书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。</p>
 <p>不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，
 有个想法就是将整段代码按是否高亮划分为一些元素:</p>
-<blockquote>
-<div><p>关键字，字符，宏，字符串，块注释，行注释，数字，函数，空白，其他</p>
-</div></blockquote>
+<ul class="simple">
+<li><p>关键字</p></li>
+<li><p>字符</p></li>
+<li><p>宏</p></li>
+<li><p>字符串</p></li>
+<li><p>块注释</p></li>
+<li><p>行注释</p></li>
+<li><p>数字</p></li>
+<li><p>函数</p></li>
+<li><p>空白</p></li>
+<li><p>其他</p></li>
+</ul>
 <p>然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过这个想法暂时没实现。</p>
 <div class="section" id="id1">
 <h2>正则<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
@@ -108,17 +114,33 @@
 <p>写正则实在是太烧脑子了，匹配奇数个可以用 <code class="docutils literal notranslate"><span class="pre">[^\\]((\\\\)*\\&quot;)</span></code> ，
 然后最后面的引号只能左侧包含偶数个引号 <code class="docutils literal notranslate"><span class="pre">[^\\]((\\\\)*&quot;)</span></code>
 （本来可以将两个分组用后向引用省略了，试了一下发现错误，也不知道怎么解决）
-最后写出来是恶心的表达式：<code class="docutils literal notranslate"><span class="pre">&quot;(.|[^\\](\\\\)*&quot;)*?[^\\](\\\\)*&quot;</span></code>，但是还是有问题：</p>
+最后写出来是恶心的表达式：<code class="docutils literal notranslate"><span class="pre">&quot;(.|[^\\](\\\\)*&quot;)*?[^\\](\\\\)*&quot;</span></code>，但是还是有问题:</p>
 <blockquote>
-<div><p>“regexp”                    匹配 “regexp”<a href="#id3"><span class="problematic" id="id4">:raw-html-m2r:`&lt;br&gt;`</span></a>
-“regexp&quot;regexp”            匹配 “regexp&quot;regexp”<a href="#id5"><span class="problematic" id="id6">:raw-html-m2r:`&lt;br&gt;`</span></a>
-“reg &quot; exp”reg”exp”       匹配 “reg &quot; 和 “reg”<a href="#id7"><span class="problematic" id="id8">:raw-html-m2r:`&lt;br&gt;`</span></a>
-“reg &quot;””regexp”           匹配 <code class="docutils literal notranslate"><span class="pre">&quot;reg</span> <span class="pre">\\&quot;</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;regexp&quot;</span></code></p>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>“regexp”</p></td>
+<td><p>匹配 “regexp”</p></td>
+</tr>
+<tr class="row-even"><td><p>“regexp&quot;regexp”</p></td>
+<td><p>匹配 “regexp&quot;regexp”</p></td>
+</tr>
+<tr class="row-odd"><td><p>“reg &quot; exp”reg”exp”</p></td>
+<td><p>匹配 “reg &quot; 和 “reg”</p></td>
+</tr>
+<tr class="row-even"><td><p>“reg &quot;””regexp”</p></td>
+<td><p>匹配 <code class="docutils literal notranslate"><span class="pre">&quot;reg</span> <span class="pre">\\&quot;</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;regexp&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <p>就最后一个错了，因为”也是满足<code class="docutils literal notranslate"><span class="pre">[^\\](\\\\)*&quot;</span></code>的，懒得再想了。</p>
 </div>
-<div class="section" id="id9">
-<h3>反斜杠的转义<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h3>反斜杠的转义<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>还有一个问题，也是转义，本来为了代码的简洁，将正则表达式写在了文件里，每行一个，
 逐行读取，接下来读每个正则对应的颜色，代码很漂亮：</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">handle</span> <span class="ow">&lt;-</span> <span class="n">openFile</span> <span class="s">&quot;keywords.txt&quot;</span> <span class="kt">ReadMode</span>
@@ -131,27 +153,25 @@
 而当你从文件里面读 “n” 的时候，他就真的是“n” 了，他代表一个反斜杠和一个字符n。
 你没法从文件的一行里面读取一个回车吧，并且n后面还有内容，所以这种方案失败，
 我只把关键字放在了文件里。代码变成了：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```haskell
-pattern&#39; = [ &quot;/\\*(.|\n|\r)*\\*/&quot;
-           , &quot;//.*&quot;
-           , &quot;#.*&quot;
-           , &quot;\&quot;(.|(\\\\\\\\)*\\\\\&quot;)*[^\\\\](\\\\\\\\)*\&quot;&quot;
-           ]
-color = [&quot;Purple&quot;, &quot;Gray&quot;, &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;]
-main = do
-        keywords &lt;- readFile &quot;keywords.txt&quot;
-        let pattern = pattern&#39; ++ [keywords]
-            patCol = zip pattern color
-```
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">pattern&#39;</span> <span class="ow">=</span> <span class="p">[</span> <span class="s">&quot;/</span><span class="se">\\</span><span class="s">*(.|</span><span class="se">\n</span><span class="s">|</span><span class="se">\r</span><span class="s">)*</span><span class="se">\\</span><span class="s">*/&quot;</span>
+           <span class="p">,</span> <span class="s">&quot;//.*&quot;</span>
+           <span class="p">,</span> <span class="s">&quot;#.*&quot;</span>
+           <span class="p">,</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">(.|(</span><span class="se">\\\\\\\\</span><span class="s">)*</span><span class="se">\\\\\&quot;</span><span class="s">)*[^</span><span class="se">\\\\</span><span class="s">](</span><span class="se">\\\\\\\\</span><span class="s">)*</span><span class="se">\&quot;</span><span class="s">&quot;</span>
+           <span class="p">]</span>
+<span class="nf">color</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;Purple&quot;</span><span class="p">,</span> <span class="s">&quot;Gray&quot;</span><span class="p">,</span> <span class="s">&quot;Red&quot;</span><span class="p">,</span> <span class="s">&quot;Green&quot;</span><span class="p">,</span> <span class="s">&quot;Blue&quot;</span><span class="p">]</span>
+<span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+        <span class="n">keywords</span> <span class="ow">&lt;-</span> <span class="n">readFile</span> <span class="s">&quot;keywords.txt&quot;</span>
+        <span class="kr">let</span> <span class="n">pattern</span> <span class="ow">=</span> <span class="n">pattern&#39;</span> <span class="o">++</span> <span class="p">[</span><span class="n">keywords</span><span class="p">]</span>
+            <span class="n">patCol</span> <span class="ow">=</span> <span class="n">zip</span> <span class="n">pattern</span> <span class="n">color</span>
 </pre></div>
 </div>
 <p>这里又引发一个问题是：之前本来不用转义的 <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> 变成了 <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>，需要转义一次的 <code class="docutils literal notranslate"><span class="pre">\\</span></code>，变成了<code class="docutils literal notranslate"><span class="pre">\\\\</span></code>，
 表达式更难看了。 而且需要注意到的是最难看的那个表达式里面的懒惰匹配 “?” 没有出现，
 我一加他就出错。所以出现了更多的问题，效果比在测试器里面的还差。</p>
-<blockquote>
-<div><p><strong>2015.3.2: 事实上Haskell的Posix库的底层是C的Regex.h,
-并且Posix规范的正则并不支持懒惰匹配。</strong></p>
-</div></blockquote>
+<div class="topic">
+<p class="topic-title">2015.3.2 update:</p>
+<p>事实上Haskell的Posix库的底层是C的Regex.h,并且Posix规范的正则并不支持懒惰匹配。</p>
+</div>
 </div>
 </div>
 <div class="section" id="haskell">
@@ -164,8 +184,8 @@ main = do
 调用这个函数的函数也必须是IO操作，这一循环直到main才终止。当然Haskell这样做肯定是有它的理由的，
 但是他们所说的“纯粹与非纯粹的分离”，我还暂时体会不到这样做的好处。</p>
 </div>
-<div class="section" id="id10">
-<h3>不知道这么写是否合适<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h3>不知道这么写是否合适<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>我将正则保存在一个列表，将每个正则对应的颜色保存在另一个列表，
 再从文件里读取匹配关键字的正则加在第一个列表的尾部，合并两个列表；</p></li>
@@ -218,30 +238,7 @@ main = do
 </pre></div>
 </div>
 <p>最后的结果如下：</p>
-<p>{::nomarkdown}</p>
-<p><a href="#id11"><span class="problematic" id="id12">:raw-html-m2r:`&lt;div style=&quot;background: #ffffff; color: black; padding:8px&quot;&gt;`</span></a></p>
-<p><a href="#id13"><span class="problematic" id="id14">:raw-html-m2r:`&lt;pre&gt;`</span></a><a href="#id15"><span class="problematic" id="id16">:raw-html-m2r:`&lt;font color=Blue&gt;import&lt;/font&gt;`</span></a> javax.swing.<em>;
-:raw-html-m2r:`&lt;font color=Purple&gt;`/</em> Test <em>/
-:raw-html-m2r:`&lt;font color=Red&gt;#Test&lt;/font&gt;`
-/</em></p>
-<ul>
-<li><p>Block Comment
-<a href="#id17"><span class="problematic" id="id18">*</span></a>/&lt;/font&gt;
-<a href="#id19"><span class="problematic" id="id20">:raw-html-m2r:`&lt;font color=Blue&gt;public&lt;/font&gt;`</span></a> <a href="#id21"><span class="problematic" id="id22">:raw-html-m2r:`&lt;font color=Blue&gt;static&lt;/font&gt;`</span></a> <a href="#id23"><span class="problematic" id="id24">:raw-html-m2r:`&lt;font color=Blue&gt;void&lt;/font&gt;`</span></a> main(String args){</p>
-<blockquote>
-<div><p><a href="#id25"><span class="problematic" id="id26">:raw-html-m2r:`&lt;font color=Gray&gt;// Line Comment&lt;/font&gt;`</span></a>
-<a href="#id27"><span class="problematic" id="id28">:raw-html-m2r:`&lt;font color=Blue&gt;int&lt;/font&gt;`</span></a> a;
-<a href="#id29"><span class="problematic" id="id30">:raw-html-m2r:`&lt;font color=Blue&gt;char&lt;/font&gt;`</span></a> b = ‘a’;
-String str1 = <a href="#id31"><span class="problematic" id="id32">:raw-html-m2r:`&lt;font color=Blue&gt;new&lt;/font&gt;`</span></a> String(<a href="#id33"><span class="problematic" id="id34">:raw-html-m2r:`&lt;font color=Green&gt;&quot;Who cares?&quot;&lt;/font&gt;`</span></a>);
-String str2 = <a href="#id35"><span class="problematic" id="id36">:raw-html-m2r:`&lt;font color=Blue&gt;new&lt;/font&gt;`</span></a> String(<a href="#id37"><span class="problematic" id="id38">:raw-html-m2r:`&lt;font color=Green&gt;&quot;Who\&quot; cares?&quot;&lt;/font&gt;`</span></a>);
-String str1 = <a href="#id39"><span class="problematic" id="id40">:raw-html-m2r:`&lt;font color=Blue&gt;new&lt;/font&gt;`</span></a> String(<a href="#id41"><span class="problematic" id="id42">:raw-html-m2r:`&lt;font color=Green&gt;&quot;Who \\&quot;cares?&quot;&lt;/font&gt;`</span></a>);
-a = a + b;
-<a href="#id43"><span class="problematic" id="id44">:raw-html-m2r:`&lt;font color=Blue&gt;return&lt;/font&gt;`</span></a> 0;</p>
-</div></blockquote>
-<p>}&lt;/pre&gt; &lt;/div&gt;
-{:/nomarkdown}</p>
-</li>
-</ul>
+<img alt="../_images/2021-02-12_14:56:46.png" src="../_images/2021-02-12_14:56:46.png" />
 <p>可以看到最后一个字符串是着色错误的。</p>
 </div>
 </div>

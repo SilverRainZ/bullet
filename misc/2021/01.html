@@ -19,25 +19,22 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/misc/2021/01.html" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="Art Works" href="../../collections/art-works/index.html" />
+    <link rel="next" title="2020-01" href="02.html" />
     <link rel="prev" title="2021" href="index.html" /> 
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -320,6 +317,51 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 </dl>
 <p>TODO</p>
 </div>
+<div class="section" id="python-typing-hint-import">
+<h2>Python Typing Hint 引入大量 import 导致脚本启动慢<a class="headerlink" href="#python-typing-hint-import" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2021-01-29</p>
+</dd>
+</dl>
+<p>写 khufu 的 cli 时候发现脚本启动很慢。
+使用 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-X</span> <span class="pre">importtime</span> <span class="pre">...</span></code> 统计脚本启动时 import 所占时间:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span> <span class="n">many</span> <span class="n">line</span> <span class="n">emitted</span> <span class="o">...</span>
+<span class="kn">import</span> <span class="nn">time</span><span class="p">:</span>       <span class="mi">323</span> <span class="o">|</span>     <span class="mi">405157</span> <span class="o">|</span> <span class="n">sphinxnote</span><span class="o">.</span><span class="n">khufu</span>
+</pre></div>
+</div>
+<p>主要是因为 import 了 sphinx jinja 这类重量级的包导致的，而 import 的原因只是为了他
+写 typing annoaiton。</p>
+<p>尝试搜索了一下，看起来社区为了解决这个问题做了不少探索，不同版本有不同的解决方案：</p>
+<p>Python 3.5.2+ 可以使用 <code class="xref py py-const docutils literal notranslate"><span class="pre">typing.TYPE_CHECKING</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">expensive_mod</span>
+
+<span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="s1">&#39;expensive_mod.SomeType&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">local_var</span><span class="p">:</span> <span class="n">expensive_mod</span><span class="o">.</span><span class="n">AnotherType</span> <span class="o">=</span> <span class="n">other_fun</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>The first type annotation must be enclosed in quotes, making it a “forward reference”</p>
+</div>
+<p>Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code>
+即可 <a class="footnote-reference brackets" href="#id27" id="id25">12</a> 。</p>
+<p>Python 3.10 后 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> 会成为默认行为。</p>
+<p><code class="docutils literal notranslate"><span class="pre">__import__('pkg_resources').declare_namespace(__name__)</span></code> <a class="footnote-reference brackets" href="#id28" id="id26">13</a> 耗了很长时间。</p>
+<p>最后:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="p">:</span>       <span class="mi">405</span> <span class="o">|</span>      <span class="mi">32024</span> <span class="o">|</span> <span class="n">sphinxnote</span><span class="o">.</span><span class="n">khufu</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id27"><span class="brackets"><a class="fn-backref" href="#id25">12</a></span></dt>
+<dd><p><span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0563"><strong>PEP 0563</strong></a></p>
+</dd>
+<dt class="label" id="id28"><span class="brackets"><a class="fn-backref" href="#id26">13</a></span></dt>
+<dd><p><a class="reference external" href="https://stackoverflow.com/questions/7785944/what-does-import-pkg-resources-declare-namespace-name-do">https://stackoverflow.com/questions/7785944/what-does-import-pkg-resources-declare-namespace-name-do</a></p>
+</dd>
+</dl>
+</div>
 </div>
 
 <div class="section">
@@ -354,7 +396,7 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <li class="toctree-l1"><a class="reference internal" href="../../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/interval-of-music.html">音程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../notes/painters.html">基于艺术家的艺术史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/painters.html">艺术家史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/books/index.html">读书笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/classic-sketch/index.html">造型实验室素描学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
@@ -368,7 +410,6 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../man/css.html">CSS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
@@ -378,15 +419,18 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
 <p class="caption"><span class="caption-text">随记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../2020/index.html">2020</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">2021</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2020-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">2020-01</a></li>
 </ul>
 </li>
 </ul>
@@ -408,7 +452,7 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="index.html">2021</a><ul>
       <li>Previous: <a href="index.html" title="上一章">2021</a></li>
-      <li>Next: <a href="../../collections/art-works/index.html" title="下一章">Art Works</a></li>
+      <li>Next: <a href="02.html" title="下一章">2020-01</a></li>
   </ul></li>
   </ul></li>
 </ul>

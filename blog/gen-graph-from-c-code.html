@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/gen-graph-from-c-code.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -92,11 +89,11 @@
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
 报告应该可以随便水过去，据说连答辩都可以省掉了……</p>
 <p>前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。</p>
-<p>用到的软件有 graphviz，egypt<a href="#id1"><span class="problematic" id="id2">:raw-html-m2r:`&lt;sup&gt;AUR&lt;/sup&gt;`</span></a>，cinclude2dot<a href="#id3"><span class="problematic" id="id4">:raw-html-m2r:`&lt;sup&gt;AUR&lt;/sup&gt;`</span></a>，
-{% include friend name=”farseerfc” %} 推荐了 <a class="reference external" href="http://makepp.sourceforge.net/">makepp</a>，
+<p>用到的软件有 graphviz，egypt<sup>AUR</sup>，cinclude2dot<sup>AUR</sup>，
+<a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 推荐了 <a class="reference external" href="http://makepp.sourceforge.net/">makepp</a>，
 然而 AUR 里面没有就作罢了。</p>
-<div class="section" id="id5">
-<h2>生成函数调用图<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h2>生成函数调用图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>安装 egypt 直接 <code class="docutils literal notranslate"><span class="pre">yaourt</span> <span class="pre">-S</span> <span class="pre">egypt</span></code> 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 <code class="docutils literal notranslate"><span class="pre">-fdump-rtl-expand</span></code>，
 再 make 一次，gcc 会在 bulid 目录下生成 <code class="docutils literal notranslate"><span class="pre">*.expand</span></code> 文件，
@@ -121,17 +118,8 @@
 </pre></div>
 </div>
 <p>执行 <code class="docutils literal notranslate"><span class="pre">dot</span> <span class="pre">main.dot</span> <span class="pre">-Tpng</span> <span class="pre">-o</span> <span class="pre">main.png</span></code>，于是从整个 OS67 生成了这么一张可怕的图片：</p>
-<a class=""
-               data-lightbox="group-default"
-               href="_images/os67-fucn-call-graph.png"
-               title=""
-               data-title=""
-               ><img src="_images/os67-fucn-call-graph.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/>
-                </a><p>这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
+<img alt="" src="../_images/os67-func-call-graph.png" />
+<p>这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
 没法做什么简化，所以对于整个项目我只生成了后面的模块调用图。</p>
 <p>既然整个项目的图太大了，那就生成模块内部的调用图好了，OS67 的项目结构长这样，
 模块和文件夹基本上是一一对应的：</p>
@@ -169,50 +157,32 @@
 </div>
 <p>生成出来的图片除了 fs 模块比较大之外其他都还行，下面是 kern 模块的 call graph
 （用 kolourpaint 做了点调整）：</p>
-<a class=""
-               data-lightbox="group-default"
-               href="../_images/os67-kern-func-call-graph1.png"
-               title=""
-               data-title=""
-               ><img src="../_images/os67-kern-func-call-graph1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/>
-                </a><blockquote>
+<img alt="" src="../_images/os67-kern-func-call-graph.png" />
+<blockquote>
 <div><p>注意：这里没有处理 boot 模块和 usr 模块，因为 boot 里面都是汇编程序，
 而 usr 里面的用户程序都有 main 函数会导致冲突而画出奇怪的图，所以就没有包含了。</p>
 </div></blockquote>
-<p><a href="#id6"><span class="problematic" id="id7">:raw-html-m2r:`&lt;del&gt;另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。&lt;/del&gt;`</span></a></p>
+<p><span class="sphinxnotes-strike">另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。</span></p>
 <blockquote>
 <div><p>刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。</p>
 </div></blockquote>
 </div>
-<div class="section" id="id8">
-<h2>生成模块调用图<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2>生成模块调用图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
 <a class="reference external" href="https://www.flourish.org/cinclude2dot/">flourish.org/cinclude2dot/</a>。</p>
 <blockquote>
 <div><p>AUR 里面没有所以顺手给打了一个包：
-<code class="code docutils literal notranslate"><span class="pre">cinclude2dot\</span> <span class="pre">:raw-html-m2r:`&lt;sup&gt;AUR&lt;/sup&gt;</span></code> &lt;<a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/">https://aur.archlinux.org/packages/cinclude2dot/</a>&gt;`_，
+<code class="code docutils literal notranslate"><span class="pre">cinclude2dot\</span> <span class="pre">:sup:`AUR</span></code> &lt;<a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/">https://aur.archlinux.org/packages/cinclude2dot/</a>&gt;`_，
 所以现在也可以直接用 yaourt 装 cinclude2dot 了。</p>
 </div></blockquote>
 <p>执行 <code class="docutils literal notranslate"><span class="pre">cinclude2dot</span> <span class="pre">--include</span> <span class="pre">inc</span> <span class="pre">&gt;</span> <span class="pre">main.dot</span></code> 会在当前目录递归地找 <code class="docutils literal notranslate"><span class="pre">*.c</span></code> 文件，
 然后在 <code class="docutils literal notranslate"><span class="pre">inc</span></code> 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
 如果启用 <code class="docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">module</span></code> 的话，会把 <code class="docutils literal notranslate"><span class="pre">xxx.c</span></code> 和 <code class="docutils literal notranslate"><span class="pre">xxx.h</span></code> 合并为一个模块 <code class="docutils literal notranslate"><span class="pre">xxx</span></code>，
 然而这样生成的图片还是太大了点。</p>
-<a class=""
-               data-lightbox="group-default"
-               href="../_images/os67-mod-include-graph1.png"
-               title=""
-               data-title=""
-               ><img src="../_images/os67-mod-include-graph1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/>
-                </a><p>cinclude2dot 还提供了一个 <code class="docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 选项，把相同目录的文件合并为一个模块，
+<img alt="" src="../_images/os67-mod-include-graph.png" />
+<p>cinclude2dot 还提供了一个 <code class="docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 选项，把相同目录的文件合并为一个模块，
 这正是我想要的功能，然而这样生成的图过分简单，
 所有的目录都指向了存放头文件的目录 <code class="docutils literal notranslate"><span class="pre">inc</span></code>。试了一下 directory 和 module 选项也不能一起用，
 果然还是得自己在 dot 文件上改一改。</p>
@@ -268,17 +238,8 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
 </pre></div>
 </div>
 <p>最后我们得到了一张还算不错的， OS67 的模块调用关系图：</p>
-<a class=""
-               data-lightbox="group-default"
-               href="_images/os67-mod-include-graph-goood.png"
-               title=""
-               data-title=""
-               ><img src="_images/os67-mod-include-graph-goood.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/>
-                </a><p>好困睡觉。</p>
+<img alt="" src="../_images/os67-mod-include-graph-good.png" />
+<p>好困睡觉。</p>
 </div>
 </div>
 

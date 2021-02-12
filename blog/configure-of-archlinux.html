@@ -19,20 +19,17 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/configure-of-archlinux.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -87,44 +84,32 @@
 
           <div class="body" role="main">
              <div class="section" id="arch-linux">
-<h1><a class="toc-backref" href="#id16">Arch Linux 折腾小记</a><a class="headerlink" href="#arch-linux" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id6">Arch Linux 折腾小记</a><a class="headerlink" href="#arch-linux" title="永久链接至标题">¶</a></h1>
 <p>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:</p>
-<a class=""
-               data-lightbox="group-default"
-               href="../_images/archlinux-screenshot1.png"
-               title=""
-               data-title=""
-               ><img src="../_images/archlinux-screenshot1.png"
-                     class=""
-                     width="48%"
-                     height="auto"
-                     alt=""/>
-                </a><ul class="simple">
-<li><p>Index</p></li>
-</ul>
+<img alt="" src="../_images/archlinux-screenshot.png" />
 <div class="contents topic" id="id1">
 <p class="topic-title">目录</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#arch-linux" id="id16">Arch Linux 折腾小记</a></p>
+<li><p><a class="reference internal" href="#arch-linux" id="id6">Arch Linux 折腾小记</a></p>
 <ul>
-<li><p><a class="reference internal" href="#xmonad-wm" id="id17">以 XMonad 为 WM 的桌面</a></p></li>
-<li><p><a class="reference internal" href="#id10" id="id18">无线网络管理</a></p></li>
-<li><p><a class="reference internal" href="#im" id="id19">IM</a></p>
+<li><p><a class="reference internal" href="#xmonad-wm" id="id7">以 XMonad 为 WM 的桌面</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id8">无线网络管理</a></p></li>
+<li><p><a class="reference internal" href="#im" id="id9">IM</a></p>
 <ul>
-<li><p><a class="reference internal" href="#qq" id="id20">QQ</a></p></li>
-<li><p><a class="reference internal" href="#id11" id="id21">其他</a></p></li>
+<li><p><a class="reference internal" href="#qq" id="id10">QQ</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">其他</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#gtk" id="id22">GTK</a></p></li>
-<li><p><a class="reference internal" href="#id14" id="id23">输入法:</a></p></li>
-<li><p><a class="reference internal" href="#id15" id="id24">配置文件</a></p></li>
+<li><p><a class="reference internal" href="#gtk" id="id12">GTK</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id13">输入法:</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id14">配置文件</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="xmonad-wm">
-<h2><a class="toc-backref" href="#id17">以 XMonad 为 WM 的桌面</a><a class="headerlink" href="#xmonad-wm" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">以 XMonad 为 WM 的桌面</a><a class="headerlink" href="#xmonad-wm" title="永久链接至标题">¶</a></h2>
 <p>没有用 DE, WM 用的是 XMonad.</p>
 <p>关于 XMonad 的默认快捷键, <a class="reference external" href="http://xmonad.org/tour.html">XMonad Guide Tour</a>
 这篇官方的这篇文档很容易看懂.</p>
@@ -133,13 +118,13 @@
 <li><p>xmonad, xmonad-contrib</p></li>
 <li><p>xmobar</p></li>
 <li><p>dmenu</p></li>
-<li><p><a href="#id2"><span class="problematic" id="id3">:raw-html-m2r:`&lt;del&gt;trayer&lt;/del&gt;`</span></a> trayer-srg<a href="#id4"><span class="problematic" id="id5">:raw-html-m2r:`&lt;sup&gt;AUR&lt;/sup&gt;`</span></a></p></li>
+<li><p><span class="sphinxnotes-strike">trayer</span> trayer-srg<sup>AUR</sup></p></li>
 <li><p>feh</p></li>
 <li><p>scrot</p></li>
 <li><p>compton</p></li>
 </ul>
 <p>xmobar, 配置文件在<code class="docutils literal notranslate"><span class="pre">.xmobarrc</span></code>, 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
-也可以自己获取系统信息, <a href="#id6"><span class="problematic" id="id7">:raw-html-m2r:`&lt;del&gt;我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.&lt;/del&gt;`</span></a></p>
+也可以自己获取系统信息, <span class="sphinxnotes-strike">我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.</span></p>
 <blockquote>
 <div><p>2015-8-30: 使用 ArchLinux Wiki 中建议的字体, 效果良好.
 <code class="docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span> <span class="pre">&quot;xft:Bitstream</span> <span class="pre">Vera</span> <span class="pre">Sans</span> <span class="pre">Mono:size=9:bold:antialias=true&quot;</span></code></p>
@@ -147,7 +132,7 @@
 <p>dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按<code class="docutils literal notranslate"><span class="pre">mod</span> <span class="pre">+</span> <span class="pre">q</span></code>触发.</p>
 <p>trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:</p>
 <blockquote>
-<div><p>2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg<a href="#id8"><span class="problematic" id="id9">:raw-html-m2r:`&lt;sup&gt;AUR&lt;/sup&gt;`</span></a></p>
+<div><p>2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg<sup>AUR</sup></p>
 </div></blockquote>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>trayer --edge top --align right --widthtype percent --width <span class="m">11</span> <span class="se">\</span>
        --SetDockType <span class="nb">true</span> --SetPartialStrut <span class="nb">true</span> --transparent <span class="nb">true</span> --alpha <span class="m">0</span> <span class="se">\</span>
@@ -175,8 +160,8 @@
 只能在截图后用<code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">'mv</span> <span class="pre">$f</span> <span class="pre">~/Pictures/Screenshots'</span></code>把截图放到指定目录.</p>
 <p>上面这些配置大多写在启动脚本<code class="docutils literal notranslate"><span class="pre">startup.sh</span></code>里, 每个命令后边都得加上一个<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
 </div>
-<div class="section" id="id10">
-<h2><a class="toc-backref" href="#id18">无线网络管理</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">无线网络管理</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>为了更方便地连接无线网络, 安装如下包:</p>
 <ul class="simple">
 <li><p>networkmanager</p></li>
@@ -189,9 +174,9 @@
 <p>似乎不安装 <code class="docutils literal notranslate"><span class="pre">gnome-keyring</span></code>的话就无法连上加密的无线网络.</p>
 </div>
 <div class="section" id="im">
-<h2><a class="toc-backref" href="#id19">IM</a><a class="headerlink" href="#im" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">IM</a><a class="headerlink" href="#im" title="永久链接至标题">¶</a></h2>
 <div class="section" id="qq">
-<h3><a class="toc-backref" href="#id20">QQ</a><a class="headerlink" href="#qq" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">QQ</a><a class="headerlink" href="#qq" title="永久链接至标题">¶</a></h3>
 <p>TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 <a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773">邓攀打包的TM2013</a>,
 似乎没有预期中的 out of box, 字体不行, 密码输入也不行.
@@ -201,8 +186,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3><a class="toc-backref" href="#id21">其他</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id11">其他</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>IRC 客户端用火狐的 ChatZilla</p></li>
 <li><p>Telegram 客户端用 Cutegram, 得装 <code class="docutils literal notranslate"><span class="pre">fcitx-qt5</span></code> 才能正常输入,
@@ -212,20 +197,20 @@
 </div>
 </div>
 <div class="section" id="gtk">
-<h2><a class="toc-backref" href="#id22">GTK</a><a class="headerlink" href="#gtk" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">GTK</a><a class="headerlink" href="#gtk" title="永久链接至标题">¶</a></h2>
 <p>默认的 gtk 界面在 XMonad 下相当地丑, 可以安装<code class="docutils literal notranslate"><span class="pre">lxappearance</span></code>来调整 GTK 的主题.</p>
 <p>对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…</p>
-<blockquote>
-<div><p>2015-7-24: 经过 IRC 里 {% include friend name=”farseerfc” %} 前辈和
-{% include friend name=”quininer” %} 的<a href="#id12"><span class="problematic" id="id13">:raw-html-m2r:`&lt;del&gt;调教&lt;/del&gt;`</span></a>, 发现原来 dolphin 还是 kde4
-而 konsole 已经是 kde5 了.</p>
+<div class="topic">
+<p class="topic-title">Update</p>
+<p>2015-7-24: 经过 IRC 里 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 前辈和 <a class="reference internal" href="../about/friends.html#friend-quininer" title="quininer friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;quininer</span></code></a> 的 <span class="sphinxnotes-strike">调教</span> ,
+发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.</p>
 <p>2015-8-30: 安装社区源<code class="docutils literal notranslate"><span class="pre">gnome-breeze-git</span></code>主题, 以及 plasma5 的<code class="docutils literal notranslate"><span class="pre">breeze</span></code>主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量<code class="docutils literal notranslate"><span class="pre">QT_STYLE_OVERRIDE=breeze</span></code></p>
-</div></blockquote>
 </div>
-<div class="section" id="id14">
-<h2><a class="toc-backref" href="#id23">输入法:</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id13">输入法:</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在<code class="docutils literal notranslate"><span class="pre">~/.xprofile</span></code>中加入:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
 <span class="nb">export</span> <span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
@@ -234,8 +219,8 @@ konsole 的界面却依然很丑…</p>
 </div>
 <p>并在启动脚本里启动 fcitx.</p>
 </div>
-<div class="section" id="id15">
-<h2><a class="toc-backref" href="#id24">配置文件</a><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id14">配置文件</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>上面有提到的全部配置文件参见:</p>
 <p><a class="reference external" href="https://github.com/SilverRainZ/dotfiles">SilverRainZ/dotfiles - Github</a></p>
 </div>
