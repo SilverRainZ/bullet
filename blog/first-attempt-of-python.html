@@ -99,7 +99,7 @@
 <div class="section" id="id1">
 <h2>脚本<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>这个脚本的功能很简单, 就是根据指定的参数, 把指定的配置从仓库中复制到用户目录(deploy),
-或者把用户目录下的配置复制到仓库(collect).<span class="sphinxnotes-strike">这样都能写100多行!</span></p>
+或者把用户目录下的配置复制到仓库(collect).<a href="#id2"><span class="problematic" id="id3">:s:`这样都能写100多行!`</span></a></p>
 <p>现在只支持我常用的三个软件的配置: vim, pentadacytl, zsh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sync</span>   <span class="o">--</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">script</span> <span class="n">used</span> <span class="n">to</span> <span class="n">sync</span> <span class="n">profile</span>
 <span class="n">python</span> <span class="n">sync</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">operation</span><span class="p">]</span>
@@ -118,22 +118,22 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>缩进<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h2>缩进<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>Python 的一大特点就是用缩进来划分代码块, 这会让 if 的嵌套变得很不清晰,
 偏偏又不提供 switch 语句或者 Pattern Matching, 所以代码中的各种 if 又省不了,
 这个有点痛苦. 不过 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">xx</span> <span class="pre">in</span> <span class="pre">[...]</span></code> 这样的语法我倒是觉得挺好的,
 避免了<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">a==xx</span> <span class="pre">||</span> <span class="pre">a</span> <span class="pre">==</span> <span class="pre">xxx</span> <span class="pre">||</span> <span class="pre">...</span></code> 这样的超长 if.</p>
 </div>
-<div class="section" id="id3">
-<h2>函数式特性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h2>函数式特性<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>再跑一下题, 我在这学期看了F叔的「Haskell趣学指南」, 自觉 Haskell 这门语言难以入门,
 至今写过的代码也不过寥寥数行, 只能算是大概了解了他的语法, 却因此沾染上了一些「恶习」,
 老想在其他语言里使用那些FP的语法特性, 或者是当用这些特定可以让代码更好的时候,
 抱怨 xxx 怎么没有这个语法. 我自己都觉得有点可笑, 不过, Python 一定程度上满足了我这奇怪的要求.</p>
 </div>
-<div class="section" id="id4">
-<h2>高阶函数<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h2>高阶函数<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>很高兴 Python 里面提供了部分函数式语言的特性, 我在这个小脚本里用<code class="docutils literal notranslate"><span class="pre">map</span></code>用得很爽.
 sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信息, 本来我是这样写的:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;sync -- a simple script used to sync profile&#39;</span><span class="p">)</span>
@@ -158,16 +158,16 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>被弃用的元组参数解包<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h2>被弃用的元组参数解包<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>本来上面那个翻转元组的 lambda 在 Python 2+ 可以这么写:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>类似模式匹配的写法感觉很不错, 可是不知道为什么在 3.0 中这个语法被移除了.</p>
 </div>
-<div class="section" id="id6">
-<h2>部分应用<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h2>部分应用<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">map</span></code>只能对 list 映射只有一个参数的函数, 在 Haskell 中我们可以用部分应用
 获得一个只需要一个参数的函数, 在 Python 中似乎不能直接做到, 但我们有折衷的办法:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
@@ -177,13 +177,13 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 </div>
 <p>用一个 lambda 来使得<code class="docutils literal notranslate"><span class="pre">deploy</span></code>对外只有一个参数.</p>
 </div>
-<div class="section" id="id7">
-<h2>库<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h2>库<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>Python 库大概是 Python 备受推崇的一个重要原因, 可惜我的脚本只是在做文件复制,
 没有用到什么特别的库.</p>
 <p>不过拜 Python 良好的跨平台能力, 我不需要为处理 Windows 和 Linux 下不同的文件操作各写一份代码,
 只需要对路径做些处理就行了.</p>
-<p><span class="sphinxnotes-strike">感觉好像什么都没写啊(摔…</span></p>
+<p><a href="#id10"><span class="problematic" id="id11">:s:`感觉好像什么都没写啊(摔...`</span></a></p>
 </div>
 </div>
 
