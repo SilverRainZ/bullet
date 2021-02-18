@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -121,7 +122,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
 <li><p>使用 xbindskey 管理快捷键，而不是用 xmoand 的 <code class="docutils literal notranslate"><span class="pre">additionalKeys</span></code>
 （听小药壶说可以用 scheme 来写 .xbindskeyrc）</p></li>
 <li><p>使用 terminator 代替 konsole</p></li>
-<li><p>使用 dzen2 + <a href="#id1"><span class="problematic" id="id2">:s:`condy`</span></a> conky 代替 xmobar</p>
+<li><p>使用 dzen2 + <span class="sphinxnotes-strike">condy</span> conky 代替 xmobar</p>
 <p>需要启动两个 dzen2，一个接受 xmoand 的输出，一个接受 conky 的输出，
 需要注意的是 dzen2 <strong>不支持</strong> 按屏幕的百分比显示，
 我在网上找到了<a class="reference external" href="https://github.com/ervandew/dotfiles/blob/master/bin/dzen2">这个脚本</a>，
@@ -257,18 +258,20 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
      
 <div class="section">
   <span style="float: left">
-     Previous:
-    
+     
     <a href="get-teeworlds-server-information.html">
-       获取 teeworlds 服务器信息
+      <i class="fa fa-arrow-circle-left"></i> 获取 teeworlds 服务器信息
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     Next: 
+     
     <a href="gsoc-2016.html">
-      GSoC 2016 
+      GSoC 2016 <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
     </a>
     
   </span>
@@ -300,7 +303,7 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
 
   
 <h2>
-   
+   <i class="fa fa-calendar"></i>
   2016-03-11 
 </h2>
 
@@ -308,7 +311,7 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
    
 <li id="author">
   <span
-    >Author:</span
+    ><i class="fa-fw fa fa-user"></i></span
   >
    
   <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
@@ -316,7 +319,7 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
   
 <li id="language">
   <span
-    >Language:</span
+    ><i class="fa-fw fa fa-language"></i></span
   >
    
   <a href="language/chinese.html">Chinese</a>  
@@ -324,7 +327,10 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
   
 <li id="tags">
   <span
-    >Tag:</span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
   >
    
   <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>  
@@ -520,7 +526,7 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
       &copy;2020, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

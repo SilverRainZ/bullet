@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -162,13 +163,13 @@
 <div><p>注意：这里没有处理 boot 模块和 usr 模块，因为 boot 里面都是汇编程序，
 而 usr 里面的用户程序都有 main 函数会导致冲突而画出奇怪的图，所以就没有包含了。</p>
 </div></blockquote>
-<p><a href="#id2"><span class="problematic" id="id3">:s:`另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。`</span></a></p>
+<p><span class="sphinxnotes-strike">另外 graphviz 还支持把 dot 文件转成 dia 格式，所以如果对各个顶点的位置不满意的话，我们可以用 Dia 来调整。</span></p>
 <blockquote>
 <div><p>刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。</p>
 </div></blockquote>
 </div>
-<div class="section" id="id4">
-<h2>生成模块调用图<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2>生成模块调用图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
 <a class="reference external" href="https://www.flourish.org/cinclude2dot/">flourish.org/cinclude2dot/</a>。</p>
@@ -247,18 +248,20 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
      
 <div class="section">
   <span style="float: left">
-     Previous:
-    
+     
     <a href="2015-huashangctf-re300.html">
-       2015 华山杯 CTF Reverse 300
+      <i class="fa fa-arrow-circle-left"></i> 2015 华山杯 CTF Reverse 300
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     Next: 
+     
     <a href="overthewire-leviathan.html">
-      OverTheWire Leviathan 
+      OverTheWire Leviathan <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
     </a>
     
   </span>
@@ -290,7 +293,7 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
 
   
 <h2>
-   
+   <i class="fa fa-calendar"></i>
   2015-12-25 
 </h2>
 
@@ -298,7 +301,7 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
    
 <li id="author">
   <span
-    >Author:</span
+    ><i class="fa-fw fa fa-user"></i></span
   >
    
   <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
@@ -306,7 +309,7 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
   
 <li id="language">
   <span
-    >Language:</span
+    ><i class="fa-fw fa fa-language"></i></span
   >
    
   <a href="language/chinese.html">Chinese</a>  
@@ -314,7 +317,10 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
   
 <li id="tags">
   <span
-    >Tag:</span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
   >
    
   <a href="tag/c.html">C</a>  
@@ -510,7 +516,7 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
       &copy;2020, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

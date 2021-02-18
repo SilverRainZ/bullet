@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -84,32 +85,32 @@
 
           <div class="body" role="main">
              <div class="section" id="arch-linux">
-<h1><a class="toc-backref" href="#id12">Arch Linux 折腾小记</a><a class="headerlink" href="#arch-linux" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id6">Arch Linux 折腾小记</a><a class="headerlink" href="#arch-linux" title="永久链接至标题">¶</a></h1>
 <p>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:</p>
 <img alt="" src="../_images/archlinux-screenshot.png" />
 <div class="contents topic" id="id1">
 <p class="topic-title">目录</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#arch-linux" id="id12">Arch Linux 折腾小记</a></p>
+<li><p><a class="reference internal" href="#arch-linux" id="id6">Arch Linux 折腾小记</a></p>
 <ul>
-<li><p><a class="reference internal" href="#xmonad-wm" id="id13">以 XMonad 为 WM 的桌面</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id14">无线网络管理</a></p></li>
-<li><p><a class="reference internal" href="#im" id="id15">IM</a></p>
+<li><p><a class="reference internal" href="#xmonad-wm" id="id7">以 XMonad 为 WM 的桌面</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id8">无线网络管理</a></p></li>
+<li><p><a class="reference internal" href="#im" id="id9">IM</a></p>
 <ul>
-<li><p><a class="reference internal" href="#qq" id="id16">QQ</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id17">其他</a></p></li>
+<li><p><a class="reference internal" href="#qq" id="id10">QQ</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">其他</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#gtk" id="id18">GTK</a></p></li>
-<li><p><a class="reference internal" href="#id10" id="id19">输入法:</a></p></li>
-<li><p><a class="reference internal" href="#id11" id="id20">配置文件</a></p></li>
+<li><p><a class="reference internal" href="#gtk" id="id12">GTK</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id13">输入法:</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id14">配置文件</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="xmonad-wm">
-<h2><a class="toc-backref" href="#id13">以 XMonad 为 WM 的桌面</a><a class="headerlink" href="#xmonad-wm" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">以 XMonad 为 WM 的桌面</a><a class="headerlink" href="#xmonad-wm" title="永久链接至标题">¶</a></h2>
 <p>没有用 DE, WM 用的是 XMonad.</p>
 <p>关于 XMonad 的默认快捷键, <a class="reference external" href="http://xmonad.org/tour.html">XMonad Guide Tour</a>
 这篇官方的这篇文档很容易看懂.</p>
@@ -118,13 +119,13 @@
 <li><p>xmonad, xmonad-contrib</p></li>
 <li><p>xmobar</p></li>
 <li><p>dmenu</p></li>
-<li><p><a href="#id2"><span class="problematic" id="id3">:s:`trayer`</span></a> trayer-srg<sup>AUR</sup></p></li>
+<li><p><span class="sphinxnotes-strike">trayer</span> trayer-srg<sup>AUR</sup></p></li>
 <li><p>feh</p></li>
 <li><p>scrot</p></li>
 <li><p>compton</p></li>
 </ul>
 <p>xmobar, 配置文件在<code class="docutils literal notranslate"><span class="pre">.xmobarrc</span></code>, 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
-也可以自己获取系统信息, <a href="#id4"><span class="problematic" id="id5">:s:`我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.`</span></a></p>
+也可以自己获取系统信息, <span class="sphinxnotes-strike">我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.</span></p>
 <blockquote>
 <div><p>2015-8-30: 使用 ArchLinux Wiki 中建议的字体, 效果良好.
 <code class="docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span> <span class="pre">&quot;xft:Bitstream</span> <span class="pre">Vera</span> <span class="pre">Sans</span> <span class="pre">Mono:size=9:bold:antialias=true&quot;</span></code></p>
@@ -160,8 +161,8 @@
 只能在截图后用<code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">'mv</span> <span class="pre">$f</span> <span class="pre">~/Pictures/Screenshots'</span></code>把截图放到指定目录.</p>
 <p>上面这些配置大多写在启动脚本<code class="docutils literal notranslate"><span class="pre">startup.sh</span></code>里, 每个命令后边都得加上一个<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id14">无线网络管理</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">无线网络管理</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>为了更方便地连接无线网络, 安装如下包:</p>
 <ul class="simple">
 <li><p>networkmanager</p></li>
@@ -174,9 +175,9 @@
 <p>似乎不安装 <code class="docutils literal notranslate"><span class="pre">gnome-keyring</span></code>的话就无法连上加密的无线网络.</p>
 </div>
 <div class="section" id="im">
-<h2><a class="toc-backref" href="#id15">IM</a><a class="headerlink" href="#im" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">IM</a><a class="headerlink" href="#im" title="永久链接至标题">¶</a></h2>
 <div class="section" id="qq">
-<h3><a class="toc-backref" href="#id16">QQ</a><a class="headerlink" href="#qq" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">QQ</a><a class="headerlink" href="#qq" title="永久链接至标题">¶</a></h3>
 <p>TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 <a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773">邓攀打包的TM2013</a>,
 似乎没有预期中的 out of box, 字体不行, 密码输入也不行.
@@ -186,8 +187,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id17">其他</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id11">其他</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>IRC 客户端用火狐的 ChatZilla</p></li>
 <li><p>Telegram 客户端用 Cutegram, 得装 <code class="docutils literal notranslate"><span class="pre">fcitx-qt5</span></code> 才能正常输入,
@@ -197,20 +198,20 @@
 </div>
 </div>
 <div class="section" id="gtk">
-<h2><a class="toc-backref" href="#id18">GTK</a><a class="headerlink" href="#gtk" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">GTK</a><a class="headerlink" href="#gtk" title="永久链接至标题">¶</a></h2>
 <p>默认的 gtk 界面在 XMonad 下相当地丑, 可以安装<code class="docutils literal notranslate"><span class="pre">lxappearance</span></code>来调整 GTK 的主题.</p>
 <p>对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…</p>
 <div class="topic">
 <p class="topic-title">Update</p>
-<p>2015-7-24: 经过 IRC 里 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 前辈和 <a class="reference internal" href="../about/friends.html#friend-quininer" title="quininer friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;quininer</span></code></a> 的 <a href="#id8"><span class="problematic" id="id9">:s:`调教`</span></a> ,
+<p>2015-7-24: 经过 IRC 里 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 前辈和 <a class="reference internal" href="../about/friends.html#friend-quininer" title="quininer friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;quininer</span></code></a> 的 <span class="sphinxnotes-strike">调教</span> ,
 发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.</p>
 <p>2015-8-30: 安装社区源<code class="docutils literal notranslate"><span class="pre">gnome-breeze-git</span></code>主题, 以及 plasma5 的<code class="docutils literal notranslate"><span class="pre">breeze</span></code>主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量<code class="docutils literal notranslate"><span class="pre">QT_STYLE_OVERRIDE=breeze</span></code></p>
 </div>
 </div>
-<div class="section" id="id10">
-<h2><a class="toc-backref" href="#id19">输入法:</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id13">输入法:</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在<code class="docutils literal notranslate"><span class="pre">~/.xprofile</span></code>中加入:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
 <span class="nb">export</span> <span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
@@ -219,8 +220,8 @@ konsole 的界面却依然很丑…</p>
 </div>
 <p>并在启动脚本里启动 fcitx.</p>
 </div>
-<div class="section" id="id11">
-<h2><a class="toc-backref" href="#id20">配置文件</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id14">配置文件</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>上面有提到的全部配置文件参见:</p>
 <p><a class="reference external" href="https://github.com/SilverRainZ/dotfiles">SilverRainZ/dotfiles - Github</a></p>
 </div>
@@ -230,18 +231,20 @@ konsole 的界面却依然很丑…</p>
      
 <div class="section">
   <span style="float: left">
-     Previous:
-    
+     
     <a href="install-vim-plugins.html">
-       Vim 插件折腾记录
+      <i class="fa fa-arrow-circle-left"></i> Vim 插件折腾记录
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     Next: 
+     
     <a href="overthewire-bandit.html">
-      OverTheWire Bandit 
+      OverTheWire Bandit <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
     </a>
     
   </span>
@@ -273,7 +276,7 @@ konsole 的界面却依然很丑…</p>
 
   
 <h2>
-   
+   <i class="fa fa-calendar"></i>
   2015-07-20 
 </h2>
 
@@ -281,7 +284,7 @@ konsole 的界面却依然很丑…</p>
    
 <li id="author">
   <span
-    >Author:</span
+    ><i class="fa-fw fa fa-user"></i></span
   >
    
   <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
@@ -289,7 +292,7 @@ konsole 的界面却依然很丑…</p>
   
 <li id="language">
   <span
-    >Language:</span
+    ><i class="fa-fw fa fa-language"></i></span
   >
    
   <a href="language/chinese.html">Chinese</a>  
@@ -297,7 +300,10 @@ konsole 的界面却依然很丑…</p>
   
 <li id="tags">
   <span
-    >Tag:</span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
   >
    
   <a href="tag/linux.html">Linux</a>  
@@ -493,7 +499,7 @@ konsole 的界面却依然很丑…</p>
       &copy;2020, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

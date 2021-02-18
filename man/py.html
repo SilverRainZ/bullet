@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -87,21 +88,6 @@
           <div class="body" role="main">
              <div class="section" id="python">
 <h1>Python<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
-<div class="section" id="deep-copy-object">
-<h2>Deep Copy Object<a class="headerlink" href="#deep-copy-object" title="永久链接至标题">¶</a></h2>
-<p>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code>.</p>
-</div>
-<div class="section" id="auto-enumerations">
-<h2>Auto Enumerations<a class="headerlink" href="#auto-enumerations" title="永久链接至标题">¶</a></h2>
-<p>Like <code class="docutils literal notranslate"><span class="pre">iota</span></code> in golang:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
-<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="n">RED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">GREEN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">BLUE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="sort-tuple-list">
 <h2>Sort Tuple List<a class="headerlink" href="#sort-tuple-list" title="永久链接至标题">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tup_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tup</span><span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -137,6 +123,10 @@
 <span class="n">dst</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Deep Copy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="basic-type-casting-conversion">
 <h2>Basic Type Casting/Conversion<a class="headerlink" href="#basic-type-casting-conversion" title="永久链接至标题">¶</a></h2>
@@ -156,9 +146,6 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="unit-testing">
-<h2>Unit Testing<a class="headerlink" href="#unit-testing" title="永久链接至标题">¶</a></h2>
 </div>
 <div class="section" id="class">
 <h2>Class<a class="headerlink" href="#class" title="永久链接至标题">¶</a></h2>
@@ -192,6 +179,14 @@
 <p class="admonition-title">注解</p>
 <p>New in python 3.7.</p>
 </div>
+<p>Auto Enumerations like <code class="docutils literal notranslate"><span class="pre">iota</span></code> in golang:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="file-operations">
 <h2>File Operations<a class="headerlink" href="#file-operations" title="永久链接至标题">¶</a></h2>
@@ -220,6 +215,13 @@
 <dd><p><a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
 </dd>
 </dl>
+</div>
+<div class="section" id="packing">
+<h2>Packing<a class="headerlink" href="#packing" title="永久链接至标题">¶</a></h2>
+<p>Check pypi upload error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ twine check dist/*
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -336,7 +338,7 @@
       &copy;2020, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
