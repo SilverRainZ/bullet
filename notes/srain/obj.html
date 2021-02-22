@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>Objects &#8212; 银色子弹</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/srain/obj.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="日志" href="../../blog/index.html" />
+    <link rel="prev" title="Flow" href="flow.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="objects">
+<h1><a class="toc-backref" href="#id2">Objects</a><a class="headerlink" href="#objects" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2021-02-20</p>
+</dd>
+</dl>
+<div class="contents topic" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#objects" id="id2">Objects</a></p>
+<ul>
+<li><p><a class="reference internal" href="#entity" id="id3">Entity</a></p>
+<ul>
+<li><p><a class="reference internal" href="#srnentity" id="id4">SrnEntity</a></p></li>
+<li><p><a class="reference internal" href="#srnaction" id="id5">SrnAction</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#top-level" id="id6">Top Level</a></p>
+<ul>
+<li><p><a class="reference internal" href="#srnapplication" id="id7">SrnApplication</a></p></li>
+<li><p><a class="reference internal" href="#srnwindow" id="id8">SrnWindow</a></p></li>
+<li><p><a class="reference internal" href="#srnworkspace" id="id9">SrnWorkSpace</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#buffer" id="id10">Buffer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#srnservicebuffer" id="id11">SrnServiceBuffer</a></p></li>
+<li><p><a class="reference internal" href="#srnbuffer" id="id12">SrnBuffer</a></p></li>
+<li><p><a class="reference internal" href="#srnchannelbuffer" id="id13">SrnChannelBuffer</a></p></li>
+<li><p><a class="reference internal" href="#srndialogbuffer" id="id14">SrnDialogBuffer</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#message" id="id15">Message</a></p>
+<ul>
+<li><p><a class="reference internal" href="#srnmessage" id="id16">SrnMessage</a></p></li>
+<li><p><a class="reference internal" href="#srntextmessage" id="id17">SrnTextMessage</a></p></li>
+<li><p><a class="reference internal" href="#srnmediamessage" id="id18">SrnMediaMessage</a></p></li>
+<li><p><a class="reference internal" href="#srncustommessage" id="id19">SrnCustomMessage</a></p></li>
+<li><p><a class="reference internal" href="#srnmessagefilter" id="id20">SrnMessageFilter</a></p></li>
+<li><p><a class="reference internal" href="#srnmessagerenderer" id="id21">SrnMessageRenderer</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#user" id="id22">User</a></p>
+<ul>
+<li><p><a class="reference internal" href="#srnuser" id="id23">SrnUser</a></p></li>
+<li><p><a class="reference internal" href="#srnmember" id="id24">SrnMember</a></p></li>
+<li><p><a class="reference internal" href="#srnmemberlist" id="id25">SrnMemberList</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#messenger" id="id26">Messenger</a></p>
+<ul>
+<li><p><a class="reference internal" href="#srnmessengerfeature" id="id27">SrnMessengerFeature</a></p></li>
+<li><p><a class="reference internal" href="#srnmessenger" id="id28">SrnMessenger</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="entity">
+<h2><a class="toc-backref" href="#id3">Entity</a><a class="headerlink" href="#entity" title="永久链接至标题">¶</a></h2>
+<div class="section" id="srnentity">
+<h3><a class="toc-backref" href="#id4">SrnEntity</a><a class="headerlink" href="#srnentity" title="永久链接至标题">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span><span class="o">*</span> <span class="n">identity</span><span class="p">;</span>
+<span class="n">gchar</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+<span class="n">gchar</span><span class="o">*</span> <span class="n">summary</span><span class="p">;</span>
+<span class="n">gchar</span><span class="o">*</span> <span class="n">description</span><span class="p">;</span>
+<span class="n">GdkPixbuf</span> <span class="o">*</span><span class="n">avatar</span><span class="p">;</span>
+<span class="n">GVariantDict</span> <span class="o">*</span><span class="n">fields</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnaction">
+<h3><a class="toc-backref" href="#id5">SrnAction</a><a class="headerlink" href="#srnaction" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="top-level">
+<h2><a class="toc-backref" href="#id6">Top Level</a><a class="headerlink" href="#top-level" title="永久链接至标题">¶</a></h2>
+<div class="section" id="srnapplication">
+<h3><a class="toc-backref" href="#id7">SrnApplication</a><a class="headerlink" href="#srnapplication" title="永久链接至标题">¶</a></h3>
+<p>Method:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">GList</span><span class="o">*</span> <span class="nf">add_messenger</span><span class="p">(</span><span class="n">SrnMessenger</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">GList</span><span class="o">*</span> <span class="nf">list_windows</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnwindow">
+<h3><a class="toc-backref" href="#id8">SrnWindow</a><a class="headerlink" href="#srnwindow" title="永久链接至标题">¶</a></h3>
+<p>Method:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">GList</span><span class="o">*</span> <span class="nf">list_workspace</span><span class="p">();</span>
+<span class="n">new_workspace</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnworkspace">
+<h3><a class="toc-backref" href="#id9">SrnWorkSpace</a><a class="headerlink" href="#srnworkspace" title="永久链接至标题">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">GList</span><span class="o">*</span> <span class="nf">list_pages</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="buffer">
+<h2><a class="toc-backref" href="#id10">Buffer</a><a class="headerlink" href="#buffer" title="永久链接至标题">¶</a></h2>
+<p>Memeber:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GtkListView</span><span class="o">*</span> <span class="n">message_list</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="srnservicebuffer">
+<h3><a class="toc-backref" href="#id11">SrnServiceBuffer</a><a class="headerlink" href="#srnservicebuffer" title="永久链接至标题">¶</a></h3>
+<p>Member:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnUser</span> <span class="o">*</span><span class="n">self</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Method:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">set_child</span><span class="p">(</span><span class="n">GtkWidget</span><span class="o">*</span> <span class="n">widget</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnbuffer">
+<h3><a class="toc-backref" href="#id12">SrnBuffer</a><a class="headerlink" href="#srnbuffer" title="永久链接至标题">¶</a></h3>
+<p>Memeber:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GtkListView</span><span class="o">*</span> <span class="n">message_list</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnchannelbuffer">
+<h3><a class="toc-backref" href="#id13">SrnChannelBuffer</a><a class="headerlink" href="#srnchannelbuffer" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="srndialogbuffer">
+<h3><a class="toc-backref" href="#id14">SrnDialogBuffer</a><a class="headerlink" href="#srndialogbuffer" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="message">
+<h2><a class="toc-backref" href="#id15">Message</a><a class="headerlink" href="#message" title="永久链接至标题">¶</a></h2>
+<div class="section" id="srnmessage">
+<h3><a class="toc-backref" href="#id16">SrnMessage</a><a class="headerlink" href="#srnmessage" title="永久链接至标题">¶</a></h3>
+<p>Member:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnMember</span> <span class="o">*</span><span class="n">origin</span>
+<span class="n">SrnBuffer</span> <span class="o">*</span><span class="n">target</span>
+<span class="n">GDateTime</span> <span class="o">*</span><span class="n">time</span><span class="p">;</span>
+<span class="n">GList</span> <span class="o">*</span><span class="n">tags</span>
+</pre></div>
+</div>
+<p>Method:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gboolean</span> <span class="nf">has_tags</span><span class="p">(</span><span class="k">const</span> <span class="n">gchar</span> <span class="o">*</span><span class="n">tag</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srntextmessage">
+<h3><a class="toc-backref" href="#id17">SrnTextMessage</a><a class="headerlink" href="#srntextmessage" title="永久链接至标题">¶</a></h3>
+<p>Member:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span> <span class="o">*</span><span class="n">content</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnmediamessage">
+<h3><a class="toc-backref" href="#id18">SrnMediaMessage</a><a class="headerlink" href="#srnmediamessage" title="永久链接至标题">¶</a></h3>
+<p>Member:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span><span class="o">*</span> <span class="n">mime_type</span><span class="p">;</span>
+<span class="n">GFile</span><span class="o">*</span> <span class="n">content</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srncustommessage">
+<h3><a class="toc-backref" href="#id19">SrnCustomMessage</a><a class="headerlink" href="#srncustommessage" title="永久链接至标题">¶</a></h3>
+<p>Memeber:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GtkWidget</span> <span class="o">*</span><span class="n">widget</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnmessagefilter">
+<h3><a class="toc-backref" href="#id20">SrnMessageFilter</a><a class="headerlink" href="#srnmessagefilter" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="srnmessagerenderer">
+<h3><a class="toc-backref" href="#id21">SrnMessageRenderer</a><a class="headerlink" href="#srnmessagerenderer" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="user">
+<h2><a class="toc-backref" href="#id22">User</a><a class="headerlink" href="#user" title="永久链接至标题">¶</a></h2>
+<div class="section" id="srnuser">
+<h3><a class="toc-backref" href="#id23">SrnUser</a><a class="headerlink" href="#srnuser" title="永久链接至标题">¶</a></h3>
+<p>Member:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span> <span class="o">*</span><span class="n">identity</span><span class="p">;</span>
+<span class="n">gchar</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="n">gchar</span> <span class="o">*</span><span class="n">summary</span><span class="p">;</span>
+<span class="n">gchar</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+<span class="n">GList</span> <span class="o">*</span><span class="n">members</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnmember">
+<h3><a class="toc-backref" href="#id24">SrnMember</a><a class="headerlink" href="#srnmember" title="永久链接至标题">¶</a></h3>
+<p>Member &amp; User Panel</p>
+<p>Member:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="n">gchar</span> <span class="o">*</span><span class="n">summary</span><span class="p">;</span>
+<span class="n">gchar</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+<span class="n">SrnBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
+<span class="n">SrnUser</span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srnmemberlist">
+<h3><a class="toc-backref" href="#id25">SrnMemberList</a><a class="headerlink" href="#srnmemberlist" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="messenger">
+<h2><a class="toc-backref" href="#id26">Messenger</a><a class="headerlink" href="#messenger" title="永久链接至标题">¶</a></h2>
+<p>io_loop</p>
+<div class="section" id="srnmessengerfeature">
+<h3><a class="toc-backref" href="#id27">SrnMessengerFeature</a><a class="headerlink" href="#srnmessengerfeature" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="srnmessenger">
+<h3><a class="toc-backref" href="#id28">SrnMessenger</a><a class="headerlink" href="#srnmessenger" title="永久链接至标题">¶</a></h3>
+<p>Method:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">connection_panel</span><span class="p">();</span>
+<span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">service_penel</span><span class="p">();</span>
+<span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">setting_panel</span><span class="p">();</span>
+<span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">about_panel</span><span class="p">();</span>
+<span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">user_panel</span><span class="p">(</span><span class="n">SrnUser</span> <span class="o">*</span><span class="n">user</span><span class="p">);</span>
+<span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">memeber_panel</span><span class="p">(</span><span class="n">SrnMember</span> <span class="o">*</span><span class="n">member</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../painters.html">艺术家史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classic-sketch/index.html">造型实验室素描学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Srain Architecture Proposal</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ds.html">Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow.html">Flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Objects</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
+</ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Srain Architecture Proposal</a><ul>
+      <li>Previous: <a href="flow.html" title="上一章">Flow</a></li>
+      <li>Next: <a href="../../blog/index.html" title="下一章">日志</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
