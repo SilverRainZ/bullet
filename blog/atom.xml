@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me</id>
   <title>银色子弹</title>
-  <updated>2021-02-22T15:53:01.067662+00:00</updated>
+  <updated>2021-02-23T10:22:35.608504+00:00</updated>
   <link href="https://silverrainz.me"/>
   <link href="https://silverrainz.me/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -296,32 +296,59 @@ byte_415768 db 73h
     <content type="html">&lt;div class="section" id="hello-haskell"&gt;
 
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
-&lt;a class="reference internal" href="todo.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
-&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;Fleurer&lt;/span&gt;&lt;/code&gt; ，我曾经好几次发邮件询问他有关OS的事情，
-没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;MaskRay&lt;/span&gt;&lt;/code&gt; ，曾经在中大听过蓝莲花的宣讲会，
+&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:book:`Haskell 趣学指南`&lt;/span&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 10)&lt;/p&gt;
+&lt;p&gt;No role entry for “book” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “book” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 10); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “book”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:friend:`Fleurer`&lt;/span&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
+没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;:friend:`MaskRay`&lt;/span&gt;&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 13)&lt;/p&gt;
+&lt;p&gt;No role entry for “friend” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “friend” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 13); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “friend”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 13)&lt;/p&gt;
+&lt;p&gt;No role entry for “friend” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “friend” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 13); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “friend”.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="topic"&gt;
 &lt;p class="topic-title"&gt;2021-02-12&lt;/p&gt;
-&lt;p&gt;当时在宣讲会上的是诸葛建伟老师和 &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:people:`ztrix &amp;lt;https://ztrix.me&amp;gt;`&lt;/span&gt;&lt;/a&gt; ，
+&lt;p&gt;当时在宣讲会上的是诸葛建伟老师和 &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;:people:`ztrix &amp;lt;https://ztrix.me&amp;gt;`&lt;/span&gt;&lt;/a&gt; ，
 后来我加入长亭科技，ztrix 自然也成为了我的老板。&lt;/p&gt;
 &lt;div class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 19)&lt;/p&gt;
 &lt;p&gt;No role entry for “people” in module “docutils.parsers.rst.languages.zh_cn”.
 Trying “people” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 19); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/haskell-beginning.rst&lt;/span&gt;, line 19); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Unknown interpreted text role “people”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;好了说点正事。&lt;/p&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;div class="section" id="id9"&gt;
 &lt;h2&gt;安装&lt;/h2&gt;
 &lt;p&gt;Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sudo&lt;/span&gt; &lt;span class="pre"&gt;zypper&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;ghc&lt;/span&gt;&lt;/code&gt;,
 但是比ghc更方便的是Haskell Platform, 安装同样可以&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sudo&lt;/span&gt; &lt;span class="pre"&gt;zypper&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;haskell-platform&lt;/span&gt;&lt;/code&gt;,
 在 Windows 上则可以直接去官网下载安装包。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;div class="section" id="id10"&gt;
 &lt;h2&gt;随便说说&lt;/h2&gt;
 &lt;p&gt;因为借书的时候已经是考试周的前夕，所以到现在翻看书的时间仅限于之前在阅览室里无聊的那一会还有回家的路上，
 现在是第五章，似乎有点初窥门径的感觉，又怕是自己想得太简单了。 总得来说是这么些感受吧：&lt;/p&gt;
@@ -737,9 +764,18 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;div class="section" id="do"&gt;
 
-&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="todo.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
+&lt;p&gt;明明在开学的时候，&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:book:`Haskell 趣学指南`&lt;/span&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/do-notation-and-bind-of-haskell.rst&lt;/span&gt;, line 13)&lt;/p&gt;
+&lt;p&gt;No role entry for “book” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “book” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/do-notation-and-bind-of-haskell.rst&lt;/span&gt;, line 13); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “book”.&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
 看到State Monad那一段就懵了。&lt;/p&gt;
 &lt;p&gt;今晚看了挺久的，勉强算有点思路，当然对它的理解应该还是在一个比较low的水平上。
@@ -1638,25 +1674,25 @@ Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#arch-linux" id="id6"&gt;Arch Linux 折腾小记&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#arch-linux" id="id10"&gt;Arch Linux 折腾小记&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#xmonad-wm" id="id7"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id2" id="id8"&gt;无线网络管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#im" id="id9"&gt;IM&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#xmonad-wm" id="id11"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id2" id="id12"&gt;无线网络管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#im" id="id13"&gt;IM&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#qq" id="id10"&gt;QQ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;其他&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#qq" id="id14"&gt;QQ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id15"&gt;其他&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gtk" id="id12"&gt;GTK&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id13"&gt;输入法:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id5" id="id14"&gt;配置文件&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gtk" id="id16"&gt;GTK&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id8" id="id17"&gt;输入法:&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id18"&gt;配置文件&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xmonad-wm"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;没有用 DE, WM 用的是 XMonad.&lt;/p&gt;
 &lt;p&gt;关于 XMonad 的默认快捷键, &lt;a class="reference external" href="http://xmonad.org/tour.html"&gt;XMonad Guide Tour&lt;/a&gt;
 这篇官方的这篇文档很容易看懂.&lt;/p&gt;
@@ -1714,7 +1750,7 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;p&gt;上面这些配置大多写在启动脚本&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;startup.sh&lt;/span&gt;&lt;/code&gt;里, 每个命令后边都得加上一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;amp;&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;无线网络管理&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;无线网络管理&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为了更方便地连接无线网络, 安装如下包:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;networkmanager&lt;/p&gt;&lt;/li&gt;
@@ -1727,9 +1763,9 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;p&gt;似乎不安装 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-keyring&lt;/span&gt;&lt;/code&gt;的话就无法连上加密的无线网络.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="im"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;IM&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;IM&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="qq"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;QQ&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;QQ&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 &lt;a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773"&gt;邓攀打包的TM2013&lt;/a&gt;,
 似乎没有预期中的 out of box, 字体不行, 密码输入也不行.
@@ -1740,7 +1776,7 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;其他&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;其他&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;IRC 客户端用火狐的 ChatZilla&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Telegram 客户端用 Cutegram, 得装 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fcitx-qt5&lt;/span&gt;&lt;/code&gt; 才能正常输入,
@@ -1750,7 +1786,7 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gtk"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;GTK&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;GTK&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;默认的 gtk 界面在 XMonad 下相当地丑, 可以安装&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;lxappearance&lt;/span&gt;&lt;/code&gt;来调整 GTK 的主题.&lt;/p&gt;
 &lt;p&gt;对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…&lt;/p&gt;
@@ -1761,14 +1797,32 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="topic"&gt;
 &lt;p class="topic-title"&gt;Update&lt;/p&gt;
-&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 前辈和 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike"&gt;调教&lt;/span&gt; ,
+&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a href="#id4"&gt;&lt;span class="problematic" id="id5"&gt;:friend:`farseerfc`&lt;/span&gt;&lt;/a&gt; 前辈和 &lt;a href="#id6"&gt;&lt;span class="problematic" id="id7"&gt;:friend:`quininer`&lt;/span&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike"&gt;调教&lt;/span&gt; ,
 发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 143)&lt;/p&gt;
+&lt;p&gt;No role entry for “friend” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “friend” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id4"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 143); &lt;em&gt;&lt;a href="#id5"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “friend”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 143)&lt;/p&gt;
+&lt;p&gt;No role entry for “friend” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “friend” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id6"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 143); &lt;em&gt;&lt;a href="#id7"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “friend”.&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;2015-8-30: 安装社区源&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-breeze-git&lt;/span&gt;&lt;/code&gt;主题, 以及 plasma5 的&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;breeze&lt;/span&gt;&lt;/code&gt;主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;QT_STYLE_OVERRIDE=breeze&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;输入法:&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;输入法:&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;~/.xprofile&lt;/span&gt;&lt;/code&gt;中加入:&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;GTK_IM_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;fcitx
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;QT_IM_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;fcitx
@@ -1777,8 +1831,8 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;并在启动脚本里启动 fcitx.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;配置文件&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;配置文件&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面有提到的全部配置文件参见:&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ/dotfiles"&gt;SilverRainZ/dotfiles - Github&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -3020,9 +3074,18 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 报告应该可以随便水过去，据说连答辩都可以省掉了……&lt;/p&gt;
 &lt;p&gt;前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。&lt;/p&gt;
 &lt;p&gt;用到的软件有 graphviz，egypt&lt;sup&gt;AUR&lt;/sup&gt;，cinclude2dot&lt;sup&gt;AUR&lt;/sup&gt;，
-&lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
+&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:friend:`farseerfc`&lt;/span&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
 然而 AUR 里面没有就作罢了。&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 19)&lt;/p&gt;
+&lt;p&gt;No role entry for “friend” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “friend” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gen-graph-from-c-code.rst&lt;/span&gt;, line 19); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “friend”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
 &lt;h2&gt;生成函数调用图&lt;/h2&gt;
 &lt;p&gt;安装 egypt 直接 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;yaourt&lt;/span&gt; &lt;span class="pre"&gt;-S&lt;/span&gt; &lt;span class="pre"&gt;egypt&lt;/span&gt;&lt;/code&gt; 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-fdump-rtl-expand&lt;/span&gt;&lt;/code&gt;，
@@ -3097,7 +3160,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;div&gt;&lt;p&gt;刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;div class="section" id="id4"&gt;
 &lt;h2&gt;生成模块调用图&lt;/h2&gt;
 &lt;p&gt;接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
@@ -3889,26 +3952,35 @@ $5500 的报酬，同时开源社区也能得到 $500 的赞助。&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gsoc-2016" id="id14"&gt;GSoC 2016 小记 - 误打误撞三个月&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#gsoc-2016" id="id16"&gt;GSoC 2016 小记 - 误打误撞三个月&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#proposal" id="id15"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#welcome-to-gsoc-2016" id="id16"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#community-bonding" id="id17"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id9" id="id18"&gt;编程之夏&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id10" id="id19"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id11" id="id20"&gt;总结&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id21"&gt;相关链接&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#proposal" id="id17"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#welcome-to-gsoc-2016" id="id18"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#community-bonding" id="id19"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id11" id="id20"&gt;编程之夏&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id12" id="id21"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id13" id="id22"&gt;总结&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id14" id="id23"&gt;相关链接&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="proposal"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;:friend:`quininer`&lt;/span&gt;&lt;/a&gt; 说今年 Tox
 社区要参加 GSoC 并开始招人的事情， &lt;span class="sphinxnotes-strike"&gt;当然也提及了 Tox 去年闹出的一桩事：&lt;/span&gt;
 &lt;a class="reference external" href="https://github.com/irungentoo/toxcore/issues/1379"&gt;Current situation of Tox #1379&lt;/a&gt;
 这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
 便萌生了要试试的想法。&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 29)&lt;/p&gt;
+&lt;p&gt;No role entry for “friend” in module “docutils.parsers.rst.languages.zh_cn”.
+Trying “friend” as canonical role name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message" id="id2"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 29); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role “friend”.&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;参与的学生需要在 &lt;a class="reference external" href="http://summerofcode.withgoogle.com/"&gt;Google Summer of Code&lt;/a&gt; 上注册，
 并寻找你心仪的 organization，并在网站上针对 organization 的某个项目提交提案（Proposal），
 这些组织一般都是著名的开源社区，比如 GNU、Linux Fundation、GNOME、KDE、Wine、Apache 等等。
@@ -3934,7 +4006,7 @@ not english/missing translation.」，仅仅拍学生证不够，还需要加上
 渐渐把这件事忘记了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="welcome-to-gsoc-2016"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;4 月 23 号，刚起床看到有封邮件，&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;GSoC 2016: Congratulations, your proposal with GNU Project has been accepted!&lt;/p&gt;
@@ -3953,29 +4025,29 @@ not english/missing translation.」，仅仅拍学生证不够，还需要加上
 Bonding Period，用来和社区成员交流，配置开发环境，熟悉工作流程等。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="community-bonding"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Hurd 当前的开发者基本在欧洲，我的两位 mentor：
-&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:people:`Richard Braun &amp;lt;https://www.sceen.net/~rbraun/resume.pdf&amp;gt;`&lt;/span&gt;&lt;/a&gt; 和
-:people:&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;`&lt;/span&gt;&lt;/a&gt;Justus Winter &amp;lt;&lt;a class="reference external" href="https://github.com/teythoon"&gt;https://github.com/teythoon&lt;/a&gt;&amp;gt; 也是，
+&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;:people:`Richard Braun &amp;lt;https://www.sceen.net/~rbraun/resume.pdf&amp;gt;`&lt;/span&gt;&lt;/a&gt; 和
+:people:&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;`&lt;/span&gt;&lt;/a&gt;Justus Winter &amp;lt;&lt;a class="reference external" href="https://github.com/teythoon"&gt;https://github.com/teythoon&lt;/a&gt;&amp;gt; 也是，
 由于时区相差太大，一般在下午五点以后跟他们用 IRC 联系。&lt;/p&gt;
 &lt;div class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93)&lt;/p&gt;
 &lt;p&gt;No role entry for “people” in module “docutils.parsers.rst.languages.zh_cn”.
 Trying “people” as canonical role name.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id3"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Unknown interpreted text role “people”.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="system-message" id="id5"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 93); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Inline interpreted text or phrase reference start-string without end-string.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;在同 mentor 们联系之后，我开始看 Hurd 的&lt;a class="reference external" href="https://www.gnu.org/software/hurd/index.html"&gt;文档&lt;/a&gt;，
 作为一个除了开发者之外几乎没人用的系统 :-( ……除了 Wiki 之外没有任何参考的资料，
 甚至项目中的文档也是严重过期的。&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/gsoc-2016-sum-up.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Duplicate explicit target name: “implement xattr support”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;我的项目是 &lt;a class="reference external" href="https://www.gnu.org/software/hurd/community/gsoc/project_ideas/xattr.html"&gt;Implement xattr Support&lt;/a&gt;：
@@ -4022,8 +4094,8 @@ as part of the communit bonding period”&lt;/p&gt;
 的概念，并且也不再像以前那样害怕英文文档了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;编程之夏&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;编程之夏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;大概从 5 月 18 号开始，我从无脑看文档转为写代码， 写代码比看文档愉快多了 ——
 这大概也是我编程能力止步不前的原因吧，瞎写代码不看书。
 mentor 们显然对我之前看文档表现出来的低下的效率和理解力很不满意，但依然对我的问题有问必答。&lt;/p&gt;
@@ -4057,8 +4129,8 @@ mentor 们显然对我之前看文档表现出来的低下的效率和理解力�
 &lt;p&gt;这段时间的代码都提交在
 &lt;a class="reference external" href="https://github.com/SilverRainZ/hurd/tree/gsoc-2016-xattr"&gt;SilverRainZ/hurd at gsoc-2016-xattr&lt;/a&gt; 上。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;就如同上面所说的，只要修好这个 patch 并补全 xattr 的功能，项目就算完成了，
 「GSoC 原来这么水啊……」，我开始产生了这种想法，一旦完成了最小目标，我就开始松懈，
 在接下来的时间我更多地把精力放在了 Srain 的开发上。&lt;/p&gt;
@@ -4077,8 +4149,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;p&gt;8 月 30 号，收到了 GSoC 完成的通知，结束了这个不算完美的夏天。&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;总结&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id13"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;总结&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我之所以能被 accept，和我的选择是有密切关系的：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;内核项目门槛稍高&lt;/p&gt;&lt;/li&gt;
@@ -4097,8 +4169,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 一只圆珠笔，一本本子，一封 PDF 形式的电子证书，还有一件还在路上的 T-shirt，
 物质收入颇丰。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;相关链接&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id14"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;相关链接&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://summerofcode.withgoogle.com/"&gt;GSoC 官网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.gnu.org/software/hurd/hurd.html"&gt;Hurd 官网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
