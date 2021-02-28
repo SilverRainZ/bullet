@@ -91,10 +91,10 @@
 报告应该可以随便水过去，据说连答辩都可以省掉了……</p>
 <p>前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。</p>
 <p>用到的软件有 graphviz，egypt<sup>AUR</sup>，cinclude2dot<sup>AUR</sup>，
-<a href="#id1"><span class="problematic" id="id2">:friend:`farseerfc`</span></a> 推荐了 <a class="reference external" href="http://makepp.sourceforge.net/">makepp</a>，
+<a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 推荐了 <a class="reference external" href="http://makepp.sourceforge.net/">makepp</a>，
 然而 AUR 里面没有就作罢了。</p>
-<div class="section" id="id3">
-<h2>生成函数调用图<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h2>生成函数调用图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>安装 egypt 直接 <code class="docutils literal notranslate"><span class="pre">yaourt</span> <span class="pre">-S</span> <span class="pre">egypt</span></code> 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 <code class="docutils literal notranslate"><span class="pre">-fdump-rtl-expand</span></code>，
 再 make 一次，gcc 会在 bulid 目录下生成 <code class="docutils literal notranslate"><span class="pre">*.expand</span></code> 文件，
@@ -168,8 +168,8 @@
 <div><p>刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。</p>
 </div></blockquote>
 </div>
-<div class="section" id="id4">
-<h2>生成模块调用图<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2>生成模块调用图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
 <a class="reference external" href="https://www.flourish.org/cinclude2dot/">flourish.org/cinclude2dot/</a>。</p>
