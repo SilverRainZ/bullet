@@ -93,24 +93,30 @@
 <dd class="field-odd"><p>2021-02-21</p>
 </dd>
 </dl>
+<p>Known flows:</p>
+<ul class="simple">
+<li><p>Login -&gt; Flow</p></li>
+<li><p>Contact -&gt; Entity</p></li>
+<li><p>Inspect -&gt; Entity</p></li>
+</ul>
 <div class="section" id="login">
 <h2>Login<a class="headerlink" href="#login" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>[A] App run</p></li>
 <li><p>[A] Select Messenger (list <code class="docutils literal notranslate"><span class="pre">*.so</span></code> )</p></li>
 <li><p>[A] Load so and create Messenger</p></li>
-<li><p>[A] setup first step</p></li>
-<li><p>[M] emit pre-setp signal, do step, emit post-step signal</p></li>
-<li><p>[A] Setup service desk</p></li>
+<li><p>[A] Start <code class="docutils literal notranslate"><span class="pre">SrnFlow</span> <span class="pre">*login</span></code></p></li>
+<li><p>[M] Login flow logical</p></li>
+<li><p>[A] Start <code class="docutils literal notranslate"><span class="pre">SrnFlow</span> <span class="pre">*contact</span></code></p></li>
 </ol>
 </div>
-<div class="section" id="join">
-<h2>Join<a class="headerlink" href="#join" title="永久链接至标题">¶</a></h2>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
-<li><p>[M] Operate on service desk, emit pre-step signal, join, emit post-step signal</p></li>
+<li><p>[A] Start <code class="docutils literal notranslate"><span class="pre">SrnFlow</span> <span class="pre">*contact</span></code></p></li>
+<li><p>[M] Contact flow logical</p></li>
+<li><p>[M] Create SrnXXXBuffer(SrnEen)</p></li>
 </ol>
-<p>2. [A] Create channel buffer and connect signal
-2. [M] Provide GListModel and factory</p>
 </div>
 <div class="section" id="message">
 <h2>Message<a class="headerlink" href="#message" title="永久链接至标题">¶</a></h2>
