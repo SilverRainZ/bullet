@@ -127,6 +127,47 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 </dd>
 </dl>
 </div>
+<div class="section" id="midi-js">
+<h2>Midi.js 的一个有趣应用<a class="headerlink" href="#midi-js" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://lexcast.github.io/orchestra/">https://lexcast.github.io/orchestra/</a></p>
+</div>
+<div class="section" id="systemd-service">
+<h2>修改 systemd service 的正确姿势<a class="headerlink" href="#systemd-service" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2021-03-10</p>
+</dd>
+</dl>
+<p>Arch 上的 syncthing 包提供的 service 启用了 <code class="docutils literal notranslate"><span class="pre">-no-browser</span></code> 选项，
+因此没有网页管理界面可用，运行在我的 pi3 上的 syncthing 也因此不好管理。</p>
+<p>直接修改 service 文件是不可取的，会在下一次系统更新时被覆盖。systemd 提供了
+<code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span></code> 命令来修改 service，但实际上并没有修改 service 本身，
+而是创建了 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/xxx.service.d/override.conf</span></code> 来覆盖原 service
+的行为:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># /etc/systemd/system/syncthing@la.service.d/override.conf</span>
+<span class="k">[Service]</span>
+<span class="na">ExecStart</span><span class="o">=</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/syncthing -gui-address=&quot;http://la-pi3:8384&quot; -no-restart -logflags=0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>注意 <code class="docutils literal notranslate"><span class="pre">ExecStart=</span></code> 用来清空之前的值， <a class="footnote-reference brackets" href="#id4" id="id2">1</a>
+不然 systemd 会认为你指定了多个 <code class="docutils literal notranslate"><span class="pre">ExecStart</span></code></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">revert</span></code> 来取消你的 override <a class="footnote-reference brackets" href="#id5" id="id3">2</a></p>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://unix.stackexchange.com/a/468067">https://unix.stackexchange.com/a/468067</a></p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="https://unix.stackexchange.com/a/449053">https://unix.stackexchange.com/a/449053</a></p>
+</dd>
+</dl>
+</div>
 </div>
 
 <div class="section">
@@ -162,9 +203,11 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 <li class="toctree-l1"><a class="reference internal" href="../../notes/cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/interval-of-music.html">音程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/painters.html">艺术家史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/rust-book.html">Rust Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/books/index.html">读书笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/srain/index.html">Srain Architecture Proposal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/zxsys/index.html">造型实验室</a></li>
