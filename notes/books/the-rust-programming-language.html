@@ -15,7 +15,7 @@
             
         </script>
     
-    <title>&lt;no title&gt; &#8212; 银色子弹</title>
+    <title>The Rust Programming Language &#8212; 银色子弹</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -31,12 +31,12 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/translations.js"></script>
-    <link rel="canonical" href="https://silverrainz.me/notes/draft/index.html" />
+    <link rel="canonical" href="https://silverrainz.me/notes/books/the-rust-programming-language.html" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="录歌方案" href="way-of-guitar-recoding.html" />
-    <link rel="prev" title="The Rust Programming Language" href="../books/the-rust-programming-language.html" /> 
+    <link rel="next" title="&lt;no title&gt;" href="../draft/index.html" />
+    <link rel="prev" title="向大师学绘画·素描基础" href="drawing-lessons-from-the-great-masters.html" /> 
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -86,10 +86,51 @@
           
 
           <div class="body" role="main">
-             <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="way-of-guitar-recoding.html">录歌方案</a></li>
-</ul>
+             <div class="any section" id="the-rust-programming-language">
+<span id="book-The-Rust-Programming-Language"></span><h1>The Rust Programming Language<a class="headerlink" href="#the-rust-programming-language" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">ISBN</dt>
+<dd class="field-odd"><p>9781718500440</p>
+</dd>
+</dl>
+<div class="section" id="ch1">
+<h2>ch1<a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
+<p>使用 community/rustup 包而不是 community/rust 包，方便获取比官方源还新的 rust。
+community/rustup 没有自带 toolchain，和书中的描述不符。 但不重要，使用
+<code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">toolchain</span> <span class="pre">install</span> <span class="pre">nightly</span></code> 即可。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">update</span></code> 来更新 lock 文件，但默认只会 bump semver 的 fix 部分，
+即 <code class="docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.1.2</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.2.0</span></code> 。若确定要更新，需要手动更改
+<code class="docutils literal notranslate"><span class="pre">Cargo.toml</span></code> 并重新 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code> 。</p>
+</div>
+<div class="section" id="ch2">
+<h2>ch2<a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
+<p>需要 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">namespace::of::trait</span></code> 才能使用某个实现了 trait 的 struct 对应的方法。
+需要 use的 trait 可以通过 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 生成的本地依赖的文档查看。</p>
+<p>模式匹配真香！！！</p>
+<p>Rust 允许重新声明变量，不会出现命名难题。这也很香。</p>
+</div>
+<div class="section" id="ch3">
+<h2>ch3<a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
+<dl class="simple">
+<dt>变量默认不可变</dt><dd><p><span class="sphinxnotes-strike">那为啥要叫变量</span> ， 好处是安全 &amp; 并发友好，有利于优等等等等。</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">isize</span></code> 和 <code class="docutils literal notranslate"><span class="pre">usize</span></code> 类似 <code class="docutils literal notranslate"><span class="pre">size_t</span></code> in C</p>
+<p>只有 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span> <span class="pre">--debug</span></code> 才会检测整数溢出并 panic。</p>
+<p>Rust 的 <code class="docutils literal notranslate"><span class="pre">char</span></code> 有 4 byte 长，足够容纳 unicode。</p>
+<p>Tuple 可以用模式匹配或者 <code class="docutils literal notranslate"><span class="pre">x.1</span></code> 这样的下标索引。</p>
+<p>函数返回值是最后一个表达式的值 -&gt; 那就没法随时 return 了？</p>
+</div>
+<div class="section" id="ch4">
+<h2>ch4<a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
+<p>所有权规则：</p>
+<ol class="arabic simple">
+<li><p>每一个值都有一个所被其称为所有者（owner）的变量</p></li>
+<li><p>值在任一时刻有且只有一个所有者</p></li>
+<li><p>当所有者（变量）离开作用域，这个值将被丢弃</p></li>
+</ol>
+<p>Bookmark: P63</p>
+</div>
 </div>
 
 <div class="section">
@@ -120,14 +161,14 @@
 
 <h3>导航</h3>
 <p class="caption"><span class="caption-text">笔记</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../painters.html">艺术家史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust-book.html">Rust Book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../books/index.html">读书笔记</a></li>
-<li class="toctree-l1"><a class="reference internal" href="way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
@@ -177,8 +218,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../books/the-rust-programming-language.html" title="上一章">The Rust Programming Language</a></li>
-      <li>Next: <a href="way-of-guitar-recoding.html" title="下一章">录歌方案</a></li>
+  <li><a href="index.html">读书笔记</a><ul>
+      <li>Previous: <a href="drawing-lessons-from-the-great-masters.html" title="上一章">向大师学绘画·素描基础</a></li>
+      <li>Next: <a href="../draft/index.html" title="下一章">&lt;no title&gt;</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
