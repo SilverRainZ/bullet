@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>2017-06 &#8212; 银色子弹</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/misc/2017/06.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2020" href="../2020/index.html" />
+    <link rel="prev" title="2017-04" href="04.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="id1">
+<h1>2017-06<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="universal-tun-tap-device-driver">
+<h2>Universal TUN/TAP device driver<a class="headerlink" href="#universal-tun-tap-device-driver" title="永久链接至标题">¶</a></h2>
+<p>内核文档 <a class="reference external" href="https://www.kernel.org/doc/Documentation/networking/tuntap.txt">Universal TUN/TAP device driver</a> 介绍了 Linux Kernel 提供的的 TUN/TAP
+设备，允许用户编写程序来接受和传输来自用户程序的网络数据包。TUN 设备需要读写 IP
+数据包，对 TAP 设备来说则是以太网帧。</p>
+<p>通过打开设备文件 <code class="docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> ，以及调用 <code class="docutils literal notranslate"><span class="pre">ioctl()</span></code> 来获得一个 TAP/TUN 设备。
+设备的种类由 <code class="docutils literal notranslate"><span class="pre">ifreq.ifr_flags</span></code> 决定。</p>
+<p><a class="reference external" href="http://vtun.sourceforge.net/tun">http://vtun.sourceforge.net/tun</a> 提供了使用 TUN/TAP 设备的一些示例。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>示例和文档的描述有出入，如文档说使用 TUN 还是 TAP 设备取决于 <code class="docutils literal notranslate"><span class="pre">ioctl()</span></code> 的
+flags，而示例中则通过直接打开 <code class="docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/dev/net/tap</span></code> 来使用不
+同的设备。</p>
+<p>但是在 <a class="reference external" href="https://www.kernel.org/doc/Documentation/admin-guide/devices.txt">https://www.kernel.org/doc/Documentation/admin-guide/devices.txt</a> 中
+并没有找到 <code class="docutils literal notranslate"><span class="pre">/dev/net/tap</span></code> 的设备号（<code class="docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> 的是 MAJOR 10 MINOR
+200），因此还是以内核文档为准。</p>
+</div>
+</div>
+<div class="section" id="teeworlds">
+<h2>Teeworlds 的延迟计算逻辑<a class="headerlink" href="#teeworlds" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>基于 <a class="reference external" href="https://github.com/ddnet/ddnet/tree/e7746435948e58ed36ab062dfad91019b86dfaac">DDnet&#64;e77464</a> 的代码进行讨论。</p>
+</div>
+<p>在 Teeworlds 中，客户端显示的延迟全部在服务端计算后再发回客户端显示，服务端计算
+延迟的逻辑如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>... // src/engine/server/server.cpp#L1110
+else if(Msg == NETMSG_INPUT)
+{
+    CClient::CInput *pInput;
+    int64 TagTime;
+
+    m_aClients[ClientID].m_LastAckedSnapshot = Unpacker.GetInt(); // 从客户端数据包中取得上次的快照 ID
+    int IntendedTick = Unpacker.GetInt();
+    int Size = Unpacker.GetInt();
+
+    // check for errors
+    if(Unpacker.Error() || Size/4 &gt; MAX_INPUT_SIZE)
+        return;
+
+    if(m_aClients[ClientID].m_LastAckedSnapshot &gt; 0)
+        m_aClients[ClientID].m_SnapRate = CClient::SNAPRATE_FULL;
+
+    // 根据快照 ID 获取 TagTime，实际上是上次进行快照的时间
+    if(m_aClients[ClientID].m_Snapshots.Get(m_aClients[ClientID].m_LastAckedSnapshot, &amp;TagTime, 0, 0) &gt;= 0)
+        // 根据当前时间以及上次快照时间计算延迟
+        m_aClients[ClientID].m_Latency = (int)(((time_get()-TagTime)*1000)/time_freq());
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>函数 <code class="docutils literal notranslate"><span class="pre">time_freq()</span></code> 返回不同平台下 time_get 获得的时间单位同毫秒的比率。</p>
+</div>
+<p>函数 <code class="docutils literal notranslate"><span class="pre">DoSnapshot</span></code> 保存当前游戏的状态，需要关注的代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">src</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">cpp</span><span class="c1">#611</span>
+<span class="n">void</span> <span class="n">CServer</span><span class="p">::</span><span class="n">DoSnapshot</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+    <span class="o">//</span> <span class="n">src</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">cpp</span><span class="c1">#L686</span>
+    <span class="n">m_aClients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">m_Snapshots</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">m_CurrentGameTick</span><span class="p">,</span> <span class="n">time_get</span><span class="p">(),</span> <span class="n">SnapshotSize</span><span class="p">,</span> <span class="n">pData</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DoSnapshot</span></code> 函数在 <code class="docutils literal notranslate"><span class="pre">CServer::Run</span></code> 中被调用，不少部分靠猜，
+不一定对， <code class="docutils literal notranslate"><span class="pre">CServer::Run</span></code> 包含了整个服务端的主要流程，其中有个游戏循环
+<code class="docutils literal notranslate"><span class="pre">while(m_RunServer)</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code> ，游戏循环采用了一个叫 tick 的概念来计时:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// src/engine/server/server.cpp#1690
+int CServer::Run()
+{
+    ...
+    // src/engine/server/server.cpp#1756
+    // start game
+    {
+
+        ...
+        // src/engine/server/server.cpp#1761
+        m_GameStartTime = time_get(); // 记录游戏开始时间
+        ...
+        while(m_RunServer)
+        {
+            ...
+
+            set_new_tick();
+
+            int64 t = time_get(); // 记录循环开始时间
+            int NewTicks = 0; // 还不到一个 tick
+
+            ... // 这里是加载地图以及其他看不懂的操作，大概是游戏交互的主要部分
+
+            // 循环开始后是否超过一个 SERVER_TICK_SPEED(50ms)
+            while(t &gt; TickStartTime(m_CurrentGameTick+1))
+            {
+                // 是，则把游戏的 tick + 1
+                m_CurrentGameTick++;
+                // 并认为这轮循环是一个新的 tick
+                NewTicks++;
+                ...
+            }
+
+            // snap game
+            // 如果这是个新 tick
+            if(NewTicks)
+            {
+                if(g_Config.m_SvHighBandwidth || (m_CurrentGameTick%2) == 0)
+                    // 如果不使用高带宽模式的配置，以及当前 tick 不是偶数的话，快照之
+                    DoSnapshot();
+                ...
+            }
+
+         }
+</pre></div>
+</div>
+<p>如上，循环一开始先把 <code class="docutils literal notranslate"><span class="pre">NewTicks</span></code> 置 0，并在 <code class="docutils literal notranslate"><span class="pre">t</span></code> 保存当前时间，之后进行某些我
+没看懂的的操作，接着进行判断 <code class="docutils literal notranslate"><span class="pre">while(t</span> <span class="pre">&gt;</span> <span class="pre">TickStartTime(m_CurrentGameTick+1))</span></code> ，</p>
+<p><code class="docutils literal notranslate"><span class="pre">TickStartTime</span></code> 函数如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">src</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">cpp</span><span class="c1">#452</span>
+<span class="n">int64</span> <span class="n">CServer</span><span class="p">::</span><span class="n">TickStartTime</span><span class="p">(</span><span class="nb">int</span> <span class="n">Tick</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">游戏开始时间</span> <span class="o">+</span> <span class="p">(</span><span class="n">传入的Tick</span> <span class="n">数换算成相同时间单位</span><span class="p">)</span> <span class="o">/</span> <span class="mi">50</span>
+    <span class="k">return</span> <span class="n">m_GameStartTime</span> <span class="o">+</span> <span class="p">(</span><span class="n">time_freq</span><span class="p">()</span><span class="o">*</span><span class="n">Tick</span><span class="p">)</span><span class="o">/</span><span class="n">SERVER_TICK_SPEED</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>传入的是 <code class="docutils literal notranslate"><span class="pre">m_CurrentGameTick+1</span></code> ，所以猜测函数得出的是，下一个 Tick 的时间戳，
+同时猜测一个时间戳的单位为 <code class="docutils literal notranslate"><span class="pre">SERVER_TICK_SPEED</span></code>  ，即 50 （单位大概是微秒？）。
+如果这个循环开始的时间以及超过下个 Tick 的开始时间，说明现在处于新的 Tick 中了，
+于是:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m_CurrentGameTick</span><span class="o">++</span><span class="p">;</span>
+<span class="n">NewTicks</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>并视情况更新快照。</p>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/painters.html">艺术家史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/rust-book.html">Rust Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/books/index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/srain/index.html">Srain Architecture Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/writeups/index.html">Capture The Flag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/zxsys/index.html">造型实验室</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2017</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01.html">2017-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">2017-04</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2017-06</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2021/index.html">2021</a></li>
+</ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">2017</a><ul>
+      <li>Previous: <a href="04.html" title="上一章">2017-04</a></li>
+      <li>Next: <a href="../2020/index.html" title="下一章">2020</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

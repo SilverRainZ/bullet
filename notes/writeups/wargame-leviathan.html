@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>wargame-leviathan &#8212; 银色子弹</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/writeups/wargame-leviathan.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Seed Lab" href="seedlabs/index.html" />
+    <link rel="prev" title="Capture The Flag" href="index.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="wargame-leviathan">
+<h1>wargame-leviathan<a class="headerlink" href="#wargame-leviathan" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>ssh addr: leviathan.labs.overthewire.org</p></li>
+<li><p>url: <a class="reference external" href="http://overthewire.org/wargames/leviathan/">http://overthewire.org/wargames/leviathan/</a></p></li>
+</ul>
+<div class="section" id="leviathan0">
+<h2>leviathan0<a class="headerlink" href="#leviathan0" title="永久链接至标题">¶</a></h2>
+<p>flag: leviathan0</p>
+</div>
+<div class="section" id="leviathan1">
+<h2>leviathan1<a class="headerlink" href="#leviathan1" title="永久链接至标题">¶</a></h2>
+<p>flag: rioGegei8m</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">~/.backup/bookmarks.html</span></code> 搜索 <code class="docutils literal notranslate"><span class="pre">password</span></code> 可得。</p>
+</div>
+<div class="section" id="leviathan2">
+<h2>leviathan2<a class="headerlink" href="#leviathan2" title="永久链接至标题">¶</a></h2>
+<p>flag: ougahZi8Ta</p>
+<p>home 目录下有一程序名为 check，执行之，要求输入密码， 首先
+<code class="docutils literal notranslate"><span class="pre">strings</span> <span class="pre">check</span></code> 查看一下程序中的字符串，似乎没有发现什么像 flag
+的字串，不过倒是发现了一个 <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code>，推测程序会启动一个 shell。</p>
+<p>用 gdb 调试，对 main 下断点后反汇编，关键部分如下：</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span>0x0804857a &lt;+77&gt;:    call   0x80483c0 &lt;printf@plt&gt;
+0x0804857f &lt;+82&gt;:    call   0x80483d0 &lt;getchar@plt&gt;
+0x08048584 &lt;+87&gt;:    mov    %al,0x14(%esp)
+0x08048588 &lt;+91&gt;:    call   0x80483d0 &lt;getchar@plt&gt;
+0x0804858d &lt;+96&gt;:    mov    %al,0x15(%esp)
+0x08048591 &lt;+100&gt;:   call   0x80483d0 &lt;getchar@plt&gt;
+0x08048596 &lt;+105&gt;:   mov    %al,0x16(%esp)
+0x0804859a &lt;+109&gt;:   movb   $0x0,0x17(%esp)
+0x0804859f &lt;+114&gt;:   lea    0x18(%esp),%eax
+0x080485a3 &lt;+118&gt;:   mov    %eax,0x4(%esp)
+0x080485a7 &lt;+122&gt;:   lea    0x14(%esp),%eax
+0x080485ab &lt;+126&gt;:   mov    %eax,(%esp)
+0x080485ae &lt;+129&gt;:   call   0x80483b0 &lt;strcmp@plt&gt;
+0x080485b3 &lt;+134&gt;:   test   %eax,%eax
+0x080485b5 &lt;+136&gt;:   jne    0x80485c5 &lt;main+152&gt;
+0x080485b7 &lt;+138&gt;:   movl   $0x804868b,(%esp)
+0x080485be &lt;+145&gt;:   call   0x8048400 &lt;system@plt&gt;
+0x080485c3 &lt;+150&gt;:   jmp    0x80485d1 &lt;main+164&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">printf</span></code> 用来输出 “password” 字样，之后连续三个
+<code class="docutils literal notranslate"><span class="pre">getchar</span></code>，之后把该字符串和 <code class="docutils literal notranslate"><span class="pre">esp</span> <span class="pre">+</span> <span class="pre">14</span></code> 处的字符串作为参数给
+<code class="docutils literal notranslate"><span class="pre">strcmp&#64;plt</span></code>，根据比较的结果决定流程， 因此对 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> 下断：
+<code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">strcmp&#64;plt</span></code>，输入密码后查看堆栈：<code class="docutils literal notranslate"><span class="pre">x/10x</span> <span class="pre">$esp</span></code></p>
+<p>过程如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0xffffd63c</span><span class="p">:</span>     <span class="mh">0x080485b3</span>      <span class="mh">0xffffd654</span>      <span class="mh">0xffffd658</span>      <span class="mh">0x0804a000</span>
+<span class="mh">0xffffd64c</span><span class="p">:</span>     <span class="mh">0x08048642</span>      <span class="mh">0x00000001</span>      <span class="mh">0x00333231</span>      <span class="mh">0x00786573</span>
+<span class="mh">0xffffd65c</span><span class="p">:</span>     <span class="mh">0x00646f67</span>      <span class="mh">0x65766f6c</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">0xffffd658</span></code> 处即是该程序的 password，用 <code class="docutils literal notranslate"><span class="pre">x/s</span> <span class="pre">0xffffd658</span></code> 可看。</p>
+</div>
+<div class="section" id="leviathan3">
+<h2>leviathan3<a class="headerlink" href="#leviathan3" title="永久链接至标题">¶</a></h2>
+<p>flag: Ahdiemoo1j</p>
+<p>这道题想了很久还是不会，最终上网看答案了……</p>
+<p>登入机器后发现家目录有个带 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="docutils literal notranslate"><span class="pre">printfile</span></code>，
+属主是 <code class="docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="docutils literal notranslate"><span class="pre">suid</span></code>
+的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。</p>
+<blockquote>
+<div><p><strong>Note:</strong> 关于 linux 下的权限，更多请参见
+<a class="reference external" href="TODO">linux/privileges.md//TODO</a>。</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ll printfile
+-r-sr-x--- 1 leviathan3 leviathan2 7498 Nov 14  2014 printfile*
+leviathan2@melinda:~$ ./printfile
+*** File Printer ***
+Usage: ./printfile filename
+leviathan2@melinda:~$ ./printfile /etc/leviathan_pass/leviathan3
+You cant have that file...
+</pre></div>
+</div>
+<p>从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印
+<code class="docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan3</span></code> 却提示
+<code class="docutils literal notranslate"><span class="pre">You</span> <span class="pre">cant</span> <span class="pre">have</span> <span class="pre">that</span> <span class="pre">file...</span></code>， 上 gdb 分析看看。</p>
+<p>以下是 <code class="docutils literal notranslate"><span class="pre">diaasm</span> <span class="pre">main</span></code> 的结果，假设执行了 <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">filename</span></code>：</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span>  0x0804852d &lt;+0&gt;:     push   %ebp
+  0x0804852e &lt;+1&gt;:     mov    %esp,%ebp
+  0x08048530 &lt;+3&gt;:     and    $0xfffffff0,%esp
+  0x08048533 &lt;+6&gt;:     sub    $0x230,%esp
+  0x08048539 &lt;+12&gt;:    mov    0xc(%ebp),%eax           ; argv 参数地址
+  0x0804853c &lt;+15&gt;:    mov    %eax,0x1c(%esp)          ; argv 保存到 [esp + 0x1c]
+  0x08048540 &lt;+19&gt;:    mov    %gs:0x14,%eax            ; Thread-Local Storage, 不知道是什么
+  0x08048546 &lt;+25&gt;:    mov    %eax,0x22c(%esp)
+  0x0804854d &lt;+32&gt;:    xor    %eax,%eax
+  0x0804854f &lt;+34&gt;:    cmpl   $0x1,0x8(%ebp)           ; \ argc 和 1 比较，此处 argc 应该为 2
+  0x08048553 &lt;+38&gt;:    jg     0x804857e &lt;main+81&gt;      ; / argc &gt; 1 则跳
+  0x08048555 &lt;+40&gt;:    movl   $0x8048690,(%esp)
+  0x0804855c &lt;+47&gt;:    call   0x80483d0 &lt;puts@plt&gt;
+  0x08048561 &lt;+52&gt;:    mov    0x1c(%esp),%eax
+  0x08048565 &lt;+56&gt;:    mov    (%eax),%eax
+  0x08048567 &lt;+58&gt;:    mov    %eax,0x4(%esp)
+  0x0804856b &lt;+62&gt;:    movl   $0x80486a5,(%esp)
+  0x08048572 &lt;+69&gt;:    call   0x80483b0 &lt;printf@plt&gt;
+  0x08048577 &lt;+74&gt;:    mov    $0xffffffff,%eax
+  0x0804857c &lt;+79&gt;:    jmp    0x80485e8 &lt;main+187&gt;
+
+; -&gt; 来自 0x08048553 &lt;+38&gt; 的跳转，以上代码不必分析了
+  0x0804857e &lt;+81&gt;:    mov    0x1c(%esp),%eax          ; 取出储存的 argv
+  0x08048582 &lt;+85&gt;:    add    $0x4,%eax                ; 移动到 argv 的第一个参数（从 0 计数）
+  0x08048585 &lt;+88&gt;:    mov    (%eax),%eax              ; 取出 argv[1] 的值，指向字符串 ‘filename’
+  0x08048587 &lt;+90&gt;:    movl   $0x4,0x4(%esp)           ; \ 参数二：int amode
+  0x0804858f &lt;+98&gt;:    mov    %eax,(%esp)              ; | argv[1] 作参数一： char *path
+  0x08048592 &lt;+101&gt;:   call   0x8048420 &lt;access@plt&gt;   ; / access(argv[1], 4)，成功返回 0
+  0x08048597 &lt;+106&gt;:   test   %eax,%eax
+  0x08048599 &lt;+108&gt;:   je     0x80485ae &lt;main+129&gt;     ; 跳
+  0x0804859b &lt;+110&gt;:   movl   $0x80486b9,(%esp)
+  0x080485a2 &lt;+117&gt;:   call   0x80483d0 &lt;puts@plt&gt;
+  0x080485a7 &lt;+122&gt;:   mov    $0x1,%eax
+  0x080485ac &lt;+127&gt;:   jmp    0x80485e8 &lt;main+187&gt;
+
+; -&gt; 来自 0x08048599 &lt;+108&gt; 的跳转
+  0x080485ae &lt;+129&gt;:   mov    0x1c(%esp),%eax          ; \
+  0x080485b2 &lt;+133&gt;:   add    $0x4,%eax                ; | 取得 argv[1]
+  0x080485b5 &lt;+136&gt;:   mov    (%eax),%eax              ; /
+  0x080485b7 &lt;+138&gt;:   mov    %eax,0xc(%esp)           ; \ ...: argv[1]
+  0x080485bb &lt;+142&gt;:   movl   $0x80486d4,0x8(%esp)     ; | char *format: string &quot;/bin/cat %s&quot;
+  0x080485c3 &lt;+150&gt;:   movl   $0x1ff,0x4(%esp)         ; | size_t size: 511
+  0x080485cb &lt;+158&gt;:   lea    0x2c(%esp),%eax          ; |
+  0x080485cf &lt;+162&gt;:   mov    %eax,(%esp)              ; | char *str
+  0x080485d2 &lt;+165&gt;:   call   0x8048410 &lt;snprintf@plt&gt; ; / snprintf(str, 511, &quot;/bin/cat %s&quot;, argv[1]);
+  0x080485d7 &lt;+170&gt;:   lea    0x2c(%esp),%eax
+  0x080485db &lt;+174&gt;:   mov    %eax,(%esp)              ; \
+  0x080485de &lt;+177&gt;:   call   0x80483e0 &lt;system@plt&gt;   ; / system(&quot;/bin/cat filename&quot;);
+  0x080485e3 &lt;+182&gt;:   mov    $0x0,%eax
+  0x080485e8 &lt;+187&gt;:   mov    0x22c(%esp),%edx
+  0x080485ef &lt;+194&gt;:   xor    %gs:0x14,%edx
+  0x080485f6 &lt;+201&gt;:   je     0x80485fd &lt;main+208&gt;
+  0x080485f8 &lt;+203&gt;:   call   0x80483c0 &lt;__stack_chk_fail@plt&gt;
+  0x080485fd &lt;+208&gt;:   leave
+  0x080485fe &lt;+209&gt;:   ret
+end of assembler dump.
+</pre></div>
+</div>
+<p>可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell
+命令 “/bin/cat filename”。</p>
+<p>问题出在 <code class="docutils literal notranslate"><span class="pre">access</span></code> 函数， man 是这样说的：</p>
+<blockquote>
+<div><p>The access() function shall check the file named by the pathname
+pointed to by the path argument for accessibility according to the
+bit pattern contained in amode, <strong>using the real user ID in place of
+the effective user</strong> <strong>ID and the real group ID in place of the
+effective group ID.</strong></p>
+</div></blockquote>
+<p>而 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行
+<code class="docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access
+函数总是失败的。</p>
+<p>但是用 gdb 改变程序的流程也是
+<a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs">不可行</a>
+的，非 root 的 gdb 调试带 suid
+权限的程序时，程序不会获得本来应该有的权限 （否则 gdb
+就可以任意地改变程序的行为了），即使绕过了 access 函数，
+你依然会得到一个 <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>。</p>
+<p>到这里我就没辙了，只能看别人的 writeup 了： <a class="reference external" href="https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/">OverTheWire Leviathan
+Wargame Solution
+2</a>
+，看完发现脑洞确实不够大。</p>
+<p><strong>Solution:</strong>:</p>
+<p>access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的， 执行
+<code class="docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>， 对于 access 函数来说是执行了
+<code class="docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，
+而对 cat 来说是这样的 <code class="docutils literal notranslate"><span class="pre">system(&quot;cat</span> <span class="pre">flag</span> <span class="pre">here&quot;)</span></code> =
+<code class="docutils literal notranslate"><span class="pre">system*(&quot;cat</span> <span class="pre">flag;</span> <span class="pre">cat</span> <span class="pre">here&quot;)</span></code>， 因此可以利用这个区别来绕过 access
+函数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:/tmp$ mkdir slove
+leviathan2@melinda:/tmp$ cd slove
+leviathan2@melinda:/tmp/slove$ touch &#39;flag here&#39;    # 带空格的文件名
+leviathan2@melinda:/tmp/slove$ ln -s /etc/leviathan_pass/leviathan3 flag
+leviathan2@melinda:/tmp/slove$ ls
+flag  flag here
+leviathan2@melinda:/tmp/slove$ ~/printfile &#39;flag here&#39;  # access 检测的是刚刚建立的新文件， cat 显示的则是 flag 和 here
+Ahdiemoo1j
+/bin/cat: here: No such file or directory
+</pre></div>
+</div>
+<p>另外发现了一个新工具 ltrace，能够跟踪库函数的调用，
+就不用像刚才那样分析整个程序了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ltrace ~/printfile /etc/leviathan_pass/leviathan2
+__libc_start_main(0x804852d, 2, 0xffffd6f4, 0x8048600 &lt;unfinished ...&gt;
+access(&quot;/etc/leviathan_pass/leviathan2&quot;, 4)                                       = 0
+snprintf(&quot;/bin/cat /etc/leviathan_pass/lev&quot;..., 511, &quot;/bin/cat %s&quot;, &quot;/etc/leviathan_pass/leviathan2&quot;) = 39
+system(&quot;/bin/cat /etc/leviathan_pass/lev&quot;...ougahZi8Ta
+&lt;no return ...&gt;
+--- SIGCHLD (Child exited) ---
+&lt;... system resumed&gt; )                                                            = 0
++++ exited (status 0) +++
+</pre></div>
+</div>
+</div>
+<div class="section" id="leviathan4">
+<h2>leviathan4<a class="headerlink" href="#leviathan4" title="永久链接至标题">¶</a></h2>
+<p>flag: vuH0coox6m</p>
+<p>这次学乖了，扫了几眼汇编，程序把一大堆东西放到栈里然后 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code>，
+果断用 ltrace 看看：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan3@melinda:~$ ll level3
+-r-sr-x--- 1 leviathan4 leviathan3 9962 Mar 21  2015 level3*
+
+leviathan3@melinda:~$ ltrace ./level3
+__libc_start_main(0x80485fe, 1, 0xffffd744, 0x80486d0 &lt;unfinished ...&gt;
+strcmp(&quot;h0no33&quot;, &quot;kakaka&quot;)                                                              = -1
+printf(&quot;Enter the password&gt; &quot;)                                                          = 20
+fgets(Enter the password&gt; 1234
+&quot;1234\n&quot;, 256, 0xf7fcbc20)                                                        = 0xffffd53c
+strcmp(&quot;1234\n&quot;, &quot;snlprintf\n&quot;)                                                         = -1
+puts(&quot;bzzzzzzzzap. WRONG&quot;bzzzzzzzzap. WRONG
+)                                                              = 19
++++ exited (status 0) +++
+
+leviathan3@melinda:~$ ltrace ./level3
+__libc_start_main(0x80485fe, 1, 0xffffd744, 0x80486d0 &lt;unfinished ...&gt;
+strcmp(&quot;h0no33&quot;, &quot;kakaka&quot;)                                                              = -1
+printf(&quot;Enter the password&gt; &quot;)                                                          = 20
+fgets(Enter the password&gt; snlprintf
+&quot;snlprintf\n&quot;, 256, 0xf7fcbc20)                                                   = 0xffffd53c
+strcmp(&quot;snlprintf\n&quot;, &quot;snlprintf\n&quot;)                                                    = 0
+puts(&quot;[You&#39;ve got shell]!&quot;[You&#39;ve got shell]!
+)                                                             = 20
+system(&quot;/bin/sh&quot;$
+$
+ &lt;no return ...&gt;
+--- SIGCHLD (Child exited) ---
+&lt;... system resumed&gt; )                                                                  = 0
++++ exited (status 0) +++
+</pre></div>
+</div>
+<p>唔，结果直接出来了，前面的 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> 还是个障眼法，在 ltrace
+里面是拿不到 euid 权限的，在外面再试一次：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan3@melinda:~$ ./level3
+Enter the password&gt; snlprintf
+[You&#39;ve got shell]!
+$ id
+uid=12003(leviathan3) gid=12003(leviathan3) euid=12004(leviathan4) groups=12004(leviathan4),12003(leviathan3)
+$ cat /etc/leviathan_pass/leviathan4
+vuH0coox6m
+$
+</pre></div>
+</div>
+</div>
+<div class="section" id="leviathan5">
+<h2>leviathan5<a class="headerlink" href="#leviathan5" title="永久链接至标题">¶</a></h2>
+<p>flag: Tith4cokei</p>
+<p>诶，为什么题目越往后越简单呢……</p>
+<p>登录，<code class="docutils literal notranslate"><span class="pre">.trash</span></code> 目录下有一程序
+<code class="docutils literal notranslate"><span class="pre">bin</span></code>，执行后输出一组八位二进制数字：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan4@melinda:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+</pre></div>
+</div>
+<p>继续用 ltrace 看看：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan4@melinda:~/.trash$ ltrace ./bin
+__libc_start_main(0x80484cd, 1, 0xffffd724, 0x80485c0 &lt;unfinished ...&gt;
+fopen(&quot;/etc/leviathan_pass/leviathan5&quot;, &quot;r&quot;)                                            = 0
++++ exited (status 255) +++
+</pre></div>
+</div>
+<p>这里程序以二进制方式打开 <code class="docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan5</span></code>
+之后异常退出了， 因为在 ltrace
+包裹下它并没有读取这个文件的权限。这里就可以大胆猜测输出的数字
+就是文件的二进制表示了，不放心的话继续用 gdb 粗略看看它做了什么，
+<code class="docutils literal notranslate"><span class="pre">fopen</span></code> 之后调用 <code class="docutils literal notranslate"><span class="pre">fget</span></code>，得到内容之后 <code class="docutils literal notranslate"><span class="pre">putchar</span></code>，八九不离十。</p>
+<p>复制那段数字，用 vim 把转成字串数组，再用一行 python 搞定：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;01010100&#39;</span><span class="p">,</span> <span class="s1">&#39;01101001&#39;</span><span class="p">,</span> <span class="s1">&#39;01110100&#39;</span><span class="p">,</span> <span class="s1">&#39;01101000&#39;</span><span class="p">,</span> <span class="s1">&#39;00110100&#39;</span><span class="p">,</span> <span class="s1">&#39;01100011&#39;</span><span class="p">,</span> <span class="s1">&#39;01101111&#39;</span><span class="p">,</span> <span class="s1">&#39;01101011&#39;</span><span class="p">,</span> <span class="s1">&#39;01100101&#39;</span><span class="p">,</span> <span class="s1">&#39;01101001&#39;</span><span class="p">,</span> <span class="s1">&#39;00001010&#39;</span><span class="p">])</span>
+<span class="go">&#39;Tith4cokei\n&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="leviathan6">
+<h2>leviathan6<a class="headerlink" href="#leviathan6" title="永久链接至标题">¶</a></h2>
+<p>flag: UgaoFee4li</p>
+<p>登录，执行直接执行 <code class="docutils literal notranslate"><span class="pre">~/leviathan5</span></code>，提示找不到
+<code class="docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>，新建文件 <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">2333</span> <span class="pre">&gt;</span> <span class="pre">/tmp/file.log</span></code>，看看
+ltrace：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan5@melinda:~$ ./leviathan5
+Cannot find /tmp/file.log
+
+leviathan5@melinda:~$ echo 2333 &gt; /tmp/file.log
+leviathan5@melinda:~$ ltrace ./leviathan5
+__libc_start_main(0x80485ed, 1, 0xffffd734, 0x8048690 &lt;unfinished ...&gt;
+fopen(&quot;/tmp/file.log&quot;, &quot;r&quot;)                                                             = 0x804b008
+fgetc(0x804b008)                                                                        = &#39;2&#39;
+feof(0x804b008)                                                                         = 0
+putchar(50, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 50
+fgetc(0x804b008)                                                                        = &#39;3&#39;
+feof(0x804b008)                                                                         = 0
+putchar(51, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 51
+fgetc(0x804b008)                                                                        = &#39;3&#39;
+feof(0x804b008)                                                                         = 0
+putchar(51, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 51
+fgetc(0x804b008)                                                                        = &#39;3&#39;
+feof(0x804b008)                                                                         = 0
+putchar(51, 0x8048720, 0xffffd73c, 0xf7e5710d)                                          = 51
+fgetc(0x804b008)                                                                        = &#39;\n&#39;
+feof(0x804b008)                                                                         = 0
+putchar(10, 0x8048720, 0xffffd73c, 0xf7e5710d2333
+)                                          = 10
+fgetc(0x804b008)                                                                        = &#39;\377&#39;
+feof(0x804b008)                                                                         = 1
+fclose(0x804b008)                                                                       = 0
+getuid()                                                                                = 12005
+setuid(12005)                                                                           = 0
+unlink(&quot;/tmp/file.log&quot;)                                                                 = 0
++++ exited (status 0) +++
+leviathan5@melinda:~$
+</pre></div>
+</div>
+<p>看起来是打印一个文件之后把文件删除：
+<code class="docutils literal notranslate"><span class="pre">fopen</span> <span class="pre">-&gt;</span> <span class="pre">fgetc</span> <span class="pre">-&gt;</span> <span class="pre">feof</span> <span class="pre">-&gt;</span> <span class="pre">putchar</span> <span class="pre">-&gt;</span> <span class="pre">getuid</span> <span class="pre">-&gt;</span> <span class="pre">setuid</span> <span class="pre">-&gt;</span> <span class="pre">unlink</span></code>，
+不知道 getuid 和 setuid 在这里有什么用。</p>
+<p>所以把 flag 文件链接到 <code class="docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan5@melinda:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+leviathan5@melinda:~$ ./leviathan5
+UgaoFee4li
+</pre></div>
+</div>
+</div>
+<div class="section" id="leviathan7">
+<h2>leviathan7<a class="headerlink" href="#leviathan7" title="永久链接至标题">¶</a></h2>
+<p>flag: ahy7MaeBo9</p>
+<p>直接执行可以看到需要一个 4 位的数字做参数，用 ltrace 可以看到程序调用了
+<code class="docutils literal notranslate"><span class="pre">itoa</span></code> 来把字符串转成数字：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan6@melinda:~$ ./leviathan6
+usage: ./leviathan6 &lt;4 digit code&gt;
+leviathan6@melinda:~$ ./leviathan6 1234
+Wrong
+leviathan6@melinda:~$ ltrace ./leviathan6 1234
+__libc_start_main(0x804850d, 2, 0xffffd734, 0x8048590 &lt;unfinished ...&gt;
+atoi(0xffffd870, 0xffffd734, 0xffffd740, 0xf7e5710d)                                    = 1234
+puts(&quot;Wrong&quot;Wrong
+)                                                                           = 6
++++ exited (status 6) +++
+</pre></div>
+</div>
+<p>上 gdb：</p>
+<p>假设执行了 ./leviathan6 1234</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span>(gdb) disassemble main
+Dump of assembler code for function main:
+   0x0804850d &lt;+0&gt;:     push   %ebp
+   0x0804850e &lt;+1&gt;:     mov    %esp,%ebp
+   0x08048510 &lt;+3&gt;:     and    $0xfffffff0,%esp
+   0x08048513 &lt;+6&gt;:     sub    $0x20,%esp
+-&gt; 0x08048516 &lt;+9&gt;:     movl   $0x1bd3,0x1c(%esp)   ; 后面会用到 0x1c(%esp)
+   0x0804851e &lt;+17&gt;:    cmpl   $0x2,0x8(%ebp)       ; if (argc == 2)
+   0x08048522 &lt;+21&gt;:    je     0x8048545 &lt;main+56&gt;  ; 参数数量不对就跳走
+   0x08048524 &lt;+23&gt;:    mov    0xc(%ebp),%eax
+   0x08048527 &lt;+26&gt;:    mov    (%eax),%eax
+   0x08048529 &lt;+28&gt;:    mov    %eax,0x4(%esp)
+   0x0804852d &lt;+32&gt;:    movl   $0x8048620,(%esp)
+   0x08048534 &lt;+39&gt;:    call   0x8048390 &lt;printf@plt&gt;
+   0x08048539 &lt;+44&gt;:    movl   $0xffffffff,(%esp)
+   0x08048540 &lt;+51&gt;:    call   0x80483e0 &lt;exit@plt&gt;
+; 跳转至此：
+   0x08048545 &lt;+56&gt;:    mov    0xc(%ebp),%eax       ; char** argv
+   0x08048548 &lt;+59&gt;:    add    $0x4,%eax            ; char** argv + 4
+   0x0804854b &lt;+62&gt;:    mov    (%eax),%eax          ; char* argv[1] 指向 &#39;1234&#39;
+   0x0804854d &lt;+64&gt;:    mov    %eax,(%esp)
+   0x08048550 &lt;+67&gt;:    call   0x8048400 &lt;atoi@plt&gt; ; atoi(&#39;1234&#39;)
+-&gt; 0x08048555 &lt;+72&gt;:    cmp    0x1c(%esp),%eax      ; eax = 1234;  [esp + 0x1c] = 0x1bd3
+   0x08048559 &lt;+76&gt;:    jne    0x8048575 &lt;main+104&gt;
+
+   0x0804855b &lt;+78&gt;:    movl   $0x3ef,(%esp)
+   0x08048562 &lt;+85&gt;:    call   0x80483a0 &lt;seteuid@plt&gt;
+   0x08048567 &lt;+90&gt;:    movl   $0x804863a,(%esp)
+   0x0804856e &lt;+97&gt;:    call   0x80483c0 &lt;system@plt&gt;
+   0x08048573 &lt;+102&gt;:   jmp    0x8048581 &lt;main+116&gt;
+   0x08048575 &lt;+104&gt;:   movl   $0x8048642,(%esp)
+   0x0804857c &lt;+111&gt;:   call   0x80483b0 &lt;puts@plt&gt;
+   0x08048581 &lt;+116&gt;:   leave
+   0x08048582 &lt;+117&gt;:   ret
+End of assembler dump.
+(gdb) break  *0x08048555
+Breakpoint 1 at 0x8048555
+(gdb) run 1234
+Starting program: /home/leviathan6/leviathan6 1234
+
+Breakpoint 1, 0x08048555 in main ()
+(gdb) x/u $esp +0x1c
+0xffffd65c:     7123
+(gdb) x/x $esp +0x1c
+0xffffd65c:     0x00001bd3
+(gdb) set $eax=7123
+(gdb) c
+Continuing.
+$
+</pre></div>
+</div>
+<p>程序把输入的参数用 <code class="docutils literal notranslate"><span class="pre">atoi</span></code> 转成数字然后和常数 <code class="docutils literal notranslate"><span class="pre">0x1bd3</span></code> 比较，相同则
+PASS， 于是 get 到 7123 就是 key：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan6@melinda:~$ ./leviathan6 7123
+$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+$
+</pre></div>
+</div>
+<p>至此 leviathan 就做完了，除了第三题很有意思之外，其他都没什么难度
+（也多亏了 ltrace），登入 leviathan7 的账户能看到这个：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan7@melinda:~$ cat CONGRATULATIONS
+Well Done, you seem to have used a \*nix system before, now try something more serious.
+(Please don&#39;t post writeups, solutions or spoilers about the games on the web. Thank you!)
+</pre></div>
+</div>
+<p>虽然说是 don’t post，可是我还是发出来了……抱歉。</p>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../painters.html">艺术家史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust-book.html">Rust Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../srain/index.html">Srain Architecture Proposal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Capture The Flag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
+</ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Capture The Flag</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">Capture The Flag</a></li>
+      <li>Next: <a href="seedlabs/index.html" title="下一章">Seed Lab</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

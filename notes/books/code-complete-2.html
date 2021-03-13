@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>代码大全 2 &#8212; 银色子弹</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/books/code-complete-2.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="any section" id="book-2">
+<span id="id1"></span><h1>代码大全 2<a class="headerlink" href="#book-2" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">ISBN</dt>
+<dd class="field-odd"><p>9787121022982</p>
+</dd>
+</dl>
+<div class="section" id="chapter-2">
+<h2>Chapter 2 用隐喻来充分地理解软件开发<a class="headerlink" href="#chapter-2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>「建筑」是软件构建的最佳隐喻</p></li>
+</ul>
+</div>
+<div class="section" id="chapter-3">
+<h2>Chapter 3 三思而后行：前期准备<a class="headerlink" href="#chapter-3" title="永久链接至标题">¶</a></h2>
+<p>定义问题 -&gt; 需求 -&gt; 架构 -&gt; 详细设计 -&gt; 构建 -&gt; 质量保证/系统测试</p>
+<ul class="simple">
+<li><p>前期准备是非常重要的</p></li>
+<li><p>在构建活动清除一个错误的的返工成本远远低于在开发过程后期再清除的成本</p>
+<ul>
+<li><p>即，发现错误的时间要尽可能接近引入该错误的时间</p></li>
+</ul>
+</li>
+<li><p>迭代开发法相比于序列开发法，通常是更好的选择</p>
+<ul>
+<li><p>迭代法在每轮迭代的末期修正缺陷，平均修正成本低</p></li>
+<li><p>迭代法会在项目过程中分次支付成本</p></li>
+</ul>
+</li>
+<li><p>应当从用户的角度，使用用户的语言定义问题</p></li>
+<li><p>稳定的需求是软件开发中的「圣杯」，明确的需求有助于减少开发后的系统变更情况</p></li>
+<li><p>架构应该定义程序的重要构造块（building blocks）</p></li>
+<li><p>架构的组成部分：</p>
+<ul>
+<li><p>程序组织</p>
+<ul>
+<li><p>每个构造块实现一种高层功能</p></li>
+<li><p>各个构造块对其他构造块的了解应达到最小，将信息局限于构造块内</p></li>
+<li><p>明确构造块直接的通信规则</p></li>
+</ul>
+</li>
+<li><p>主要的类</p>
+<ul>
+<li><p>指出主要类的责任，该类如何与其他类交互</p></li>
+<li><p>把类组织成子系统</p></li>
+</ul>
+</li>
+<li><p>数据设计</p>
+<ul>
+<li><p>所用到的主要文件和数据表的设计</p></li>
+<li><p>数据应该只由一个子系统或子程序访问</p></li>
+</ul>
+</li>
+<li><p>业务规则</p></li>
+<li><p>用户界面设计</p></li>
+<li><p>资源管理</p></li>
+<li><p>安全性</p></li>
+<li><p>性能</p></li>
+<li><p>可伸缩性</p></li>
+<li><p>互用性</p></li>
+<li><p>国际化/本土化</p></li>
+<li><p>输入输出</p></li>
+<li><p>错误处理</p>
+<ul>
+<li><p>错误处理常被认为是「代码约定」层次的事情</p></li>
+<li><p>应当考虑：</p>
+<ul>
+<li><p>纠正还是检测</p></li>
+<li><p>主动还是被动</p></li>
+<li><p>程序如何传播错误</p></li>
+<li><p>错误的处理有何约定</p></li>
+<li><p>如何处理异常</p></li>
+<li><p>在什么层次上处理错误：在发现的地方处理 or 专用的错误处理类</p></li>
+<li><p>类在验证输入的有效性方面需要负何种责任，能否假设自己接受到的数据
+是始终有效的？</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>容错性</p></li>
+<li><p>架构可行性</p></li>
+<li><p>过度工程</p>
+<ul>
+<li><p>在软件中，链条的强度不是取决于最薄弱的一环，而是等于所有薄弱环节的乘积</p></li>
+</ul>
+</li>
+<li><p>复用决策</p></li>
+<li><p>变更策略</p></li>
+<li><p>架构的总体质量</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="chapter-4">
+<h2>Chapter 4 关键的构建决策<a class="headerlink" href="#chapter-4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>编程约定：变量名，类名，子程序名，格式约定，注释约定</p>
+<ul>
+<li><p><strong>成功编程的一个关键在于避免随意变化</strong></p></li>
+<li><p>编写完软件后，几乎不可能改变软件遵循的编码约定</p></li>
+</ul>
+</li>
+<li><p>在一种语言上编程：大多数重要的编程原则不依赖特定语言</p></li>
+<li><p>深入一种语言去编程：发明自己的编码约定，标准和类库弥补语言的不足</p></li>
+</ul>
+</div>
+<div class="section" id="chapter-5">
+<h2>Chapter 5 软件构建中的设计<a class="headerlink" href="#chapter-5" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>设计：</p>
+<ul>
+<li><p>设计是险恶的（wicked），你需要把问题解决一遍以便明确地定义它，然后再次解决
+该问题，从而形成可行方案</p></li>
+<li><p>设计是了无章法的——在犯错中修正——在你觉得没时间的时候停止</p></li>
+<li><p>设计是确定取舍和调整顺序的过程</p></li>
+<li><p>设计受到诸多限制：资源是有限的</p></li>
+<li><p>设计的成果是不确定的</p></li>
+<li><p>设计是启发式的</p></li>
+<li><p>设计是自然而然的：在评估，讨论，编码中演化和完善</p></li>
+</ul>
+</li>
+<li><p>软件的首要技术使命是管理复杂度</p></li>
+<li><p>理想的设计特征：最小复杂度，可扩展性，松散耦合，可重用性，高扇入，低扇出，
+可移植性，精简性，层次性，使用标准技术</p></li>
+<li><p>子系统间的通信应当严格限制</p>
+<ul>
+<li><p>子系统的通信图应当是无环的</p></li>
+<li><p>常见的子系统：业务规则，用户界面，数据库访问，特定系统依赖</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../painters.html">艺术家史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust-book.html">Rust Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../srain/index.html">Srain Architecture Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writeups/index.html">Capture The Flag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/meson.html">Meson Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
+</ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
