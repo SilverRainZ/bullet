@@ -152,8 +152,8 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>注意 <code class="docutils literal notranslate"><span class="pre">ExecStart=</span></code> 用来清空之前的值， <a class="footnote-reference brackets" href="#id4" id="id2">1</a>
-不然 systemd 会认为你指定了多个 <code class="docutils literal notranslate"><span class="pre">ExecStart</span></code></p>
+<p>注意 <code class="docutils literal notranslate"><span class="pre">ExecStart=</span></code> 用来清空之前的值，
+不然 systemd 会认为你指定了多个 <code class="docutils literal notranslate"><span class="pre">ExecStart</span></code> <a class="footnote-reference brackets" href="#id4" id="id2">1</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
@@ -165,6 +165,22 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 </dd>
 <dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
 <dd><p><a class="reference external" href="https://unix.stackexchange.com/a/449053">https://unix.stackexchange.com/a/449053</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="silverrainz-me-let-s-encrypt-wildcard">
+<h2>为 silverrainz.me 申请 Let’s Encrypt Wildcard 证书<a class="headerlink" href="#silverrainz-me-let-s-encrypt-wildcard" title="永久链接至标题">¶</a></h2>
+<p>用 acme.sh 来自动化申请流程，Wildcard 证书目前只能通过 dns-01 验证的方式申请。 <a class="footnote-reference brackets" href="#id8" id="id6">3</a>
+意味着需要 acme.sh 支持你的 DNS 提供商的 API。</p>
+<p>CloudFlare 当然是支持的，但是 CF 的 free domain 不支持用 API key 修改记录。 <a class="footnote-reference brackets" href="#id9" id="id7">4</a>
+不得已将 DNS 解析从 CF 搬回 GoDaddy，好在迁移方便，导出 zone file 再导入即可。</p>
+<p>其他看文档即可。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id6">3</a></span></dt>
+<dd><p><a class="reference external" href="https://letsencrypt.org/docs/faq/#does-let-s-encrypt-issue-wildcard-certificates">https://letsencrypt.org/docs/faq/#does-let-s-encrypt-issue-wildcard-certificates</a></p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
+<dd><p><a class="reference external" href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option">https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option</a></p>
 </dd>
 </dl>
 </div>
