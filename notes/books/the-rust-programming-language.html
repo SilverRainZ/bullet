@@ -117,17 +117,34 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <p>只有 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span> <span class="pre">--debug</span></code> 才会检测整数溢出并 panic。</p>
 <p>Rust 的 <code class="docutils literal notranslate"><span class="pre">char</span></code> 有 4 byte 长，足够容纳 unicode。</p>
 <p>Tuple 可以用模式匹配或者 <code class="docutils literal notranslate"><span class="pre">x.1</span></code> 这样的下标索引。</p>
-<p>函数返回值是最后一个表达式的值 -&gt; 那就没法随时 return 了？</p>
+<p>函数返回值是最后一个表达式的值 -&gt; 那就没法随时 return 了？
+有 return 关键字，这设计有点奇怪。</p>
 </div>
 <div class="section" id="ch4">
 <h2>ch4<a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
-<p>所有权规则：</p>
-<ol class="arabic simple">
+<dl>
+<dt>所有权规则：</dt><dd><ol class="arabic simple">
 <li><p>每一个值都有一个所被其称为所有者（owner）的变量</p></li>
 <li><p>值在任一时刻有且只有一个所有者</p></li>
 <li><p>当所有者（变量）离开作用域，这个值将被丢弃</p></li>
 </ol>
-<p>Bookmark: P63</p>
+</dd>
+<dt>移动语义</dt><dd><ul class="simple">
+<li><p>借用（borrowing）而不是浅拷贝（shadow copy）</p></li>
+<li><p>永远不会自动 “deep copy”</p></li>
+</ul>
+<p>提供了 <code class="docutils literal notranslate"><span class="pre">Copy</span></code> trait 为简单类型提供支持。</p>
+</dd>
+<dt>Reference</dt><dd><p>使用 reference <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 来借用数据到一个更小的作用域。
+同一份数据的 mutable reference 只能有一个。
+reference 的作用域是「从声明开始到最后一次使用」。</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Bookmark</dt>
+<dd class="field-odd"><p>86</p>
+</dd>
+</dl>
 </div>
 </div>
 
