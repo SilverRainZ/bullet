@@ -34,7 +34,9 @@
     <link rel="canonical" href="https://silverrainz.me/notes/books/teach-yourself-scheme-in-fixnum-days.html" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜索" href="../../search.html" /> 
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="The Rust Programming Language" href="the-rust-programming-language.html" />
+    <link rel="prev" title="向大师学绘画·素描基础" href="drawing-lessons-from-the-great-masters.html" /> 
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -477,53 +479,55 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <h4>用 list 实现一个队列<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h4>
 <p>list 的 car 部分储存了整个队列，cdr 部分储存了指向队列尾部的引用。</p>
 <div class="figure align-default" id="id14">
-<img alt="structure of queue" src="notes/books/queue.png" />
-<p class="caption"><span class="caption-text">structure of queue</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<img alt="structure of queue" src="../../_images/queue.png" />
+<p class="caption"><span class="caption-number">图 1 </span><span class="caption-text">structure of queue</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
 </div>
 <p><a class="reference external" href="http://www.shido.info/lisp/scheme_asg_e.html">图片出处</a></p>
-<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span>(define (make-queue)
-  (cons &#39;() &#39;()))
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">make-queue</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">cons </span><span class="o">&#39;</span><span class="p">()</span> <span class="o">&#39;</span><span class="p">()))</span>
 
-(define (enqueue! queue obj)
-  (let ((lobj (cons obj &#39;())))
-    (if (null? (car queue))
-    (begin
-        ; lobj :: (1 . ()) :: (1)
-        ; queue :: (() . ()) :: (())
-      (set-car! queue lobj)
-        ; queue :: ((1 . ()) . ()) :: ((1))
-      (set-cdr! queue lobj))
-        ; queue ::  ((1 . ()) . (1 . ())) :: ((1) 1)
-        ; 此时队列的 car 和 cdr 部分都 *引用* 同一个对象 lobj
-    (begin
-        ; lobj :: (2 . ()) :: (2)
-        ; queue ::  ((1 . ()) . (1 . ())) :: ((1) 1)
-      (set-cdr! (cdr queue) lobj)
-        ; queue ::  ((1 . (2 . ())) . (1 . (2 .()))) :: ((1 2) 1 2)
-        ; 借助 cdr 的引用将 lobj 入队
-      (set-cdr! queue lobj)))
-        ; queue ::  ((1 . (2 . ())) . (2 .())) :: ((1 2) 2)
-        ; 把 cdr 更新为当前的队尾 lobj
-    (car queue)))
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">queue</span> <span class="nv">obj</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">lobj</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">obj</span> <span class="o">&#39;</span><span class="p">())))</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">))</span>
+    <span class="p">(</span><span class="nf">begin</span>
+        <span class="c1">; lobj :: (1 . ()) :: (1)</span>
+        <span class="c1">; queue :: (() . ()) :: (())</span>
+      <span class="p">(</span><span class="nb">set-car! </span><span class="nv">queue</span> <span class="nv">lobj</span><span class="p">)</span>
+        <span class="c1">; queue :: ((1 . ()) . ()) :: ((1))</span>
+      <span class="p">(</span><span class="nb">set-cdr! </span><span class="nv">queue</span> <span class="nv">lobj</span><span class="p">))</span>
+        <span class="c1">; queue ::  ((1 . ()) . (1 . ())) :: ((1) 1)</span>
+        <span class="c1">; 此时队列的 car 和 cdr 部分都 *引用* 同一个对象 lobj</span>
+    <span class="p">(</span><span class="nf">begin</span>
+        <span class="c1">; lobj :: (2 . ()) :: (2)</span>
+        <span class="c1">; queue ::  ((1 . ()) . (1 . ())) :: ((1) 1)</span>
+      <span class="p">(</span><span class="nb">set-cdr! </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">queue</span><span class="p">)</span> <span class="nv">lobj</span><span class="p">)</span>
+        <span class="c1">; queue ::  ((1 . (2 . ())) . (1 . (2 .()))) :: ((1 2) 1 2)</span>
+        <span class="c1">; 借助 cdr 的引用将 lobj 入队</span>
+      <span class="p">(</span><span class="nb">set-cdr! </span><span class="nv">queue</span> <span class="nv">lobj</span><span class="p">)))</span>
+        <span class="c1">; queue ::  ((1 . (2 . ())) . (2 .())) :: ((1 2) 2)</span>
+        <span class="c1">; 把 cdr 更新为当前的队尾 lobj</span>
+    <span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">)))</span>
 
-(define (dequeue! queue)
-  (let ((obj (car (car queue))))
-    (set-car! queue (cdr (car queue)))
-    obj))
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">dequeue!</span> <span class="nv">queue</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">obj</span> <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nb">set-car! </span><span class="nv">queue</span> <span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">)))</span>
+    <span class="nv">obj</span><span class="p">))</span>
 
-(define q (make-queue))
-(enqueue! q &#39;a)     =&gt; (a)
-(enqueue! q &#39;b)     =&gt; (a b)
-(enqueue! q &#39;c)     =&gt; (a b c)
-(dequeue! q)        =&gt; a
-q                   =&gt; ((b c) c)
-
-**NOTE:** 此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
-不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
-中储存了 pair 时，用的是引用， 注意 ``set!``
-更改的是这个变量名的指向， ``set-cdr!`` 更改的是指向的对象内部的值
-:(
+<span class="p">(</span><span class="k">define </span><span class="nv">q</span> <span class="p">(</span><span class="nf">make-queue</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">q</span> <span class="ss">&#39;a</span><span class="p">)</span>     <span class="k">=&gt; </span><span class="p">(</span><span class="nf">a</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">q</span> <span class="ss">&#39;b</span><span class="p">)</span>     <span class="k">=&gt; </span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">q</span> <span class="ss">&#39;c</span><span class="p">)</span>     <span class="k">=&gt; </span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">dequeue!</span> <span class="nv">q</span><span class="p">)</span>        <span class="k">=&gt; </span><span class="nv">a</span>
+<span class="nv">q</span>                   <span class="k">=&gt; </span><span class="p">((</span><span class="nf">b</span> <span class="nv">c</span><span class="p">)</span> <span class="nv">c</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
+不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
+中储存了 pair 时，用的是引用， 注意 <code class="docutils literal notranslate"><span class="pre">set!</span></code>
+更改的是这个变量名的指向， <code class="docutils literal notranslate"><span class="pre">set-cdr!</span></code> 更改的是指向的对象内部的值
+:(</p>
 </div>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; 普通类型</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">a</span> <span class="mi">1</span><span class="p">)</span>
@@ -584,12 +588,12 @@ q                   =&gt; ((b c) c)
 
 <h3>导航</h3>
 <p class="caption"><span class="caption-text">笔记</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../painters.html">艺术家史</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">读书笔记</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">读书笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
@@ -642,6 +646,10 @@ q                   =&gt; ((b c) c)
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">读书笔记</a><ul>
+      <li>Previous: <a href="drawing-lessons-from-the-great-masters.html" title="上一章">向大师学绘画·素描基础</a></li>
+      <li>Next: <a href="the-rust-programming-language.html" title="下一章">The Rust Programming Language</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

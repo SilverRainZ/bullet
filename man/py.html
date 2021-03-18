@@ -138,6 +138,10 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">b</span><span class="s1">&#39;bytes&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Hex string to bytes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;dead&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Dict to tuple list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
@@ -190,6 +194,11 @@
 </div>
 <div class="section" id="file-operations">
 <h2>File Operations<a class="headerlink" href="#file-operations" title="永久链接至标题">¶</a></h2>
+<p>Temp file with real path:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
 <p>Temp directory:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;blahblah&#39;</span><span class="p">)</span>
 </pre></div>
