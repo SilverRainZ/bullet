@@ -31,6 +31,7 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/translations.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <link rel="canonical" href="https://silverrainz.me/misc/2021/03.html" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -183,6 +184,50 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 <dd><p><a class="reference external" href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option">https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option</a></p>
 </dd>
 </dl>
+</div>
+<div class="section" id="sphinx-isso">
+<h2>让 Sphinx 支持 Isso 评论<a class="headerlink" href="#sphinx-isso" title="永久链接至标题">¶</a></h2>
+<p>一言以蔽之，用最近写的 <a class="reference external" href="https://sphinx-notes.github.io/isso/">sphinxnotes-isso</a> 即可，在文档的任意位置插入 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">isso::</span></code>
+既可有最下面的效果。</p>
+<div class="section" id="isso">
+<h3>Isso 部署<a class="headerlink" href="#isso" title="永久链接至标题">¶</a></h3>
+<p>Isso 本身的部署需要费些功夫。手头有一台 Arch + Vultr 和一台 openSUSE + 腾讯云，
+考虑到国内的加载速度还是使用了腾讯云。</p>
+<p>使用 Isso 官方提供的 Dockerfile build 出镜像，</p>
+<p>考虑多个实例，每个实例在单独目录下，必须有 <code class="file docutils literal notranslate"><span class="pre">comments.db</span></code> 和 <code class="file docutils literal notranslate"><span class="pre">isso.cfg</span></code>
+两个文件。用如下脚本实现多个实例的启动:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">name</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">port</span><span class="o">=</span><span class="nv">$2</span>
+
+docker run <span class="se">\</span>
+    --detach <span class="se">\</span>
+    --name isso-<span class="nv">$name</span> <span class="se">\</span>
+    --publish <span class="m">127</span>.0.0.1:<span class="nv">$port</span>:8080 <span class="se">\</span>
+    --volume <span class="nv">$PWD</span>/<span class="nv">$name</span>:/config <span class="se">\</span>
+    --volume <span class="nv">$PWD</span>/<span class="nv">$name</span>:/db <span class="se">\</span>
+    isso
+</pre></div>
+</div>
+</div>
+<div class="section" id="smtp">
+<h3>SMTP 服务<a class="headerlink" href="#smtp" title="永久链接至标题">¶</a></h3>
+<p>SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 <code class="docutils literal notranslate"><span class="pre">noreply&#64;silverrainz.me</span></code>
+分配了一个账户，使用了单独的密码，直接使用 Yandex 的 SMTP 服务：</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[smtp]</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">noreply@silverrainz.me</span>
+<span class="na">password</span> <span class="o">=</span> <span class="s">**********</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">smtp.yandex.ru</span>
+<span class="na">port</span> <span class="o">=</span> <span class="s">465</span>
+<span class="na">security</span> <span class="o">=</span> <span class="s">ssl</span>
+<span class="na">to</span> <span class="o">=</span> <span class="s">&quot;Shengyu Zhang&quot; &lt;comments@silverrainz.me&gt;</span>
+<span class="na">from</span> <span class="o">=</span> <span class="s">&quot;Silver Bullet&quot; &lt;noreply@silverrainz.me&gt;</span>
+<span class="na">timeout</span> <span class="o">=</span> <span class="s">10</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section data-isso-id="misc/2021/03" id="isso-thread"></section></div>
 </div>
 </div>
 
