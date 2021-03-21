@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-03-21T12:43:08.997480+00:00</updated>
+  <updated>2021-03-21T16:15:40.381949+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml"/>
-  <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.14">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.me/blog/idf-reverse-writeup.html</id>
@@ -285,6 +285,9 @@ byte_415768 db 73h
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/idf-reverse-writeup.html" rel="alternate"/>
+    <summary>地址在这里： IDF逆向题  
+这些题都比较水，好在我和它一样水。</summary>
+    <category term="Reverse" label="Reverse"/>
     <published>2015-01-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -354,6 +357,9 @@ byte_415768 db 73h
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/haskell-beginning.html" rel="alternate"/>
+    <summary>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
+ Haskell 趣学指南  ，这下子更没有不学的理由了。</summary>
+    <category term="Haskell" label="Haskell"/>
     <published>2015-01-30T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -526,6 +532,8 @@ byte_415768 db 73h
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/syntax-highlight-in-haskell.html" rel="alternate"/>
+    <summary>书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。</summary>
+    <category term="Haskell" label="Haskell"/>
     <published>2015-02-16T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -570,6 +578,10 @@ byte_415768 db 73h
 &lt;section data-isso-id="blog/windows-chinese-username" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/windows-chinese-username.html" rel="alternate"/>
+    <summary>上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
+没注意到当前我的账户名是中文的. 导致了我在  C:\Users\  目录下的用户目录变成了中文的.
+本来以为问题不大, 没想到有些程序对中文路径名的支持还是这么差.</summary>
+    <category term="Windows" label="Windows"/>
     <published>2015-03-08T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -657,6 +669,10 @@ byte_415768 db 73h
 &lt;section data-isso-id="blog/matrix-arithmetic-in-haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/matrix-arithmetic-in-haskell.html" rel="alternate"/>
+    <summary>这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
+想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
+好吧原来这么久简单的东西花了我那么多时间.</summary>
+    <category term="Haskell" label="Haskell"/>
     <published>2015-03-17T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -723,6 +739,8 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="blog/some-minds-about-linux" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/some-minds-about-linux.html" rel="alternate"/>
+    <summary>今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.</summary>
+    <category term="瞎扯" label="瞎扯"/>
     <published>2015-03-27T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -825,6 +843,10 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="blog/do-notation-and-bind-of-haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" rel="alternate"/>
+    <summary>明明在开学的时候， Haskell 趣学指南  就只剩下三十来页了，但是还书日在即，
+我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
+可是至今没看完。</summary>
+    <category term="Haskell" label="Haskell"/>
     <published>2015-04-09T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -868,6 +890,9 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="blog/record-of-a-boring-hack" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/record-of-a-boring-hack.html" rel="alternate"/>
+    <summary>早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
+大概八点二十分到机房, 老师并没有说什么.</summary>
+    <category term="Reverse" label="Reverse"/>
     <published>2015-05-12T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -1350,6 +1375,11 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/threee-way-of-anti-debug.html" rel="alternate"/>
+    <summary>这里面没有什么自己的东西,
+都是从看雪的 OD从零系列教程  里看来的.
+最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,
+还是觉得应该先把这些记下来.</summary>
+    <category term="Reverse" label="Reverse"/>
     <published>2015-05-19T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -1465,6 +1495,9 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/first-attempt-of-python.html" rel="alternate"/>
+    <summary>因为现在经常在三个系统(Win, openSUSE, Arch)之间切换, 一些软件的配置文件的部署成了问题,
+每次都从一台机复制到另一台实在麻烦, 而且不知道哪台电脑上使用的配置是最新改动的.</summary>
+    <category term="Python" label="Python"/>
     <published>2015-06-15T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -1618,6 +1651,8 @@ $ ~ ./install.sh
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/install-vim-plugins.html" rel="alternate"/>
+    <summary>今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:</summary>
+    <category term="Vim" label="Vim"/>
     <published>2015-07-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -1788,6 +1823,9 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/configure-of-archlinux.html" rel="alternate"/>
+    <summary>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
+先上张图:</summary>
+    <category term="Linux" label="Linux"/>
     <published>2015-07-20T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -2027,6 +2065,8 @@ more ~/text.txt
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-bandit.html" rel="alternate"/>
+    <summary>题目地址:  OverTheWire: Bandit  .</summary>
+    <category term="CTF" label="CTF"/>
     <published>2015-07-26T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -2422,6 +2462,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/minix-v1-file-system.html" rel="alternate"/>
+    <summary>Index</summary>
+    <category term="OS" label="OS"/>
     <published>2015-08-07T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -2439,6 +2481,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;section data-isso-id="blog/flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/flag.html" rel="alternate"/>
+    <summary>现在不开始的话, 以后也不会开始了.</summary>
     <published>2015-09-09T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -2789,6 +2832,10 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/process-scheduler-1.html" rel="alternate"/>
+    <summary>update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
+并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
+还请参考  第五章 调度 | xv6 中文文档 </summary>
+    <category term="OS" label="OS"/>
     <published>2015-09-14T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3008,6 +3055,8 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;section data-isso-id="blog/2015-huashangctf-re300" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/2015-huashangctf-re300.html" rel="alternate"/>
+    <summary>程序在此：  toetrix-crackme.exe  ， VC++ 6.0 编写，无壳， CLI 程序。</summary>
+    <category term="CTF" label="CTF"/>
     <published>2015-11-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3179,6 +3228,10 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gen-graph-from-c-code.html" rel="alternate"/>
+    <summary>前天是操作系统课程设计的截止日期，这意味这  OS67 这个坑  
+已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
+报告应该可以随便水过去，据说连答辩都可以省掉了……</summary>
+    <category term="C" label="C"/>
     <published>2015-12-25T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3301,6 +3354,8 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;section data-isso-id="blog/overthewire-leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-leviathan.html" rel="alternate"/>
+    <summary>地址:  OverTheWire: Leviathan  .</summary>
+    <category term="CTF" label="CTF"/>
     <published>2016-01-01T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3369,6 +3424,11 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;section data-isso-id="blog/get-teeworlds-server-information" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/get-teeworlds-server-information.html" rel="alternate"/>
+    <summary>前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
+（什么是  teeworlds  ？），
+然而大家总是凑不到一块玩，于是就琢磨能不能做个查询游戏信息的 IRC bot，
+有人进服务器是给个提示，bot 不难做，倒是对如何获取游戏信息没什么思路。</summary>
+    <category term="Teeworlds" label="Teeworlds"/>
     <published>2016-02-12T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3550,6 +3610,10 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;section data-isso-id="blog/thinkpad-l450" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/thinkpad-l450.html" rel="alternate"/>
+    <summary>元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
+只有 SSD 而没有 HDD 这点颇合我意，毕竟我没有囤积资源的癖好，256G 足矣，而且还能省下一笔 HDD 的钱。
+机子在 ebay 上是 ￥3200，到手花了 ￥3700，以国内的价格来算还是值得的。</summary>
+    <category term="设备" label="设备"/>
     <published>2016-03-11T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3567,6 +3631,8 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;section data-isso-id="blog/gsoc-2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016.html" rel="alternate"/>
+    <summary>;-) 难以置信。</summary>
+    <category term="GSoC" label="GSoC"/>
     <published>2016-04-23T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -3869,6 +3935,10 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/practical-makefile-for-packaging.html" rel="alternate"/>
+    <summary>Note: 这篇文章假设你已经知道基本的 Makefile 编写规则</summary>
+    <category term="Linux" label="Linux"/>
+    <category term="C" label="C"/>
+    <category term="Makefile" label="Makefile"/>
     <published>2016-06-25T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -4099,6 +4169,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016-sum-up.html" rel="alternate"/>
+    <summary>这是一篇拖了一个月的流水帐……</summary>
+    <category term="GSoC" label="GSoC"/>
     <published>2016-09-29T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -4356,6 +4428,10 @@ Read The Docs 上的文档。&lt;/p&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/use-sphinx-and-rst-to-manage-your-notes.html" rel="alternate"/>
+    <summary>前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在  Read The Docs  
+上发布，地址是  notes.silverrainz.me  ，旧域名在过期前也同样有效。</summary>
+    <category term="Sphinx" label="Sphinx"/>
+    <category term="reStructuredText" label="reStructuredText"/>
     <published>2017-03-29T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -4715,6 +4791,11 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/switch-from-duoshuo-to-isso.html" rel="alternate"/>
+    <summary>前阵子多说  对外宣布  
+它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的
+评论管理后台的域名也已经停止解析了。</summary>
+    <category term="Isso" label="Isso"/>
+    <category term="多说" label="多说"/>
     <published>2017-06-10T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -4758,6 +4839,11 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 &lt;section data-isso-id="blog/srain-and-me" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/srain-and-me.html" rel="alternate"/>
+    <summary>前注：这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
+不知道这里何时能够不荒废。</summary>
+    <category term="Srain" label="Srain"/>
+    <category term="IRC" label="IRC"/>
+    <category term="GTK" label="GTK"/>
     <published>2020-02-29T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -4803,6 +4889,9 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 &lt;section data-isso-id="blog/new-boy" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/new-boy.html" rel="alternate"/>
+    <summary>6 月我从长亭科技离职，去燕郊  @李晓飞  老师处学画，
+课题是基础素描。</summary>
+    <category term="生活" label="生活"/>
     <published>2021-03-21T00:00:00+00:00</published>
   </entry>
 </feed>
