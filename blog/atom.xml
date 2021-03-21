@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-03-19T16:46:02.713873+00:00</updated>
+  <updated>2021-03-21T10:01:24.728681+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -4759,5 +4759,50 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 </content>
     <link href="https://silverrainz.me/blog/srain-and-me.html" rel="alternate"/>
     <published>2020-02-29T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://silverrainz.me/blog/new-boy.html</id>
+    <title>嘿，我去 2010</title>
+    <updated>2021-03-21T00:00:00+00:00</updated>
+    <author>
+      <name>Shengyu Zhang</name>
+    </author>
+    <content type="html">&lt;div class="section" id="id1"&gt;
+
+&lt;p&gt;6 月我从长亭科技离职，去燕郊 &lt;a class="reference external" href="https://weibo.com/lixiaofeiart"&gt;&amp;#64;李晓飞&lt;/a&gt; 老师处学画，
+课题是基础素描。&lt;/p&gt;
+&lt;p&gt;上次正经学素描还是高中，2010 年我上高一，一晃十年已经过去。看《乐队的夏天》，
+盘尼西林唱了朴树的《New Boy》之后，张亚东哽咽道：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div&gt;&lt;p&gt;「当年大家都是小孩，而且觉得 2000 年要来了，那时候我们写歌叫《我去 2000 年》。
+大家对 2000 年都有很多期待，觉得一切都会变得很好。结果，好吧，就是我们都老了。」&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;我已经忘记了十年前我对未来的自己有什么期待，也或许那时没有许下任何期待。
+我在离职那一天，在朋友圈发了五月天的《嘿，我要走了！》，配上的文字是：「我去 2010。」&lt;/p&gt;
+&lt;p&gt;对，我好像对接下来的时间抱有很多期待，觉得一切都会变得很好，就像 2010 年的我
+过得无忧无虑一样。&lt;/p&gt;
+&lt;p&gt;新的时代是要来了，可惜是 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/三体用语列表"&gt;乱纪元&lt;/a&gt; 。对于世界来说，
+新时代是新冠，是名人的去世，是动乱的格局，对我来说，是重新被情绪打败，
+是凝视深渊然后被深渊吞噬。&lt;/p&gt;
+&lt;p&gt;9 月的时候生了病，经历了非常多痛苦的事情，有些人不请自来，伤害我，爱我，我也被伤害，
+然后爱上，最后也伤害她。事情的收尾是不体面的，我从来不是一个完美受害者，
+甚至我才是真正的加害者，我只是因为过分软弱，被宽容，被同情罢了。我什么都不能再做了，
+再动弹一下都会让事情更坏。事件的余波到现在还在发挥着影响，但未来总是会落定吧。
+时间会推着我往前走。只是我大不相同了。就如同画 &lt;a class="reference internal" href="notes/zxsys/way-to-artist/find-yourself.html#artwork-768" title="xfczk-010 artwork"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;xfczk-010&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 时我所想的:&lt;/p&gt;
+&lt;div class="figure align-default" id="id2"&gt;
+&lt;img alt="_images/IMG_20210204_145427__01__01.jpg" src="_images/IMG_20210204_145427__01__01.jpg" style="width: 60%;" /&gt;
+&lt;p class="caption"&gt;&lt;span class="caption-text"&gt;那时我的脑子里还没有辞职的念头，工作日的脑子装着代码和工单，
+只有周末才能假扮艺术家。 每天夜里都有孤独的时候，醒来又是健全的一个人。&lt;/span&gt;&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;p&gt;现在的燕郊也下雪，脑子里是光和影子，看不懂的形体的和可爱的人儿。
+我好像可以自诩艺术家，但无法称之为人了。每天要吃一大把的药，醒来和不醒来没有区别。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;再见啦，我的 2010，再见啦，那个一点都不胖的人。&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;section data-isso-id="blog/new-boy" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+</content>
+    <link href="https://silverrainz.me/blog/new-boy.html" rel="alternate"/>
+    <published>2021-03-21T00:00:00+00:00</published>
   </entry>
 </feed>
