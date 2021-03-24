@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-03-23T04:31:36.718583+00:00</updated>
+  <updated>2021-03-24T16:32:27.794826+00:00</updated>
   <link href="https://silverrainz.me/"/>
-  <link href="https://silverrainz.me/blog/atom.xml"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.15">ABlog</generator>
+  <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.16">ABlog</generator>
   <subtitle>Yes silver bullet here.</subtitle>
   <entry>
     <id>https://silverrainz.me/blog/idf-reverse-writeup.html</id>
@@ -285,8 +285,8 @@ byte_415768 db 73h
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/idf-reverse-writeup.html" rel="alternate"/>
-    <summary>地址在这里： IDF逆向题  
-这些题都比较水，好在我和它一样水。</summary>
+    <summary>地址在这里：IDF逆向题
+这些题都比较水，好在我和它一样水。1</summary>
     <category term="Reverse" label="Reverse"/>
     <published>2015-01-02T00:00:00+00:00</published>
   </entry>
@@ -300,7 +300,7 @@ byte_415768 db 73h
     <content type="html">&lt;div class="section" id="hello-haskell"&gt;
 
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
-&lt;a class="reference internal" href="todo.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
+&lt;a class="reference internal" href="notes/books/index.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
 &lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="fleurer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;fleurer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="reference external" href="https://github.com/MaskRay"&gt;&amp;#64;MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
@@ -358,7 +358,7 @@ byte_415768 db 73h
 </content>
     <link href="https://silverrainz.me/blog/haskell-beginning.html" rel="alternate"/>
     <summary>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
- Haskell 趣学指南  ，这下子更没有不学的理由了。</summary>
+Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
     <category term="Haskell" label="Haskell"/>
     <published>2015-01-30T00:00:00+00:00</published>
   </entry>
@@ -579,7 +579,7 @@ byte_415768 db 73h
 </content>
     <link href="https://silverrainz.me/blog/windows-chinese-username.html" rel="alternate"/>
     <summary>上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
-没注意到当前我的账户名是中文的. 导致了我在  C:\Users\  目录下的用户目录变成了中文的.
+没注意到当前我的账户名是中文的. 导致了我在 C:\Users\ 目录下的用户目录变成了中文的.
 本来以为问题不大, 没想到有些程序对中文路径名的支持还是这么差.</summary>
     <category term="Windows" label="Windows"/>
     <published>2015-03-08T00:00:00+00:00</published>
@@ -752,7 +752,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;div class="section" id="do"&gt;
 
-&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="todo.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
+&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="notes/books/index.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。&lt;/p&gt;
 &lt;p&gt;当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
@@ -843,7 +843,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" rel="alternate"/>
-    <summary>明明在开学的时候， Haskell 趣学指南  就只剩下三十来页了，但是还书日在即，
+    <summary>明明在开学的时候，Haskell 趣学指南 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。</summary>
     <category term="Haskell" label="Haskell"/>
@@ -1376,7 +1376,7 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 </content>
     <link href="https://silverrainz.me/blog/threee-way-of-anti-debug.html" rel="alternate"/>
     <summary>这里面没有什么自己的东西,
-都是从看雪的 OD从零系列教程  里看来的.
+都是从看雪的OD从零系列教程里看来的.
 最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,
 还是觉得应该先把这些记下来.</summary>
     <category term="Reverse" label="Reverse"/>
@@ -2065,7 +2065,7 @@ more ~/text.txt
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-bandit.html" rel="alternate"/>
-    <summary>题目地址:  OverTheWire: Bandit  .</summary>
+    <summary>题目地址: OverTheWire: Bandit.</summary>
     <category term="CTF" label="CTF"/>
     <published>2015-07-26T00:00:00+00:00</published>
   </entry>
@@ -2462,7 +2462,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/minix-v1-file-system.html" rel="alternate"/>
-    <summary>Index</summary>
+    <summary>IndexInode structure</summary>
     <category term="OS" label="OS"/>
     <published>2015-08-07T00:00:00+00:00</published>
   </entry>
@@ -2834,7 +2834,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
     <link href="https://silverrainz.me/blog/process-scheduler-1.html" rel="alternate"/>
     <summary>update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
 并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
-还请参考  第五章 调度 | xv6 中文文档 </summary>
+还请参考 第五章 调度 | xv6 中文文档</summary>
     <category term="OS" label="OS"/>
     <published>2015-09-14T00:00:00+00:00</published>
   </entry>
@@ -3055,7 +3055,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;section data-isso-id="/blog/2015-huashangctf-re300" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/2015-huashangctf-re300.html" rel="alternate"/>
-    <summary>程序在此：  toetrix-crackme.exe  ， VC++ 6.0 编写，无壳， CLI 程序。</summary>
+    <summary>程序在此： toetrix-crackme.exe， VC++ 6.0 编写，无壳， CLI 程序。</summary>
     <category term="CTF" label="CTF"/>
     <published>2015-11-02T00:00:00+00:00</published>
   </entry>
@@ -3228,7 +3228,7 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gen-graph-from-c-code.html" rel="alternate"/>
-    <summary>前天是操作系统课程设计的截止日期，这意味这  OS67 这个坑  
+    <summary>前天是操作系统课程设计的截止日期，这意味这 OS67 这个坑
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
 报告应该可以随便水过去，据说连答辩都可以省掉了……</summary>
     <category term="C" label="C"/>
@@ -3354,7 +3354,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;section data-isso-id="/blog/overthewire-leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-leviathan.html" rel="alternate"/>
-    <summary>地址:  OverTheWire: Leviathan  .</summary>
+    <summary>地址: OverTheWire: Leviathan.</summary>
     <category term="CTF" label="CTF"/>
     <published>2016-01-01T00:00:00+00:00</published>
   </entry>
@@ -3425,7 +3425,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 </content>
     <link href="https://silverrainz.me/blog/get-teeworlds-server-information.html" rel="alternate"/>
     <summary>前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
-（什么是  teeworlds  ？），
+（什么是 teeworlds？），
 然而大家总是凑不到一块玩，于是就琢磨能不能做个查询游戏信息的 IRC bot，
 有人进服务器是给个提示，bot 不难做，倒是对如何获取游戏信息没什么思路。</summary>
     <category term="Teeworlds" label="Teeworlds"/>
@@ -4169,7 +4169,7 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016-sum-up.html" rel="alternate"/>
-    <summary>这是一篇拖了一个月的流水帐……</summary>
+    <summary>这是一篇拖了一个月的流水帐……GSoC 2013 Project</summary>
     <category term="GSoC" label="GSoC"/>
     <published>2016-09-29T00:00:00+00:00</published>
   </entry>
@@ -4428,8 +4428,8 @@ Read The Docs 上的文档。&lt;/p&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/use-sphinx-and-rst-to-manage-your-notes.html" rel="alternate"/>
-    <summary>前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在  Read The Docs  
-上发布，地址是  notes.silverrainz.me  ，旧域名在过期前也同样有效。</summary>
+    <summary>前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 Read The Docs
+上发布，地址是 notes.silverrainz.me，旧域名在过期前也同样有效。</summary>
     <category term="Sphinx" label="Sphinx"/>
     <category term="reStructuredText" label="reStructuredText"/>
     <published>2017-03-29T00:00:00+00:00</published>
@@ -4791,7 +4791,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/switch-from-duoshuo-to-isso.html" rel="alternate"/>
-    <summary>前阵子多说  对外宣布  
+    <summary>前阵子多说 对外宣布
 它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的
 评论管理后台的域名也已经停止解析了。</summary>
     <category term="Isso" label="Isso"/>
@@ -4889,7 +4889,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 &lt;section data-isso-id="/blog/new-boy" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/new-boy.html" rel="alternate"/>
-    <summary>6 月我从长亭科技离职，去燕郊  @李晓飞  老师处学画，
+    <summary>6 月我从长亭科技离职，去燕郊 @李晓飞 老师处学画，
 课题是基础素描。</summary>
     <category term="生活" label="生活"/>
     <published>2021-03-21T00:00:00+00:00</published>
