@@ -228,6 +228,29 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <dd class="field-odd"><p>113</p>
 </dd>
 </dl>
+<dl class="simple">
+<dt>Rust module system:</dt><dd><ul class="simple">
+<li><p>Packages</p></li>
+<li><p>Crates</p></li>
+<li><p>Modules：<code class="docutils literal notranslate"><span class="pre">mod</span></code> 和 <code class="docutils literal notranslate"><span class="pre">use</span></code> 关键字</p></li>
+<li><p>Path?</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>各种符号默认私有</p></li>
+<li><p>结构体成员默认私有，所以构造函数必须与结构体关联（associate）</p></li>
+<li><p>枚举成员默认公有</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use</span></code> 和 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">...</span> <span class="pre">as</span></code> 之于 <code class="docutils literal notranslate"><span class="pre">import</span></code> 、 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">...</span> <span class="pre">as</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pub</span> <span class="pre">use</span></code> 允许外部调用 use 的 module</p></li>
+<li><p>支持 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::{foo,bar}</span></code></p></li>
+<li><p>支持 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::*</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">page</dt>
+<dd class="field-odd"><p>131</p>
+</dd>
+</dl>
 </div>
 </div>
 
