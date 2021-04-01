@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/center-title.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster-fix.css" />
@@ -96,17 +96,18 @@
 </dl>
 <div class="contents local topic" id="id1">
 <ul class="simple">
-<li><p><a class="reference internal" href="#ch1" id="id2">ch1</a></p></li>
-<li><p><a class="reference internal" href="#ch2" id="id3">ch2</a></p></li>
-<li><p><a class="reference internal" href="#ch3" id="id4">ch3</a></p></li>
-<li><p><a class="reference internal" href="#ch4" id="id5">ch4</a></p></li>
-<li><p><a class="reference internal" href="#ch5" id="id6">ch5</a></p></li>
-<li><p><a class="reference internal" href="#ch6" id="id7">ch6</a></p></li>
-<li><p><a class="reference internal" href="#ch7" id="id8">ch7</a></p></li>
+<li><p><a class="reference internal" href="#ch1" id="id6">ch1</a></p></li>
+<li><p><a class="reference internal" href="#ch2" id="id7">ch2</a></p></li>
+<li><p><a class="reference internal" href="#ch3" id="id8">ch3</a></p></li>
+<li><p><a class="reference internal" href="#ch4" id="id9">ch4</a></p></li>
+<li><p><a class="reference internal" href="#ch5" id="id10">ch5</a></p></li>
+<li><p><a class="reference internal" href="#ch6" id="id11">ch6</a></p></li>
+<li><p><a class="reference internal" href="#ch7" id="id12">ch7 模块系统</a></p></li>
+<li><p><a class="reference internal" href="#ch8" id="id13">ch8 数据结构</a></p></li>
 </ul>
 </div>
 <div class="section" id="ch1">
-<h2><a class="toc-backref" href="#id2">ch1</a><a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">ch1</a><a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
 <p>使用 community/rustup 包而不是 community/rust 包，方便获取比官方源还新的 rust。
 community/rustup 没有自带 toolchain，和书中的描述不符。 但不重要，使用
 <code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">toolchain</span> <span class="pre">install</span> <span class="pre">nightly</span></code> 即可。</p>
@@ -115,14 +116,14 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <code class="docutils literal notranslate"><span class="pre">Cargo.toml</span></code> 并重新 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code> 。</p>
 </div>
 <div class="section" id="ch2">
-<h2><a class="toc-backref" href="#id3">ch2</a><a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">ch2</a><a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
 <p>需要 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">namespace::of::trait</span></code> 才能使用某个实现了 trait 的 struct 对应的方法。
 需要 use的 trait 可以通过 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 生成的本地依赖的文档查看。</p>
 <p>模式匹配真香！！！</p>
 <p>Rust 允许重新声明变量，不会出现命名难题。这也很香。</p>
 </div>
 <div class="section" id="ch3">
-<h2><a class="toc-backref" href="#id4">ch3</a><a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">ch3</a><a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>变量默认不可变</dt><dd><p><span class="sphinxnotes-strike">那为啥要叫变量</span> ， 好处是安全 &amp; 并发友好，有利于优等等等等。</p>
 </dd>
@@ -135,7 +136,7 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 有 return 关键字，这设计有点奇怪。</p>
 </div>
 <div class="section" id="ch4">
-<h2><a class="toc-backref" href="#id5">ch4</a><a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">ch4</a><a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
 <dl>
 <dt>所有权规则：</dt><dd><ol class="arabic simple">
 <li><p>每一个值都有一个所被其称为所有者（owner）的变量</p></li>
@@ -156,7 +157,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </dl>
 </div>
 <div class="section" id="ch5">
-<h2><a class="toc-backref" href="#id6">ch5</a><a class="headerlink" href="#ch5" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">ch5</a><a class="headerlink" href="#ch5" title="永久链接至标题">¶</a></h2>
 <p>Struct init:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">email</span>: <span class="nb">String</span> <span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;i@example.com&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -197,7 +198,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </dl>
 </div>
 <div class="section" id="ch6">
-<h2><a class="toc-backref" href="#id7">ch6</a><a class="headerlink" href="#ch6" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">ch6</a><a class="headerlink" href="#ch6" title="永久链接至标题">¶</a></h2>
 <p>Variant 翻译为「成员」似乎不妥？</p>
 <p>为枚举成员（ <span class="sphinxnotes-strike">等等，我不是说不妥吗？</span> ）附加类型，表达能力很强:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nc">IpAddr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -222,12 +223,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </div>
 </div>
 <div class="section" id="ch7">
-<h2><a class="toc-backref" href="#id8">ch7</a><a class="headerlink" href="#ch7" title="永久链接至标题">¶</a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">page</dt>
-<dd class="field-odd"><p>113</p>
-</dd>
-</dl>
+<h2><a class="toc-backref" href="#id12">ch7 模块系统</a><a class="headerlink" href="#ch7" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>Rust module system:</dt><dd><ul class="simple">
 <li><p>Packages</p></li>
@@ -246,9 +242,40 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <li><p>支持 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::{foo,bar}</span></code></p></li>
 <li><p>支持 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::*</span></code></p></li>
 </ul>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">mod</span></code> 关键字</dt><dd><p>有点奇妙，引发了我对模块系统的疑惑…</p>
+<p>Q:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mod</span> <span class="pre">foo;</span></code> 加载 foo 模块的内容</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mod</span> <span class="pre">foo</span> <span class="pre">{};</span></code> 实现 foo 模块的内容</p></li>
+</ol>
+<p>There’s no implicit mapping between file system tree to module tree, so:</p>
+<blockquote>
+<div><p>We need to explicitly build the module tree in Rust, there’s no
+implicit mapping to file system. <a class="footnote-reference brackets" href="#id5" id="id2">1</a></p>
+</div></blockquote>
+<p>A:</p>
+<ol class="arabic simple">
+<li><p>A module without a body is loaded from an external file. <a class="footnote-reference brackets" href="#f1" id="id3">2</a></p></li>
+<li><p>When the module does not have a path attribute, the path to
+the file mirrors the logical module path. <a class="footnote-reference brackets" href="#f1" id="id4">2</a></p></li>
+</ol>
+</dd>
+</dl>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="http://www.sheshbabu.com/posts/rust-module-system/">http://www.sheshbabu.com/posts/rust-module-system/</a></p>
+</dd>
+<dt class="label" id="f1"><span class="brackets">2</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p><a class="reference external" href="https://doc.rust-lang.org/reference/items/modules.html">https://doc.rust-lang.org/reference/items/modules.html</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="ch8">
+<h2><a class="toc-backref" href="#id13">ch8 数据结构</a><a class="headerlink" href="#ch8" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">page</dt>
-<dd class="field-odd"><p>131</p>
+<dd class="field-odd"><p>133</p>
 </dd>
 </dl>
 </div>
