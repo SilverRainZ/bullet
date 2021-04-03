@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -86,7 +87,7 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="c">
+             <section id="c">
 <h1>从 C 源码生成 函数/模块 调用图<a class="headerlink" href="#c" title="永久链接至标题">¶</a></h1>
 <p>前天是操作系统课程设计的截止日期，这意味这 <a class="reference external" href="https://github.com/SilverRainZ/OS67">OS67 这个坑</a>
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
@@ -95,7 +96,7 @@
 <p>用到的软件有 graphviz，egypt<sup>AUR</sup>，cinclude2dot<sup>AUR</sup>，
 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 推荐了 <a class="reference external" href="http://makepp.sourceforge.net/">makepp</a>，
 然而 AUR 里面没有就作罢了。</p>
-<div class="section" id="id1">
+<section id="id1">
 <h2>生成函数调用图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>安装 egypt 直接 <code class="docutils literal notranslate"><span class="pre">yaourt</span> <span class="pre">-S</span> <span class="pre">egypt</span></code> 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 <code class="docutils literal notranslate"><span class="pre">-fdump-rtl-expand</span></code>，
@@ -169,8 +170,8 @@
 <blockquote>
 <div><p>刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。</p>
 </div></blockquote>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2>生成模块调用图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
@@ -244,8 +245,8 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
 <img alt="" src="../_images/os67-mod-include-graph-good.png" />
 <p>好困睡觉。</p>
 <hr class="docutils" />
-<section data-isso-id="/blog/gen-graph-from-c-code" id="isso-thread"></section></div>
-</div>
+<section data-isso-id="/blog/gen-graph-from-c-code" id="isso-thread"></section></section>
+</section>
 
 <div class="section">
      

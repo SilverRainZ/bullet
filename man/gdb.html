@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,24 +88,24 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="gdb">
+             <section id="gdb">
 <h1>GDB<a class="headerlink" href="#gdb" title="永久链接至标题">¶</a></h1>
-<div class="section" id="references">
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html">gdb Debugging Full Example (Tutorial):
 ncurses</a></p></li>
 </ul>
-</div>
-<div class="section" id="commands">
+</section>
+<section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">shell</span></code> 暂时进入 shell</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>/<code class="docutils literal notranslate"><span class="pre">s</span></code> 单条语句，步过/步入</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ni</span></code>/<code class="docutils literal notranslate"><span class="pre">ns</span></code> 单条指令，步过/步入</p></li>
 </ul>
-</div>
-<div class="section" id="breakpoint">
+</section>
+<section id="breakpoint">
 <h2>Breakpoint<a class="headerlink" href="#breakpoint" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="n">main</span>          <span class="c1"># 对函数下断点</span>
 <span class="n">b</span> <span class="o">*</span><span class="mh">0xbeef</span>       <span class="c1"># 对地址下断点</span>
@@ -117,8 +118,8 @@ ncurses</a></p></li>
 <span class="n">delete</span> <span class="o">&lt;</span><span class="n">num</span><span class="o">&gt;</span>    <span class="c1"># 据编号删除断点</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="print">
+</section>
+<section id="print">
 <h2>Print<a class="headerlink" href="#print" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/FMT</span> <span class="pre">ADDRESS</span></code> 打印内存内容，FMT: A repeat count followed by a
 format letter and a size letter.</p>
@@ -146,8 +147,8 @@ print {void *}argv@argc # 查看所有启动参数地址
 <li><p><code class="docutils literal notranslate"><span class="pre">{TYPE}ADREXP</span></code> 对 <code class="docutils literal notranslate"><span class="pre">ADREXP</span></code> 用类型 <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> 解析，</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&#64;NUM</span></code> 将地址视为长度为 <code class="docutils literal notranslate"><span class="pre">NUM</span></code> 的数组起点</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
    
@@ -176,7 +177,7 @@ print {void *}argv@argc # 查看所有启动参数地址
 
 
 <h3>导航</h3>
-<p class="caption"><span class="caption-text">笔记</span></p>
+<p><span class="caption-text">笔记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
@@ -191,11 +192,11 @@ print {void *}argv@argc # 查看所有启动参数地址
 <li class="toctree-l1"><a class="reference internal" href="../notes/writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/zxsys/index.html">造型实验室</a></li>
 </ul>
-<p class="caption"><span class="caption-text">博客</span></p>
+<p><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../blog/index.html">所有日志</a></li>
 </ul>
-<p class="caption"><span class="caption-text">手册</span></p>
+<p><span class="caption-text">手册</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="awk.html">Awk</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GDB</a></li>
@@ -213,18 +214,18 @@ print {void *}argv@argc # 查看所有启动参数地址
 <li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vim.html">Vim</a></li>
 </ul>
-<p class="caption"><span class="caption-text">随记</span></p>
+<p><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2021/index.html">2021</a></li>
 </ul>
-<p class="caption"><span class="caption-text">收集室</span></p>
+<p><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p class="caption"><span class="caption-text">关于</span></p>
+<p><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about/site.html">本站</a></li>

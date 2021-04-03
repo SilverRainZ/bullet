@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,22 +88,22 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="python">
+             <section id="python">
 <h1>Python<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
-<div class="section" id="sort-tuple-list">
+<section id="sort-tuple-list">
 <h2>Sort Tuple List<a class="headerlink" href="#sort-tuple-list" title="永久链接至标题">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tup_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tup</span><span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="iterate-with-index">
+</section>
+<section id="iterate-with-index">
 <h2>Iterate with Index<a class="headerlink" href="#iterate-with-index" title="永久链接至标题">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="python-in-one-line">
+</section>
+<section id="python-in-one-line">
 <h2>Python in One Line<a class="headerlink" href="#python-in-one-line" title="永久链接至标题">¶</a></h2>
 <p>List comprehension:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">]</span>
@@ -116,8 +117,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="clone-object">
+</section>
+<section id="clone-object">
 <h2>Clone Object<a class="headerlink" href="#clone-object" title="永久链接至标题">¶</a></h2>
 <p>Create object and copy attributes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dst</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
@@ -128,8 +129,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="basic-type-casting-conversion">
+</section>
+<section id="basic-type-casting-conversion">
 <h2>Basic Type Casting/Conversion<a class="headerlink" href="#basic-type-casting-conversion" title="永久链接至标题">¶</a></h2>
 <p>String to bytes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;str&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
@@ -151,8 +152,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="class">
+</section>
+<section id="class">
 <h2>Class<a class="headerlink" href="#class" title="永久链接至标题">¶</a></h2>
 <p>Pass all arguments to parent constructor in child class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -192,8 +193,8 @@
     <span class="n">BLUE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="file-operations">
+</section>
+<section id="file-operations">
 <h2>File Operations<a class="headerlink" href="#file-operations" title="永久链接至标题">¶</a></h2>
 <p>Temp file with real path:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">()</span>
@@ -225,15 +226,15 @@
 <dd><p><a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="packing">
+</section>
+<section id="packing">
 <h2>Packing<a class="headerlink" href="#packing" title="永久链接至标题">¶</a></h2>
 <p>Check pypi upload error:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ twine check dist/*
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
    
@@ -262,7 +263,7 @@
 
 
 <h3>导航</h3>
-<p class="caption"><span class="caption-text">笔记</span></p>
+<p><span class="caption-text">笔记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
@@ -277,11 +278,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../notes/writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/zxsys/index.html">造型实验室</a></li>
 </ul>
-<p class="caption"><span class="caption-text">博客</span></p>
+<p><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../blog/index.html">所有日志</a></li>
 </ul>
-<p class="caption"><span class="caption-text">手册</span></p>
+<p><span class="caption-text">手册</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
@@ -299,18 +300,18 @@
 <li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vim.html">Vim</a></li>
 </ul>
-<p class="caption"><span class="caption-text">随记</span></p>
+<p><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2021/index.html">2021</a></li>
 </ul>
-<p class="caption"><span class="caption-text">收集室</span></p>
+<p><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p class="caption"><span class="caption-text">关于</span></p>
+<p><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about/site.html">本站</a></li>
