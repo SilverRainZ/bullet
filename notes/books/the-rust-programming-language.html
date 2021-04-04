@@ -105,6 +105,8 @@
 <li><p><a class="reference internal" href="#ch6" id="id11">ch6</a></p></li>
 <li><p><a class="reference internal" href="#ch7" id="id12">ch7 模块系统</a></p></li>
 <li><p><a class="reference internal" href="#ch8" id="id13">ch8 数据结构</a></p></li>
+<li><p><a class="reference internal" href="#ch9" id="id14">ch9 错误处理</a></p></li>
+<li><p><a class="reference internal" href="#ch10-trait" id="id15">ch10 泛型、trait 和生命周期</a></p></li>
 </ul>
 </div>
 <section id="ch1">
@@ -276,7 +278,7 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <h2><a class="toc-backref" href="#id13">ch8 数据结构</a><a class="headerlink" href="#ch8" title="永久链接至标题">¶</a></h2>
 <p>泛型 Yes!</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">Vector</span></code></dt><dd><ul class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Vector&lt;T&gt;</span></code></dt><dd><ul class="simple">
 <li><p>持有元素引用时不可变 – 考虑 realloc</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">&amp;vec</span> <span class="pre">{}</span></code> 遍历</p></li>
 <li><p>可以存储枚举 wrap 的不同类型的数据</p></li>
@@ -288,10 +290,26 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> 会移动所有权</p></li>
 </ul>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">s3</span> <span class="pre">=</span> <span class="pre">s1</span> <span class="pre">+</span> <span class="pre">&amp;s2</span></code></dt><dd><p>s1 会被转移以避免复制，s2 会被复制</p>
+</dd>
 </dl>
+<p>运行时索引字符串 slice 会导致 panic</p>
+<p><code class="docutils literal notranslate"><span class="pre">entry().or_insert()</span></code> 返回一个 <code class="docutils literal notranslate"><span class="pre">&amp;mut</span></code> 很香，可以优雅地写 counter</p>
+</section>
+<section id="ch9">
+<h2><a class="toc-backref" href="#id14">ch9 错误处理</a><a class="headerlink" href="#ch9" title="永久链接至标题">¶</a></h2>
+<p><em>No Exception!</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">panic!</span></code> and <code class="docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code></p>
+<p>一种 match 语句的消除方法： <code class="docutils literal notranslate"><span class="pre">Result.unwrap_or_else()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">?</span></code> for error propagating，好大一颗糖，支持链式调用，
+确实比 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">err</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 香</p>
+<p>迷之 <code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code></p>
+</section>
+<section id="ch10-trait">
+<h2><a class="toc-backref" href="#id15">ch10 泛型、trait 和生命周期</a><a class="headerlink" href="#ch10-trait" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">page</dt>
-<dd class="field-odd"><p>141</p>
+<dd class="field-odd"><p>169</p>
 </dd>
 </dl>
 </section>
