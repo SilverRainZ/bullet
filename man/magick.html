@@ -89,6 +89,19 @@
           <div class="body" role="main">
              <section id="imagemagick">
 <h1>ImageMagick<a class="headerlink" href="#imagemagick" title="永久链接至标题">¶</a></h1>
+<p>压缩 JPG 的推荐参数 <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> convert -strip -interlace Plane -gaussian-blur <span class="m">0</span>.05 -quality <span class="m">85</span>% FILENAME
+</pre></div>
+</div>
+<p>顺时针旋转:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> convert -rotate <span class="m">180</span> FILENAME
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://stackoverflow.com/a/7262050/4799273">https://stackoverflow.com/a/7262050/4799273</a></p>
+</dd>
+</dl>
 </section>
 
 <div class="section">
@@ -143,12 +156,12 @@
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grep.html">Grep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="krita.html">Krita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lily.html">LilyPond</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ImageMagick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="make.html">Makefile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="meson.html">Meson Build System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="py.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>

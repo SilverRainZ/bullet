@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-04-06T06:33:06.722501+00:00</updated>
+  <updated>2021-04-06T10:34:33.259444+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
@@ -4800,11 +4800,12 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
     </author>
     <content type="html">&lt;section id="srain-1-0"&gt;
 
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;前注：这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
+&lt;div class="topic"&gt;
+&lt;p class="topic-title"&gt;前注&lt;/p&gt;
+&lt;p&gt;这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
 不知道这里何时能够不荒废。&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/SrainApp/srain"&gt;&amp;#64;SrainApp/srain&lt;/a&gt; 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/SrainApp/srain"&gt;SrainApp/srain&lt;/a&gt; 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。&lt;/p&gt;
 &lt;p&gt;2015 年末的时候，我刚写完了自己的玩具内核 OS67，处于一段不知道做点什么东西的过渡期。&lt;/p&gt;
 &lt;p&gt;同年我已经开始用 openSUSE，为了解决一些问题尝试在 IRC 上提问。
 再后来开始用 Arch Linux，整天挂在 #archlinux-cn （那个时候还没有 offtopic）里灌水，
@@ -4832,7 +4833,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 &lt;section data-isso-id="/blog/srain-and-me" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/srain-and-me.html" rel="alternate"/>
-    <summary>前注：这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
+    <summary>这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
 不知道这里何时能够不荒废。</summary>
     <category term="Srain" label="Srain"/>
     <category term="IRC" label="IRC"/>
