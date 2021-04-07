@@ -325,10 +325,24 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <li><p>blanket implementation?</p></li>
 </ul>
 </dd>
+<dt>lifetimes</dt><dd><ul class="simple">
+<li><p>数据当然总是活的比引用长</p></li>
+<li><p>喜欢乖乖</p></li>
+<li><p>生命周期注解是一种约束</p></li>
+<li><p>对于常见的模式支持省略生命周期注解</p></li>
+</ul>
+</dd>
+<dt>编译器对入参出参的生命周期预设</dt><dd><ul class="simple">
+<li><p>每一个入参都有独立的生命周期参数</p></li>
+<li><p>如果只有一个输入生命周期参数，那么它同时也是输出生命周期参数</p></li>
+<li><p>如果有多个输入生命周期参数并且其中一个是 <code class="docutils literal notranslate"><span class="pre">&amp;self</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">&amp;mut</span> <span class="pre">self</span></code>
+则输出生命周期参数即为 <code class="docutils literal notranslate"><span class="pre">self</span></code> 的生命周期</p></li>
+</ul>
+</dd>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">page</dt>
-<dd class="field-odd"><p>191</p>
+<dd class="field-odd"><p>201</p>
 </dd>
 </dl>
 </section>
