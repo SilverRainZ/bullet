@@ -99,20 +99,23 @@
 </dl>
 <div class="contents local topic" id="id1">
 <ul class="simple">
-<li><p><a class="reference internal" href="#ch1" id="id6">ch1</a></p></li>
-<li><p><a class="reference internal" href="#ch2" id="id7">ch2</a></p></li>
-<li><p><a class="reference internal" href="#ch3" id="id8">ch3</a></p></li>
-<li><p><a class="reference internal" href="#ch4" id="id9">ch4</a></p></li>
-<li><p><a class="reference internal" href="#ch5" id="id10">ch5</a></p></li>
-<li><p><a class="reference internal" href="#ch6" id="id11">ch6</a></p></li>
-<li><p><a class="reference internal" href="#ch7" id="id12">ch7 模块系统</a></p></li>
-<li><p><a class="reference internal" href="#ch8" id="id13">ch8 数据结构</a></p></li>
-<li><p><a class="reference internal" href="#ch9" id="id14">ch9 错误处理</a></p></li>
-<li><p><a class="reference internal" href="#ch10-trait" id="id15">ch10 泛型、trait 和生命周期</a></p></li>
+<li><p><a class="reference internal" href="#ch1" id="id7">ch1</a></p></li>
+<li><p><a class="reference internal" href="#ch2" id="id8">ch2</a></p></li>
+<li><p><a class="reference internal" href="#ch3" id="id9">ch3</a></p></li>
+<li><p><a class="reference internal" href="#ch4" id="id10">ch4</a></p></li>
+<li><p><a class="reference internal" href="#ch5" id="id11">ch5</a></p></li>
+<li><p><a class="reference internal" href="#ch6" id="id12">ch6</a></p></li>
+<li><p><a class="reference internal" href="#ch7" id="id13">ch7 模块系统</a></p></li>
+<li><p><a class="reference internal" href="#ch8" id="id14">ch8 数据结构</a></p></li>
+<li><p><a class="reference internal" href="#ch9" id="id15">ch9 错误处理</a></p></li>
+<li><p><a class="reference internal" href="#ch10-trait" id="id16">ch10 泛型、trait 和生命周期</a></p></li>
+<li><p><a class="reference internal" href="#ch11" id="id17">ch11 编写自动化测试</a></p></li>
+<li><p><a class="reference internal" href="#ch12" id="id18">ch12 构建一个命令行程序</a></p></li>
+<li><p><a class="reference internal" href="#ch13" id="id19">ch13 迭代器与闭包</a></p></li>
 </ul>
 </div>
 <section id="ch1">
-<h2><a class="toc-backref" href="#id6">ch1</a><a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">ch1</a><a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
 <p>使用 community/rustup 包而不是 community/rust 包，方便获取比官方源还新的 rust。
 community/rustup 没有自带 toolchain，和书中的描述不符。 但不重要，使用
 <code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">toolchain</span> <span class="pre">install</span> <span class="pre">nightly</span></code> 即可。</p>
@@ -121,14 +124,14 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <code class="docutils literal notranslate"><span class="pre">Cargo.toml</span></code> 并重新 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code> 。</p>
 </section>
 <section id="ch2">
-<h2><a class="toc-backref" href="#id7">ch2</a><a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">ch2</a><a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
 <p>需要 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">namespace::of::trait</span></code> 才能使用某个实现了 trait 的 struct 对应的方法。
 需要 use的 trait 可以通过 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 生成的本地依赖的文档查看。</p>
 <p>模式匹配真香！！！</p>
 <p>Rust 允许重新声明变量，不会出现命名难题。这也很香。</p>
 </section>
 <section id="ch3">
-<h2><a class="toc-backref" href="#id8">ch3</a><a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">ch3</a><a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>变量默认不可变</dt><dd><p><span class="sphinxnotes-strike">那为啥要叫变量</span> ， 好处是安全 &amp; 并发友好，有利于优等等等等。</p>
 </dd>
@@ -141,7 +144,7 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 有 return 关键字，这设计有点奇怪。</p>
 </section>
 <section id="ch4">
-<h2><a class="toc-backref" href="#id9">ch4</a><a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">ch4</a><a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
 <dl>
 <dt>所有权规则：</dt><dd><ol class="arabic simple">
 <li><p>每一个值都有一个所被其称为所有者（owner）的变量</p></li>
@@ -162,7 +165,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </dl>
 </section>
 <section id="ch5">
-<h2><a class="toc-backref" href="#id10">ch5</a><a class="headerlink" href="#ch5" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">ch5</a><a class="headerlink" href="#ch5" title="永久链接至标题">¶</a></h2>
 <p>Struct init:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">email</span>: <span class="nb">String</span> <span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;i@example.com&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -203,7 +206,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </dl>
 </section>
 <section id="ch6">
-<h2><a class="toc-backref" href="#id11">ch6</a><a class="headerlink" href="#ch6" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">ch6</a><a class="headerlink" href="#ch6" title="永久链接至标题">¶</a></h2>
 <p>Variant 翻译为「成员」似乎不妥？</p>
 <p>为枚举成员（ <span class="sphinxnotes-strike">等等，我不是说不妥吗？</span> ）附加类型，表达能力很强:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nc">IpAddr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -228,7 +231,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </div>
 </section>
 <section id="ch7">
-<h2><a class="toc-backref" href="#id12">ch7 模块系统</a><a class="headerlink" href="#ch7" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">ch7 模块系统</a><a class="headerlink" href="#ch7" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>Rust module system:</dt><dd><ul class="simple">
 <li><p>Packages</p></li>
@@ -277,7 +280,7 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 </dl>
 </section>
 <section id="ch8">
-<h2><a class="toc-backref" href="#id13">ch8 数据结构</a><a class="headerlink" href="#ch8" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">ch8 数据结构</a><a class="headerlink" href="#ch8" title="永久链接至标题">¶</a></h2>
 <p>泛型 Yes!</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">Vector&lt;T&gt;</span></code></dt><dd><ul class="simple">
@@ -299,16 +302,16 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <p><code class="docutils literal notranslate"><span class="pre">entry().or_insert()</span></code> 返回一个 <code class="docutils literal notranslate"><span class="pre">&amp;mut</span></code> 很香，可以优雅地写 counter</p>
 </section>
 <section id="ch9">
-<h2><a class="toc-backref" href="#id14">ch9 错误处理</a><a class="headerlink" href="#ch9" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">ch9 错误处理</a><a class="headerlink" href="#ch9" title="永久链接至标题">¶</a></h2>
 <p><em>No Exception!</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">panic!</span></code> and <code class="docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code></p>
 <p>一种 match 语句的消除方法： <code class="docutils literal notranslate"><span class="pre">Result.unwrap_or_else()</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">?</span></code> for error propagating，好大一颗糖，支持链式调用，
 确实比 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">err</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 香</p>
-<p>迷之 <code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code></p>
+<p>迷之 <code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> : 见 <a class="reference internal" href="#ch12"><span class="std std-ref">ch12 构建一个命令行程序</span></a></p>
 </section>
 <section id="ch10-trait">
-<h2><a class="toc-backref" href="#id15">ch10 泛型、trait 和生命周期</a><a class="headerlink" href="#ch10-trait" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">ch10 泛型、trait 和生命周期</a><a class="headerlink" href="#ch10-trait" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>T</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> 语法可用于函数、结构体、枚举、impl block</p></li>
@@ -340,9 +343,36 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 </ul>
 </dd>
 </dl>
+</section>
+<section id="ch11">
+<h2><a class="toc-backref" href="#id17">ch11 编写自动化测试</a><a class="headerlink" href="#ch11" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">super::*</span></code> 比较方便</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#[should_panic]</span></code> 标记一个会 panic 的 case</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#[test]</span></code> 修饰的函数亦可用 <code class="docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code> 作为返回值</p></li>
+<li><p>用 <code class="docutils literal notranslate"><span class="pre">--</span></code> 区分给 cargo test 的参数和给 test binary 的参数</p></li>
+<li><p>集成测试放置于特殊的 “tests” 目录，模块不需要 <code class="docutils literal notranslate"><span class="pre">#[cfg(test)]</span></code> 修饰</p></li>
+</ul>
+</section>
+<section id="ch12">
+<span id="id6"></span><h2><a class="toc-backref" href="#id18">ch12 构建一个命令行程序</a><a class="headerlink" href="#ch12" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">std::env::args()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std::proecss::exit(exit_code)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> 代表任意实现了 <code class="docutils literal notranslate"><span class="pre">Error</span></code> 的类型，编译时不会单态化，
+有一定的动态性</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eprintln!</span></code></p></li>
+</ul>
+</section>
+<section id="ch13">
+<h2><a class="toc-backref" href="#id19">ch13 迭代器与闭包</a><a class="headerlink" href="#ch13" title="永久链接至标题">¶</a></h2>
+<dl class="simple">
+<dt>Closures</dt><dd><p>可以捕获 scope 的 lambda 函数</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">page</dt>
-<dd class="field-odd"><p>201</p>
+<dd class="field-odd"><p>261</p>
 </dd>
 </dl>
 </section>
