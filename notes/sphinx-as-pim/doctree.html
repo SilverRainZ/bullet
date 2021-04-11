@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,14 +86,14 @@
           
 
           <div class="body" role="main">
-             <section id="the-docutils-document-tree">
+             <div class="section" id="the-docutils-document-tree">
 <h1>The Docutils Document Tree<a class="headerlink" href="#the-docutils-document-tree" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
 <dd class="field-odd"><p>2020-11-12</p>
 </dd>
 </dl>
-<section id="id1">
+<div class="section" id="id1">
 <h2>文档节点树<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>这篇文档 <a class="footnote-reference brackets" href="#id5" id="id2">1</a> 介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--------------------------------------------------------------------+</span>
@@ -121,7 +120,7 @@
 <li><p>部分的 body elements 可以包含 body elements</p></li>
 <li><p>inline markup 只能和 text 混排</p></li>
 </ul>
-<section id="content-model">
+<div class="section" id="content-model">
 <h3>Content Model<a class="headerlink" href="#content-model" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>The Docutils document model uses strict element content models.
@@ -143,8 +142,8 @@ where paragraphs and text data may occur at the same level.</p>
 <p>只有能够直接包含文本（text data）的元素才拥有一个混合的内容模型（mixed content model），
 即能够混排文本（text data）和内联元素（inline elements ）（下述）。
 HTML 则宽松得多，段落和文本是能在同一嵌套级别出现的（比如 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;prargraph&lt;/p&gt;text</span></code> ）。</p>
-</section>
-<section id="element-categories">
+</div>
+<div class="section" id="element-categories">
 <h3>Element Categories<a class="headerlink" href="#element-categories" title="永久链接至标题">¶</a></h3>
 <p>doctree 上的元素可分为如下几类：</p>
 <dl>
@@ -186,9 +185,9 @@ Simple Body Elements 包含。大部分的 Inline Elements 都支持 “mixed co
 （e.g. <code class="docutils literal notranslate"><span class="pre">strong</span></code>, <code class="docutils literal notranslate"><span class="pre">subscript</span></code> ）</p>
 </dd>
 </dl>
-</section>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h2>生活在树上 <a class="footnote-reference brackets" href="#id6" id="id3">2</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Date</dt>
@@ -220,8 +219,8 @@ visit 和 depart 方法。</p>
 </dl>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
    
@@ -250,7 +249,7 @@ visit 和 depart 方法。</p>
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
@@ -265,11 +264,11 @@ visit 和 depart 方法。</p>
 <li class="toctree-l1"><a class="reference internal" href="../writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
@@ -287,18 +286,18 @@ visit 和 depart 方法。</p>
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
@@ -342,7 +341,7 @@ visit 和 depart 方法。</p>
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

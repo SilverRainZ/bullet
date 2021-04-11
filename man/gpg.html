@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,7 +86,7 @@
           
 
           <div class="body" role="main">
-             <section id="gnupg">
+             <div class="section" id="gnupg">
 <h1>GnuPG<a class="headerlink" href="#gnupg" title="永久链接至标题">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -97,9 +96,9 @@
 <li><p>买一个帅气的 yubikey</p></li>
 </ul>
 </div>
-<section id="q-a">
+<div class="section" id="q-a">
 <h2>Q &amp; A<a class="headerlink" href="#q-a" title="永久链接至标题">¶</a></h2>
-<section id="id1">
+<div class="section" id="id1">
 <h3>命令行输出含义<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
 <p>这是我的新 key 的输出啦：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gpg -k i@srain.im
@@ -151,15 +150,15 @@
 这个时候可以用密钥的短 ID 或者完整的指纹来确定密钥。</p>
 </dd>
 </dl>
-</section>
-<section id="key-server">
+</div>
+<div class="section" id="key-server">
 <h3>Key Server 上的密钥过期了怎么办<a class="headerlink" href="#key-server" title="永久链接至标题">¶</a></h3>
 <p>上传到 key server 上的只是公钥，过期(Expire)也是相对于公钥而言的，因为私钥应当
 永远被保密，且其控制权完全在于拥有者。拥有私钥的人有权控制公钥的有效期，因此在
 gpg 中，仅需 <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--edit-key</span> <span class="pre">&lt;uid&gt;</span></code> ，选中相应的密钥对，执行 <code class="docutils literal notranslate"><span class="pre">expire</span></code> 命令
 重设有效时间，然后再次上传公钥 <code class="docutils literal notranslate"><span class="pre">gpp</span> <span class="pre">--keyserver</span> <span class="pre">xxxx</span> <span class="pre">--sendkey</span> <span class="pre">xxxx</span></code> 即可。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3>为什么新密钥也会有子钥<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>Debian Wiki <a class="footnote-reference brackets" href="#id9" id="id4">2</a> 如是说：</p>
 <blockquote>
@@ -175,28 +174,28 @@ encryption subkey automatically.</p>
 </div>
 <p>子密钥确实是只用于加密 <code class="docutils literal notranslate"><span class="pre">[E]</span></code> 的，另，可以通过 <code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--full-gen-key</span></code> 创建一个
 仅用于签名的密钥，你会发现它的输出就只有三行，不再包含额外的子钥。</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h3>如何添加子钥<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">gpg</span> <span class="pre">--edit-keys</span> <span class="pre">&lt;keyid&gt;</span></code> 之后用 <code class="docutils literal notranslate"><span class="pre">addkey</span></code> 命令添加即可，子钥没有独立的
 UID，也没法单独从 key server 获取下来，所以大概没办法只用子钥在社区源打包了。</p>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3>对 key server 的操作是不可撤销的<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>即使你的密钥已经过期，key server 也不会将它删除，而仅仅是显示 “revoked”，即你
 可以标记你的操作已经失效但没办法撤销这个操作 :-(，同理，如果你上传了错误的 UID，
 错误的 subkey，即使在本地将其删除再上传也没办法将其删除，只能将其 revoke。</p>
-</section>
-</section>
-<section id="tips">
+</div>
+</div>
+<div class="section" id="tips">
 <h2>Tips<a class="headerlink" href="#tips" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>使用 USTCLUG 的崔主席密钥服务器：<a class="reference external" href="https://sks.ustclug.org/">https://sks.ustclug.org/</a>，<code class="docutils literal notranslate"><span class="pre">--recv-keys</span></code>
 速度飞快。</p></li>
 <li><p>GPG 默认将 <code class="code docutils literal notranslate"><span class="pre">~/.gunpu</span></code> 的权限设置为 700，只有你自己才能访问你的密钥</p></li>
 </ul>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h2>命令行参数备忘<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>列出本机上的密钥</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="n">keys</span>
@@ -243,8 +242,8 @@ UID，也没法单独从 key server 获取下来，所以大概没办法只用�
 <dd><p><a class="reference external" href="https://wiki.debian.org/Subkeys#What_are_subkeys.3F">https://wiki.debian.org/Subkeys#What_are_subkeys.3F</a></p>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
    
@@ -273,7 +272,7 @@ UID，也没法单独从 key server 获取下来，所以大概没办法只用�
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cadge-system.html">CAGED 系统</a></li>
@@ -288,11 +287,11 @@ UID，也没法单独从 key server 获取下来，所以大概没办法只用�
 <li class="toctree-l1"><a class="reference internal" href="../notes/writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
@@ -310,18 +309,18 @@ UID，也没法单独从 key server 获取下来，所以大概没办法只用�
 <li class="toctree-l1"><a class="reference internal" href="sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/2021/index.html">2021</a></li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about/site.html">本站</a></li>
@@ -363,7 +362,7 @@ UID，也没法单独从 key server 获取下来，所以大概没办法只用�
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -88,9 +87,9 @@
           
 
           <div class="body" role="main">
-             <section id="id1">
+             <div class="section" id="id1">
 <h1>2020-03<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<section id="wayland">
+<div class="section" id="wayland">
 <h2>切换到 Wayland<a class="headerlink" href="#wayland" title="永久链接至标题">¶</a></h2>
 <p>GTK 很早就实现了能用的 Wayland 后端，在之后 Firefox 实验性地支持 Wayland ，
 就没有任何非运行在 X 下不可的软件了。<a class="reference external" href="https://github.com/fcitx/fcitx5">fcitx/fcitx5</a> 在 Wayland 下更是达到了
@@ -128,12 +127,12 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 <dt>Firefox</dt><dd><p>设置 <code class="docutils literal notranslate"><span class="pre">MOZ_ENABLE_WAYLAND=1</span></code> 以启用 Wayland 支持</p>
 </dd>
 </dl>
-</section>
-<section id="midi-js">
+</div>
+<div class="section" id="midi-js">
 <h2>Midi.js 的一个有趣应用<a class="headerlink" href="#midi-js" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://lexcast.github.io/orchestra/">https://lexcast.github.io/orchestra/</a></p>
-</section>
-<section id="systemd-service">
+</div>
+<div class="section" id="systemd-service">
 <h2>修改 systemd service 的正确姿势<a class="headerlink" href="#systemd-service" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
@@ -169,8 +168,8 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 <dd><p><a class="reference external" href="https://unix.stackexchange.com/a/449053">https://unix.stackexchange.com/a/449053</a></p>
 </dd>
 </dl>
-</section>
-<section id="silverrainz-me-let-s-encrypt-wildcard">
+</div>
+<div class="section" id="silverrainz-me-let-s-encrypt-wildcard">
 <h2>为 silverrainz.me 申请 Let’s Encrypt Wildcard 证书<a class="headerlink" href="#silverrainz-me-let-s-encrypt-wildcard" title="永久链接至标题">¶</a></h2>
 <p>用 acme.sh 来自动化申请流程，Wildcard 证书目前只能通过 dns-01 验证的方式申请。 <a class="footnote-reference brackets" href="#id8" id="id6">3</a>
 意味着需要 acme.sh 支持你的 DNS 提供商的 API。</p>
@@ -185,12 +184,12 @@ Sway 能 hot reloading 很香，比 <code class="docutils literal notranslate"><
 <dd><p><a class="reference external" href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option">https://github.com/acmesh-official/acme.sh/wiki/dnsapi#1-cloudflare-option</a></p>
 </dd>
 </dl>
-</section>
-<section id="sphinx-isso">
+</div>
+<div class="section" id="sphinx-isso">
 <h2>让 Sphinx 支持 Isso 评论<a class="headerlink" href="#sphinx-isso" title="永久链接至标题">¶</a></h2>
 <p>一言以蔽之，用最近写的 <a class="reference external" href="https://sphinx-notes.github.io/isso/">sphinxnotes-isso</a> 即可，在文档的任意位置插入 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">isso::</span></code>
 既可有最下面的效果。</p>
-<section id="isso">
+<div class="section" id="isso">
 <h3>Isso 部署<a class="headerlink" href="#isso" title="永久链接至标题">¶</a></h3>
 <p>Isso 本身的部署需要费些功夫。手头有一台 Arch + Vultr 和一台 openSUSE + 腾讯云，
 考虑到国内的加载速度还是使用了腾讯云。</p>
@@ -211,8 +210,8 @@ docker run <span class="se">\</span>
     isso
 </pre></div>
 </div>
-</section>
-<section id="smtp">
+</div>
+<div class="section" id="smtp">
 <h3>SMTP 服务<a class="headerlink" href="#smtp" title="永久链接至标题">¶</a></h3>
 <p>SMTP 服务不需要自己搭，作为 Yandex 的域名邮箱用户，我为 <code class="docutils literal notranslate"><span class="pre">noreply&#64;silverrainz.me</span></code>
 分配了一个账户，使用了单独的密码，直接使用 Yandex 的 SMTP 服务：</p>
@@ -227,9 +226,9 @@ docker run <span class="se">\</span>
 <span class="na">timeout</span> <span class="o">=</span> <span class="s">10</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="id10">
+</div>
+</div>
+<div class="section" id="id10">
 <h2>被处死的君王<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
@@ -256,8 +255,8 @@ docker run <span class="se">\</span>
 </dd>
 </dl>
 <hr class="docutils" />
-<section data-isso-id="/misc/2021/03" id="isso-thread"></section></section>
-</section>
+<section data-isso-id="/misc/2021/03" id="isso-thread"></section></div>
+</div>
 
 <div class="section">
    
@@ -286,7 +285,7 @@ docker run <span class="se">\</span>
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/cadge-system.html">CAGED 系统</a></li>
@@ -301,11 +300,11 @@ docker run <span class="se">\</span>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
@@ -323,7 +322,7 @@ docker run <span class="se">\</span>
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2020/index.html">2020</a></li>
@@ -335,12 +334,12 @@ docker run <span class="se">\</span>
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
@@ -384,7 +383,7 @@ docker run <span class="se">\</span>
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,7 +86,7 @@
           
 
           <div class="body" role="main">
-             <section id="objects">
+             <div class="section" id="objects">
 <h1><a class="toc-backref" href="#id4">Objects</a><a class="headerlink" href="#objects" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
@@ -165,7 +164,7 @@
 </li>
 </ul>
 </div>
-<section id="srnflow">
+<div class="section" id="srnflow">
 <h2><a class="toc-backref" href="#id5">SrnFlow</a><a class="headerlink" href="#srnflow" title="永久链接至标题">¶</a></h2>
 <p>Props:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>
@@ -181,10 +180,10 @@
 <span class="s">&quot;abort&quot;</span> <span class="n">GtkWidget</span><span class="o">*</span>
 </pre></div>
 </div>
-</section>
-<section id="entity">
+</div>
+<div class="section" id="entity">
 <h2><a class="toc-backref" href="#id6">Entity</a><a class="headerlink" href="#entity" title="永久链接至标题">¶</a></h2>
-<section id="srnentity">
+<div class="section" id="srnentity">
 <h3><a class="toc-backref" href="#id7">SrnEntity</a><a class="headerlink" href="#srnentity" title="永久链接至标题">¶</a></h3>
 <p>An object that you can talk to.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GInterface</span> <span class="n">parent</span><span class="p">;</span>
@@ -199,21 +198,21 @@
 <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">custom_widgets</span><span class="p">[];</span>
 </pre></div>
 </div>
-<section id="srnuser">
+<div class="section" id="srnuser">
 <h4><a class="toc-backref" href="#id8">SrnUser</a><a class="headerlink" href="#srnuser" title="永久链接至标题">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnEntity</span> <span class="n">parent</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="srngroup">
+</div>
+<div class="section" id="srngroup">
 <h4><a class="toc-backref" href="#id9">SrnGroup</a><a class="headerlink" href="#srngroup" title="永久链接至标题">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnEntity</span> <span class="n">parent</span><span class="p">;</span>
 <span class="n">GListModel</span> <span class="o">*</span><span class="n">member_list</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="srnmember">
+</div>
+</div>
+<div class="section" id="srnmember">
 <h3><a class="toc-backref" href="#id10">SrnMember</a><a class="headerlink" href="#srnmember" title="永久链接至标题">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnBuffer</span> <span class="o">*</span><span class="n">context</span><span class="p">;</span>
 <span class="n">SrnEntity</span><span class="o">*</span> <span class="n">entity</span><span class="p">;</span>
@@ -222,23 +221,23 @@
 <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">custom_widgets</span><span class="p">[];</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="top-level">
+</div>
+</div>
+<div class="section" id="top-level">
 <h2><a class="toc-backref" href="#id11">Top Level</a><a class="headerlink" href="#top-level" title="永久链接至标题">¶</a></h2>
-<section id="srnapplication">
+<div class="section" id="srnapplication">
 <h3><a class="toc-backref" href="#id12">SrnApplication</a><a class="headerlink" href="#srnapplication" title="永久链接至标题">¶</a></h3>
-</section>
-<section id="srnwindow">
+</div>
+<div class="section" id="srnwindow">
 <h3><a class="toc-backref" href="#id13">SrnWindow</a><a class="headerlink" href="#srnwindow" title="永久链接至标题">¶</a></h3>
-</section>
-<section id="srnworkspace">
+</div>
+<div class="section" id="srnworkspace">
 <h3><a class="toc-backref" href="#id14">SrnWorkSpace</a><a class="headerlink" href="#srnworkspace" title="永久链接至标题">¶</a></h3>
-</section>
-</section>
-<section id="buffer">
+</div>
+</div>
+<div class="section" id="buffer">
 <h2><a class="toc-backref" href="#id15">Buffer</a><a class="headerlink" href="#buffer" title="永久链接至标题">¶</a></h2>
-<section id="srnbuffer">
+<div class="section" id="srnbuffer">
 <h3><a class="toc-backref" href="#id16">SrnBuffer</a><a class="headerlink" href="#srnbuffer" title="永久链接至标题">¶</a></h3>
 <p>Memeber:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnEntity</span><span class="o">*</span> <span class="n">target</span><span class="p">;</span>
@@ -246,52 +245,52 @@
 <span class="n">GtkListView</span><span class="o">*</span> <span class="n">message_list</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="srnchannelbuffer">
+</div>
+<div class="section" id="srnchannelbuffer">
 <h3><a class="toc-backref" href="#id17">SrnChannelBuffer</a><a class="headerlink" href="#srnchannelbuffer" title="永久链接至标题">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GtkListView</span><span class="o">*</span> <span class="n">member_list</span>
 </pre></div>
 </div>
-</section>
-<section id="srndialogbuffer">
+</div>
+<div class="section" id="srndialogbuffer">
 <h3><a class="toc-backref" href="#id18">SrnDialogBuffer</a><a class="headerlink" href="#srndialogbuffer" title="永久链接至标题">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnMember</span><span class="o">*</span> <span class="n">member</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="message">
+</div>
+</div>
+<div class="section" id="message">
 <h2><a class="toc-backref" href="#id19">Message</a><a class="headerlink" href="#message" title="永久链接至标题">¶</a></h2>
-<section id="srnmessageview">
+<div class="section" id="srnmessageview">
 <h3><a class="toc-backref" href="#id20">SrnMessageView</a><a class="headerlink" href="#srnmessageview" title="永久链接至标题">¶</a></h3>
-<section id="srntextmessageview">
+<div class="section" id="srntextmessageview">
 <h4><a class="toc-backref" href="#id21">SrnTextMessageView</a><a class="headerlink" href="#srntextmessageview" title="永久链接至标题">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">set_model</span><span class="p">(</span><span class="n">SrnTextMessage</span><span class="o">*</span><span class="p">);</span>
 <span class="n">SrnTextMessage</span><span class="o">*</span> <span class="nf">get_model</span><span class="p">();</span>
 </pre></div>
 </div>
-</section>
-<section id="srnrichmessageview">
+</div>
+<div class="section" id="srnrichmessageview">
 <h4><a class="toc-backref" href="#id22">SrnRichMessageView</a><a class="headerlink" href="#srnrichmessageview" title="永久链接至标题">¶</a></h4>
-<section id="srnimagemessageview">
+<div class="section" id="srnimagemessageview">
 <h5><a class="toc-backref" href="#id23">SrnImageMessageView</a><a class="headerlink" href="#srnimagemessageview" title="永久链接至标题">¶</a></h5>
-</section>
-<section id="srnaudiomessageview">
+</div>
+<div class="section" id="srnaudiomessageview">
 <h5><a class="toc-backref" href="#id24">SrnAudioMessageView</a><a class="headerlink" href="#srnaudiomessageview" title="永久链接至标题">¶</a></h5>
-</section>
-<section id="srnvideomessageview">
+</div>
+<div class="section" id="srnvideomessageview">
 <h5><a class="toc-backref" href="#id25">SrnVideoMessageView</a><a class="headerlink" href="#srnvideomessageview" title="永久链接至标题">¶</a></h5>
-</section>
-<section id="srnwebviewmessageview">
+</div>
+<div class="section" id="srnwebviewmessageview">
 <h5><a class="toc-backref" href="#id26">SrnWebviewMessageView</a><a class="headerlink" href="#srnwebviewmessageview" title="永久链接至标题">¶</a></h5>
 <p>Sure??</p>
-</section>
-</section>
-<section id="srncustommessageview">
+</div>
+</div>
+<div class="section" id="srncustommessageview">
 <h4><a class="toc-backref" href="#id27">SrnCustomMessageView</a><a class="headerlink" href="#srncustommessageview" title="永久链接至标题">¶</a></h4>
-</section>
-</section>
-<section id="srnmessage">
+</div>
+</div>
+<div class="section" id="srnmessage">
 <h3><a class="toc-backref" href="#id28">SrnMessage</a><a class="headerlink" href="#srnmessage" title="永久链接至标题">¶</a></h3>
 <p>Member:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnMember</span> <span class="o">*</span><span class="n">original</span>
@@ -305,47 +304,47 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gboolean</span> <span class="nf">has_tags</span><span class="p">(</span><span class="k">const</span> <span class="n">gchar</span> <span class="o">*</span><span class="n">tag</span><span class="p">);</span>
 </pre></div>
 </div>
-</section>
-<section id="srntextmessage">
+</div>
+<div class="section" id="srntextmessage">
 <h3><a class="toc-backref" href="#id29">SrnTextMessage</a><a class="headerlink" href="#srntextmessage" title="永久链接至标题">¶</a></h3>
 <p>Member:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span> <span class="o">*</span><span class="n">content</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="srnmediamessage">
+</div>
+<div class="section" id="srnmediamessage">
 <h3><a class="toc-backref" href="#id30">SrnMediaMessage</a><a class="headerlink" href="#srnmediamessage" title="永久链接至标题">¶</a></h3>
 <p>Member:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">gchar</span><span class="o">*</span> <span class="n">mime_type</span><span class="p">;</span>
 <span class="n">GFile</span><span class="o">*</span> <span class="n">content</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="srncustommessage">
+</div>
+<div class="section" id="srncustommessage">
 <h3><a class="toc-backref" href="#id31">SrnCustomMessage</a><a class="headerlink" href="#srncustommessage" title="永久链接至标题">¶</a></h3>
 <p>Memeber:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">GtkWidget</span> <span class="o">*</span><span class="n">widget</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="srnmessagefilter">
+</div>
+<div class="section" id="srnmessagefilter">
 <h3><a class="toc-backref" href="#id32">SrnMessageFilter</a><a class="headerlink" href="#srnmessagefilter" title="永久链接至标题">¶</a></h3>
-</section>
-<section id="srnmessagerenderer">
+</div>
+<div class="section" id="srnmessagerenderer">
 <h3><a class="toc-backref" href="#id33">SrnMessageRenderer</a><a class="headerlink" href="#srnmessagerenderer" title="永久链接至标题">¶</a></h3>
-</section>
-</section>
-<section id="user">
+</div>
+</div>
+<div class="section" id="user">
 <h2><a class="toc-backref" href="#id34">User</a><a class="headerlink" href="#user" title="永久链接至标题">¶</a></h2>
-<section id="id2">
+<div class="section" id="id2">
 <h3><a class="toc-backref" href="#id35">SrnUser</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p>Member:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnEntity</span>
 <span class="n">GList</span> <span class="o">*</span><span class="n">members</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3><a class="toc-backref" href="#id36">SrnMember</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>Member &amp; User Panel</p>
 <p>Member:</p>
@@ -353,14 +352,14 @@
 <span class="n">SrnBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="srnmemberlist">
+</div>
+<div class="section" id="srnmemberlist">
 <h3><a class="toc-backref" href="#id37">SrnMemberList</a><a class="headerlink" href="#srnmemberlist" title="永久链接至标题">¶</a></h3>
-</section>
-</section>
-<section id="messenger">
+</div>
+</div>
+<div class="section" id="messenger">
 <h2><a class="toc-backref" href="#id38">Messenger</a><a class="headerlink" href="#messenger" title="永久链接至标题">¶</a></h2>
-<section id="srnmessenger">
+<div class="section" id="srnmessenger">
 <h3><a class="toc-backref" href="#id39">SrnMessenger</a><a class="headerlink" href="#srnmessenger" title="永久链接至标题">¶</a></h3>
 <p>Method:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SrnFlow</span> <span class="o">*</span><span class="n">login</span><span class="p">;</span>
@@ -375,9 +374,9 @@
 <span class="n">GtkWidget</span><span class="o">*</span> <span class="nf">memeber_panel</span><span class="p">(</span><span class="n">SrnMember</span> <span class="o">*</span><span class="n">member</span><span class="p">);</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 <div class="section">
    
@@ -406,7 +405,7 @@
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
@@ -421,11 +420,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
@@ -443,18 +442,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
@@ -498,7 +497,7 @@
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

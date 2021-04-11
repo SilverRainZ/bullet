@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,22 +86,22 @@
           
 
           <div class="body" role="main">
-             <section id="wargame-leviathan">
+             <div class="section" id="wargame-leviathan">
 <h1>wargame-leviathan<a class="headerlink" href="#wargame-leviathan" title="永久链接至标题">¶</a></h1>
 <ul class="simple">
 <li><p>ssh addr: leviathan.labs.overthewire.org</p></li>
 <li><p>url: <a class="reference external" href="http://overthewire.org/wargames/leviathan/">http://overthewire.org/wargames/leviathan/</a></p></li>
 </ul>
-<section id="leviathan0">
+<div class="section" id="leviathan0">
 <h2>leviathan0<a class="headerlink" href="#leviathan0" title="永久链接至标题">¶</a></h2>
 <p>flag: leviathan0</p>
-</section>
-<section id="leviathan1">
+</div>
+<div class="section" id="leviathan1">
 <h2>leviathan1<a class="headerlink" href="#leviathan1" title="永久链接至标题">¶</a></h2>
 <p>flag: rioGegei8m</p>
 <p>在 <code class="docutils literal notranslate"><span class="pre">~/.backup/bookmarks.html</span></code> 搜索 <code class="docutils literal notranslate"><span class="pre">password</span></code> 可得。</p>
-</section>
-<section id="leviathan2">
+</div>
+<div class="section" id="leviathan2">
 <h2>leviathan2<a class="headerlink" href="#leviathan2" title="永久链接至标题">¶</a></h2>
 <p>flag: ougahZi8Ta</p>
 <p>home 目录下有一程序名为 check，执行之，要求输入密码， 首先
@@ -140,8 +139,8 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">0xffffd658</span></code> 处即是该程序的 password，用 <code class="docutils literal notranslate"><span class="pre">x/s</span> <span class="pre">0xffffd658</span></code> 可看。</p>
-</section>
-<section id="leviathan3">
+</div>
+<div class="section" id="leviathan3">
 <h2>leviathan3<a class="headerlink" href="#leviathan3" title="永久链接至标题">¶</a></h2>
 <p>flag: Ahdiemoo1j</p>
 <p>这道题想了很久还是不会，最终上网看答案了……</p>
@@ -277,8 +276,8 @@ system(&quot;/bin/cat /etc/leviathan_pass/lev&quot;...ougahZi8Ta
 +++ exited (status 0) +++
 </pre></div>
 </div>
-</section>
-<section id="leviathan4">
+</div>
+<div class="section" id="leviathan4">
 <h2>leviathan4<a class="headerlink" href="#leviathan4" title="永久链接至标题">¶</a></h2>
 <p>flag: vuH0coox6m</p>
 <p>这次学乖了，扫了几眼汇编，程序把一大堆东西放到栈里然后 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code>，
@@ -326,8 +325,8 @@ vuH0coox6m
 $
 </pre></div>
 </div>
-</section>
-<section id="leviathan5">
+</div>
+<div class="section" id="leviathan5">
 <h2>leviathan5<a class="headerlink" href="#leviathan5" title="永久链接至标题">¶</a></h2>
 <p>flag: Tith4cokei</p>
 <p>诶，为什么题目越往后越简单呢……</p>
@@ -354,8 +353,8 @@ fopen(&quot;/etc/leviathan_pass/leviathan5&quot;, &quot;r&quot;)                
 <span class="go">&#39;Tith4cokei\n&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="leviathan6">
+</div>
+<div class="section" id="leviathan6">
 <h2>leviathan6<a class="headerlink" href="#leviathan6" title="永久链接至标题">¶</a></h2>
 <p>flag: UgaoFee4li</p>
 <p>登录，执行直接执行 <code class="docutils literal notranslate"><span class="pre">~/leviathan5</span></code>，提示找不到
@@ -403,8 +402,8 @@ leviathan5@melinda:~$ ./leviathan5
 UgaoFee4li
 </pre></div>
 </div>
-</section>
-<section id="leviathan7">
+</div>
+<div class="section" id="leviathan7">
 <h2>leviathan7<a class="headerlink" href="#leviathan7" title="永久链接至标题">¶</a></h2>
 <p>flag: ahy7MaeBo9</p>
 <p>直接执行可以看到需要一个 4 位的数字做参数，用 ltrace 可以看到程序调用了
@@ -490,8 +489,8 @@ Well Done, you seem to have used a \*nix system before, now try something more s
 </pre></div>
 </div>
 <p>虽然说是 don’t post，可是我还是发出来了……抱歉。</p>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
    
@@ -520,7 +519,7 @@ Well Done, you seem to have used a \*nix system before, now try something more s
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
@@ -535,11 +534,11 @@ Well Done, you seem to have used a \*nix system before, now try something more s
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
@@ -557,18 +556,18 @@ Well Done, you seem to have used a \*nix system before, now try something more s
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
@@ -612,7 +611,7 @@ Well Done, you seem to have used a \*nix system before, now try something more s
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

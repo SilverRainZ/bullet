@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,7 +86,7 @@
           
 
           <div class="body" role="main">
-             <section class="any" id="the-rust-programming-language">
+             <div class="any section" id="the-rust-programming-language">
 <span id="book-The-Rust-Programming-Language"></span><h1>The Rust Programming Language<a class="headerlink" href="#the-rust-programming-language" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">ISBN</dt>
@@ -114,7 +113,7 @@
 <li><p><a class="reference internal" href="#ch13" id="id19">ch13 迭代器与闭包</a></p></li>
 </ul>
 </div>
-<section id="ch1">
+<div class="section" id="ch1">
 <h2><a class="toc-backref" href="#id7">ch1</a><a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
 <p>使用 community/rustup 包而不是 community/rust 包，方便获取比官方源还新的 rust。
 community/rustup 没有自带 toolchain，和书中的描述不符。 但不重要，使用
@@ -122,15 +121,15 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <p>使用 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">update</span></code> 来更新 lock 文件，但默认只会 bump semver 的 fix 部分，
 即 <code class="docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.1.2</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.2.0</span></code> 。若确定要更新，需要手动更改
 <code class="docutils literal notranslate"><span class="pre">Cargo.toml</span></code> 并重新 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code> 。</p>
-</section>
-<section id="ch2">
+</div>
+<div class="section" id="ch2">
 <h2><a class="toc-backref" href="#id8">ch2</a><a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
 <p>需要 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">namespace::of::trait</span></code> 才能使用某个实现了 trait 的 struct 对应的方法。
 需要 use的 trait 可以通过 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 生成的本地依赖的文档查看。</p>
 <p>模式匹配真香！！！</p>
 <p>Rust 允许重新声明变量，不会出现命名难题。这也很香。</p>
-</section>
-<section id="ch3">
+</div>
+<div class="section" id="ch3">
 <h2><a class="toc-backref" href="#id9">ch3</a><a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>变量默认不可变</dt><dd><p><span class="sphinxnotes-strike">那为啥要叫变量</span> ， 好处是安全 &amp; 并发友好，有利于优等等等等。</p>
@@ -142,8 +141,8 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <p>Tuple 可以用模式匹配或者 <code class="docutils literal notranslate"><span class="pre">x.1</span></code> 这样的下标索引。</p>
 <p>函数返回值是最后一个表达式的值 -&gt; 那就没法随时 return 了？
 有 return 关键字，这设计有点奇怪。</p>
-</section>
-<section id="ch4">
+</div>
+<div class="section" id="ch4">
 <h2><a class="toc-backref" href="#id10">ch4</a><a class="headerlink" href="#ch4" title="永久链接至标题">¶</a></h2>
 <dl>
 <dt>所有权规则：</dt><dd><ol class="arabic simple">
@@ -163,8 +162,8 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 reference 的作用域是「从声明开始到最后一次使用」。</p>
 </dd>
 </dl>
-</section>
-<section id="ch5">
+</div>
+<div class="section" id="ch5">
 <h2><a class="toc-backref" href="#id11">ch5</a><a class="headerlink" href="#ch5" title="永久链接至标题">¶</a></h2>
 <p>Struct init:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">email</span>: <span class="nb">String</span> <span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;i@example.com&quot;</span><span class="p">)</span><span class="w"></span>
@@ -204,8 +203,8 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <dt>Associated function</dt><dd><p>类似 class function，使用 <code class="docutils literal notranslate"><span class="pre">::</span></code> 操作符</p>
 </dd>
 </dl>
-</section>
-<section id="ch6">
+</div>
+<div class="section" id="ch6">
 <h2><a class="toc-backref" href="#id12">ch6</a><a class="headerlink" href="#ch6" title="永久链接至标题">¶</a></h2>
 <p>Variant 翻译为「成员」似乎不妥？</p>
 <p>为枚举成员（ <span class="sphinxnotes-strike">等等，我不是说不妥吗？</span> ）附加类型，表达能力很强:</p>
@@ -229,8 +228,8 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="ch7">
+</div>
+<div class="section" id="ch7">
 <h2><a class="toc-backref" href="#id13">ch7 模块系统</a><a class="headerlink" href="#ch7" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>Rust module system:</dt><dd><ul class="simple">
@@ -278,8 +277,8 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <dd><p><a class="reference external" href="https://doc.rust-lang.org/reference/items/modules.html">https://doc.rust-lang.org/reference/items/modules.html</a></p>
 </dd>
 </dl>
-</section>
-<section id="ch8">
+</div>
+<div class="section" id="ch8">
 <h2><a class="toc-backref" href="#id14">ch8 数据结构</a><a class="headerlink" href="#ch8" title="永久链接至标题">¶</a></h2>
 <p>泛型 Yes!</p>
 <dl class="simple">
@@ -300,8 +299,8 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 </dl>
 <p>运行时索引字符串 slice 会导致 panic</p>
 <p><code class="docutils literal notranslate"><span class="pre">entry().or_insert()</span></code> 返回一个 <code class="docutils literal notranslate"><span class="pre">&amp;mut</span></code> 很香，可以优雅地写 counter</p>
-</section>
-<section id="ch9">
+</div>
+<div class="section" id="ch9">
 <h2><a class="toc-backref" href="#id15">ch9 错误处理</a><a class="headerlink" href="#ch9" title="永久链接至标题">¶</a></h2>
 <p><em>No Exception!</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">panic!</span></code> and <code class="docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code></p>
@@ -309,8 +308,8 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <p><code class="docutils literal notranslate"><span class="pre">?</span></code> for error propagating，好大一颗糖，支持链式调用，
 确实比 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">err</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 香</p>
 <p>迷之 <code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> : 见 <a class="reference internal" href="#ch12"><span class="std std-ref">ch12 构建一个命令行程序</span></a></p>
-</section>
-<section id="ch10-trait">
+</div>
+<div class="section" id="ch10-trait">
 <h2><a class="toc-backref" href="#id16">ch10 泛型、trait 和生命周期</a><a class="headerlink" href="#ch10-trait" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>T</dt><dd><ul class="simple">
@@ -343,8 +342,8 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 </ul>
 </dd>
 </dl>
-</section>
-<section id="ch11">
+</div>
+<div class="section" id="ch11">
 <h2><a class="toc-backref" href="#id17">ch11 编写自动化测试</a><a class="headerlink" href="#ch11" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">super::*</span></code> 比较方便</p></li>
@@ -353,8 +352,8 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <li><p>用 <code class="docutils literal notranslate"><span class="pre">--</span></code> 区分给 cargo test 的参数和给 test binary 的参数</p></li>
 <li><p>集成测试放置于特殊的 “tests” 目录，模块不需要 <code class="docutils literal notranslate"><span class="pre">#[cfg(test)]</span></code> 修饰</p></li>
 </ul>
-</section>
-<section id="ch12">
+</div>
+<div class="section" id="ch12">
 <span id="id6"></span><h2><a class="toc-backref" href="#id18">ch12 构建一个命令行程序</a><a class="headerlink" href="#ch12" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">std::env::args()</span></code></p></li>
@@ -363,8 +362,8 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 有一定的动态性</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">eprintln!</span></code></p></li>
 </ul>
-</section>
-<section id="ch13">
+</div>
+<div class="section" id="ch13">
 <h2><a class="toc-backref" href="#id19">ch13 迭代器与闭包</a><a class="headerlink" href="#ch13" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>Closures</dt><dd><p>可以捕获 scope 的 lambda 函数</p>
@@ -375,8 +374,8 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <dd class="field-odd"><p>261</p>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
    
@@ -405,7 +404,7 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
@@ -420,11 +419,11 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <li class="toctree-l1"><a class="reference internal" href="../writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
@@ -442,18 +441,18 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
@@ -497,7 +496,7 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

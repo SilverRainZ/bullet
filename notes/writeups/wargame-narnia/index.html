@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -87,7 +86,7 @@
           
 
           <div class="body" role="main">
-             <section id="wargame-narnia">
+             <div class="section" id="wargame-narnia">
 <h1>wargame-narnia<a class="headerlink" href="#wargame-narnia" title="永久链接至标题">¶</a></h1>
 <ul>
 <li><p>ssh addr: <a class="reference external" href="mailto:narnia0&#37;&#52;&#48;narnia&#46;labs&#46;overthewire&#46;org">narnia0<span>&#64;</span>narnia<span>&#46;</span>labs<span>&#46;</span>overthewire<span>&#46;</span>org</a></p></li>
@@ -109,13 +108,13 @@ firewall.</p>
 </div></blockquote>
 </li>
 </ul>
-<section id="shellcode">
+<div class="section" id="shellcode">
 <h2>测试 shellcode:<a class="headerlink" href="#shellcode" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="./shellcodetest.c">shellcodetest.c</a></p>
 <p>gcc -fno-stack-protector -z execstack -m32 shellcodetest.c -o
 shellcodetest</p>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h2>生成 shellcode<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>写出 xxx.asm</p></li>
@@ -125,17 +124,17 @@ shellcodetest</p>
 <li><p>考虑一下让<code class="docutils literal notranslate"><span class="pre">.text</span></code>段可写?
 <code class="docutils literal notranslate"><span class="pre">objcopy</span> <span class="pre">--writable-text</span> <span class="pre">-O</span> <span class="pre">elf32-i386</span> <span class="pre">xxx</span> <span class="pre">xxx1</span></code> 似乎没有作用…</p></li>
 </ol>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>更改的系统值存档<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/proc/sys/kernel/randomize_va_space</span></code> = 2</p></li>
 </ul>
-<section id="narnia0">
+<div class="section" id="narnia0">
 <h3>narnia0<a class="headerlink" href="#narnia0" title="永久链接至标题">¶</a></h3>
 <p>flag: narnia0</p>
-</section>
-<section id="narnia1">
+</div>
+<div class="section" id="narnia1">
 <h3>narnia1<a class="headerlink" href="#narnia1" title="永久链接至标题">¶</a></h3>
 <p>flag: efeidiedae</p>
 <p><a class="reference external" href="./narnia0.c">narnia0.c</a></p>
@@ -146,8 +145,8 @@ shellcodetest</p>
 $ cat /etc/narnia_pass/narnia1
 </pre></div>
 </div>
-</section>
-<section id="narnia2">
+</div>
+<div class="section" id="narnia2">
 <h3>narnia2<a class="headerlink" href="#narnia2" title="永久链接至标题">¶</a></h3>
 <p>flag: nairiepecu</p>
 <p><a class="reference external" href="./narnia1.c">narnia1.c</a></p>
@@ -160,8 +159,8 @@ shellcode 导入 EGG 变量, 直接执行 <code class="docutils literal notransl
 $ ./narnia1
 </pre></div>
 </div>
-</section>
-<section id="narnia3">
+</div>
+<div class="section" id="narnia3">
 <h3>narnia3<a class="headerlink" href="#narnia3" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="./narnia2.c">narnia2.c</a></p>
 <p>查看环境变量地址: <code class="docutils literal notranslate"><span class="pre">(gdb)</span> <span class="pre">x/s</span> <span class="pre">*((char</span> <span class="pre">**)environ</span> <span class="pre">+</span> <span class="pre">1)</span></code>， 结果
@@ -170,9 +169,9 @@ $ ./narnia1
 ./narnia2 $(python -c &quot;print(&#39;a&#39; * 140 + &#39;\x55\xd8\xff\xff&#39;)&quot;)
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 <div class="section">
    
@@ -201,7 +200,7 @@ $ ./narnia1
 
 
 <h3>导航</h3>
-<p><span class="caption-text">笔记</span></p>
+<p class="caption"><span class="caption-text">笔记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cadge-system.html">CAGED 系统</a></li>
@@ -216,11 +215,11 @@ $ ./narnia1
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../zxsys/index.html">造型实验室</a></li>
 </ul>
-<p><span class="caption-text">博客</span></p>
+<p class="caption"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/index.html">所有日志</a></li>
 </ul>
-<p><span class="caption-text">手册</span></p>
+<p class="caption"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../man/gdb.html">GDB</a></li>
@@ -238,18 +237,18 @@ $ ./narnia1
 <li class="toctree-l1"><a class="reference internal" href="../../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../man/vim.html">Vim</a></li>
 </ul>
-<p><span class="caption-text">随记</span></p>
+<p class="caption"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/2017/index.html">2017</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/2021/index.html">2021</a></li>
 </ul>
-<p><span class="caption-text">收集室</span></p>
+<p class="caption"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p><span class="caption-text">关于</span></p>
+<p class="caption"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about/site.html">本站</a></li>
@@ -293,7 +292,7 @@ $ ./narnia1
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

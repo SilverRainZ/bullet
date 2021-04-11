@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -86,7 +85,7 @@
           
 
           <div class="body" role="main">
-             <section id="id1">
+             <div class="section" id="id1">
 <h1><a class="toc-backref" href="#id12">用户态进程的简单实现及调度(一)</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
 并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
@@ -130,7 +129,7 @@
 <div><p>注意: OS67 并不打算支持多核 CPU, 这极大地降低了实现进程的难度,
 不需要考虑由于多核导致的进程间的竞争和同步, 因此 xv6 中关于锁的代码都可以忽略.</p>
 </div></blockquote>
-<section id="id3">
+<div class="section" id="id3">
 <h2><a class="toc-backref" href="#id13">特权级转换</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>几个关于特权级的概念:</p>
 <ul class="simple">
@@ -139,8 +138,8 @@
 <li><p>CPL: Current Privilege 当前特权级, 储存在 cs 寄存器的低二位</p></li>
 <li><p>RPL: Request Privilege 请求特权级, 请求访问的段的描述符的特权级</p></li>
 </ul>
-</section>
-<section id="gdt">
+</div>
+<div class="section" id="gdt">
 <h2><a class="toc-backref" href="#id14">GDT</a><a class="headerlink" href="#gdt" title="永久链接至标题">¶</a></h2>
 <p>这里使用的用户态的特权级为 3, 因此用户态的程序, 其所在的数据段代码段的 DPL,
 段寄存器低 2 位的 RPL 都得是 3, 因此设置的 全局段描述符表(GDT) 如下:</p>
@@ -162,8 +161,8 @@
 </div></blockquote>
 <p>当 GDT 初始化后, 第一二个描述符被使用, 内核跑在特权级为 0 的段上.
 那如何让代码从特权级为 0 的段(内核态)转移到特权级为 3 的段(用户态)呢? 用中断.</p>
-</section>
-<section id="idt">
+</div>
+<div class="section" id="idt">
 <h2><a class="toc-backref" href="#id15">IDT</a><a class="headerlink" href="#idt" title="永久链接至标题">¶</a></h2>
 <p>为了让用户空间的程序顺利进入内核态, 需要对 中断描述符表(IDT) 做一些设置.</p>
 <p>(以下内容摘自 xv6 中文文档, 有小改动)</p>
@@ -199,8 +198,8 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">idt_install</span><span class="p">(</span><span class="n">ISR_SYSCALL</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">_syscall</span><span class="p">,</span> <span class="n">SEL_KCODE</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">GATE_TRAP</span><span class="p">,</span> <span class="n">IDT_PR</span> <span class="o">|</span> <span class="n">IDT_DPL_USER</span><span class="p">);</span>
 </pre></div>
 </div>
-</section>
-<section id="tss">
+</div>
+<div class="section" id="tss">
 <h2><a class="toc-backref" href="#id16">TSS</a><a class="headerlink" href="#tss" title="永久链接至标题">¶</a></h2>
 <p>在特权级转换的时候, 需要从任务状态段取出<code class="docutils literal notranslate"><span class="pre">ss0</span></code>和<code class="docutils literal notranslate"><span class="pre">esp0</span></code>, 因此在转换之前需要设置 TSS.</p>
 <p>CPU 会从寄存器<code class="docutils literal notranslate"><span class="pre">tr</span></code>获得 TSS 的选择子, 然后从 GDT 表里面找出对应的描述符,
@@ -224,10 +223,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2><a class="toc-backref" href="#id17">两个上下文</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<section id="id5">
+<div class="section" id="id5">
 <h3><a class="toc-backref" href="#id18">中断上下文</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>从上面关于中断过程的解释可以看到, 从用户态执行中断转入内核态是可能的,
 重点在与设置一个 DPL = 3 的 IDT 和一个 TSS 段.</p>
@@ -278,8 +277,8 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 <p>每个入口都会压入自己的中断号, 然后统一跳转到<code class="docutils literal notranslate"><span class="pre">_isr_stub</span></code>, 压入上下文的剩余部分,
 再调到由 C 编写的<code class="docutils literal notranslate"><span class="pre">isr_stub</span></code>, 由此再根据入口压入中断号调用真正的 ISR.
 关于这些 ISR 的详情…太长了表示扯不下去了… :(</p>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3><a class="toc-backref" href="#id19">进程上下文</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>中断上下文已经让程序能够程序成功进入内核并从内核中返回,
 接下来通过切换进程上下文来实现进程的切换.</p>
@@ -325,9 +324,9 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 <p>可以看到这个函数可以切换当前的执行流到另一个执行流, 进程的切换就是这样实现的,
 当然要切换的不止这个, 页表也要切换, 代表当前执行进程的 <code class="docutils literal notranslate"><span class="pre">proc</span></code> 变量也要更新.
 页表的切换由 <code class="docutils literal notranslate"><span class="pre">uvm_switch</span></code> 执行, <code class="docutils literal notranslate"><span class="pre">proc</span></code> 的更新则在 <code class="docutils literal notranslate"><span class="pre">scheduler</span></code> 执行.</p>
-</section>
-</section>
-<section id="id7">
+</div>
+</div>
+<div class="section" id="id7">
 <h2><a class="toc-backref" href="#id20">虚拟内存映射</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>由于之前的思路问题, 因此 OS67 的内存管理方式不得不和 xv6 不太一样.</p>
 <p>OS67 的内存分配实现在 <code class="docutils literal notranslate"><span class="pre">OS67/mm/pmm.c</span></code>, 使用一个简单的栈来存放未分配的内存页,
@@ -341,10 +340,10 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 另外 <code class="docutils literal notranslate"><span class="pre">malloc</span></code> 出来的是物理地址, 可以直接对其读写而不必做转换.
 缺点则是程序必须经过重定位(链接时使用参数 <code class="docutils literal notranslate"><span class="pre">-Ttext</span> <span class="pre">0xc0000000</span></code>)才能运行在高地址,
 也许有更多的缺点还没发现.</p>
-</section>
-<section id="id8">
+</div>
+<div class="section" id="id8">
 <h2><a class="toc-backref" href="#id21">第一个进程</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
-<section id="id9">
+<div class="section" id="id9">
 <h3><a class="toc-backref" href="#id22">构造</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>结构体 proc 用来储存一个进程的信息, 内核中有一个数组<code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ptable[NPROC]</span></code>来管理所有的进程.
 结构体<code class="docutils literal notranslate"><span class="pre">proc</span></code>定义如下:</p>
@@ -396,8 +395,8 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 为 eflags 寄存器加上 IF 标志(允许中断), 设置用户栈, 最后把<code class="docutils literal notranslate"><span class="pre">eip</span></code>设定为<code class="docutils literal notranslate"><span class="pre">USER_BASE</span></code>.</p>
 <p>最后把进程的状态<code class="docutils literal notranslate"><span class="pre">proc-&gt;state</span></code>设置为可运行 <code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>.</p>
 <p>以上是比较关键的步骤, 现在可以准备运行第一个进程了.</p>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h3><a class="toc-backref" href="#id23">运行</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>执行了<code class="docutils literal notranslate"><span class="pre">proc_init</span></code>之后, <code class="docutils literal notranslate"><span class="pre">scheduler</span></code>紧接其后,
 它在<code class="docutils literal notranslate"><span class="pre">ptable</span></code>中寻找第一个<code class="docutils literal notranslate"><span class="pre">state</span></code>为<code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程,
@@ -407,24 +406,24 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 <code class="docutils literal notranslate"><span class="pre">context_switch</span></code>会弹出<code class="docutils literal notranslate"><span class="pre">proc-&gt;context</span></code>中设定好的寄存器,
 新进程返回到<code class="docutils literal notranslate"><span class="pre">fork_ret</span></code>之后返回到<code class="docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>中, 又把<code class="docutils literal notranslate"><span class="pre">proc-&gt;fm</span></code>弹出.
 于是第一个进程就成功运行在 0xc0000000 的用户空间上了.</p>
-</section>
-</section>
-<section id="id11">
+</div>
+</div>
+<div class="section" id="id11">
 <h2><a class="toc-backref" href="#id24">调度</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>这里使用非常简单的轮转法, 每次触发时钟中断都会执行<code class="docutils literal notranslate"><span class="pre">sched</span></code>,
 <code class="docutils literal notranslate"><span class="pre">sched</span></code>把当前进程状态由<code class="docutils literal notranslate"><span class="pre">P_RUNNING</span></code>变更为<code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>. 接着执行<code class="docutils literal notranslate"><span class="pre">context_switch</span></code>.
 这样 CPU 执行流就回到了刚才<code class="docutils literal notranslate"><span class="pre">scheduler</span></code>中的循环,
 <code class="docutils literal notranslate"><span class="pre">scheduler</span></code>继续寻找一个<code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程并切换到它.</p>
-</section>
-<section id="e-n-d">
+</div>
+<div class="section" id="e-n-d">
 <h2><a class="toc-backref" href="#id25">E.N.D.</a><a class="headerlink" href="#e-n-d" title="永久链接至标题">¶</a></h2>
 <p>至此, 用户级进程已经成功实现并且被调度. 但是没有有效的接口来启动更多的进程.
 我们需要实现一些系统调用比如<code class="docutils literal notranslate"><span class="pre">fork</span></code>和<code class="docutils literal notranslate"><span class="pre">exec</span></code>来做这些事情.
 :( 但是我已经写不下去了… 如果可以话下次再写吧.</p>
 <p><span class="sphinxnotes-strike">不一定有下次</span></p>
 <hr class="docutils" />
-<section data-isso-id="/blog/process-scheduler-1" id="isso-thread"></section></section>
-</section>
+<section data-isso-id="/blog/process-scheduler-1" id="isso-thread"></section></div>
+</div>
 
 <div class="section">
      
@@ -706,7 +705,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

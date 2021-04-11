@@ -4,8 +4,7 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -86,12 +85,12 @@
           
 
           <div class="body" role="main">
-             <section id="vim">
+             <div class="section" id="vim">
 <h1>Vim 插件折腾记录<a class="headerlink" href="#vim" title="永久链接至标题">¶</a></h1>
 <p>今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:</p>
 <p>首先我把本来 <code class="docutils literal notranslate"><span class="pre">.vimrc</span></code> 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows,
 同时维护兼容两个平台的配置文件实在是麻烦.</p>
-<section id="fcitx-vim">
+<div class="section" id="fcitx-vim">
 <h2>fcitx.vim<a class="headerlink" href="#fcitx-vim" title="永久链接至标题">¶</a></h2>
 <p>这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)</p>
@@ -103,8 +102,8 @@
 </pre></div>
 </div>
 <p>不过我试了试发现报错: socket connection error, 就不去用它了.</p>
-</section>
-<section id="vundle">
+</div>
+<div class="section" id="vundle">
 <h2>Vundle<a class="headerlink" href="#vundle" title="永久链接至标题">¶</a></h2>
 <p>神器, 用来管理插件的插件, 可以从 GitHub, 其他 Git 服务器或者本地的 Git 目录获取并安装插件,
 把 <a class="reference external" href="https://github.com/gmarik/Vundle.vim">gmarik/Vundle.vim</a> clone 到 <code class="docutils literal notranslate"><span class="pre">.vim</span></code> 下,
@@ -140,8 +139,8 @@ Plugin <span class="s1">&#39;gmarik/Vundle.vim&#39;</span>
 <p>然后重启 <code class="docutils literal notranslate"><span class="pre">:PluginInstall</span></code>, 就安装好了, 如果想要添加新的插件, 在 <code class="docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'...'</span></code>
 那一句之后添加 <code class="docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'插件地址'</span></code> 再 <code class="docutils literal notranslate"><span class="pre">:PluginInstall</span></code> 一下就好了.
 对于在 GitHub 上的插件地址, 可以直接写 <code class="docutils literal notranslate"><span class="pre">owner/repo-name</span></code> 这样的形式.</p>
-</section>
-<section id="powerline">
+</div>
+<div class="section" id="powerline">
 <h2>PowerLine<a class="headerlink" href="#powerline" title="永久链接至标题">¶</a></h2>
 <p>漂亮的状态栏插件</p>
 <p>在<code class="docutils literal notranslate"><span class="pre">.vimrc</span></code> 相应位置里加一句 <code class="docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'Lokaltog/vim-powerline'</span></code>,
@@ -155,8 +154,8 @@ Plugin <span class="s1">&#39;gmarik/Vundle.vim&#39;</span>
 <span class="c">&quot; 值为&#39;fancy&#39;的话,状态栏会有好看的箭头, 但是要打过补丁的字体, 太麻烦了</span>
 </pre></div>
 </div>
-</section>
-<section id="nerdtree">
+</div>
+<div class="section" id="nerdtree">
 <h2>Nerdtree<a class="headerlink" href="#nerdtree" title="永久链接至标题">¶</a></h2>
 <p>文件浏览插件, 还是用 Vundle 安装.</p>
 <div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; A tree explorer plugin for vim.</span>
@@ -165,8 +164,8 @@ Plugin <span class="s1">&#39;scrooloose/nerdtree&#39;</span>
 map <span class="p">&lt;</span>C<span class="p">-</span><span class="k">n</span><span class="p">&gt;</span> :NERDTreeToggle<span class="p">&lt;</span>CR<span class="p">&gt;</span>
 </pre></div>
 </div>
-</section>
-<section id="youcompleteme">
+</div>
+<div class="section" id="youcompleteme">
 <h2>YouCompleteMe<a class="headerlink" href="#youcompleteme" title="永久链接至标题">¶</a></h2>
 <p>据说是最好的 C/C++ 补全插件? 这个安装略波折.
 首先用 Vundle 安装:</p>
@@ -222,8 +221,8 @@ $ ~ ./install.sh
 <p>截图一张:</p>
 <img alt="../_images/vim-plugin-screenshot.png" src="../_images/vim-plugin-screenshot.png" />
 <hr class="docutils" />
-<section data-isso-id="/blog/install-vim-plugins" id="isso-thread"></section></section>
-</section>
+<section data-isso-id="/blog/install-vim-plugins" id="isso-thread"></section></div>
+</div>
 
 <div class="section">
      
@@ -505,7 +504,7 @@ $ ~ ./install.sh
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
