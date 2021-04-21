@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-04-21T16:41:54.456457+00:00</updated>
+  <updated>2021-04-21T16:47:32.635974+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
@@ -281,7 +281,7 @@ byte_415768 db 73h
 &lt;/div&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;flag:&lt;/span&gt; &lt;span class="pre"&gt;wctf{Pe_cRackme1c1024}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/idf-reverse-writeup" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/idf-reverse-writeup" data-title="IDF 实验室逆向题部分题解" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/idf-reverse-writeup.html" rel="alternate"/>
@@ -353,7 +353,7 @@ byte_415768 db 73h
 &lt;p&gt;对于我这种初学者来说，最有诱惑力也最后成就感的自然就是三行快排了。。。
 诶，去掉声明就是三行了。当然还会有更加厉害的实现，不过，先这样好了。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/haskell-beginning" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/haskell-beginning" data-title="Hello Haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/haskell-beginning.html" rel="alternate"/>
@@ -527,7 +527,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;img alt="_images/2021-02-12_14:56:46.png" src="_images/2021-02-12_14:56:46.png" /&gt;
 &lt;p&gt;可以看到最后一个字符串是着色错误的。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/syntax-highlight-in-haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/syntax-highlight-in-haskell" data-title="Syntax Highligh.hs" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
@@ -575,7 +575,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;/ul&gt;
 &lt;p&gt;Done.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/windows-chinese-username" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/windows-chinese-username" data-title="把 Windows 中文用户名改为英文" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/windows-chinese-username.html" rel="alternate"/>
     <summary>上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
@@ -666,7 +666,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/matrix-arithmetic-in-haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/matrix-arithmetic-in-haskell" data-title="用 Haskell 实现的矩阵运算" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/matrix-arithmetic-in-haskell.html" rel="alternate"/>
     <summary>这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
@@ -736,7 +736,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;p&gt;睡觉吧, 或许明天起来后, 突然就知道应该这么做了.&lt;/p&gt;
 &lt;p&gt;顺道一说, 今晚水了一道AliCTF的Reverse题…估计也就这一道了.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/some-minds-about-linux" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/some-minds-about-linux" data-title="不求甚解者用不好 Linux" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/some-minds-about-linux.html" rel="alternate"/>
     <summary>今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.</summary>
@@ -840,7 +840,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;p&gt;（我觉得State Monad有个反人类的地方就是，本来按顺序沿着&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;处理状态，
 偏偏初始状态是放在最右的)&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" data-title="do 记法和 &amp;gt;&amp;gt;= 的等效表达" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" rel="alternate"/>
     <summary>明明在开学的时候，Haskell 趣学指南 就只剩下三十来页了，但是还书日在即，
@@ -887,7 +887,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 想往电脑里放什么就能放什么.&lt;/p&gt;
 &lt;p&gt;嗯, 大致如此.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/record-of-a-boring-hack" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/record-of-a-boring-hack" data-title="记一次毫无技术含量的 Hack" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/record-of-a-boring-hack.html" rel="alternate"/>
     <summary>早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
@@ -1370,7 +1370,7 @@ UnhandledExceptionFilter可是步骤6才执行的?
 Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/threee-way-of-anti-debug" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/threee-way-of-anti-debug" data-title="几种简单的反调试方法" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
@@ -1491,7 +1491,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 只需要对路径做些处理就行了.&lt;/p&gt;
 &lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;感觉好像什么都没写啊(摔…&lt;/span&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/first-attempt-of-python" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/first-attempt-of-python" data-title="Python 初试" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/first-attempt-of-python.html" rel="alternate"/>
@@ -1647,7 +1647,7 @@ $ ~ ./install.sh
 &lt;p&gt;截图一张:&lt;/p&gt;
 &lt;img alt="_images/vim-plugin-screenshot.png" src="_images/vim-plugin-screenshot.png" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/install-vim-plugins" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/install-vim-plugins" data-title="Vim 插件折腾记录" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/install-vim-plugins.html" rel="alternate"/>
@@ -1819,7 +1819,7 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;p&gt;上面有提到的全部配置文件参见:&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ/dotfiles"&gt;SilverRainZ/dotfiles - Github&lt;/a&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/configure-of-archlinux" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/configure-of-archlinux" data-title="Arch Linux 折腾小记" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/configure-of-archlinux.html" rel="alternate"/>
@@ -2059,7 +2059,7 @@ more ~/text.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/overthewire-bandit" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/overthewire-bandit" data-title="OverTheWire Bandit" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2451,7 +2451,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/ranxian/xv6-chinese"&gt;xv6 中文文档&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/minix-v1-file-system" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/minix-v1-file-system" data-title="Minix v1 文件系统的实现" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/minix-v1-file-system.html" rel="alternate"/>
@@ -2471,7 +2471,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;p&gt;现在不开始的话, 以后也不会开始了.&lt;/p&gt;
 &lt;img alt="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/flag" data-title="立 Flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/flag.html" rel="alternate"/>
     <summary>现在不开始的话, 以后也不会开始了.</summary>
@@ -2821,7 +2821,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 :( 但是我已经写不下去了… 如果可以话下次再写吧.&lt;/p&gt;
 &lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;不一定有下次&lt;/span&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/process-scheduler-1" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/process-scheduler-1" data-title="用户态进程的简单实现及调度(一)" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/process-scheduler-1.html" rel="alternate"/>
@@ -3045,7 +3045,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;因此得到 key： &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;625153518183737244411411143431234244&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;附上分析时使用的 &lt;a class="reference external" href="http://jianguoyun.com/p/DaHaiScQtNrvBRjo2w4"&gt;idb 数据库&lt;/a&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/2015-huashangctf-re300" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/2015-huashangctf-re300" data-title="2015 华山杯 CTF Reverse 300" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/2015-huashangctf-re300.html" rel="alternate"/>
     <summary>程序在此： toetrix-crackme.exe， VC++ 6.0 编写，无壳， CLI 程序。</summary>
@@ -3217,7 +3217,7 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;img alt="" src="_images/os67-mod-include-graph-good.png" /&gt;
 &lt;p&gt;好困睡觉。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/gen-graph-from-c-code" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/gen-graph-from-c-code" data-title="从 C 源码生成 函数/模块 调用图" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gen-graph-from-c-code.html" rel="alternate"/>
@@ -3344,7 +3344,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;/div&gt;
 &lt;p&gt;元旦快乐，希望新的一年不要那么痛苦了。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/overthewire-leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/overthewire-leviathan" data-title="OverTheWire Leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-leviathan.html" rel="alternate"/>
     <summary>地址: OverTheWire: Leviathan.</summary>
@@ -3414,7 +3414,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;p&gt;上面的代码被我整合进了 &lt;a class="reference external" href="https://github.com/SilverRainZ/teebot"&gt;SilverRainZ/teebot&lt;/a&gt; 里，
 如果你在 #archlinux-cn 频道的话，输入 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.tee&lt;/span&gt;&lt;/code&gt; 就能知道现在社区的游戏服务器里有几个人啦。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/get-teeworlds-server-information" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/get-teeworlds-server-information" data-title="获取 teeworlds 服务器信息" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/get-teeworlds-server-information.html" rel="alternate"/>
     <summary>前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
@@ -3600,7 +3600,7 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;p&gt;最后再贴一张图：&lt;/p&gt;
 &lt;img alt="" src="_images/thinkpad-l450-screenshot.png" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/thinkpad-l450" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/thinkpad-l450" data-title="入手 ThinkPad L450" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/thinkpad-l450.html" rel="alternate"/>
     <summary>元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
@@ -3621,7 +3621,7 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;p&gt;;-) 难以置信。&lt;/p&gt;
 &lt;img alt="" src="_images/gsoc-2016-mail.png" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/gsoc-2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/gsoc-2016" data-title="GSoC 2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016.html" rel="alternate"/>
     <summary>;-) 难以置信。</summary>
@@ -3924,7 +3924,7 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/practical-makefile-for-packaging" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/practical-makefile-for-packaging" data-title="编写便于打包的 Makefile" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/practical-makefile-for-packaging.html" rel="alternate"/>
@@ -4158,7 +4158,7 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ/hurd"&gt;我的 Hurd fork&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/gsoc-2016-sum-up" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/gsoc-2016-sum-up" data-title="GSoC 2016 小记 - 误打误撞三个月" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016-sum-up.html" rel="alternate"/>
@@ -4417,7 +4417,7 @@ Description.
 Read The Docs 上的文档。&lt;/p&gt;
 &lt;p&gt;P.S. Read The Docs 的主站看起来很简陋…… 给我一种要完蛋了的感觉。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/use-sphinx-and-rst-to-manage-your-notes" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/use-sphinx-and-rst-to-manage-your-notes" data-title="用 Sphinx + reStructuredText 构建笔记系统" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/use-sphinx-and-rst-to-manage-your-notes.html" rel="alternate"/>
@@ -4780,7 +4780,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;li&gt;&lt;p&gt;以后遇到了再补……&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/switch-from-duoshuo-to-isso" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/switch-from-duoshuo-to-isso" data-title="从多说迁移到 Isso" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/switch-from-duoshuo-to-isso.html" rel="alternate"/>
@@ -4830,7 +4830,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 但我相信是会有人受益于这个软件的吧，一切都会顺利进行的吧，I pray。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/srain-and-me" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/srain-and-me" data-title="Srain 1.0 发布了" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/srain-and-me.html" rel="alternate"/>
     <summary>这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
@@ -4880,7 +4880,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 &lt;/div&gt;
 &lt;p&gt;再见啦，我的 2010，再见啦，那个一点都不胖的人。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/new-boy" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/new-boy" data-title="嘿，我去 2010" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
 </content>
     <link href="https://silverrainz.me/blog/new-boy.html" rel="alternate"/>
     <summary>6 月我从长亭科技离职，去燕郊 @李晓飞 老师处学画，
