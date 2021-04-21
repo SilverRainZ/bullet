@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-04-21T12:59:28.917752+00:00</updated>
+  <updated>2021-04-21T14:26:49.062734+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
@@ -1668,7 +1668,7 @@ $ ~ ./install.sh
 先上张图:&lt;/p&gt;
 &lt;img alt="" src="_images/archlinux-screenshot.png" /&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 19)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 17)&lt;/p&gt;
 &lt;p&gt;No directive entry for “contents” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;/div&gt;
@@ -1704,7 +1704,7 @@ Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;dmenu&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;trayer&lt;/span&gt; trayer-srg&lt;sup&gt;AUR&lt;/sup&gt;&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 35)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 33)&lt;/p&gt;
 &lt;p&gt;No role entry for “sup” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for role “sup”.&lt;/p&gt;
 &lt;/div&gt;
@@ -1792,7 +1792,7 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;p&gt;对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 141)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 139)&lt;/p&gt;
 &lt;p&gt;No directive entry for “topic” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
