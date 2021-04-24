@@ -102,12 +102,8 @@
 <div class="section" id="id2">
 <h2>初始配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>安装必要的工具:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> pacman -S <span class="se">\</span>
-         base-devel <span class="se">\</span>
-         neovim <span class="se">\</span>
-         git <span class="se">\</span>
-         wget <span class="se">\</span>
-<span class="c1"># pacman -S proxychains-ng</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> pacman -S base-devel neovim git wget
+<span class="gp">#</span> pacman -S proxychains-ng
 <span class="gp">#</span> pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions
 </pre></div>
 </div>
@@ -173,20 +169,12 @@
 </ol>
 </li>
 <li><p>创建常用的 $HOME 布局:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mkdir -p <span class="se">\</span>
-  bin <span class="se">\</span>
-  desktop <span class="se">\</span>
-  downloads <span class="se">\</span>
-  git <span class="se">\</span>
-  music <span class="se">\</span>
-  pictures  <span class="se">\</span>
-  public <span class="se">\</span>
-  workspace <span class="se">\</span>
-  documents  <span class="se">\</span>
-  games  <span class="se">\</span>
-  pkg <span class="se">\</span>
-  templates <span class="se">\</span>
-  videos
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">*nix style</span>
+<span class="gp">$</span> mkdir bin
+<span class="go">XDG directories</span>
+<span class="gp">$</span> mkdir desktop downloads music pictures public documents games templates videos
+<span class="go">My workflow</span>
+<span class="gp">$</span> mkdir git workspace pkg
 </pre></div>
 </div>
 </li>
@@ -205,6 +193,21 @@
 </div>
 <div class="section" id="id8">
 <h2>服务配置<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>对外服务：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>服务</p></td>
+<td><p>端口</p></td>
+</tr>
+<tr class="row-even"><td><p>webdav</p></td>
+<td><p>30500/tcp</p></td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="id9">
 <h3>文件服务<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>创建常用的同步目录结构:</p>
@@ -214,41 +217,149 @@
 </div>
 <div class="section" id="id10">
 <h4>挂载大容量存储<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<div class="admonition-todo admonition" id="id11">
+<p class="admonition-title">待处理</p>
+<p>想用 <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">--user</span></code> 管理这个 mount，试了挺久没有成功，先放着</p>
+</div>
 <p>参考 <a class="reference external" href="https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/">这篇文章</a>
-和 <a href="#id12"><span class="problematic" id="id13">:man:`SYSTEMD.MOUNT(5)`</span></a></p>
-<p>la-wdbuzg0010bb 是大学时期买的一个 1TB 的西数移动硬盘。</p>
-<blockquote>
-<div><p># blkid /dev/sda1
-$ cd ~/.config/systemd/user
-$ touch $(systemd-escape –path ‘/mnt/la-wdbuzg0010bb’).mount</p>
-</div></blockquote>
+和 <em class="manpage">SYSTEMD.MOUNT(5)</em>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> blkid /dev/sda1
+<span class="gp">#</span> touch /usr/lib/systemd/system/<span class="k">$(</span>systemd-escape --path <span class="s1">&#39;/mnt/la-wdbuzg0010bb&#39;</span><span class="k">)</span>.mount
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>la-wdbuzg0010bb 是大学时期买的一个 1TB 的西数移动硬盘。
+一直闲置所以用来当树莓派的存储</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>systemd 对 mount unit 的文件名有要求，使用 <code class="docutils literal notranslate"><span class="pre">systemd-escape</span> <span class="pre">--path</span></code> 转义之</p>
 </div>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span>
+<p>编写 mount 文件如下：</p>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-number">列表 1 </span><span class="caption-text">/usr/lib/systemd/system/mnt-lax2dwdbuzg0010bb.mount</span><a class="headerlink" href="#id20" title="永久链接至代码">¶</a></div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Mount la-wdbuzg0010bb</span>
+
+<span class="k">[Mount]</span>
+<span class="na">User</span><span class="o">=</span><span class="s">%u</span>
+<span class="na">What</span><span class="o">=</span><span class="s">/dev/disk/by-uuid/d7bfcb86-eb6e-47d8-8706-9c3210d0f9fb</span>
+<span class="na">Where</span><span class="o">=</span><span class="s">/mnt/la-wdbuzg0010bb</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">ext4</span>
+<span class="na">Options</span><span class="o">=</span><span class="s">defaults</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+</div>
+</div>
+<p>Enable and start:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> systemctl <span class="nb">enable</span> --now mnt-la<span class="se">\\</span>x2dwdbuzg0010bb.mount
+</pre></div>
+</div>
+<p>设置共享目录（先移除已创建的 <code class="file docutils literal notranslate"><span class="pre">~/public</span></code> ）:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ln -s /mnt/la-wdbuzg0010bb/la-pi3-public/ ~/public
 </pre></div>
 </div>
 </div>
 <div class="section" id="webdav">
 <h4>WebDAV<a class="headerlink" href="#webdav" title="永久链接至标题">¶</a></h4>
-<p>使用 <a class="reference external" href="https://archlinux.org/packages/nginx-mainline">nginx-mainline</a> + <a class="reference external" href="https://archlinux.org/packages/nginx-mainline-mod-dav-ext">nginx-mainline-mod-dav-ext</a></p>
+<p>使用 <a class="reference external" href="https://archlinux.org/packages/nginx-mainline">nginx-mainline</a> + <a class="reference external" href="https://aur.archlinux.org/packages/nginx-mainline-mod-dav-ext">nginx-mainline-mod-dav-ext</a>
+后者需要自己 build。根据 <a href="#id13"><span class="problematic" id="id14">:archwiki:`WebDAV#Nginx`</span></a> 做如下配置：</p>
+<p>以下配置加入 <code class="file docutils literal notranslate"><span class="pre">/etc/nginx/nginx.conf</span></code>:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">load_module</span> <span class="s">/usr/lib/nginx/modules/ngx_http_dav_ext_module.so</span><span class="p">;</span>
+
+<span class="c1"># ...</span>
+
+<span class="k">http</span> <span class="p">{</span>
+    <span class="kn">server</span> <span class="p">{</span>
+        <span class="kn">listen</span> <span class="mi">30500</span><span class="p">;</span>
+
+        <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+            <span class="kn">root</span> <span class="s">/mnt/la-wdbuzg0010bb/la-pi3-public</span><span class="p">;</span>
+
+            <span class="kn">dav_methods</span> <span class="s">PUT</span> <span class="s">DELETE</span> <span class="s">MKCOL</span> <span class="s">COPY</span> <span class="s">MOVE</span><span class="p">;</span>
+            <span class="kn">dav_ext_methods</span> <span class="s">PROPFIND</span> <span class="s">OPTIONS</span><span class="p">;</span>
+
+            <span class="c1"># Adjust as desired:</span>
+            <span class="kn">dav_access</span> <span class="s">user:rw</span> <span class="s">group:rw</span> <span class="s">all:r</span><span class="p">;</span>
+            <span class="kn">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="kn">create_full_put_path</span> <span class="no">on</span><span class="p">;</span>
+            <span class="kn">client_body_temp_path</span> <span class="s">/srv/client-temp</span><span class="p">;</span>
+            <span class="kn">autoindex</span> <span class="no">on</span><span class="p">;</span>
+
+            <span class="kn">allow</span> <span class="mi">10</span><span class="s">.0.0.0/24</span><span class="p">;</span>
+            <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>本来想用 <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">/home/la/public</span></code> ，试了下发现不支持 follow symlink，只好用
+mnt 的地址 <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">/mnt/la-wdbuzg0010bb/la-pi3-public</span></code></p>
+</div>
+</div>
+<div class="section" id="nfs">
+<h4>NFS<a class="headerlink" href="#nfs" title="永久链接至标题">¶</a></h4>
+<p>根据 <a href="#id15"><span class="problematic" id="id16">:archwiki:`NFS`</span></a> 来。</p>
+<div class="section" id="id17">
+<h5>服务端<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h5>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> pacman -S nfs-utils
+<span class="gp">#</span> timedatectl set-ntp <span class="m">1</span>
+<span class="gp">#</span> systemctl <span class="nb">enable</span> --now nfs-server.service
+</pre></div>
+</div>
+<p>共享 la-wdbuzg0010bb：</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-number">列表 2 </span><span class="caption-text">/etc/exports</span><a class="headerlink" href="#id21" title="永久链接至代码">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/mnt/la-wdbuzg0010bb/ 10.0.0.0/24(rw,sync,nohide)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h5>客户端<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h5>
+<blockquote>
+<div><p># pacman -S nfs-utils
+# touch /etc/systemd/system/$(systemd-escape –path ‘/mnt/la-wdbuzg0010bb’).mount</p>
+</div></blockquote>
+<p>编写 mount 文件如下：</p>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-number">列表 3 </span><span class="caption-text">/etc/systemd/system/mnt-lax2dwdbuzg0010bb.mount</span><a class="headerlink" href="#id22" title="永久链接至代码">¶</a></div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Mount la-wdbuzg0010bb</span>
+
+<span class="k">[Mount]</span>
+<span class="na">What</span><span class="o">=</span><span class="s">la-pi3:/mnt/la-wdbuzg0010bb</span>
+<span class="na">Where</span><span class="o">=</span><span class="s">/mnt/la-wdbuzg0010bb</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">nfs</span>
+<span class="na">TimeoutSec</span><span class="o">=</span><span class="s">30</span>
+<span class="na">ForceUnmount</span><span class="o">=</span><span class="s">true</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+</div>
+</div>
+<p>启动 client:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl <span class="nb">enable</span> --now <span class="s1">&#39;mnt-la\x2dwdbuzg0010bb.mount&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="syncthing">
 <h4>Syncthing<a class="headerlink" href="#syncthing" title="永久链接至标题">¶</a></h4>
-<p>TODO</p>
+<div class="admonition-todo admonition" id="id19">
+<p class="admonition-title">待处理</p>
+<p>Syncthing</p>
 </div>
-</div>
-</div>
-<div class="section" id="id14">
-<h2>参考<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
-<dl class="footnote brackets">
-<dt class="label" id="id15"><span class="brackets">1</span></dt>
-<dd><p><a class="reference external" href="https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/">https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/</a></p>
-</dd>
-</dl>
 <hr class="docutils" />
 <section data-isso-id="/notes/pi" data-title="家用树莓派 3B+ 配置" id="isso-thread"></section></div>
+</div>
+</div>
 </div>
 
 <div class="section">
