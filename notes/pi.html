@@ -298,6 +298,10 @@
 </div>
 <div class="section" id="webdav">
 <h4><a class="toc-backref" href="#id30">WebDAV</a><a class="headerlink" href="#webdav" title="永久链接至标题">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>权限问题很多，很难受</p>
+</div>
 <p>使用 <a class="reference external" href="https://archlinux.org/packages/nginx-mainline">nginx-mainline</a> + <a class="reference external" href="https://aur.archlinux.org/packages/nginx-mainline-mod-dav-ext">nginx-mainline-mod-dav-ext</a>
 后者需要自己 build。根据 <a href="#id14"><span class="problematic" id="id15">:archwiki:`WebDAV#Nginx`</span></a> 做如下配置：</p>
 <p>以下配置加入 <code class="file docutils literal notranslate"><span class="pre">/etc/nginx/nginx.conf</span></code>:</p>
@@ -306,11 +310,18 @@
 <span class="c1"># ...</span>
 
 <span class="k">http</span> <span class="p">{</span>
+    <span class="kn">types_hash_max_size</span> <span class="mi">4096</span><span class="p">;</span>
+
     <span class="kn">server</span> <span class="p">{</span>
         <span class="kn">listen</span> <span class="mi">30500</span><span class="p">;</span>
 
+        <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
+
         <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
             <span class="kn">root</span> <span class="s">/mnt/la-wdbuzg0010bb/la-pi3-public</span><span class="p">;</span>
+            <span class="c1"># client_body_temp_path 用于临时文件中转，必须和 root 在一个文件系统下</span>
+            <span class="kn">client_body_temp_path</span> <span class="s">/mnt/la-wdbuzg0010bb/webdav-client-temp</span><span class="p">;</span>
+
 
             <span class="kn">dav_methods</span> <span class="s">PUT</span> <span class="s">DELETE</span> <span class="s">MKCOL</span> <span class="s">COPY</span> <span class="s">MOVE</span><span class="p">;</span>
             <span class="kn">dav_ext_methods</span> <span class="s">PROPFIND</span> <span class="s">OPTIONS</span><span class="p">;</span>
@@ -319,7 +330,6 @@
             <span class="kn">dav_access</span> <span class="s">user:rw</span> <span class="s">group:rw</span> <span class="s">all:r</span><span class="p">;</span>
             <span class="kn">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
             <span class="kn">create_full_put_path</span> <span class="no">on</span><span class="p">;</span>
-            <span class="kn">client_body_temp_path</span> <span class="s">/srv/client-temp</span><span class="p">;</span>
             <span class="kn">autoindex</span> <span class="no">on</span><span class="p">;</span>
 
             <span class="kn">allow</span> <span class="mi">10</span><span class="s">.0.0.0/24</span><span class="p">;</span>
@@ -333,6 +343,11 @@
 <p class="admonition-title">注解</p>
 <p>本来想用 <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">/home/la/public</span></code> ，试了下发现不支持 follow symlink，只好用
 mnt 的地址 <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">/mnt/la-wdbuzg0010bb/la-pi3-public</span></code></p>
+</div>
+<p>修改 public 目录权限让 nginx.service 对应的 http 用户能够正常读写:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> chown :http -R /mnt/la-wdbuzg0010bb/la-pi3-public
+<span class="gp">#</span> chmod g+w -R /mnt/la-wdbuzg0010bb/la-pi3-public
+</pre></div>
 </div>
 </div>
 <div class="section" id="nfs">
