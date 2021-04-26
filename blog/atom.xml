@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-04-25T15:23:16.448982+00:00</updated>
+  <updated>2021-04-26T11:00:39.782405+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
@@ -3150,7 +3150,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;a class="reference external" href="https://www.flourish.org/cinclude2dot/"&gt;flourish.org/cinclude2dot/&lt;/a&gt;。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;AUR 里面没有所以顺手给打了一个包：
-&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;cinclude2dot\&lt;/span&gt; &lt;span class="pre"&gt;:sup:`AUR&lt;/span&gt;&lt;/code&gt; &amp;lt;&lt;a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/"&gt;https://aur.archlinux.org/packages/cinclude2dot/&lt;/a&gt;&amp;gt;`_，
+&lt;cite&gt;cinclude2dot:sup:`AUR&lt;/cite&gt; &amp;lt;&lt;a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/"&gt;https://aur.archlinux.org/packages/cinclude2dot/&lt;/a&gt;&amp;gt;`_，
 所以现在也可以直接用 yaourt 装 cinclude2dot 了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;cinclude2dot&lt;/span&gt; &lt;span class="pre"&gt;--include&lt;/span&gt; &lt;span class="pre"&gt;inc&lt;/span&gt; &lt;span class="pre"&gt;&amp;gt;&lt;/span&gt; &lt;span class="pre"&gt;main.dot&lt;/span&gt;&lt;/code&gt; 会在当前目录递归地找 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.c&lt;/span&gt;&lt;/code&gt; 文件，
