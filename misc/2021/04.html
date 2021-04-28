@@ -90,9 +90,9 @@
 <h1>2020-04<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="notes-zxsys-way-to-artist-find-yourself">
 <h2>给第一批 <a class="reference internal" href="../../notes/zxsys/way-to-artist/find-yourself.html"><span class="doc">找自己</span></a> 作业拍照<a class="headerlink" href="#notes-zxsys-way-to-artist-find-yourself" title="永久链接至标题">¶</a></h2>
-<div class="figure align-right" id="id9" style="width: 30%">
+<div class="figure align-right" id="id11" style="width: 30%">
 <img alt="../../_images/IMG_0117.jpg" src="../../_images/IMG_0117.jpg" />
-<p class="caption"><span class="caption-text">第一批作业合影</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+<p class="caption"><span class="caption-text">第一批作业合影</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
 </div>
 <p>一加的相机颜色太过鲜艳，于是用 iPad 拍。
 房东送来一闲置的玻璃茶几，把 iPad 平放在茶几，画放在下边的置物架，
@@ -154,9 +154,9 @@
 </dd>
 </dl>
 <p><a class="reference external" href="https://zh.wikipedia.org/wiki/高乃依">高乃依</a> 逃跑了所以明天不用去画室 :)</p>
-<div class="figure align-default" id="id10">
+<div class="figure align-default" id="id12">
 <a class="reference internal image-reference" href="../../_images/于是高乃依正准备上天.gif"><img alt="../../_images/于是高乃依正准备上天.gif" src="../../_images/于是高乃依正准备上天.gif" style="width: 30%;" /></a>
-<p class="caption"><span class="caption-text">竹蜻蜓是点外卖送的……</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+<p class="caption"><span class="caption-text">竹蜻蜓是点外卖送的……</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
 </div>
 <p>照片 -&gt; GIF:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>convert -rotate <span class="m">90</span> -resize <span class="m">20</span>% -delay <span class="m">15</span> -loop <span class="m">0</span>  <span class="k">$(</span>ls *.jpg<span class="p">|</span> grep <span class="m">0425</span><span class="k">)</span> 于是高乃依正准备上天.gif
@@ -166,6 +166,20 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ffmpeg -r <span class="m">5</span> -stream_loop <span class="m">3</span> -i 于是高乃依正准备上天.gif -movflags faststart -pix_fmt yuv420p -vf <span class="s2">&quot;scale=trunc(iw/2)*2:trunc(ih/2)*2&quot;</span> 于是高乃依正准备上天.mp4
 </pre></div>
 </div>
+</div>
+<div class="section" id="plan-9">
+<h2>Plan 9<a class="headerlink" href="#plan-9" title="永久链接至标题">¶</a></h2>
+<p>两个核心概念：</p>
+<blockquote>
+<div><p>[t]he foundations of the system are built on two ideas:
+a per-process name space and a simple message-oriented file system protocol.
+— Pike et al. <a class="footnote-reference brackets" href="#id10" id="id9">4</a></p>
+</div></blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id9">4</a></span></dt>
+<dd><p><a class="reference external" href="http://9p.io/sys/doc/names.html">http://9p.io/sys/doc/names.html</a></p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -204,7 +218,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../notes/painters.html">艺术家史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/pi.html">家用树莓派 3B+ 配置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/books/index.html">读书笔记</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../notes/draft/way-of-guitar-recoding.html">录歌方案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/ionian/index.html">大调训练计划</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notes/sphinx-as-pim/index.html">Sphinx As PIM System</a></li>

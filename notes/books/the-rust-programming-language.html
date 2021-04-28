@@ -95,6 +95,9 @@
 <dt class="field-even">开始于</dt>
 <dd class="field-even"><p>2020-03-11</p>
 </dd>
+<dt class="field-odd">书签</dt>
+<dd class="field-odd"><p>第 314 页</p>
+</dd>
 </dl>
 <div class="contents local topic" id="id1">
 <ul class="simple">
@@ -111,6 +114,8 @@
 <li><p><a class="reference internal" href="#ch11" id="id17">ch11 编写自动化测试</a></p></li>
 <li><p><a class="reference internal" href="#ch12" id="id18">ch12 构建一个命令行程序</a></p></li>
 <li><p><a class="reference internal" href="#ch13" id="id19">ch13 迭代器与闭包</a></p></li>
+<li><p><a class="reference internal" href="#ch14-release-profiles" id="id20">ch14 Release Profiles</a></p></li>
+<li><p><a class="reference internal" href="#ch15" id="id21">ch15 智能指针</a></p></li>
 </ul>
 </div>
 <div class="section" id="ch1">
@@ -366,14 +371,38 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <div class="section" id="ch13">
 <h2><a class="toc-backref" href="#id19">ch13 迭代器与闭包</a><a class="headerlink" href="#ch13" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
-<dt>Closures</dt><dd><p>可以捕获 scope 的 lambda 函数</p>
+<dt>闭包</dt><dd><p>可以捕获 scope 的 匿名函数，捕获方式有三种：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FnOnce</span></code> 移动所有权</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FnMut</span></code> 可变借用</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fn</span></code> 不可变借用</p></li>
+</ul>
+</dd>
+<dt>Iterator Adaptor</dt><dd><p>对 Iterator 做变换，返回另一个迭代器，可形成链式调用</p>
 </dd>
 </dl>
-<dl class="field-list simple">
-<dt class="field-odd">page</dt>
-<dd class="field-odd"><p>261</p>
+</div>
+<div class="section" id="ch14-release-profiles">
+<h2><a class="toc-backref" href="#id20">ch14 Release Profiles</a><a class="headerlink" href="#ch14-release-profiles" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 很方便</p>
+<p>翻译有点儿怪……</p>
+<p>可以用 <code class="docutils literal notranslate"><span class="pre">pub</span> <span class="pre">use</span></code> 重导出，在统一的地方管理公开 API</p>
+<dl class="simple">
+<dt>Cargo workspace</dt><dd><p>很有意思，一堆项目共享同一个 <code class="docutils literal notranslate"><span class="pre">Cargo.lock</span></code> ：确保所有 create 使用相同版本的依赖</p>
+</dd>
+<dt>Cargo subcommand</dt><dd><p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">xxx</span></code> 会执行 <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">cargo-xxx</span></code> ，略粗暴</p>
 </dd>
 </dl>
+</div>
+<div class="section" id="ch15">
+<h2><a class="toc-backref" href="#id21">ch15 智能指针</a><a class="headerlink" href="#ch15" title="永久链接至标题">¶</a></h2>
+<p><span class="sphinxnotes-strike">说实话 C++ 里的智能指针让我感到「非用不可」而不是「用得舒服」</span></p>
+<p>常见的智能指针</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Box&lt;T&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rc&lt;T&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ref&lt;T&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">RefMut&lt;T&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">RefCell&lt;T&gt;</span></code></p></li>
+</ul>
 </div>
 </div>
 
@@ -412,7 +441,6 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <li class="toctree-l1"><a class="reference internal" href="../painters.html">艺术家史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pi.html">家用树莓派 3B+ 配置</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">读书笔记</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../draft/way-of-guitar-recoding.html">录歌方案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
