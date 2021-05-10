@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -16,8 +17,8 @@
         </script>
     
     <title>Arch Linux 折腾小记 &#8212; 银色子弹</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
@@ -26,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -85,7 +86,7 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="arch-linux">
+             <section id="arch-linux">
 <h1><a class="toc-backref" href="#id6">Arch Linux 折腾小记</a><a class="headerlink" href="#arch-linux" title="永久链接至标题">¶</a></h1>
 <p>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:</p>
@@ -110,7 +111,7 @@
 </li>
 </ul>
 </div>
-<div class="section" id="xmonad-wm">
+<section id="xmonad-wm">
 <h2><a class="toc-backref" href="#id7">以 XMonad 为 WM 的桌面</a><a class="headerlink" href="#xmonad-wm" title="永久链接至标题">¶</a></h2>
 <p>没有用 DE, WM 用的是 XMonad.</p>
 <p>关于 XMonad 的默认快捷键, <a class="reference external" href="http://xmonad.org/tour.html">XMonad Guide Tour</a>
@@ -161,8 +162,8 @@
 <p><code class="docutils literal notranslate"><span class="pre">-s</span></code>参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
 只能在截图后用<code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">'mv</span> <span class="pre">$f</span> <span class="pre">~/Pictures/Screenshots'</span></code>把截图放到指定目录.</p>
 <p>上面这些配置大多写在启动脚本<code class="docutils literal notranslate"><span class="pre">startup.sh</span></code>里, 每个命令后边都得加上一个<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2><a class="toc-backref" href="#id8">无线网络管理</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>为了更方便地连接无线网络, 安装如下包:</p>
 <ul class="simple">
@@ -174,10 +175,10 @@
 因为 networkmanager 和他有冲突, 安装完后执行 NetworkManager 启动服务.</p>
 <p>network-manager-applet 是 networkmanager 的前端.</p>
 <p>似乎不安装 <code class="docutils literal notranslate"><span class="pre">gnome-keyring</span></code>的话就无法连上加密的无线网络.</p>
-</div>
-<div class="section" id="im">
+</section>
+<section id="im">
 <h2><a class="toc-backref" href="#id9">IM</a><a class="headerlink" href="#im" title="永久链接至标题">¶</a></h2>
-<div class="section" id="qq">
+<section id="qq">
 <h3><a class="toc-backref" href="#id10">QQ</a><a class="headerlink" href="#qq" title="永久链接至标题">¶</a></h3>
 <p>TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 <a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773">邓攀打包的TM2013</a>,
@@ -187,8 +188,8 @@
 ➜  winetrick riched20 ie6 mfc42 cjkfonts wenquanyi
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h3><a class="toc-backref" href="#id11">其他</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>IRC 客户端用火狐的 ChatZilla</p></li>
@@ -196,9 +197,9 @@
 另 TG 似乎已经被墙(手机上却仍然可以登录), Cutegram 无法登录, 挂个代理就行.</p></li>
 <li><p>qTox 也还凑合, 主要是可以听歌.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="gtk">
+</section>
+</section>
+<section id="gtk">
 <h2><a class="toc-backref" href="#id12">GTK</a><a class="headerlink" href="#gtk" title="永久链接至标题">¶</a></h2>
 <p>默认的 gtk 界面在 XMonad 下相当地丑, 可以安装<code class="docutils literal notranslate"><span class="pre">lxappearance</span></code>来调整 GTK 的主题.</p>
 <p>对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
@@ -210,8 +211,8 @@ konsole 的界面却依然很丑…</p>
 <p>2015-8-30: 安装社区源<code class="docutils literal notranslate"><span class="pre">gnome-breeze-git</span></code>主题, 以及 plasma5 的<code class="docutils literal notranslate"><span class="pre">breeze</span></code>主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量<code class="docutils literal notranslate"><span class="pre">QT_STYLE_OVERRIDE=breeze</span></code></p>
 </div>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2><a class="toc-backref" href="#id13">输入法:</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在<code class="docutils literal notranslate"><span class="pre">~/.xprofile</span></code>中加入:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
@@ -220,14 +221,14 @@ konsole 的界面却依然很丑…</p>
 </pre></div>
 </div>
 <p>并在启动脚本里启动 fcitx.</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h2><a class="toc-backref" href="#id14">配置文件</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>上面有提到的全部配置文件参见:</p>
 <p><a class="reference external" href="https://github.com/SilverRainZ/dotfiles">SilverRainZ/dotfiles - Github</a></p>
 <hr class="docutils" />
-<section data-isso-id="/blog/configure-of-archlinux" data-title="Arch Linux 折腾小记" id="isso-thread"></section></div>
-</div>
+<section data-isso-id="/blog/configure-of-archlinux" data-title="Arch Linux 折腾小记" id="isso-thread"></section></section>
+</section>
 
 <div class="section">
      
@@ -536,7 +537,7 @@ konsole 的界面却依然很丑…</p>
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

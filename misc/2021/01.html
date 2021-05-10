@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -15,9 +16,9 @@
             
         </script>
     
-    <title>2020-01 &#8212; 银色子弹</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <title>2021-01 &#8212; 银色子弹</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
@@ -26,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -35,7 +36,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="2020-02" href="02.html" />
+    <link rel="next" title="2021-02" href="02.html" />
     <link rel="prev" title="2021" href="index.html" /> 
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -86,12 +87,12 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="id1">
-<h1>2020-01<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="migrating-from-gtk-3-x-to-gtk-4">
+             <section id="id1">
+<h1>2021-01<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<section id="migrating-from-gtk-3-x-to-gtk-4">
 <h2>Migrating from GTK 3.x to GTK 4 <a class="footnote-reference brackets" href="#id5" id="id2">1</a><a class="headerlink" href="#migrating-from-gtk-3-x-to-gtk-4" title="永久链接至标题">¶</a></h2>
 <p>列举 Srain 需要变更的部分：</p>
-<div class="section" id="preparation-in-gtk-3-x">
+<section id="preparation-in-gtk-3-x">
 <h3>Preparation in GTK 3.x<a class="headerlink" href="#preparation-in-gtk-3-x" title="永久链接至标题">¶</a></h3>
 <p>Do not use widget style properties</p>
 <dl>
@@ -129,8 +130,8 @@
 使用容器自带的 add 和 remove 函数</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="changes-that-need-to-be-done-at-the-time-of-the-switch">
+</section>
+<section id="changes-that-need-to-be-done-at-the-time-of-the-switch">
 <h3>Changes that need to be done at the time of the switch<a class="headerlink" href="#changes-that-need-to-be-done-at-the-time-of-the-switch" title="永久链接至标题">¶</a></h3>
 <dl class="simple">
 <dt>Subclassing</dt><dd><p>Many widgets can no longer be subclassed. In most cases,
@@ -147,12 +148,12 @@ replaced by equivalent event controller APIs:
 necessary changes automatically, when called with the <code class="docutils literal notranslate"><span class="pre">–3to4</span></code> option.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="adapt-to-gtkbuilder-api-changes">
+</section>
+<section id="adapt-to-gtkbuilder-api-changes">
 <h3>Adapt to GtkBuilder API changes<a class="headerlink" href="#adapt-to-gtkbuilder-api-changes" title="永久链接至标题">¶</a></h3>
 <p>太长不看</p>
-</div>
-<div class="section" id="changes-to-consider-after-the-switch">
+</section>
+<section id="changes-to-consider-after-the-switch">
 <h3>Changes to consider after the switch<a class="headerlink" href="#changes-to-consider-after-the-switch" title="永久链接至标题">¶</a></h3>
 <p>只有一个吗…… Orz</p>
 <dl class="simple">
@@ -172,9 +173,9 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <dd><p><a class="reference external" href="https://developer.gnome.org/gtk4/unstable/ListContainers.html#ListWidget">https://developer.gnome.org/gtk4/unstable/ListContainers.html#ListWidget</a></p>
 </dd>
 </dl>
-</div>
-</div>
-<div class="section" id="fzf-intro">
+</section>
+</section>
+<section id="fzf-intro">
 <h2>Fzf Intro<a class="headerlink" href="#fzf-intro" title="永久链接至标题">¶</a></h2>
 <p>Fzf <a class="footnote-reference brackets" href="#id9" id="id8">4</a> 是一个命令行下通用模糊查找工具。通常搭配其他工具使用。</p>
 <dl class="simple">
@@ -249,8 +250,8 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <dd><p><a class="reference external" href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="awesome-list-of-python-cn-version">
+</section>
+<section id="awesome-list-of-python-cn-version">
 <h2>Awesome List of Python, CN version <a class="footnote-reference brackets" href="#id16" id="id10">5</a><a class="headerlink" href="#awesome-list-of-python-cn-version" title="永久链接至标题">¶</a></h2>
 <p>不喜欢 awesome list programer，但列表本身是有价值的。随便看看：</p>
 <dl class="simple">
@@ -286,8 +287,8 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <dd><p><a class="reference external" href="https://github.com/willmcgugan/rich">https://github.com/willmcgugan/rich</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="plumbum-shell-combinators-and-more">
+</section>
+<section id="plumbum-shell-combinators-and-more">
 <h2>Plumbum: Shell Combinators and More <a class="footnote-reference brackets" href="#id23" id="id22">11</a><a class="headerlink" href="#plumbum-shell-combinators-and-more" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
@@ -308,8 +309,8 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <dd><p><a class="reference external" href="https://github.com/tomerfiliba/plumbum">https://github.com/tomerfiliba/plumbum</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="id24">
+</section>
+<section id="id24">
 <h2>乐利和爱克林的乳制品包装垄断<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
@@ -317,8 +318,8 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 </dd>
 </dl>
 <p>TODO</p>
-</div>
-<div class="section" id="python-typing-hint-import">
+</section>
+<section id="python-typing-hint-import">
 <h2>Python Typing Hint 引入大量 import 导致脚本启动慢<a class="headerlink" href="#python-typing-hint-import" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
@@ -362,8 +363,8 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <dd><p><a class="reference external" href="https://stackoverflow.com/questions/7785944/what-does-import-pkg-resources-declare-namespace-name-do">https://stackoverflow.com/questions/7785944/what-does-import-pkg-resources-declare-namespace-name-do</a></p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
    
@@ -432,10 +433,10 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <p class="caption"><span class="caption-text">随记</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">2021</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2020-01</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.html">2020-02</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.html">2020-03</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04.html">2020-04</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2021-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">2021-02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">2021-03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">2021-04</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2020/index.html">2020</a></li>
@@ -460,7 +461,7 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="index.html">2021</a><ul>
       <li>Previous: <a href="index.html" title="上一章">2021</a></li>
-      <li>Next: <a href="02.html" title="下一章">2020-02</a></li>
+      <li>Next: <a href="02.html" title="下一章">2021-02</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -491,7 +492,7 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

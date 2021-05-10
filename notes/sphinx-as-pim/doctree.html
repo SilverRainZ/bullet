@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -16,8 +17,8 @@
         </script>
     
     <title>The Docutils Document Tree &#8212; 银色子弹</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
@@ -26,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -86,14 +87,14 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="the-docutils-document-tree">
+             <section id="the-docutils-document-tree">
 <h1>The Docutils Document Tree<a class="headerlink" href="#the-docutils-document-tree" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
 <dd class="field-odd"><p>2020-11-12</p>
 </dd>
 </dl>
-<div class="section" id="id1">
+<section id="id1">
 <h2>文档节点树<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>这篇文档 <a class="footnote-reference brackets" href="#id5" id="id2">1</a> 介绍了 docutils 的文档节点树（doctree），给出了一张节点元素的继承关系图:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--------------------------------------------------------------------+</span>
@@ -120,7 +121,7 @@
 <li><p>部分的 body elements 可以包含 body elements</p></li>
 <li><p>inline markup 只能和 text 混排</p></li>
 </ul>
-<div class="section" id="content-model">
+<section id="content-model">
 <h3>Content Model<a class="headerlink" href="#content-model" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>The Docutils document model uses strict element content models.
@@ -142,8 +143,8 @@ where paragraphs and text data may occur at the same level.</p>
 <p>只有能够直接包含文本（text data）的元素才拥有一个混合的内容模型（mixed content model），
 即能够混排文本（text data）和内联元素（inline elements ）（下述）。
 HTML 则宽松得多，段落和文本是能在同一嵌套级别出现的（比如 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;prargraph&lt;/p&gt;text</span></code> ）。</p>
-</div>
-<div class="section" id="element-categories">
+</section>
+<section id="element-categories">
 <h3>Element Categories<a class="headerlink" href="#element-categories" title="永久链接至标题">¶</a></h3>
 <p>doctree 上的元素可分为如下几类：</p>
 <dl>
@@ -185,9 +186,9 @@ Simple Body Elements 包含。大部分的 Inline Elements 都支持 “mixed co
 （e.g. <code class="docutils literal notranslate"><span class="pre">strong</span></code>, <code class="docutils literal notranslate"><span class="pre">subscript</span></code> ）</p>
 </dd>
 </dl>
-</div>
-</div>
-<div class="section" id="id4">
+</section>
+</section>
+<section id="id4">
 <h2>生活在树上 <a class="footnote-reference brackets" href="#id6" id="id3">2</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Date</dt>
@@ -219,8 +220,8 @@ visit 和 depart 方法。</p>
 </dl>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
    
@@ -342,7 +343,7 @@ visit 和 depart 方法。</p>
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

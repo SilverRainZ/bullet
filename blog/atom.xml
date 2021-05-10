@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-08T11:58:46.701146+00:00</updated>
+  <updated>2021-05-10T14:53:30.070688+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -14,11 +14,11 @@
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="idf"&gt;
+    <content type="html">&lt;section id="idf"&gt;
 
 &lt;p&gt;地址在这里：&lt;a class="reference external" href="http://ctf.idf.cn/index.php?g=game&amp;amp;m=list&amp;amp;a=index&amp;amp;id=21"&gt;IDF逆向题&lt;/a&gt;
 这些题都比较水，好在我和它一样水。&lt;/p&gt;
-&lt;div class="section" id="python-btyecode"&gt;
+&lt;section id="python-btyecode"&gt;
 &lt;h2&gt;Python BtyeCode:&lt;/h2&gt;
 &lt;p&gt;好像是用Cpython编译的, 手头没工具, 用的是师兄给的反编译出来的代码:&lt;/p&gt;
 &lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -96,8 +96,8 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;flag:&lt;/span&gt; &lt;span class="pre"&gt;WCTF{ILOVEPYTHONSOMUCH}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="elf"&gt;
+&lt;/section&gt;
+&lt;section id="elf"&gt;
 &lt;h2&gt;简单的ELF逆向:&lt;/h2&gt;
 &lt;p&gt;这题是ELFx64位的CrackMe, 只能用IDA啦, 载入之,师兄叫我用F4 F5,不过64位的IDA好像没有F5,
 找到main函数, F4, 得到代码:&lt;/p&gt;
@@ -206,8 +206,8 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;flag:&lt;/span&gt; &lt;span class="pre"&gt;wctf{ElF_lnX_Ckm_0823}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="pe"&gt;
+&lt;/section&gt;
+&lt;section id="pe"&gt;
 &lt;h2&gt;简单的PE文件逆向:&lt;/h2&gt;
 &lt;p&gt;x86平台, 双击没法运行, 应该需要某个古老的C++运行时, 那就放弃用OD了, IDA载入,
 稍微翻一翻(其实是不知道如何有效定位), 0x4113a0处就是关键处, F5之, 这次代码好看多了,
@@ -281,8 +281,8 @@ byte_415768 db 73h
 &lt;/div&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;flag:&lt;/span&gt; &lt;span class="pre"&gt;wctf{Pe_cRackme1c1024}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/idf-reverse-writeup" data-title="IDF 实验室逆向题部分题解" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/idf-reverse-writeup" data-title="IDF 实验室逆向题部分题解" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/idf-reverse-writeup.html" rel="alternate"/>
     <summary>地址在这里：IDF逆向题
@@ -297,7 +297,7 @@ byte_415768 db 73h
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="hello-haskell"&gt;
+    <content type="html">&lt;section id="hello-haskell"&gt;
 
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
 &lt;a class="reference internal" href="notes/books/index.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
@@ -310,13 +310,13 @@ byte_415768 db 73h
 后来我加入长亭科技，ztrix 自然也成为了我的老板。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;好了说点正事。&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;section id="id1"&gt;
 &lt;h2&gt;安装&lt;/h2&gt;
 &lt;p&gt;Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sudo&lt;/span&gt; &lt;span class="pre"&gt;zypper&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;ghc&lt;/span&gt;&lt;/code&gt;,
 但是比ghc更方便的是Haskell Platform, 安装同样可以&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sudo&lt;/span&gt; &lt;span class="pre"&gt;zypper&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;haskell-platform&lt;/span&gt;&lt;/code&gt;,
 在 Windows 上则可以直接去官网下载安装包。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;随便说说&lt;/h2&gt;
 &lt;p&gt;因为借书的时候已经是考试周的前夕，所以到现在翻看书的时间仅限于之前在阅览室里无聊的那一会还有回家的路上，
 现在是第五章，似乎有点初窥门径的感觉，又怕是自己想得太简单了。 总得来说是这么些感受吧：&lt;/p&gt;
@@ -353,8 +353,8 @@ byte_415768 db 73h
 &lt;p&gt;对于我这种初学者来说，最有诱惑力也最后成就感的自然就是三行快排了。。。
 诶，去掉声明就是三行了。当然还会有更加厉害的实现，不过，先这样好了。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/haskell-beginning" data-title="Hello Haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/haskell-beginning" data-title="Hello Haskell" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/haskell-beginning.html" rel="alternate"/>
     <summary>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
@@ -369,7 +369,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="syntax-highligh-hs"&gt;
+    <content type="html">&lt;section id="syntax-highligh-hs"&gt;
 
 &lt;p&gt;书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。&lt;/p&gt;
 &lt;p&gt;不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，
@@ -387,9 +387,9 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;li&gt;&lt;p&gt;其他&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;然后按顺序一个个用正则取出，使得每一个元素都只能被着色一次，不过这个想法暂时没实现。&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;section id="id1"&gt;
 &lt;h2&gt;正则&lt;/h2&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;section id="id2"&gt;
 &lt;h3&gt;双引号的转义&lt;/h3&gt;
 &lt;p&gt;另外遇到的问题是正则表达式，首先是双引号内字符串的匹配问题，对正则不熟悉，
 试了很多次都没法匹配，因为考虑了反斜杠 对引号的转义问题，从语言描述上可以说：&lt;/p&gt;
@@ -424,8 +424,8 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;/table&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;就最后一个错了，因为”也是满足&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;[^\\](\\\\)*&amp;quot;&lt;/span&gt;&lt;/code&gt;的，懒得再想了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;/section&gt;
+&lt;section id="id3"&gt;
 &lt;h3&gt;反斜杠的转义&lt;/h3&gt;
 &lt;p&gt;还有一个问题，也是转义，本来为了代码的简洁，将正则表达式写在了文件里，每行一个，
 逐行读取，接下来读每个正则对应的颜色，代码很漂亮：&lt;/p&gt;
@@ -458,19 +458,19 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;p class="topic-title"&gt;2015.3.2 update:&lt;/p&gt;
 &lt;p&gt;事实上Haskell的Posix库的底层是C的Regex.h,并且Posix规范的正则并不支持懒惰匹配。&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="haskell"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="haskell"&gt;
 &lt;h2&gt;Haskell&lt;/h2&gt;
 &lt;p&gt;除了了上面那些讨厌的问题之外，对于Haskell本身，也有一些不适应的地方。&lt;/p&gt;
-&lt;div class="section" id="io"&gt;
+&lt;section id="io"&gt;
 &lt;h3&gt;IO用起来束手束脚&lt;/h3&gt;
 &lt;p&gt;Haskell的IO()像是一种具有传染性的代码（诶我说的不是GPL），一个函数中一旦出现了IO操作，
 函数的返回值就被限定为 IO()，导致你没法往外传参数，除非你把值包裹在IO()里变成IO(String)这样一种结构，
 调用这个函数的函数也必须是IO操作，这一循环直到main才终止。当然Haskell这样做肯定是有它的理由的，
 但是他们所说的“纯粹与非纯粹的分离”，我还暂时体会不到这样做的好处。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;/section&gt;
+&lt;section id="id4"&gt;
 &lt;h3&gt;不知道这么写是否合适&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;我将正则保存在一个列表，将每个正则对应的颜色保存在另一个列表，
@@ -527,9 +527,9 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;img alt="_images/2021-02-12_14:56:46.png" src="_images/2021-02-12_14:56:46.png" /&gt;
 &lt;p&gt;可以看到最后一个字符串是着色错误的。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/syntax-highlight-in-haskell" data-title="Syntax Highligh.hs" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/syntax-highlight-in-haskell" data-title="Syntax Highligh.hs" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/syntax-highlight-in-haskell.html" rel="alternate"/>
     <summary>书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。</summary>
@@ -543,7 +543,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="windows"&gt;
+    <content type="html">&lt;section id="windows"&gt;
 
 &lt;p&gt;上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
 没注意到当前我的账户名是中文的. 导致了我在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;C:\Users\&lt;/span&gt;&lt;/code&gt; 目录下的用户目录变成了中文的.
@@ -575,7 +575,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;/ul&gt;
 &lt;p&gt;Done.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/windows-chinese-username" data-title="把 Windows 中文用户名改为英文" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/windows-chinese-username" data-title="把 Windows 中文用户名改为英文" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/windows-chinese-username.html" rel="alternate"/>
     <summary>上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
@@ -591,7 +591,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="haskell"&gt;
+    <content type="html">&lt;section id="haskell"&gt;
 
 &lt;p&gt;这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
 想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
@@ -666,7 +666,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/matrix-arithmetic-in-haskell" data-title="用 Haskell 实现的矩阵运算" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/matrix-arithmetic-in-haskell" data-title="用 Haskell 实现的矩阵运算" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/matrix-arithmetic-in-haskell.html" rel="alternate"/>
     <summary>这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
@@ -682,7 +682,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="linux"&gt;
+    <content type="html">&lt;section id="linux"&gt;
 
 &lt;p&gt;今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.&lt;/p&gt;
 &lt;p&gt;因为这学期又开始做手头的OS67, 打代码的环境就又切换到Linux下来了, Linux用得频繁了,
@@ -736,7 +736,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;p&gt;睡觉吧, 或许明天起来后, 突然就知道应该这么做了.&lt;/p&gt;
 &lt;p&gt;顺道一说, 今晚水了一道AliCTF的Reverse题…估计也就这一道了.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/some-minds-about-linux" data-title="不求甚解者用不好 Linux" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/some-minds-about-linux" data-title="不求甚解者用不好 Linux" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/some-minds-about-linux.html" rel="alternate"/>
     <summary>今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.</summary>
@@ -750,7 +750,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="do"&gt;
+    <content type="html">&lt;section id="do"&gt;
 
 &lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="notes/books/index.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
@@ -840,7 +840,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;p&gt;（我觉得State Monad有个反人类的地方就是，本来按顺序沿着&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;处理状态，
 偏偏初始状态是放在最右的)&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" data-title="do 记法和 &amp;gt;&amp;gt;= 的等效表达" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" data-title="do 记法和 &amp;gt;&amp;gt;= 的等效表达" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" rel="alternate"/>
     <summary>明明在开学的时候，Haskell 趣学指南 就只剩下三十来页了，但是还书日在即，
@@ -856,7 +856,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="hack"&gt;
+    <content type="html">&lt;section id="hack"&gt;
 
 &lt;p&gt;早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
 大概八点二十分到机房, 老师并没有说什么.&lt;/p&gt;
@@ -887,7 +887,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 想往电脑里放什么就能放什么.&lt;/p&gt;
 &lt;p&gt;嗯, 大致如此.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/record-of-a-boring-hack" data-title="记一次毫无技术含量的 Hack" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/record-of-a-boring-hack" data-title="记一次毫无技术含量的 Hack" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/record-of-a-boring-hack.html" rel="alternate"/>
     <summary>早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
@@ -902,7 +902,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="id1"&gt;
+    <content type="html">&lt;section id="id1"&gt;
 
 &lt;p&gt;这里面没有什么自己的东西,
 都是从看雪的&lt;a class="reference external" href="http://bbs.pediy.com/showthread.php?t=184679"&gt;OD从零系列教程&lt;/a&gt;里看来的.
@@ -957,9 +957,9 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="x0-isdebuggerparent"&gt;
+&lt;section id="x0-isdebuggerparent"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;0x0  利用IsDebuggerParent()&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="x0-0"&gt;
+&lt;section id="x0-0"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;0x0.0 介绍&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;该函数检测程序是否正在被调试, 是的话返回1,否则返回0,
 该函数位于&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Kernel32.dll&lt;/span&gt;&lt;/code&gt;中, 其代码如下:&lt;/p&gt;
@@ -976,8 +976,8 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 因此通过这个函数可以检测调试器.&lt;/p&gt;
 &lt;p&gt;你可以在代码中直接使用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;IsDebuggerParent&lt;/span&gt;&lt;/code&gt;或者嵌入等价的汇编代码.
 动态载入函数比直接引入好些.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x0-1"&gt;
+&lt;/section&gt;
+&lt;section id="x0-1"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;0x0.1 栗子&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
@@ -1012,19 +1012,19 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x0-2"&gt;
+&lt;/section&gt;
+&lt;section id="x0-2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;0x0.2 绕过&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;如果能定位到函数的话, 修改他的流程.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;可以在载入程序后, 把那个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;BeingDebugged&lt;/span&gt;&lt;/code&gt;位置0,
 当然, HideDebugger插件已经替我们做了这件事.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x1-i"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="x1-i"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;0x1 检测进程名I&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="x1-0"&gt;
+&lt;section id="x1-0"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;0x1.0 介绍&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;通过检测特定调试器(常常是OD)的进程是否存在来防止被调试.&lt;/p&gt;
 &lt;p&gt;用到了下面几个API:&lt;/p&gt;
@@ -1092,23 +1092,23 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;li&gt;&lt;p&gt;如果是待检测进程的话, 选择自行退出或者是结束调试器, 可能用到&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;TerminatePorcess&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;调用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;CloseHandle&lt;/span&gt;&lt;/code&gt;关闭句柄&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x1-1"&gt;
+&lt;/section&gt;
+&lt;section id="x1-1"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;0x1.1 栗子&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;//TODO&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x1-2"&gt;
+&lt;/section&gt;
+&lt;section id="x1-2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;0x1.2 绕过&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;令OpenProcess始终返回&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;NULL&lt;/span&gt;&lt;/code&gt;, 打不开任何进程.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;改动OpenProcess后的程序流程&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;更改OD的名字, 进程名也会同时被更改;(最简单的做法了)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x2-ii"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="x2-ii"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;0x2 检测进程名II&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="x2-0"&gt;
+&lt;section id="x2-0"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;0x2.0 介绍&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;使用的API:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -1169,19 +1169,19 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;li&gt;&lt;p&gt;用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Process32First&lt;/span&gt;&lt;/code&gt;取得第一个进程的信息, 判断是否是要检测的进程&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Process32Next&lt;/span&gt;&lt;/code&gt;循环检测其他进程&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x2-1"&gt;
+&lt;/section&gt;
+&lt;section id="x2-1"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;0x2.1 栗子&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;//TODO&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x2-2"&gt;
+&lt;/section&gt;
+&lt;section id="x2-2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;0x2.2 绕过&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;绕过的做法基本同I.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;检测窗口类名&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="x3-0"&gt;
+&lt;section id="x3-0"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;0x3.0 介绍&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;又是API…&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -1200,20 +1200,20 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 执行成功返回句柄.&lt;/p&gt;
 &lt;p&gt;因为OD的窗口名常常不确定, 利用窗口类名往往比较靠谱;
 将窗口名置NULL, 检测OD的顶级窗体类名即可, 该类名可以通过Spy++得到.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x3-1"&gt;
+&lt;/section&gt;
+&lt;section id="x3-1"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;0x3.1 栗子&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;//TODO&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x3-2"&gt;
+&lt;/section&gt;
+&lt;section id="x3-2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;0x3.2 绕过&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;HideDebugger插件有绕过 FindWindowA/EnumWindows 的选项;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;使用RE-Pair为OD主程序打补丁, 可更改其类名&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x3-unhandledexcepitonzwqueryinformationprocess"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="x3-unhandledexcepitonzwqueryinformationprocess"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;0x3 UnhandledExcepiton和ZwQueryInformationProcess&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这种反调试方法比前面的方法更具技巧性一些, 利用了Windows的异常处理机制,
 但是我还不了解这些异常处理, 不敢胡说,暂时略过.&lt;/p&gt;
@@ -1327,11 +1327,11 @@ UnhandledExceptionFilter可是步骤6才执行的?
 * 手动修改ZwQueryInformationProcess返回值
 * HideDebugger插件的UnhandledExceptionTricks选项可以绕过此反调试.
 * HideOD插件可以单独绕过ZwQueryInformationProcess(记住勾选AutoRun)
-&lt;/p&gt;&lt;/div&gt;
-&lt;div class="section" id="x4-ntglobalflag-processheap-outputdebugstringa"&gt;
+&lt;/p&gt;&lt;/section&gt;
+&lt;section id="x4-ntglobalflag-processheap-outputdebugstringa"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;0x4 NtGlobalFlag,ProcessHeap,OutputDebugStringA&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这几个都比较简单, 从略.&lt;/p&gt;
-&lt;div class="section" id="ntglobalflag"&gt;
+&lt;section id="ntglobalflag"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;NtGlobalFlag&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;该标志在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PEB&lt;/span&gt;&lt;/code&gt;中,对于x86, 在0x68处
 对于x64, 在 0xbc 处.&lt;/p&gt;
@@ -1348,21 +1348,21 @@ UnhandledExceptionFilter可是步骤6才执行的?
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;因此, 如果&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;NtGlobalFlag&lt;/span&gt; &lt;span class="pre"&gt;==&lt;/span&gt; &lt;span class="pre"&gt;0x10&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;0x20&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;0x40&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt;&amp;#160; &lt;span class="pre"&gt;0x70&lt;/span&gt;&lt;/code&gt;时, 程序正在被调试.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="processheap"&gt;
+&lt;/section&gt;
+&lt;section id="processheap"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;ProcessHeap&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在PEB的 0x10 偏移处的一个 DWORD, 不为0则表示正在被调试.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="outputdebugstringa"&gt;
+&lt;/section&gt;
+&lt;section id="outputdebugstringa"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;OutputDebugStringA&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OutputDebugStringA&lt;/span&gt;&lt;/code&gt;是个函数, 该函数向调试器输出一个字符串,
 它能用于反调试是因为OD的一个bug, 当用这个函数输出一长串的%s字串时, OD会崩溃.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x4-1"&gt;
+&lt;/section&gt;
+&lt;section id="x4-1"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;0x4.1 栗子&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;无&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="x4-2"&gt;
+&lt;/section&gt;
+&lt;section id="x4-2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;0x4.2 绕过&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;修改对应的值&lt;/p&gt;&lt;/li&gt;
@@ -1370,9 +1370,9 @@ UnhandledExceptionFilter可是步骤6才执行的?
 Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/threee-way-of-anti-debug" data-title="几种简单的反调试方法" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/threee-way-of-anti-debug" data-title="几种简单的反调试方法" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/threee-way-of-anti-debug.html" rel="alternate"/>
     <summary>这里面没有什么自己的东西,
@@ -1389,7 +1389,7 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="python"&gt;
+    <content type="html">&lt;section id="python"&gt;
 
 &lt;p&gt;因为现在经常在三个系统(Win, openSUSE, Arch)之间切换, 一些软件的配置文件的部署成了问题,
 每次都从一台机复制到另一台实在麻烦, 而且不知道哪台电脑上使用的配置是最新改动的.&lt;/p&gt;
@@ -1402,7 +1402,7 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 (Batch和Shell这些不跨平台的就算了…写起来又麻烦), 所以就现学现卖用 Python 试一试,
 花了一个晚上, 写了个100来行的小脚本(有够慢的).
 &lt;a class="reference external" href="https://github.com/SilverRainZ/dotfiles/blob/master/sync.py"&gt;https://github.com/SilverRainZ/dotfiles/blob/master/sync.py&lt;/a&gt;&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;section id="id1"&gt;
 &lt;h2&gt;脚本&lt;/h2&gt;
 &lt;p&gt;这个脚本的功能很简单, 就是根据指定的参数, 把指定的配置从仓库中复制到用户目录(deploy),
 或者把用户目录下的配置复制到仓库(collect).&lt;span class="sphinxnotes-strike"&gt;这样都能写100多行!&lt;/span&gt;&lt;/p&gt;
@@ -1423,22 +1423,22 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python3&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;above&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;缩进&lt;/h2&gt;
 &lt;p&gt;Python 的一大特点就是用缩进来划分代码块, 这会让 if 的嵌套变得很不清晰,
 偏偏又不提供 switch 语句或者 Pattern Matching, 所以代码中的各种 if 又省不了,
 这个有点痛苦. 不过 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;if&lt;/span&gt; &lt;span class="pre"&gt;xx&lt;/span&gt; &lt;span class="pre"&gt;in&lt;/span&gt; &lt;span class="pre"&gt;[...]&lt;/span&gt;&lt;/code&gt; 这样的语法我倒是觉得挺好的,
 避免了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;if&lt;/span&gt; &lt;span class="pre"&gt;a==xx&lt;/span&gt; &lt;span class="pre"&gt;||&lt;/span&gt; &lt;span class="pre"&gt;a&lt;/span&gt; &lt;span class="pre"&gt;==&lt;/span&gt; &lt;span class="pre"&gt;xxx&lt;/span&gt; &lt;span class="pre"&gt;||&lt;/span&gt; &lt;span class="pre"&gt;...&lt;/span&gt;&lt;/code&gt; 这样的超长 if.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;/section&gt;
+&lt;section id="id3"&gt;
 &lt;h2&gt;函数式特性&lt;/h2&gt;
 &lt;p&gt;再跑一下题, 我在这学期看了F叔的「Haskell趣学指南」, 自觉 Haskell 这门语言难以入门,
 至今写过的代码也不过寥寥数行, 只能算是大概了解了他的语法, 却因此沾染上了一些「恶习」,
 老想在其他语言里使用那些FP的语法特性, 或者是当用这些特定可以让代码更好的时候,
 抱怨 xxx 怎么没有这个语法. 我自己都觉得有点可笑, 不过, Python 一定程度上满足了我这奇怪的要求.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;/section&gt;
+&lt;section id="id4"&gt;
 &lt;h2&gt;高阶函数&lt;/h2&gt;
 &lt;p&gt;很高兴 Python 里面提供了部分函数式语言的特性, 我在这个小脚本里用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;map&lt;/span&gt;&lt;/code&gt;用得很爽.
 sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信息, 本来我是这样写的:&lt;/p&gt;
@@ -1463,16 +1463,16 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
     &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;/section&gt;
+&lt;section id="id5"&gt;
 &lt;h2&gt;被弃用的元组参数解包&lt;/h2&gt;
 &lt;p&gt;本来上面那个翻转元组的 lambda 在 Python 2+ 可以这么写:&lt;/p&gt;
 &lt;div class="highlight-python notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;类似模式匹配的写法感觉很不错, 可是不知道为什么在 3.0 中这个语法被移除了.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;/section&gt;
+&lt;section id="id6"&gt;
 &lt;h2&gt;部分应用&lt;/h2&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;map&lt;/span&gt;&lt;/code&gt;只能对 list 映射只有一个参数的函数, 在 Haskell 中我们可以用部分应用
 获得一个只需要一个参数的函数, 在 Python 中似乎不能直接做到, 但我们有折衷的办法:&lt;/p&gt;
@@ -1482,8 +1482,8 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;用一个 lambda 来使得&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;deploy&lt;/span&gt;&lt;/code&gt;对外只有一个参数.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
+&lt;/section&gt;
+&lt;section id="id7"&gt;
 &lt;h2&gt;库&lt;/h2&gt;
 &lt;p&gt;Python 库大概是 Python 备受推崇的一个重要原因, 可惜我的脚本只是在做文件复制,
 没有用到什么特别的库.&lt;/p&gt;
@@ -1491,8 +1491,8 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 只需要对路径做些处理就行了.&lt;/p&gt;
 &lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;感觉好像什么都没写啊(摔…&lt;/span&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/first-attempt-of-python" data-title="Python 初试" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/first-attempt-of-python" data-title="Python 初试" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/first-attempt-of-python.html" rel="alternate"/>
     <summary>因为现在经常在三个系统(Win, openSUSE, Arch)之间切换, 一些软件的配置文件的部署成了问题,
@@ -1507,12 +1507,12 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="vim"&gt;
+    <content type="html">&lt;section id="vim"&gt;
 
 &lt;p&gt;今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:&lt;/p&gt;
 &lt;p&gt;首先我把本来 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.vimrc&lt;/span&gt;&lt;/code&gt; 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows,
 同时维护兼容两个平台的配置文件实在是麻烦.&lt;/p&gt;
-&lt;div class="section" id="fcitx-vim"&gt;
+&lt;section id="fcitx-vim"&gt;
 &lt;h2&gt;fcitx.vim&lt;/h2&gt;
 &lt;p&gt;这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)&lt;/p&gt;
@@ -1528,8 +1528,8 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;不过我试了试发现报错: socket connection error, 就不去用它了.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="vundle"&gt;
+&lt;/section&gt;
+&lt;section id="vundle"&gt;
 &lt;h2&gt;Vundle&lt;/h2&gt;
 &lt;p&gt;神器, 用来管理插件的插件, 可以从 GitHub, 其他 Git 服务器或者本地的 Git 目录获取并安装插件,
 把 &lt;a class="reference external" href="https://github.com/gmarik/Vundle.vim"&gt;gmarik/Vundle.vim&lt;/a&gt; clone 到 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.vim&lt;/span&gt;&lt;/code&gt; 下,
@@ -1565,8 +1565,8 @@ Plugin &lt;span class="s1"&gt;&amp;#39;gmarik/Vundle.vim&amp;#39;&lt;/span&gt;
 &lt;p&gt;然后重启 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:PluginInstall&lt;/span&gt;&lt;/code&gt;, 就安装好了, 如果想要添加新的插件, 在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Plugin&lt;/span&gt; &lt;span class="pre"&gt;'...'&lt;/span&gt;&lt;/code&gt;
 那一句之后添加 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Plugin&lt;/span&gt; &lt;span class="pre"&gt;'插件地址'&lt;/span&gt;&lt;/code&gt; 再 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:PluginInstall&lt;/span&gt;&lt;/code&gt; 一下就好了.
 对于在 GitHub 上的插件地址, 可以直接写 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;owner/repo-name&lt;/span&gt;&lt;/code&gt; 这样的形式.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="powerline"&gt;
+&lt;/section&gt;
+&lt;section id="powerline"&gt;
 &lt;h2&gt;PowerLine&lt;/h2&gt;
 &lt;p&gt;漂亮的状态栏插件&lt;/p&gt;
 &lt;p&gt;在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.vimrc&lt;/span&gt;&lt;/code&gt; 相应位置里加一句 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Plugin&lt;/span&gt; &lt;span class="pre"&gt;'Lokaltog/vim-powerline'&lt;/span&gt;&lt;/code&gt;,
@@ -1580,8 +1580,8 @@ Plugin &lt;span class="s1"&gt;&amp;#39;gmarik/Vundle.vim&amp;#39;&lt;/span&gt;
 &lt;span class="c"&gt;&amp;quot; 值为&amp;#39;fancy&amp;#39;的话,状态栏会有好看的箭头, 但是要打过补丁的字体, 太麻烦了&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="nerdtree"&gt;
+&lt;/section&gt;
+&lt;section id="nerdtree"&gt;
 &lt;h2&gt;Nerdtree&lt;/h2&gt;
 &lt;p&gt;文件浏览插件, 还是用 Vundle 安装.&lt;/p&gt;
 &lt;div class="highlight-vim notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;&amp;quot; A tree explorer plugin for vim.&lt;/span&gt;
@@ -1590,8 +1590,8 @@ Plugin &lt;span class="s1"&gt;&amp;#39;scrooloose/nerdtree&amp;#39;&lt;/span&gt;
 map &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;C&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;n&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; :NERDTreeToggle&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="youcompleteme"&gt;
+&lt;/section&gt;
+&lt;section id="youcompleteme"&gt;
 &lt;h2&gt;YouCompleteMe&lt;/h2&gt;
 &lt;p&gt;据说是最好的 C/C++ 补全插件? 这个安装略波折.
 首先用 Vundle 安装:&lt;/p&gt;
@@ -1647,8 +1647,8 @@ $ ~ ./install.sh
 &lt;p&gt;截图一张:&lt;/p&gt;
 &lt;img alt="_images/vim-plugin-screenshot.png" src="_images/vim-plugin-screenshot.png" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/install-vim-plugins" data-title="Vim 插件折腾记录" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/install-vim-plugins" data-title="Vim 插件折腾记录" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/install-vim-plugins.html" rel="alternate"/>
     <summary>今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:</summary>
@@ -1662,7 +1662,7 @@ $ ~ ./install.sh
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="arch-linux"&gt;
+    <content type="html">&lt;section id="arch-linux"&gt;
 
 &lt;p&gt;这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:&lt;/p&gt;
@@ -1692,7 +1692,7 @@ Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="xmonad-wm"&gt;
+&lt;section id="xmonad-wm"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;以 XMonad 为 WM 的桌面&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;没有用 DE, WM 用的是 XMonad.&lt;/p&gt;
 &lt;p&gt;关于 XMonad 的默认快捷键, &lt;a class="reference external" href="http://xmonad.org/tour.html"&gt;XMonad Guide Tour&lt;/a&gt;
@@ -1749,8 +1749,8 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-s&lt;/span&gt;&lt;/code&gt;参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
 只能在截图后用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-e&lt;/span&gt; &lt;span class="pre"&gt;'mv&lt;/span&gt; &lt;span class="pre"&gt;$f&lt;/span&gt; &lt;span class="pre"&gt;~/Pictures/Screenshots'&lt;/span&gt;&lt;/code&gt;把截图放到指定目录.&lt;/p&gt;
 &lt;p&gt;上面这些配置大多写在启动脚本&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;startup.sh&lt;/span&gt;&lt;/code&gt;里, 每个命令后边都得加上一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;amp;&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;无线网络管理&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为了更方便地连接无线网络, 安装如下包:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -1762,10 +1762,10 @@ Using English fallback for role “sup”.&lt;/p&gt;
 因为 networkmanager 和他有冲突, 安装完后执行 NetworkManager 启动服务.&lt;/p&gt;
 &lt;p&gt;network-manager-applet 是 networkmanager 的前端.&lt;/p&gt;
 &lt;p&gt;似乎不安装 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-keyring&lt;/span&gt;&lt;/code&gt;的话就无法连上加密的无线网络.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="im"&gt;
+&lt;/section&gt;
+&lt;section id="im"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;IM&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="qq"&gt;
+&lt;section id="qq"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;QQ&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;TM2013 可能是运行在 Wine 上表现最好的一个版本了, 我下载了
 &lt;a class="reference external" href="http://www.zhihu.com/question/23770274/answer/45703773"&gt;邓攀打包的TM2013&lt;/a&gt;,
@@ -1775,8 +1775,8 @@ Using English fallback for role “sup”.&lt;/p&gt;
 ➜  winetrick riched20 ie6 mfc42 cjkfonts wenquanyi
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;/section&gt;
+&lt;section id="id3"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;其他&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;IRC 客户端用火狐的 ChatZilla&lt;/p&gt;&lt;/li&gt;
@@ -1784,9 +1784,9 @@ Using English fallback for role “sup”.&lt;/p&gt;
 另 TG 似乎已经被墙(手机上却仍然可以登录), Cutegram 无法登录, 挂个代理就行.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;qTox 也还凑合, 主要是可以听歌.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="gtk"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="gtk"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;GTK&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;默认的 gtk 界面在 XMonad 下相当地丑, 可以安装&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;lxappearance&lt;/span&gt;&lt;/code&gt;来调整 GTK 的主题.&lt;/p&gt;
 &lt;p&gt;对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
@@ -1803,8 +1803,8 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;p&gt;2015-8-30: 安装社区源&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-breeze-git&lt;/span&gt;&lt;/code&gt;主题, 以及 plasma5 的&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;breeze&lt;/span&gt;&lt;/code&gt;主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;QT_STYLE_OVERRIDE=breeze&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;/section&gt;
+&lt;section id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;输入法:&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;~/.xprofile&lt;/span&gt;&lt;/code&gt;中加入:&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;GTK_IM_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;fcitx
@@ -1813,14 +1813,14 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;并在启动脚本里启动 fcitx.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;/section&gt;
+&lt;section id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;配置文件&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面有提到的全部配置文件参见:&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ/dotfiles"&gt;SilverRainZ/dotfiles - Github&lt;/a&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/configure-of-archlinux" data-title="Arch Linux 折腾小记" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/configure-of-archlinux" data-title="Arch Linux 折腾小记" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/configure-of-archlinux.html" rel="alternate"/>
     <summary>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
@@ -1835,13 +1835,13 @@ Using English fallback for directive “topic”.&lt;/p&gt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="overthewire-bandit"&gt;
+    <content type="html">&lt;section id="overthewire-bandit"&gt;
 
 &lt;p&gt;题目地址: &lt;a class="reference external" href="http://overthewire.org/wargames/bandit/"&gt;OverTheWire: Bandit&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思…
 &lt;span class="sphinxnotes-strike"&gt;有意思的意思是我不会做&lt;/span&gt;.&lt;/p&gt;
-&lt;div class="section" id="wechall"&gt;
+&lt;section id="wechall"&gt;
 &lt;h2&gt;WeChall 计分板&lt;/h2&gt;
 &lt;p&gt;OverTheWire 使用 Wechall 的计分板来计分,
 具体参见 &lt;a class="reference external" href="http://overthewire.org/about/wechall.html"&gt;WeChall Scoreborad&lt;/a&gt;&lt;/p&gt;
@@ -1862,10 +1862,10 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;在 ssh 连接的时候就会把你的帐号信息发送给远程主机.&lt;/p&gt;
 &lt;p&gt;在登入一个新的关卡后, 执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;wechall&lt;/span&gt;&lt;/code&gt; 便可获得该关卡的分数.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;题目&lt;/h2&gt;
-&lt;div class="section" id="bandit17"&gt;
+&lt;section id="bandit17"&gt;
 &lt;h3&gt;bandit17&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;The password for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.&lt;/p&gt;
@@ -1894,8 +1894,8 @@ cat /etc/bandit_pass/bandit17
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="bandit21"&gt;
+&lt;/section&gt;
+&lt;section id="bandit21"&gt;
 &lt;h3&gt;bandit21&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).&lt;/p&gt;
@@ -1922,8 +1922,8 @@ Using English fallback for directive “note”.&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="bandit24"&gt;
+&lt;/section&gt;
+&lt;section id="bandit24"&gt;
 &lt;h3&gt;bandit24&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.&lt;/p&gt;
@@ -1978,7 +1978,7 @@ chmod &lt;span class="m"&gt;666&lt;/span&gt; /tmp/tmp.xxx/
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="bandit25"&gt;
+&lt;section id="bandit25"&gt;
 &lt;h4&gt;bandit25&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinaties, called brute-forcing.&lt;/p&gt;
@@ -2005,8 +2005,8 @@ cat /tmp/log &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&a
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="bandit26"&gt;
+&lt;/section&gt;
+&lt;section id="bandit26"&gt;
 &lt;h4&gt;bandit26&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.&lt;/p&gt;
@@ -2059,10 +2059,10 @@ more ~/text.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/overthewire-bandit" data-title="OverTheWire Bandit" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/overthewire-bandit" data-title="OverTheWire Bandit" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-bandit.html" rel="alternate"/>
     <summary>题目地址: OverTheWire: Bandit.</summary>
@@ -2076,7 +2076,7 @@ more ~/text.txt
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="minix-v1"&gt;
+    <content type="html">&lt;section id="minix-v1"&gt;
 
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
@@ -2120,14 +2120,14 @@ more ~/text.txt
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="minix-fs"&gt;
+&lt;section id="minix-fs"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Minix FS&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Minix file system 是 Andrew S. Tanenbaum 在 198x 年发明的文件系统,
 并随着 Minix 1.0 版一起于 1987 年释出, Linus 编写 Linux 0.11时,
 使用的也是 Minix FS, Linux 至今依然提供了对 Minix FS 的支持.
 Minix FS 结构简单, 易于理解, 并且资料相当丰富.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="xv-6"&gt;
+&lt;/section&gt;
+&lt;section id="xv-6"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;xv 6&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;其实最开始并没有用 Minix FS 的想法, 在实现 Minix FS 之前,
 我先看了 xv6 中的文件系统部分, 在抄了一遍它的代码之后,
@@ -2139,8 +2139,8 @@ Minix FS 结构简单, 易于理解, 并且资料相当丰富.&lt;/p&gt;
 和 fsck.minix 工具, 前者可以建立一个 Minix 文件系统, 后者检查该文件系统的正确性.
 正因如此, 我在 xv6 的代码的基础上修改了代码, 在
 &lt;a class="reference external" href="https://github.com/SilverRainZ/OS67"&gt;OS67&lt;/a&gt; 上实现了一个精简版的 Minix FS.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;建立磁盘&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bximage&lt;/span&gt;&lt;/code&gt;建立一个硬盘镜像文件, 再用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mkfs.minix&lt;/span&gt;&lt;/code&gt;建立文件系统,
 如果需要复制文件进去的话, 用&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;mount&lt;/span&gt;&lt;/code&gt;挂载.&lt;/p&gt;
@@ -2178,8 +2178,8 @@ Zone &lt;span class="m"&gt;114&lt;/span&gt;: marked in use, no file uses it.
 Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;counted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="minix"&gt;
+&lt;/section&gt;
+&lt;section id="minix"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Minix 文件系统结构&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Minix 文件系统的结构如下:&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Minix&lt;/span&gt; &lt;span class="n"&gt;v1&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="n"&gt;structure&lt;/span&gt;
@@ -2194,7 +2194,7 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;div&gt;&lt;p&gt;注意: Minix 文件系统的最小分配单位是 zone, 可以把它叫做虚拟块,
 一个虚拟块的大小是 1024 byte, 而磁盘的物理扇区大小常常是 512 byte.&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;div class="section" id="i"&gt;
+&lt;section id="i"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;i 节点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;i 节点是 Minix FS 中最重要的结构体, 其定义如下:&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;// OS67/inc/minix.h&lt;/span&gt;
@@ -2250,13 +2250,13 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;p&gt;ref: &lt;a class="reference external" href="http://jan.newmarch.name/OS/l6_1.html"&gt;http://jan.newmarch.name/OS/l6_1.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;因此, Minix FS 支持的最大文件大小为 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;(7&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2*1024/2)&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;1024&lt;/span&gt; &lt;span class="pre"&gt;byte&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;256&lt;/span&gt; &lt;span class="pre"&gt;MB&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;OS67 并没有使用双重间接块, 因此支持的最大文件大小仅为 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;(7&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2)&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;1024&lt;/span&gt; &lt;span class="pre"&gt;byte&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;519&lt;/span&gt; &lt;span class="pre"&gt;KB&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="boot-secotr"&gt;
+&lt;/section&gt;
+&lt;section id="boot-secotr"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;引导扇区(boot secotr):&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;磁盘的第一个虚拟块作是引导扇区, 这个通常和文件系统没有关系.&lt;/p&gt;
 &lt;p&gt;OS67 的 bootsector 实现在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/boot/bootsect.asm&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="super-block"&gt;
+&lt;/section&gt;
+&lt;section id="super-block"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;超级块(super block)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;超级块(superblock), 用来存放整个文件系统的元信息, 比如磁盘大小, i节点数目,
 虚拟块数目, Magic nubmer 等.  Minix FS 的超级块结构如下:&lt;/p&gt;
@@ -2275,8 +2275,8 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="inode-zone-bitmap"&gt;
+&lt;/section&gt;
+&lt;section id="inode-zone-bitmap"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;位图(inode &amp;amp; zone bitmap)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;有关位图的实现在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/fs/bitmap.c&lt;/span&gt;&lt;/code&gt;中.&lt;/p&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/inc/minix.h&lt;/span&gt;&lt;/code&gt;实现了两个宏来定位这些位图块.&lt;/p&gt;
@@ -2300,24 +2300,24 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;div&gt;&lt;p&gt;虽然现在 bitmap.c 的代码工作正常, 不过我对他们的对应关系还是存有疑问…
 暂时懒得去想了, 此处存疑. // TODO&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="section" id="i-inode"&gt;
+&lt;/section&gt;
+&lt;section id="i-inode"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;i 节点块(inode)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这些块用来储存 i 节点, 用宏&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;IBLK&lt;/span&gt;&lt;/code&gt;根据 i 节点号, 定位到块号, 同样注意 i 节点从 1 开始计数.&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#define IBLK(sb, i) (2 + ((sb).imap_blk) + ((sb).zmap_blk) + ((i) - 1)/IPB)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="data"&gt;
+&lt;/section&gt;
+&lt;section id="data"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;数据块(data)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这些块被用来储存数据, 从&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;superblock.fst_data_zone&lt;/span&gt;&lt;/code&gt;开始.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;系统层次&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;整个文件系统的实现被分为五个层次, 代码基本上继承自 xv6, 在摸清楚代码的意思之后,
 把 xv6 文件系统代码改成 Minix FS 是很简单的事情, 甚至有些文件不需要改动…&lt;/p&gt;
-&lt;div class="section" id="os67-fs-ide-c"&gt;
+&lt;section id="os67-fs-ide-c"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;磁盘驱动层 OS67/fs/ide.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层通过 ins outs 指令, 负责从磁盘读取扇区到高速缓冲区 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;buf&lt;/span&gt;&lt;/code&gt;,
 并且限制在一个块只能被一个进程访问(通过 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;B_BUSY&lt;/span&gt;&lt;/code&gt; 锁住).&lt;/p&gt;
@@ -2332,12 +2332,12 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;span class="n"&gt;outb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IDE_PORT_SECT_COUNT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;BSIZE&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PHY_BSIZE&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="os67-fs-bcache-c"&gt;
+&lt;/section&gt;
+&lt;section id="os67-fs-bcache-c"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;块缓冲层 OS67/fs/bcache.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;维护了一个高速缓冲的链表(数组),  为上层提供了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bread&lt;/span&gt;&lt;/code&gt;和&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bwrite&lt;/span&gt;&lt;/code&gt;函数,
 而&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bget&lt;/span&gt;&lt;/code&gt;则用来分配缓冲区.&lt;/p&gt;
-&lt;div class="section" id="braed"&gt;
+&lt;section id="braed"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id22"&gt;braed&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;当请求一个块的数据的时候(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bread&lt;/span&gt;&lt;/code&gt;), 如果一个块已经被缓存, 并且这个块的内容是有效的(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;B_VAILD&lt;/span&gt;&lt;/code&gt;),
 块缓存层可以直接返回当前缓冲区的内容, 而不用重新读取扇区.&lt;/p&gt;
@@ -2346,8 +2346,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 你不会知道你这次读取的内容是从磁盘中读取的还是从块缓冲直接取出的,
 但是数据一定是正确的.&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="section" id="bget"&gt;
+&lt;/section&gt;
+&lt;section id="bget"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;bget&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;当根据虚拟块的块号(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;buf-&amp;gt;blkno&lt;/span&gt;&lt;/code&gt;)请求一个缓冲区的时候(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bget&lt;/span&gt;&lt;/code&gt;),
 程序会沿着链表从头到尾寻找这个缓冲区是否被缓存,是的话直接返回, 如果没有被缓存,
@@ -2367,9 +2367,9 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="i-os67-fs-inode-c-os67-fs-bitmap-c"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="i-os67-fs-inode-c-os67-fs-bitmap-c"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;i 节点层 OS67/fs/inode.c OS67/fs/bitmap.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层开始和文件系统密切相关, i 节点层为使用中的磁盘中的 i 节点(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;d_inode&lt;/span&gt;&lt;/code&gt;)
 提供了内存中的拷贝(&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inode&lt;/span&gt;&lt;/code&gt;), 可以类比块缓冲和虚拟块的关系.&lt;/p&gt;
@@ -2398,7 +2398,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;这一层提供了对 inode 的各种操作&lt;/p&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;section id="id4"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id25"&gt;申请和分配:&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_ialloc&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_ifree&lt;/span&gt;&lt;/code&gt; 在磁盘上分配和释放新的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;d_inode&lt;/span&gt;&lt;/code&gt;;&lt;/p&gt;&lt;/li&gt;
@@ -2407,8 +2407,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;p&gt;以上的函数均在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/fs/bitmap.c&lt;/span&gt;&lt;/code&gt;中实现.&lt;/p&gt;
 &lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ialloc&lt;/span&gt;&lt;/code&gt;则是对&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_ialloc&lt;/span&gt;&lt;/code&gt;的封装, 分配一个新的&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;d_inode&lt;/span&gt;&lt;/code&gt;后,
 把它和内存中的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;inode&lt;/span&gt;&lt;/code&gt;联系起来.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;/section&gt;
+&lt;section id="id5"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;i 节点操作:&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;iget&lt;/span&gt;&lt;/code&gt; 从 i 节点缓冲中获得指定 i 节点号码的缓冲区, 类似&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bget&lt;/span&gt;&lt;/code&gt;;&lt;/p&gt;&lt;/li&gt;
@@ -2422,9 +2422,9 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bmap&lt;/span&gt;&lt;/code&gt;读取指定 i 节点的第 n 个块, 间接块和非间接块的区别就由该函数处理;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;iread&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;iwrite&lt;/span&gt;&lt;/code&gt;则在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;bmap&lt;/span&gt;&lt;/code&gt;的基础上实现了对 i 节点的读取和写入.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="os67-fs-dir-c-os-fs-p2i-c"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="os67-fs-dir-c-os-fs-p2i-c"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;目录层 OS67/fs/dir.c OS/fs/p2i.c&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层开始有文件名和路径的出现, 为上层提供了一个将路径名转换为 对应 i 节点的函数.&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2433,15 +2433,15 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;dir_link&lt;/span&gt;&lt;/code&gt; 为一个目录文件增加一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;dir_entry&lt;/span&gt;&lt;/code&gt;, 链接到指定的一个 i 节点;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;p2i&lt;/span&gt;&lt;/code&gt; (path to inode) 解析路径名, 返回指定的未上锁的 i 节点.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;/section&gt;
+&lt;section id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;文件和系统调用&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这一层是最上一层, 文件是对 i 节点的简单封装, 提供了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fread&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fwrite&lt;/span&gt;&lt;/code&gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fclose&lt;/span&gt;&lt;/code&gt;等函数.
 此处涉及到进程的文件表, 因此这一层暂时没有&lt;span class="sphinxnotes-strike"&gt;抄&lt;/span&gt;写.&lt;/p&gt;
 &lt;p&gt;不过在前面几层的基础上, 实现这一层应该没什么问题.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;参考&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://book.douban.com/subject/1231236/"&gt;《Linux 内核完全注释》&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -2451,8 +2451,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/ranxian/xv6-chinese"&gt;xv6 中文文档&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/minix-v1-file-system" data-title="Minix v1 文件系统的实现" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/minix-v1-file-system" data-title="Minix v1 文件系统的实现" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/minix-v1-file-system.html" rel="alternate"/>
     <summary>Minix v1 文件系统的实现Inode structure</summary>
@@ -2466,12 +2466,12 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="flag"&gt;
+    <content type="html">&lt;section id="flag"&gt;
 
 &lt;p&gt;现在不开始的话, 以后也不会开始了.&lt;/p&gt;
 &lt;img alt="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/flag" data-title="立 Flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/flag" data-title="立 Flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/flag.html" rel="alternate"/>
     <summary>现在不开始的话, 以后也不会开始了.</summary>
@@ -2484,7 +2484,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="id1"&gt;
+    <content type="html">&lt;section id="id1"&gt;
 
 &lt;p&gt;update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
 并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
@@ -2528,7 +2528,7 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;div&gt;&lt;p&gt;注意: OS67 并不打算支持多核 CPU, 这极大地降低了实现进程的难度,
 不需要考虑由于多核导致的进程间的竞争和同步, 因此 xv6 中关于锁的代码都可以忽略.&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;section id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;特权级转换&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;几个关于特权级的概念:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2537,8 +2537,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;li&gt;&lt;p&gt;CPL: Current Privilege 当前特权级, 储存在 cs 寄存器的低二位&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;RPL: Request Privilege 请求特权级, 请求访问的段的描述符的特权级&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="gdt"&gt;
+&lt;/section&gt;
+&lt;section id="gdt"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;GDT&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这里使用的用户态的特权级为 3, 因此用户态的程序, 其所在的数据段代码段的 DPL,
 段寄存器低 2 位的 RPL 都得是 3, 因此设置的 全局段描述符表(GDT) 如下:&lt;/p&gt;
@@ -2560,8 +2560,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;当 GDT 初始化后, 第一二个描述符被使用, 内核跑在特权级为 0 的段上.
 那如何让代码从特权级为 0 的段(内核态)转移到特权级为 3 的段(用户态)呢? 用中断.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="idt"&gt;
+&lt;/section&gt;
+&lt;section id="idt"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;IDT&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为了让用户空间的程序顺利进入内核态, 需要对 中断描述符表(IDT) 做一些设置.&lt;/p&gt;
 &lt;p&gt;(以下内容摘自 xv6 中文文档, 有小改动)&lt;/p&gt;
@@ -2597,8 +2597,8 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;idt_install&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ISR_SYSCALL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;_syscall&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SEL_KCODE&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;GATE_TRAP&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IDT_PR&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;IDT_DPL_USER&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="tss"&gt;
+&lt;/section&gt;
+&lt;section id="tss"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;TSS&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在特权级转换的时候, 需要从任务状态段取出&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ss0&lt;/span&gt;&lt;/code&gt;和&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;esp0&lt;/span&gt;&lt;/code&gt;, 因此在转换之前需要设置 TSS.&lt;/p&gt;
 &lt;p&gt;CPU 会从寄存器&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;tr&lt;/span&gt;&lt;/code&gt;获得 TSS 的选择子, 然后从 GDT 表里面找出对应的描述符,
@@ -2622,10 +2622,10 @@ i 节点位图占据 &lt;code class="docutils literal notranslate"&gt;&lt;span c
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
+&lt;/section&gt;
+&lt;section id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;两个上下文&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;section id="id5"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;中断上下文&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;从上面关于中断过程的解释可以看到, 从用户态执行中断转入内核态是可能的,
 重点在与设置一个 DPL = 3 的 IDT 和一个 TSS 段.&lt;/p&gt;
@@ -2676,8 +2676,8 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;每个入口都会压入自己的中断号, 然后统一跳转到&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_isr_stub&lt;/span&gt;&lt;/code&gt;, 压入上下文的剩余部分,
 再调到由 C 编写的&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;isr_stub&lt;/span&gt;&lt;/code&gt;, 由此再根据入口压入中断号调用真正的 ISR.
 关于这些 ISR 的详情…太长了表示扯不下去了… :(&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;/section&gt;
+&lt;section id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;进程上下文&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;中断上下文已经让程序能够程序成功进入内核并从内核中返回,
 接下来通过切换进程上下文来实现进程的切换.&lt;/p&gt;
@@ -2723,9 +2723,9 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;可以看到这个函数可以切换当前的执行流到另一个执行流, 进程的切换就是这样实现的,
 当然要切换的不止这个, 页表也要切换, 代表当前执行进程的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc&lt;/span&gt;&lt;/code&gt; 变量也要更新.
 页表的切换由 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;uvm_switch&lt;/span&gt;&lt;/code&gt; 执行, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc&lt;/span&gt;&lt;/code&gt; 的更新则在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt; 执行.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;虚拟内存映射&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;由于之前的思路问题, 因此 OS67 的内存管理方式不得不和 xv6 不太一样.&lt;/p&gt;
 &lt;p&gt;OS67 的内存分配实现在 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;OS67/mm/pmm.c&lt;/span&gt;&lt;/code&gt;, 使用一个简单的栈来存放未分配的内存页,
@@ -2739,10 +2739,10 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 另外 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;malloc&lt;/span&gt;&lt;/code&gt; 出来的是物理地址, 可以直接对其读写而不必做转换.
 缺点则是程序必须经过重定位(链接时使用参数 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-Ttext&lt;/span&gt; &lt;span class="pre"&gt;0xc0000000&lt;/span&gt;&lt;/code&gt;)才能运行在高地址,
 也许有更多的缺点还没发现.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
+&lt;/section&gt;
+&lt;section id="id8"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;第一个进程&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id9"&gt;
+&lt;section id="id9"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;构造&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;结构体 proc 用来储存一个进程的信息, 内核中有一个数组&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;struct&lt;/span&gt; &lt;span class="pre"&gt;ptable[NPROC]&lt;/span&gt;&lt;/code&gt;来管理所有的进程.
 结构体&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc&lt;/span&gt;&lt;/code&gt;定义如下:&lt;/p&gt;
@@ -2794,8 +2794,8 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 为 eflags 寄存器加上 IF 标志(允许中断), 设置用户栈, 最后把&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;eip&lt;/span&gt;&lt;/code&gt;设定为&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;USER_BASE&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;最后把进程的状态&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc-&amp;gt;state&lt;/span&gt;&lt;/code&gt;设置为可运行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;以上是比较关键的步骤, 现在可以准备运行第一个进程了.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
+&lt;/section&gt;
+&lt;section id="id10"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;运行&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;执行了&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc_init&lt;/span&gt;&lt;/code&gt;之后, &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt;紧接其后,
 它在&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;ptable&lt;/span&gt;&lt;/code&gt;中寻找第一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;state&lt;/span&gt;&lt;/code&gt;为&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;的进程,
@@ -2805,24 +2805,24 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;context_switch&lt;/span&gt;&lt;/code&gt;会弹出&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc-&amp;gt;context&lt;/span&gt;&lt;/code&gt;中设定好的寄存器,
 新进程返回到&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fork_ret&lt;/span&gt;&lt;/code&gt;之后返回到&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_isr_stub_ret&lt;/span&gt;&lt;/code&gt;中, 又把&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;proc-&amp;gt;fm&lt;/span&gt;&lt;/code&gt;弹出.
 于是第一个进程就成功运行在 0xc0000000 的用户空间上了.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="id11"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;调度&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这里使用非常简单的轮转法, 每次触发时钟中断都会执行&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sched&lt;/span&gt;&lt;/code&gt;,
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sched&lt;/span&gt;&lt;/code&gt;把当前进程状态由&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNNING&lt;/span&gt;&lt;/code&gt;变更为&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;. 接着执行&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;context_switch&lt;/span&gt;&lt;/code&gt;.
 这样 CPU 执行流就回到了刚才&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt;中的循环,
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;scheduler&lt;/span&gt;&lt;/code&gt;继续寻找一个&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;P_RUNABLE&lt;/span&gt;&lt;/code&gt;的进程并切换到它.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="e-n-d"&gt;
+&lt;/section&gt;
+&lt;section id="e-n-d"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id25"&gt;E.N.D.&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;至此, 用户级进程已经成功实现并且被调度. 但是没有有效的接口来启动更多的进程.
 我们需要实现一些系统调用比如&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;fork&lt;/span&gt;&lt;/code&gt;和&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;exec&lt;/span&gt;&lt;/code&gt;来做这些事情.
 :( 但是我已经写不下去了… 如果可以话下次再写吧.&lt;/p&gt;
 &lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;不一定有下次&lt;/span&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/process-scheduler-1" data-title="用户态进程的简单实现及调度(一)" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/process-scheduler-1" data-title="用户态进程的简单实现及调度(一)" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/process-scheduler-1.html" rel="alternate"/>
     <summary>update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
@@ -2838,7 +2838,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="ctf-reverse-300"&gt;
+    <content type="html">&lt;section id="ctf-reverse-300"&gt;
 
 &lt;p&gt;程序在此： &lt;a class="reference external" href="http://jianguoyun.com/p/Dbz27p8QtNrvBRiq2w4"&gt;toetrix-crackme.exe&lt;/a&gt;， VC++ 6.0 编写，无壳， CLI 程序。&lt;/p&gt;
 &lt;p&gt;这题本来我是一点都不会的，幸得尖刀某大牛指点思路，之后回头看反编译的代码
@@ -3045,7 +3045,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;因此得到 key： &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;625153518183737244411411143431234244&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;附上分析时使用的 &lt;a class="reference external" href="http://jianguoyun.com/p/DaHaiScQtNrvBRjo2w4"&gt;idb 数据库&lt;/a&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/2015-huashangctf-re300" data-title="2015 华山杯 CTF Reverse 300" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/2015-huashangctf-re300" data-title="2015 华山杯 CTF Reverse 300" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/2015-huashangctf-re300.html" rel="alternate"/>
     <summary>程序在此： toetrix-crackme.exe， VC++ 6.0 编写，无壳， CLI 程序。</summary>
@@ -3059,7 +3059,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="c"&gt;
+    <content type="html">&lt;section id="c"&gt;
 
 &lt;p&gt;前天是操作系统课程设计的截止日期，这意味这 &lt;a class="reference external" href="https://github.com/SilverRainZ/OS67"&gt;OS67 这个坑&lt;/a&gt;
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
@@ -3068,7 +3068,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;用到的软件有 graphviz，egypt&lt;sup&gt;AUR&lt;/sup&gt;，cinclude2dot&lt;sup&gt;AUR&lt;/sup&gt;，
 &lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
 然而 AUR 里面没有就作罢了。&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;section id="id1"&gt;
 &lt;h2&gt;生成函数调用图&lt;/h2&gt;
 &lt;p&gt;安装 egypt 直接 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;yaourt&lt;/span&gt; &lt;span class="pre"&gt;-S&lt;/span&gt; &lt;span class="pre"&gt;egypt&lt;/span&gt;&lt;/code&gt; 即可，
 之后在 makefile 里面的 CFLAG 里面增加一句 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;-fdump-rtl-expand&lt;/span&gt;&lt;/code&gt;，
@@ -3142,8 +3142,8 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;刚说完就被打脸了，graphviz 的 dia 输出支持在 2.26.0 的时候被移除了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;生成模块调用图&lt;/h2&gt;
 &lt;p&gt;接下来来生成模块间的调用图吧，
 我在网上找到一个根据 #include 生成文件间调用关系的 dot 的 prel 脚本：
@@ -3217,8 +3217,8 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;img alt="" src="_images/os67-mod-include-graph-good.png" /&gt;
 &lt;p&gt;好困睡觉。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/gen-graph-from-c-code" data-title="从 C 源码生成 函数/模块 调用图" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/gen-graph-from-c-code" data-title="从 C 源码生成 函数/模块 调用图" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gen-graph-from-c-code.html" rel="alternate"/>
     <summary>前天是操作系统课程设计的截止日期，这意味这 OS67 这个坑
@@ -3234,7 +3234,7 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="overthewire-leviathan"&gt;
+    <content type="html">&lt;section id="overthewire-leviathan"&gt;
 
 &lt;p&gt;地址: &lt;a class="reference external" href="http://overthewire.org/wargames/leviathan/"&gt;OverTheWire: Leviathan&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？&lt;/p&gt;
@@ -3344,7 +3344,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;/div&gt;
 &lt;p&gt;元旦快乐，希望新的一年不要那么痛苦了。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/overthewire-leviathan" data-title="OverTheWire Leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/overthewire-leviathan" data-title="OverTheWire Leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-leviathan.html" rel="alternate"/>
     <summary>地址: OverTheWire: Leviathan.</summary>
@@ -3358,7 +3358,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="teeworlds"&gt;
+    <content type="html">&lt;section id="teeworlds"&gt;
 
 &lt;p&gt;前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
 （什么是 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/Teeworlds"&gt;teeworlds&lt;/a&gt;？），
@@ -3414,7 +3414,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;p&gt;上面的代码被我整合进了 &lt;a class="reference external" href="https://github.com/SilverRainZ/teebot"&gt;SilverRainZ/teebot&lt;/a&gt; 里，
 如果你在 #archlinux-cn 频道的话，输入 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.tee&lt;/span&gt;&lt;/code&gt; 就能知道现在社区的游戏服务器里有几个人啦。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/get-teeworlds-server-information" data-title="获取 teeworlds 服务器信息" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/get-teeworlds-server-information" data-title="获取 teeworlds 服务器信息" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/get-teeworlds-server-information.html" rel="alternate"/>
     <summary>前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
@@ -3431,7 +3431,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="thinkpad-l450"&gt;
+    <content type="html">&lt;section id="thinkpad-l450"&gt;
 
 &lt;img alt="" src="_images/thinkpad-l450.jpg" /&gt;
 &lt;p&gt;元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
@@ -3600,7 +3600,7 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;p&gt;最后再贴一张图：&lt;/p&gt;
 &lt;img alt="" src="_images/thinkpad-l450-screenshot.png" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/thinkpad-l450" data-title="入手 ThinkPad L450" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/thinkpad-l450" data-title="入手 ThinkPad L450" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/thinkpad-l450.html" rel="alternate"/>
     <summary>元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
@@ -3616,12 +3616,12 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="gsoc-2016"&gt;
+    <content type="html">&lt;section id="gsoc-2016"&gt;
 
 &lt;p&gt;;-) 难以置信。&lt;/p&gt;
 &lt;img alt="" src="_images/gsoc-2016-mail.png" /&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/gsoc-2016" data-title="GSoC 2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/gsoc-2016" data-title="GSoC 2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016.html" rel="alternate"/>
     <summary>;-) 难以置信。</summary>
@@ -3635,7 +3635,7 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="makefile"&gt;
+    <content type="html">&lt;section id="makefile"&gt;
 
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;Note: 这篇文章假设你已经知道基本的 Makefile 编写规则&lt;/p&gt;
@@ -3656,7 +3656,7 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;前言&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;安装基于 make 构建的程序基本上就是两个步骤：&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt;&lt;/code&gt; 然后 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt;，
 前者把程序按依赖关系编译，后者把文档、数据、编译出来的二进制安装到系统中。
@@ -3687,8 +3687,8 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;/div&gt;
 &lt;p&gt;build 是存放编译中间文件和编译出来的二进制文件的地方，srain.c 是主程序代码，
 srain-avatar.png 是程序要用到的图片。srain-icon.png 是程序图标。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;/section&gt;
+&lt;section id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;安装图标&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;对于图标，Icon Theme Specification&lt;a class="footnote-reference brackets" href="#fn-icon-theme-spec" id="id4"&gt;1&lt;/a&gt;
 规定了图标在文件系统上的位置，程序只需要根据图标的名称（即文件名去掉扩展名）
@@ -3714,8 +3714,8 @@ srain-avatar.png 是程序要用到的图片。srain-icon.png 是程序图标。
     &lt;span class="s2"&gt;&amp;quot;/usr/share/icons/hicolor/16x16/apps/&lt;/span&gt;&lt;span class="nv"&gt;$$&lt;/span&gt;&lt;span class="s2"&gt;png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="prefix"&gt;
+&lt;/section&gt;
+&lt;section id="prefix"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;PREFIX&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;除了图标之外，其他的数据文件应该如何组织？
 至少我们应该做到的是：&lt;/p&gt;
@@ -3817,8 +3817,8 @@ Arch Linux 的包的 prefix 通常是 &lt;code class="docutils literal notransla
 &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;icons&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hicolor&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="n"&gt;x16&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;apps&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;srain&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="destdir"&gt;
+&lt;/section&gt;
+&lt;section id="destdir"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;DESTDIR&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt; 直接将各种文件安装在了目的文件系统上，如果 Makefile 写错的话，
 可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt;
@@ -3844,8 +3844,8 @@ Arch Linux 的包的 prefix 通常是 &lt;code class="docutils literal notransla
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;之后再由包管理器把这些文件打成包，安装到系统中。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="configure"&gt;
+&lt;/section&gt;
+&lt;section id="configure"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Configure&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的 Makefile 有处不优雅的地方是，&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt; 的时候必须指定相同的 PREFIX，
 不然安装后的程序肯定是运行不了的，而 make 本身并不能解决这个问题，因为 make 是「无状态」的。&lt;/p&gt;
@@ -3881,8 +3881,8 @@ cat Makefile.in &amp;gt;&amp;gt;Makefile
 &lt;/div&gt;
 &lt;p&gt;如上，执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;./configure&lt;/span&gt; &lt;span class="pre"&gt;--prefix=/usr&lt;/span&gt;&lt;/code&gt; 就会把 Makefile.in 复制为 Makefile，并在
 Makefile 最前面加上一句 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;PREFIX&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;/usr&lt;/span&gt;&lt;/code&gt;（实际操作顺序是反过来的你们懂就好）。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="archlinux-pkgbuild"&gt;
+&lt;/section&gt;
+&lt;section id="archlinux-pkgbuild"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;编写 Archlinux 的打包脚本 PKGBUILD&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这样的一个项目打包起来是很愉快的 :)&lt;/p&gt;
 &lt;div class="highlight-sh notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;pkgname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;srain
@@ -3903,8 +3903,8 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;/div&gt;
 &lt;p&gt;完整的脚本请见：&lt;a class="reference external" href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=srain"&gt;srain.git - AUR Package Repositories&lt;/a&gt;，
 可能稍有出入。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
+&lt;/section&gt;
+&lt;section id="id9"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;参考&lt;/a&gt;&lt;/h2&gt;
 &lt;dl class="footnote brackets"&gt;
 &lt;dt class="label" id="fn-icon-theme-spec"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id4"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
@@ -3924,8 +3924,8 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/practical-makefile-for-packaging" data-title="编写便于打包的 Makefile" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/practical-makefile-for-packaging" data-title="编写便于打包的 Makefile" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/practical-makefile-for-packaging.html" rel="alternate"/>
     <summary>Note: 这篇文章假设你已经知道基本的 Makefile 编写规则</summary>
@@ -3941,7 +3941,7 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="gsoc-2016"&gt;
+    <content type="html">&lt;section id="gsoc-2016"&gt;
 
 &lt;p&gt;这是一篇拖了一个月的流水帐……&lt;/p&gt;
 &lt;p&gt;谷歌编程之夏（Google Summer of Code/GSoC）是 Google 举办的年度编程活动，
@@ -3966,7 +3966,7 @@ $5500 的报酬，同时开源社区也能得到 $500 的赞助。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="proposal"&gt;
+&lt;section id="proposal"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
 社区要参加 GSoC 并开始招人的事情， &lt;span class="sphinxnotes-strike"&gt;当然也提及了 Tox 去年闹出的一桩事：&lt;/span&gt;
@@ -3996,8 +3996,8 @@ not english/missing translation.」，仅仅拍学生证不够，还需要加上
 &lt;p&gt;再往后，每天跟着舍友去图书馆，写还当时未成型的 &lt;a class="reference external" href="https://github.com/SilverRainZ/srain"&gt;Srain&lt;/a&gt;，
 其间有 GNU 的成员在我的 proposal 上留言评论……我也没去回复，
 渐渐把这件事忘记了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="welcome-to-gsoc-2016"&gt;
+&lt;/section&gt;
+&lt;section id="welcome-to-gsoc-2016"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Welcome to GSoC 2016!&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;4 月 23 号，刚起床看到有封邮件，&lt;/p&gt;
 &lt;blockquote&gt;
@@ -4015,8 +4015,8 @@ not english/missing translation.」，仅仅拍学生证不够，还需要加上
 &lt;/ul&gt;
 &lt;p&gt;做完以上事情后，GSoC 就可以正式开始了，从 4 月 23 号到 5 月 22 号是 Community
 Bonding Period，用来和社区成员交流，配置开发环境，熟悉工作流程等。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="community-bonding"&gt;
+&lt;/section&gt;
+&lt;section id="community-bonding"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;焦虑的 Community Bonding&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Hurd 当前的开发者基本在欧洲，我的两位 mentor：
 &lt;a class="reference external" href="https://www.sceen.net/~rbraun/resume.pdf"&gt;Richard Braun&lt;/a&gt; 和
@@ -4072,8 +4072,8 @@ as part of the communit bonding period”&lt;/p&gt;
 &lt;div&gt;&lt;p&gt;不过，看文档的这段时间虽然很痛苦，但是也不是没收获，我从中了解到了一些 micro kernel
 的概念，并且也不再像以前那样害怕英文文档了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;/section&gt;
+&lt;section id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;编程之夏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;大概从 5 月 18 号开始，我从无脑看文档转为写代码， 写代码比看文档愉快多了 ——
 这大概也是我编程能力止步不前的原因吧，瞎写代码不看书。
@@ -4107,8 +4107,8 @@ mentor 们显然对我之前看文档表现出来的低下的效率和理解力�
 详情不表。我从来没有这么讨厌过自己的学校，待我毕业后一定要上知乎狠狠撕一下这个愚蠢的实训制度。#FLAG&lt;/p&gt;
 &lt;p&gt;这段时间的代码都提交在
 &lt;a class="reference external" href="https://github.com/SilverRainZ/hurd/tree/gsoc-2016-xattr"&gt;SilverRainZ/hurd at gsoc-2016-xattr&lt;/a&gt; 上。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;/section&gt;
+&lt;section id="id6"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;夏日的怠惰尾声&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;就如同上面所说的，只要修好这个 patch 并补全 xattr 的功能，项目就算完成了，
 「GSoC 原来这么水啊……」，我开始产生了这种想法，一旦完成了最小目标，我就开始松懈，
@@ -4126,9 +4126,9 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;a class="reference external" href="http://lists.gnu.org/archive/html/bug-hurd/2016-08/msg00075.html"&gt;[GSoC] Implement xattr Support Update&lt;/a&gt;
 到 Hurd 的邮件列表。接着又到 GSoC 的网站上完成了 final evaluations。&lt;/p&gt;
 &lt;p&gt;8 月 30 号，收到了 GSoC 完成的通知，结束了这个不算完美的夏天。&lt;/p&gt;
-&lt;/div&gt;
+&lt;/section&gt;
 &lt;hr class="docutils" /&gt;
-&lt;div class="section" id="id7"&gt;
+&lt;section id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;总结&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我之所以能被 accept，和我的选择是有密切关系的：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -4147,8 +4147,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;p&gt;在这其间我收到了 Google 的三笔付款 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;3234.86&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;14635.59&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;17959.75&lt;/span&gt;&lt;/code&gt; 总计 35830.2 元，
 一只圆珠笔，一本本子，一封 PDF 形式的电子证书，还有一件还在路上的 T-shirt，
 物质收入颇丰。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
+&lt;/section&gt;
+&lt;section id="id8"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;相关链接&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://summerofcode.withgoogle.com/"&gt;GSoC 官网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -4158,8 +4158,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/SilverRainZ/hurd"&gt;我的 Hurd fork&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/gsoc-2016-sum-up" data-title="GSoC 2016 小记 - 误打误撞三个月" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/gsoc-2016-sum-up" data-title="GSoC 2016 小记 - 误打误撞三个月" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016-sum-up.html" rel="alternate"/>
     <summary>这是一篇拖了一个月的流水帐……GSoC 2013 Project</summary>
@@ -4173,7 +4173,7 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="sphinx-restructuredtext"&gt;
+    <content type="html">&lt;section id="sphinx-restructuredtext"&gt;
 
 &lt;p&gt;前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 &lt;a class="reference external" href="http://readthedocs.io/"&gt;Read The Docs&lt;/a&gt;
 上发布，地址是 &lt;a class="reference external" href="http://notes.silverrainz.me"&gt;notes.silverrainz.me&lt;/a&gt;，旧域名在过期前也同样有效。&lt;/p&gt;
@@ -4194,7 +4194,7 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;section id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;前言&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;GitBook 是一个用于发布书籍的平台，允许你用 Markdown 编写书籍并使用 git 仓库管理，
 还能通过这个平台发布到网络上，GitBook 同时也是 Gitbook 平台推出的书籍生成工具的名字。&lt;/p&gt;
@@ -4206,8 +4206,8 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;li&gt;&lt;p&gt;GitBook 是 Node.JS 写的&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Markdown 无法适应稍微复杂的写作场景&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-&lt;div class="section" id="node-js"&gt;
+&lt;/section&gt;
+&lt;section id="node-js"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;为什么我不喜欢 Node.js&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我不知道 Node.js 开发者为何如此热衷于用它来造各种轮子甚至用来写各种本地应用。
 Node 的包管理器 npm 会将一个应用的所有依赖都安装在项目目录下。
@@ -4243,8 +4243,8 @@ $ pacman -Ql python-sphinx | wc -l
 都要 &lt;strong&gt;重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍&lt;/strong&gt; 呢？于是每次改动后你
 需要十多秒后才能够「实时预览」。&lt;/p&gt;
 &lt;p&gt;以上所述的问题针对 GitBook 3.2.1 及以下版本。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="markdown-vs-restructuredtext"&gt;
+&lt;/section&gt;
+&lt;section id="markdown-vs-restructuredtext"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Markdown vs reStructuredText&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Markdown 是啥这里就不说了……Markdown 的问题在于它太轻又没有一个统一的标准。
 因此各个社区都自顾自地实现了一套自己的方言，同样是叫 Markdown，
@@ -4326,8 +4326,8 @@ Interpreted Text 的前后。reStructuredText 利用 Interpreted Text 实现了�
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="sphinx"&gt;
+&lt;/section&gt;
+&lt;section id="sphinx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Sphinx 简介&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Sphinx 是 Georg Brandl 用 Python 编写的文档创建工具，以 BSD 协议开源，使用
 reStructuredText 作为标记语言。Sphinx 被用来编写 &lt;a class="reference external" href="https://docs.python.org/"&gt;Python 的官方文档&lt;/a&gt;。
@@ -4344,8 +4344,8 @@ reStructuredText 作为标记语言。Sphinx 被用来编写 &lt;a class="refere
 &lt;div&gt;&lt;p&gt;看起来 Sphinx 的功能比 GitBook 丰富得多，但其实它们之间没什么可比性，
 因为 Sphinx 是文档生成工具而 GitBook 只是简单的书籍生成工具。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="section" id="markdown-restructuredtext"&gt;
+&lt;/section&gt;
+&lt;section id="markdown-restructuredtext"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;将 Markdown 笔记转化为 reStructuredText&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;使用 Sphinx 管理笔记的第一步是将之前笔记转成 rst 格式，Pandoc 大法好：&lt;/p&gt;
 &lt;div class="highlight-bash notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; md in &lt;span class="k"&gt;$(&lt;/span&gt;find . -name &lt;span class="s1"&gt;&amp;#39;*.md&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
@@ -4353,8 +4353,8 @@ reStructuredText 作为标记语言。Sphinx 被用来编写 &lt;a class="refere
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="shpinx"&gt;
+&lt;/section&gt;
+&lt;section id="shpinx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Shpinx 的安装和使用&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;执行 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pip&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt; &lt;span class="pre"&gt;sphinx&lt;/span&gt;&lt;/code&gt; 即可安装 Sphinx，Arch Linux 用户可以执行
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pacman&lt;/span&gt; &lt;span class="pre"&gt;-S&lt;/span&gt; &lt;span class="pre"&gt;python-sphinx&lt;/span&gt;&lt;/code&gt; 安装。Sphinx 提供了 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;sphinx-quickstart&lt;/span&gt;&lt;/code&gt; 程序，
@@ -4369,8 +4369,8 @@ index.rst 则是默认的文档首页。&lt;/p&gt;
     xdg-open &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;BUILDDIR&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;/html/index.html&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;/section&gt;
+&lt;section id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;组织和索引&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Sphinx 定义了 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;toctree&lt;/span&gt;&lt;/code&gt; 指令作为目录树，各个文档由目录树组织在一起，
 在构建文档的时候，如果存在没有被引用到的文档，Sphinx 会发出警告。&lt;/p&gt;
@@ -4404,8 +4404,8 @@ Description.
 &lt;/div&gt;
 &lt;p&gt;这个 index.rst 会匹配当前目录所有的 rst 文档，并在所有的文件夹下寻找 index.rst。
 所有的笔记通过 index.rst 被组织到一起。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;/section&gt;
+&lt;section id="id6"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;使用 Read The Docs 发布&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/use-sphinx-and-rst-to-manage-your-notes.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id7"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
@@ -4417,8 +4417,8 @@ Description.
 Read The Docs 上的文档。&lt;/p&gt;
 &lt;p&gt;P.S. Read The Docs 的主站看起来很简陋…… 给我一种要完蛋了的感觉。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/use-sphinx-and-rst-to-manage-your-notes" data-title="用 Sphinx + reStructuredText 构建笔记系统" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/use-sphinx-and-rst-to-manage-your-notes" data-title="用 Sphinx + reStructuredText 构建笔记系统" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/use-sphinx-and-rst-to-manage-your-notes.html" rel="alternate"/>
     <summary>前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 Read The Docs
@@ -4434,7 +4434,7 @@ Read The Docs 上的文档。&lt;/p&gt;
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="isso"&gt;
+    <content type="html">&lt;section id="isso"&gt;
 
 &lt;p&gt;前阵子多说 &lt;a class="reference external" href="http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241"&gt;对外宣布&lt;/a&gt;
 它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的
@@ -4468,7 +4468,7 @@ Read The Docs 上的文档。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
+&lt;section id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;为什么是 Isso&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我所见的各种静态博客用得最多的还是 Disqus，曾经我也是 Disqus 的用户，但是 Disqus
 存在着一些问题：&lt;/p&gt;
@@ -4490,8 +4490,8 @@ AUR 里面还有有现成的包能用，于是就决定是你了，Isso！&lt;/p
 &lt;a class="reference external" href="https://github.com/SilverRainZ/tech"&gt;https://github.com/SilverRainZ/tech&lt;/a&gt;，
 Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;strong&gt;以下的操作均针对该代码仓库
 以及 vps 上的 Arch 环境。&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
+&lt;/section&gt;
+&lt;section id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;架设服务&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先从 AUR 安装安装 Isso：&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ yaourt -S isso
@@ -4551,13 +4551,13 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;strong&gt;�
 &lt;/div&gt;
 &lt;p&gt;其中 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;comments.silverrainz.me&lt;/span&gt;&lt;/code&gt; 是指向 vps 的域名，你需要在域名所使用的 DNS
 服务器提供者那里修改 A 记录。&lt;/p&gt;
-&lt;div class="section" id="id6"&gt;
+&lt;section id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;邮件通知&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;// TODO&lt;/p&gt;
 &lt;p&gt;还不会配 SMTP，先搁着。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;客户端&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;只要在网页中插入如下代码即可插入评论框：&lt;/p&gt;
 &lt;div class="highlight-html notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;data-isso&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;//comments.silverrainz.me/&amp;quot;&lt;/span&gt;
@@ -4566,7 +4566,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;strong&gt;�
 &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;isso-thread&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="jekyll-s-way"&gt;
+&lt;section id="jekyll-s-way"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Jekyll’s Way&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;对于 Jekyll 博客，比较好的做法是 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;_includes&lt;/span&gt;&lt;/code&gt; 目录下在建立 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;comments&lt;/span&gt;&lt;/code&gt; 文件用来
 存放评论框代码：&lt;/p&gt;
@@ -4591,9 +4591,9 @@ title 和 id 可以在文件的 yaml 头中设置，但 Jekyll 会为 &lt;code c
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;{%&lt;/span&gt; &lt;span class="pre"&gt;include&lt;/span&gt; &lt;span class="pre"&gt;comments&lt;/span&gt; &lt;span class="pre"&gt;%}&lt;/span&gt;&lt;/code&gt;
 就可以在每个使用了 page 模板的网页上显示评论框了。&lt;/p&gt;
 &lt;p&gt;详情请参见：&lt;a class="reference external" href="https://github.com/SilverRainZ/tech/commit/91fba1ed944ddc48d10df6dd21fceae5a0860b74"&gt;Commit: Replace duoshuo with isso&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="https"&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+&lt;section id="https"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;HTTPS&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;对于启用了 HTTPS 的博客来说，部署还没有结束：在 HTTPS 页面（博客）中引用的
 HTTP 脚本 (&lt;a class="reference external" href="http://comments.silverrainz.me/js/embed.min.js"&gt;http://comments.silverrainz.me/js/embed.min.js&lt;/a&gt;) 被认为是危险的
@@ -4655,8 +4655,8 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;至此，应当可以通过 HTTPS 访问 Isso 的脚本了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
+&lt;/section&gt;
+&lt;section id="id8"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;样式&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍做了一下调整，保存在
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;assets/comments.css&lt;/span&gt;&lt;/code&gt; 中：&lt;/p&gt;
@@ -4695,8 +4695,8 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
+&lt;/section&gt;
+&lt;section id="id9"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;数据迁移&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;完成部署和简单的美化后，接下来就该把旧数据迁移过来了。&lt;/p&gt;
 &lt;p&gt;在多说宣布关闭的时候我就从后台导出了我的所有评论数据，数据文件的格式是 JSON，
@@ -4763,13 +4763,13 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;link&amp;gt;http://lastavenger.github.io/about.html&amp;lt;/link&amp;gt;&lt;/span&gt;&lt;/code&gt; =&amp;gt; &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;/about.html&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;于是尝试用 vim 把链接里面的 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;.html&lt;/span&gt;&lt;/code&gt; 去掉：&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:%s/.html&amp;lt;\/link&amp;gt;/&amp;lt;\/link&amp;gt;/&lt;/span&gt;&lt;/code&gt;，重新导入，
 评论就乖乖地出现了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
+&lt;/section&gt;
+&lt;section id="id10"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;安全&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;// TODO&lt;/p&gt;
 &lt;p&gt;Isso 的安全性尚未考证，毫无安全技能点的我也只能先搁着了 :-(。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
+&lt;/section&gt;
+&lt;section id="id11"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;不足&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;当然 Isso 的缺点也是很多的……&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -4780,8 +4780,8 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;li&gt;&lt;p&gt;以后遇到了再补……&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/switch-from-duoshuo-to-isso" data-title="从多说迁移到 Isso" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;section data-isso-id="/blog/switch-from-duoshuo-to-isso" data-title="从多说迁移到 Isso" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/switch-from-duoshuo-to-isso.html" rel="alternate"/>
     <summary>前阵子多说 对外宣布
@@ -4798,7 +4798,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="srain-1-0"&gt;
+    <content type="html">&lt;section id="srain-1-0"&gt;
 
 &lt;div class="topic"&gt;
 &lt;p class="topic-title"&gt;前注&lt;/p&gt;
@@ -4830,7 +4830,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 但我相信是会有人受益于这个软件的吧，一切都会顺利进行的吧，I pray。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/srain-and-me" data-title="Srain 1.0 发布了" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/srain-and-me" data-title="Srain 1.0 发布了" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/srain-and-me.html" rel="alternate"/>
     <summary>这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
@@ -4847,7 +4847,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;div class="section" id="id1"&gt;
+    <content type="html">&lt;section id="id1"&gt;
 
 &lt;p&gt;6 月我从长亭科技离职，去燕郊 &lt;a class="reference external" href="https://weibo.com/lixiaofeiart"&gt;&amp;#64;李晓飞&lt;/a&gt; 老师处学画，
 课题是基础素描。&lt;/p&gt;
@@ -4869,18 +4869,20 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 甚至我才是真正的加害者，我只是因为过分软弱，被宽容，被同情罢了。我什么都不能再做了，
 再动弹一下都会让事情更坏。事件的余波到现在还在发挥着影响，但未来总是会落定吧。
 时间会推着我往前走。只是我大不相同了。就如同画 &lt;a class="reference internal" href="notes/zxsys/way-to-artist/find-yourself.html#artwork-768" title="xfczk-010 artwork"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;xfczk-010&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 时我所想的:&lt;/p&gt;
-&lt;div class="figure align-default" id="id2"&gt;
+&lt;figure class="align-default" id="id2"&gt;
 &lt;img alt="_images/IMG_20210204_145427__01__01.jpg" src="_images/IMG_20210204_145427__01__01.jpg" style="width: 60%;" /&gt;
-&lt;p class="caption"&gt;&lt;span class="caption-text"&gt;那时我的脑子里还没有辞职的念头，工作日的脑子装着代码和工单，
+&lt;figcaption&gt;
+&lt;p&gt;&lt;span class="caption-text"&gt;那时我的脑子里还没有辞职的念头，工作日的脑子装着代码和工单，
 只有周末才能假扮艺术家。 每天夜里都有孤独的时候，醒来又是健全的一个人。&lt;/span&gt;&lt;/p&gt;
 &lt;div class="legend"&gt;
 &lt;p&gt;现在的燕郊也下雪，脑子里是光和影子，看不懂的形体的和可爱的人儿。
 我好像可以自诩艺术家，但无法称之为人了。每天要吃一大把的药，醒来和不醒来没有区别。&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;p&gt;再见啦，我的 2010，再见啦，那个一点都不胖的人。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/new-boy" data-title="嘿，我去 2010" id="isso-thread"&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section data-isso-id="/blog/new-boy" data-title="嘿，我去 2010" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/new-boy.html" rel="alternate"/>
     <summary>6 月我从长亭科技离职，去燕郊 @李晓飞 老师处学画，

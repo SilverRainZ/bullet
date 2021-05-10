@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -16,8 +17,8 @@
         </script>
     
     <title>OverTheWire Bandit &#8212; 银色子弹</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
@@ -26,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -85,13 +86,13 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="overthewire-bandit">
+             <section id="overthewire-bandit">
 <h1>OverTheWire Bandit<a class="headerlink" href="#overthewire-bandit" title="永久链接至标题">¶</a></h1>
 <p>题目地址: <a class="reference external" href="http://overthewire.org/wargames/bandit/">OverTheWire: Bandit</a>.</p>
 <p>考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思…
 <span class="sphinxnotes-strike">有意思的意思是我不会做</span>.</p>
-<div class="section" id="wechall">
+<section id="wechall">
 <h2>WeChall 计分板<a class="headerlink" href="#wechall" title="永久链接至标题">¶</a></h2>
 <p>OverTheWire 使用 Wechall 的计分板来计分,
 具体参见 <a class="reference external" href="http://overthewire.org/about/wechall.html">WeChall Scoreborad</a></p>
@@ -112,10 +113,10 @@
 </div>
 <p>在 ssh 连接的时候就会把你的帐号信息发送给远程主机.</p>
 <p>在登入一个新的关卡后, 执行 <code class="docutils literal notranslate"><span class="pre">wechall</span></code> 便可获得该关卡的分数.</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2>题目<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="section" id="bandit17">
+<section id="bandit17">
 <h3>bandit17<a class="headerlink" href="#bandit17" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>The password for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.</p>
@@ -144,8 +145,8 @@ cat /etc/bandit_pass/bandit17
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="bandit21">
+</section>
+<section id="bandit21">
 <h3>bandit21<a class="headerlink" href="#bandit21" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
@@ -167,8 +168,8 @@ cat /etc/bandit_pass/bandit17
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="bandit24">
+</section>
+<section id="bandit24">
 <h3>bandit24<a class="headerlink" href="#bandit24" title="永久链接至标题">¶</a></h3>
 <blockquote>
 <div><p>A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.</p>
@@ -223,7 +224,7 @@ chmod <span class="m">666</span> /tmp/tmp.xxx/
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</span>
 </pre></div>
 </div>
-<div class="section" id="bandit25">
+<section id="bandit25">
 <h4>bandit25<a class="headerlink" href="#bandit25" title="永久链接至标题">¶</a></h4>
 <blockquote>
 <div><p>A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinaties, called brute-forcing.</p>
@@ -250,8 +251,8 @@ cat /tmp/log <span class="p">|</span> grep <span class="s2">&quot;Corr&quot;</sp
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="bandit26">
+</section>
+<section id="bandit26">
 <h4>bandit26<a class="headerlink" href="#bandit26" title="永久链接至标题">¶</a></h4>
 <blockquote>
 <div><p>Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.</p>
@@ -304,10 +305,10 @@ more ~/text.txt
 </pre></div>
 </div>
 <hr class="docutils" />
-<section data-isso-id="/blog/overthewire-bandit" data-title="OverTheWire Bandit" id="isso-thread"></section></div>
-</div>
-</div>
-</div>
+<section data-isso-id="/blog/overthewire-bandit" data-title="OverTheWire Bandit" id="isso-thread"></section></section>
+</section>
+</section>
+</section>
 
 <div class="section">
      
@@ -617,7 +618,7 @@ more ~/text.txt
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

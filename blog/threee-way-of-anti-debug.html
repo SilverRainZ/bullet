@@ -4,7 +4,8 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -16,8 +17,8 @@
         </script>
     
     <title>几种简单的反调试方法 &#8212; 银色子弹</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
@@ -26,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -85,7 +86,7 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="id1">
+             <section id="id1">
 <h1><a class="toc-backref" href="#id4">几种简单的反调试方法</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>这里面没有什么自己的东西,
 都是从看雪的<a class="reference external" href="http://bbs.pediy.com/showthread.php?t=184679">OD从零系列教程</a>里看来的.
@@ -140,9 +141,9 @@
 </li>
 </ul>
 </div>
-<div class="section" id="x0-isdebuggerparent">
+<section id="x0-isdebuggerparent">
 <h2><a class="toc-backref" href="#id5">0x0  利用IsDebuggerParent()</a><a class="headerlink" href="#x0-isdebuggerparent" title="永久链接至标题">¶</a></h2>
-<div class="section" id="x0-0">
+<section id="x0-0">
 <h3><a class="toc-backref" href="#id6">0x0.0 介绍</a><a class="headerlink" href="#x0-0" title="永久链接至标题">¶</a></h3>
 <p>该函数检测程序是否正在被调试, 是的话返回1,否则返回0,
 该函数位于<code class="docutils literal notranslate"><span class="pre">Kernel32.dll</span></code>中, 其代码如下:</p>
@@ -159,8 +160,8 @@
 因此通过这个函数可以检测调试器.</p>
 <p>你可以在代码中直接使用<code class="docutils literal notranslate"><span class="pre">IsDebuggerParent</span></code>或者嵌入等价的汇编代码.
 动态载入函数比直接引入好些.</p>
-</div>
-<div class="section" id="x0-1">
+</section>
+<section id="x0-1">
 <h3><a class="toc-backref" href="#id7">0x0.1 栗子</a><a class="headerlink" href="#x0-1" title="永久链接至标题">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
@@ -195,19 +196,19 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="x0-2">
+</section>
+<section id="x0-2">
 <h3><a class="toc-backref" href="#id8">0x0.2 绕过</a><a class="headerlink" href="#x0-2" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>如果能定位到函数的话, 修改他的流程.</p></li>
 <li><p>可以在载入程序后, 把那个<code class="docutils literal notranslate"><span class="pre">BeingDebugged</span></code>位置0,
 当然, HideDebugger插件已经替我们做了这件事.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="x1-i">
+</section>
+</section>
+<section id="x1-i">
 <h2><a class="toc-backref" href="#id9">0x1 检测进程名I</a><a class="headerlink" href="#x1-i" title="永久链接至标题">¶</a></h2>
-<div class="section" id="x1-0">
+<section id="x1-0">
 <h3><a class="toc-backref" href="#id10">0x1.0 介绍</a><a class="headerlink" href="#x1-0" title="永久链接至标题">¶</a></h3>
 <p>通过检测特定调试器(常常是OD)的进程是否存在来防止被调试.</p>
 <p>用到了下面几个API:</p>
@@ -275,23 +276,23 @@
 <li><p>如果是待检测进程的话, 选择自行退出或者是结束调试器, 可能用到<code class="docutils literal notranslate"><span class="pre">TerminatePorcess</span></code></p></li>
 <li><p>调用<code class="docutils literal notranslate"><span class="pre">CloseHandle</span></code>关闭句柄</p></li>
 </ol>
-</div>
-<div class="section" id="x1-1">
+</section>
+<section id="x1-1">
 <h3><a class="toc-backref" href="#id11">0x1.1 栗子</a><a class="headerlink" href="#x1-1" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">//TODO</span></code></p>
-</div>
-<div class="section" id="x1-2">
+</section>
+<section id="x1-2">
 <h3><a class="toc-backref" href="#id12">0x1.2 绕过</a><a class="headerlink" href="#x1-2" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>令OpenProcess始终返回<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, 打不开任何进程.</p></li>
 <li><p>改动OpenProcess后的程序流程</p></li>
 <li><p>更改OD的名字, 进程名也会同时被更改;(最简单的做法了)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="x2-ii">
+</section>
+</section>
+<section id="x2-ii">
 <h2><a class="toc-backref" href="#id13">0x2 检测进程名II</a><a class="headerlink" href="#x2-ii" title="永久链接至标题">¶</a></h2>
-<div class="section" id="x2-0">
+<section id="x2-0">
 <h3><a class="toc-backref" href="#id14">0x2.0 介绍</a><a class="headerlink" href="#x2-0" title="永久链接至标题">¶</a></h3>
 <p>使用的API:</p>
 <ul class="simple">
@@ -352,19 +353,19 @@
 <li><p>用<code class="docutils literal notranslate"><span class="pre">Process32First</span></code>取得第一个进程的信息, 判断是否是要检测的进程</p></li>
 <li><p>用<code class="docutils literal notranslate"><span class="pre">Process32Next</span></code>循环检测其他进程</p></li>
 </ul>
-</div>
-<div class="section" id="x2-1">
+</section>
+<section id="x2-1">
 <h3><a class="toc-backref" href="#id15">0x2.1 栗子</a><a class="headerlink" href="#x2-1" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">//TODO</span></code></p>
-</div>
-<div class="section" id="x2-2">
+</section>
+<section id="x2-2">
 <h3><a class="toc-backref" href="#id16">0x2.2 绕过</a><a class="headerlink" href="#x2-2" title="永久链接至标题">¶</a></h3>
 <p>绕过的做法基本同I.</p>
-</div>
-</div>
-<div class="section" id="id3">
+</section>
+</section>
+<section id="id3">
 <h2><a class="toc-backref" href="#id17">检测窗口类名</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<div class="section" id="x3-0">
+<section id="x3-0">
 <h3><a class="toc-backref" href="#id18">0x3.0 介绍</a><a class="headerlink" href="#x3-0" title="永久链接至标题">¶</a></h3>
 <p>又是API…</p>
 <ul class="simple">
@@ -383,20 +384,20 @@
 执行成功返回句柄.</p>
 <p>因为OD的窗口名常常不确定, 利用窗口类名往往比较靠谱;
 将窗口名置NULL, 检测OD的顶级窗体类名即可, 该类名可以通过Spy++得到.</p>
-</div>
-<div class="section" id="x3-1">
+</section>
+<section id="x3-1">
 <h3><a class="toc-backref" href="#id19">0x3.1 栗子</a><a class="headerlink" href="#x3-1" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">//TODO</span></code></p>
-</div>
-<div class="section" id="x3-2">
+</section>
+<section id="x3-2">
 <h3><a class="toc-backref" href="#id20">0x3.2 绕过</a><a class="headerlink" href="#x3-2" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>HideDebugger插件有绕过 FindWindowA/EnumWindows 的选项;</p></li>
 <li><p>使用RE-Pair为OD主程序打补丁, 可更改其类名</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="x3-unhandledexcepitonzwqueryinformationprocess">
+</section>
+</section>
+<section id="x3-unhandledexcepitonzwqueryinformationprocess">
 <h2><a class="toc-backref" href="#id21">0x3 UnhandledExcepiton和ZwQueryInformationProcess</a><a class="headerlink" href="#x3-unhandledexcepitonzwqueryinformationprocess" title="永久链接至标题">¶</a></h2>
 <p>这种反调试方法比前面的方法更具技巧性一些, 利用了Windows的异常处理机制,
 但是我还不了解这些异常处理, 不敢胡说,暂时略过.</p>
@@ -505,11 +506,11 @@ UnhandledExceptionFilter可是步骤6才执行的?
 * 手动修改ZwQueryInformationProcess返回值
 * HideDebugger插件的UnhandledExceptionTricks选项可以绕过此反调试.
 * HideOD插件可以单独绕过ZwQueryInformationProcess(记住勾选AutoRun)
-</p></div>
-<div class="section" id="x4-ntglobalflag-processheap-outputdebugstringa">
+</p></section>
+<section id="x4-ntglobalflag-processheap-outputdebugstringa">
 <h2><a class="toc-backref" href="#id22">0x4 NtGlobalFlag,ProcessHeap,OutputDebugStringA</a><a class="headerlink" href="#x4-ntglobalflag-processheap-outputdebugstringa" title="永久链接至标题">¶</a></h2>
 <p>这几个都比较简单, 从略.</p>
-<div class="section" id="ntglobalflag">
+<section id="ntglobalflag">
 <h3><a class="toc-backref" href="#id23">NtGlobalFlag</a><a class="headerlink" href="#ntglobalflag" title="永久链接至标题">¶</a></h3>
 <p>该标志在<code class="docutils literal notranslate"><span class="pre">PEB</span></code>中,对于x86, 在0x68处
 对于x64, 在 0xbc 处.</p>
@@ -526,21 +527,21 @@ UnhandledExceptionFilter可是步骤6才执行的?
 </pre></div>
 </div>
 <p>因此, 如果<code class="docutils literal notranslate"><span class="pre">NtGlobalFlag</span> <span class="pre">==</span> <span class="pre">0x10</span> <span class="pre">+</span> <span class="pre">0x20</span> <span class="pre">+</span> <span class="pre">0x40</span> <span class="pre">=</span>&#160; <span class="pre">0x70</span></code>时, 程序正在被调试.</p>
-</div>
-<div class="section" id="processheap">
+</section>
+<section id="processheap">
 <h3><a class="toc-backref" href="#id24">ProcessHeap</a><a class="headerlink" href="#processheap" title="永久链接至标题">¶</a></h3>
 <p>在PEB的 0x10 偏移处的一个 DWORD, 不为0则表示正在被调试.</p>
-</div>
-<div class="section" id="outputdebugstringa">
+</section>
+<section id="outputdebugstringa">
 <h3><a class="toc-backref" href="#id25">OutputDebugStringA</a><a class="headerlink" href="#outputdebugstringa" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">OutputDebugStringA</span></code>是个函数, 该函数向调试器输出一个字符串,
 它能用于反调试是因为OD的一个bug, 当用这个函数输出一长串的%s字串时, OD会崩溃.</p>
-</div>
-<div class="section" id="x4-1">
+</section>
+<section id="x4-1">
 <h3><a class="toc-backref" href="#id26">0x4.1 栗子</a><a class="headerlink" href="#x4-1" title="永久链接至标题">¶</a></h3>
 <p>无</p>
-</div>
-<div class="section" id="x4-2">
+</section>
+<section id="x4-2">
 <h3><a class="toc-backref" href="#id27">0x4.2 绕过</a><a class="headerlink" href="#x4-2" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>修改对应的值</p></li>
@@ -548,9 +549,9 @@ UnhandledExceptionFilter可是步骤6才执行的?
 Hide Debugger插件的OutputDebugString exploit选项</p></li>
 </ul>
 <hr class="docutils" />
-<section data-isso-id="/blog/threee-way-of-anti-debug" data-title="几种简单的反调试方法" id="isso-thread"></section></div>
-</div>
-</div>
+<section data-isso-id="/blog/threee-way-of-anti-debug" data-title="几种简单的反调试方法" id="isso-thread"></section></section>
+</section>
+</section>
 
 <div class="section">
      
@@ -882,7 +883,7 @@ Hide Debugger插件的OutputDebugString exploit选项</p></li>
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
