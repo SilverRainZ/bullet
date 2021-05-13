@@ -102,6 +102,7 @@
 <li><p><a class="reference internal" href="#valid-parentheses" id="id3">20. Valid Parentheses</a></p></li>
 <li><p><a class="reference internal" href="#lru-cache" id="id4">127. LRU Cache</a></p></li>
 <li><p><a class="reference internal" href="#lfu-cache" id="id5">460. LFU Cache</a></p></li>
+<li><p><a class="reference internal" href="#add-two-numvers" id="id6">2. Add Two Numvers</a></p></li>
 </ul>
 </div>
 <section id="two-sum">
@@ -202,61 +203,61 @@
 链表节点的结构体……有的话所有权也是问题，<code class="docutils literal notranslate"><span class="pre">Cursor</span></code> 看起来像然而 nightly only，
 好像还是太菜了 —— 是说我自己。</p>
 <p>但如果换成 go 的话…… <span class="sphinxnotes-strike">这么简单的题也算 medium 吗</span> ，可能因为太实用了所以写起来不难？</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">package</span><span class="w"> </span><span class="n">main</span><span class="w"></span>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
-<span class="n">import</span><span class="w"> </span><span class="s">&quot;container/list&quot;</span><span class="w"></span>
+<span class="kn">import</span> <span class="s">&quot;container/list&quot;</span>
 
-<span class="k">type</span> <span class="nc">LRUCache</span><span class="w"> </span><span class="k">struct</span> <span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">capacity</span><span class="w"> </span><span class="n">int</span><span class="w"></span>
-<span class="w">	</span><span class="n">recent</span><span class="w">   </span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">List</span><span class="w"></span>
-<span class="w">	</span><span class="n">elems</span><span class="w">    </span><span class="n">map</span><span class="p">[</span><span class="n">int</span><span class="p">]</span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">Element</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">type</span> <span class="nx">LRUCache</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">capacity</span> <span class="kt">int</span>
+	<span class="nx">recent</span>   <span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span>
+	<span class="nx">elems</span>    <span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">Element</span>
+<span class="p">}</span>
 
-<span class="k">type</span> <span class="nc">Pair</span><span class="w"> </span><span class="k">struct</span> <span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">Key</span><span class="w">   </span><span class="n">int</span><span class="w"></span>
-<span class="w">	</span><span class="n">Value</span><span class="w"> </span><span class="n">int</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">type</span> <span class="nx">Pair</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Key</span>   <span class="kt">int</span>
+	<span class="nx">Value</span> <span class="kt">int</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="n">Constructor</span><span class="p">(</span><span class="n">capacity</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="n">LRUCache</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">LRUCache</span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">capacity</span>: <span class="nc">capacity</span><span class="p">,</span><span class="w"></span>
-<span class="w">		</span><span class="n">recent</span>:   <span class="nc">list</span><span class="p">.</span><span class="n">New</span><span class="p">(),</span><span class="w"></span>
-<span class="w">		</span><span class="n">elems</span>:    <span class="nc">make</span><span class="p">(</span><span class="n">map</span><span class="p">[</span><span class="n">int</span><span class="p">]</span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">Element</span><span class="p">),</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="nx">Constructor</span><span class="p">(</span><span class="nx">capacity</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">LRUCache</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">LRUCache</span><span class="p">{</span>
+		<span class="nx">capacity</span><span class="p">:</span> <span class="nx">capacity</span><span class="p">,</span>
+		<span class="nx">recent</span><span class="p">:</span>   <span class="nx">list</span><span class="p">.</span><span class="nx">New</span><span class="p">(),</span>
+		<span class="nx">elems</span><span class="p">:</span>    <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">Element</span><span class="p">),</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="o">*</span><span class="n">LRUCache</span><span class="p">)</span><span class="w"> </span><span class="n">Get</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">];</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">recent</span><span class="p">.</span><span class="n">MoveToFront</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="n">Pair</span><span class="p">).</span><span class="n">Value</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">this</span> <span class="o">*</span><span class="nx">LRUCache</span><span class="p">)</span> <span class="nx">Get</span><span class="p">(</span><span class="nx">key</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">elem</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">recent</span><span class="p">.</span><span class="nx">MoveToFront</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Value</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="o">*</span><span class="n">LRUCache</span><span class="p">)</span><span class="w"> </span><span class="n">Put</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="n">int</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">pair</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">Pair</span><span class="p">{</span><span class="n">Key</span>: <span class="nc">key</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span>: <span class="nc">value</span><span class="p">}</span><span class="w"></span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">];</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">recent</span><span class="p">.</span><span class="n">MoveToFront</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">capacity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">recent</span><span class="p">.</span><span class="n">Back</span><span class="p">()</span><span class="w"></span>
-<span class="w">		</span><span class="n">delete</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="n">Pair</span><span class="p">).</span><span class="n">Key</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">recent</span><span class="p">.</span><span class="n">MoveToFront</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elem</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">recent</span><span class="p">.</span><span class="n">PushFront</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elem</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">this</span> <span class="o">*</span><span class="nx">LRUCache</span><span class="p">)</span> <span class="nx">Put</span><span class="p">(</span><span class="nx">key</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">value</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">pair</span> <span class="o">:=</span> <span class="nx">Pair</span><span class="p">{</span><span class="nx">Key</span><span class="p">:</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">Value</span><span class="p">:</span> <span class="nx">value</span><span class="p">}</span>
+	<span class="k">if</span> <span class="nx">elem</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">pair</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">recent</span><span class="p">.</span><span class="nx">MoveToFront</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">capacity</span> <span class="p">{</span>
+		<span class="nx">elem</span> <span class="p">=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">recent</span><span class="p">.</span><span class="nx">Back</span><span class="p">()</span>
+		<span class="nb">delete</span><span class="p">(</span><span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">,</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Key</span><span class="p">)</span>
+		<span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">pair</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">recent</span><span class="p">.</span><span class="nx">MoveToFront</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">elem</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">elem</span> <span class="p">=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">recent</span><span class="p">.</span><span class="nx">PushFront</span><span class="p">(</span><span class="nx">pair</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">elem</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd">* Your LRUCache object will be instantiated and called as such:</span>
-<span class="sd"> * obj := Constructor(capacity);</span>
-<span class="sd">  * param_1 := obj.Get(key);</span>
-<span class="sd">   * obj.Put(key,value);</span>
-<span class="sd">*/</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm">* Your LRUCache object will be instantiated and called as such:</span>
+<span class="cm"> * obj := Constructor(capacity);</span>
+<span class="cm">  * param_1 := obj.Get(key);</span>
+<span class="cm">   * obj.Put(key,value);</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </section>
@@ -268,80 +269,80 @@ Leetcode 给过了…… 要是在 <a class="reference external" href="http://ac
 <p class="admonition-title">注解</p>
 <p>看一眼输入输出限制，想想边界值，比如 <code class="docutils literal notranslate"><span class="pre">cap</span> <span class="pre">==</span> <span class="pre">0</span></code> 的情况就忽略了</p>
 </div>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">package</span><span class="w"> </span><span class="n">main</span><span class="w"></span>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
-<span class="n">import</span><span class="w"> </span><span class="s">&quot;container/list&quot;</span><span class="w"></span>
+<span class="kn">import</span> <span class="s">&quot;container/list&quot;</span>
 
-<span class="k">type</span> <span class="nc">Pair</span><span class="w"> </span><span class="k">struct</span> <span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">Key</span><span class="w">   </span><span class="n">int</span><span class="w"></span>
-<span class="w">	</span><span class="n">Value</span><span class="w"> </span><span class="n">int</span><span class="w"></span>
-<span class="w">	</span><span class="n">Freq</span><span class="w">  </span><span class="n">int</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">type</span> <span class="nc">LFUCache</span><span class="w"> </span><span class="k">struct</span> <span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">capacity</span><span class="w"> </span><span class="n">int</span><span class="w"></span>
-<span class="w">	</span><span class="n">freq</span><span class="w">     </span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">List</span><span class="w"></span>
-<span class="w">	</span><span class="n">elems</span><span class="w">    </span><span class="n">map</span><span class="p">[</span><span class="n">int</span><span class="p">]</span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">Element</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">type</span> <span class="nx">Pair</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Key</span>   <span class="kt">int</span>
+	<span class="nx">Value</span> <span class="kt">int</span>
+	<span class="nx">Freq</span>  <span class="kt">int</span>
+<span class="p">}</span>
+<span class="kd">type</span> <span class="nx">LFUCache</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">capacity</span> <span class="kt">int</span>
+	<span class="nx">freq</span>     <span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span>
+	<span class="nx">elems</span>    <span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">Element</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="n">Constructor</span><span class="p">(</span><span class="n">capacity</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="n">LFUCache</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">LFUCache</span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">capacity</span>: <span class="nc">capacity</span><span class="p">,</span><span class="w"></span>
-<span class="w">		</span><span class="n">freq</span>:     <span class="nc">list</span><span class="p">.</span><span class="n">New</span><span class="p">(),</span><span class="w"></span>
-<span class="w">		</span><span class="n">elems</span>:    <span class="nc">make</span><span class="p">(</span><span class="n">map</span><span class="p">[</span><span class="n">int</span><span class="p">]</span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">Element</span><span class="p">),</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="nx">Constructor</span><span class="p">(</span><span class="nx">capacity</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">LFUCache</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">LFUCache</span><span class="p">{</span>
+		<span class="nx">capacity</span><span class="p">:</span> <span class="nx">capacity</span><span class="p">,</span>
+		<span class="nx">freq</span><span class="p">:</span>     <span class="nx">list</span><span class="p">.</span><span class="nx">New</span><span class="p">(),</span>
+		<span class="nx">elems</span><span class="p">:</span>    <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">Element</span><span class="p">),</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="o">*</span><span class="n">LFUCache</span><span class="p">)</span><span class="w"> </span><span class="n">Get</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">];</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="o">*</span><span class="n">Pair</span><span class="p">).</span><span class="n">Value</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">this</span> <span class="o">*</span><span class="nx">LFUCache</span><span class="p">)</span> <span class="nx">Get</span><span class="p">(</span><span class="nx">key</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">elem</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">touch</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="o">*</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Value</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="o">*</span><span class="n">LFUCache</span><span class="p">)</span><span class="w"> </span><span class="n">touch</span><span class="p">(</span><span class="n">elem</span><span class="w"> </span><span class="o">*</span><span class="n">list</span><span class="p">.</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="o">*</span><span class="n">Pair</span><span class="p">).</span><span class="n">Freq</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">	</span><span class="c1">// println(&quot;touch&quot;, elem.Value.(*Pair).Value, elem.Value.(*Pair).Freq)</span>
-<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="n">e</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">elem</span><span class="p">.</span><span class="n">Prev</span><span class="p">();</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nil</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Prev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="o">*</span><span class="n">Pair</span><span class="p">).</span><span class="n">Freq</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="o">*</span><span class="n">Pair</span><span class="p">).</span><span class="n">Freq</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">			</span><span class="c1">// println(&quot;move&quot;, elem.Value.(*Pair).Value, &quot;before&quot;, e.Value.(*Pair).Value)</span>
-<span class="w">			</span><span class="c1">// println(&quot;freq&quot;, elem.Value.(*Pair).Freq, e.Value.(*Pair).Freq)</span>
-<span class="w">			</span><span class="n">this</span><span class="p">.</span><span class="n">freq</span><span class="p">.</span><span class="n">MoveBefore</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="p">}</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">this</span> <span class="o">*</span><span class="nx">LFUCache</span><span class="p">)</span> <span class="nx">touch</span><span class="p">(</span><span class="nx">elem</span> <span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">Element</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="o">*</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Freq</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="c1">// println(&quot;touch&quot;, elem.Value.(*Pair).Value, elem.Value.(*Pair).Freq)</span>
+	<span class="k">for</span> <span class="nx">e</span> <span class="o">:=</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">Prev</span><span class="p">();</span> <span class="nx">e</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">;</span> <span class="nx">e</span> <span class="p">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Prev</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="o">*</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Freq</span> <span class="o">&lt;=</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="o">*</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Freq</span> <span class="p">{</span>
+			<span class="c1">// println(&quot;move&quot;, elem.Value.(*Pair).Value, &quot;before&quot;, e.Value.(*Pair).Value)</span>
+			<span class="c1">// println(&quot;freq&quot;, elem.Value.(*Pair).Freq, e.Value.(*Pair).Freq)</span>
+			<span class="nx">this</span><span class="p">.</span><span class="nx">freq</span><span class="p">.</span><span class="nx">MoveBefore</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="o">*</span><span class="n">LFUCache</span><span class="p">)</span><span class="w"> </span><span class="n">Put</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="n">int</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="c1">// println(&quot;put&quot;, key, value)</span>
-<span class="w">	</span><span class="n">pair</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">Pair</span><span class="p">{</span><span class="n">Key</span>: <span class="nc">key</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span>: <span class="nc">value</span><span class="p">,</span><span class="w"> </span><span class="n">Freq</span>: <span class="mi">0</span><span class="p">}</span><span class="w"></span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">];</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="o">*</span><span class="n">Pair</span><span class="p">).</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">capacity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">capacity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">			</span><span class="k">return</span><span class="w"></span>
-<span class="w">		</span><span class="p">}</span><span class="w"></span>
-<span class="w">		</span><span class="n">oldElem</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">freq</span><span class="p">.</span><span class="n">Back</span><span class="p">()</span><span class="w"></span>
-<span class="w">		</span><span class="c1">// println(&quot;pop&quot;, oldElem.Value.(*Pair).Key)</span>
-<span class="w">		</span><span class="n">delete</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">,</span><span class="w"> </span><span class="n">oldElem</span><span class="p">.</span><span class="n">Value</span><span class="p">.(</span><span class="o">*</span><span class="n">Pair</span><span class="p">).</span><span class="n">Key</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">freq</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">oldElem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">freq</span><span class="p">.</span><span class="n">PushBack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pair</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elem</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">		</span><span class="n">elem</span><span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">freq</span><span class="p">.</span><span class="n">PushBack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pair</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="w"></span>
-<span class="w">		</span><span class="n">this</span><span class="p">.</span><span class="n">elems</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elem</span><span class="w"></span>
-<span class="w">	</span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">this</span> <span class="o">*</span><span class="nx">LFUCache</span><span class="p">)</span> <span class="nx">Put</span><span class="p">(</span><span class="nx">key</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">value</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// println(&quot;put&quot;, key, value)</span>
+	<span class="nx">pair</span> <span class="o">:=</span> <span class="nx">Pair</span><span class="p">{</span><span class="nx">Key</span><span class="p">:</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">Value</span><span class="p">:</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">Freq</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+	<span class="k">if</span> <span class="nx">elem</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">touch</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+		<span class="nx">elem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="o">*</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">value</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">capacity</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">this</span><span class="p">.</span><span class="nx">capacity</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+		<span class="nx">oldElem</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">freq</span><span class="p">.</span><span class="nx">Back</span><span class="p">()</span>
+		<span class="c1">// println(&quot;pop&quot;, oldElem.Value.(*Pair).Key)</span>
+		<span class="nb">delete</span><span class="p">(</span><span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">,</span> <span class="nx">oldElem</span><span class="p">.</span><span class="nx">Value</span><span class="p">.(</span><span class="o">*</span><span class="nx">Pair</span><span class="p">).</span><span class="nx">Key</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">freq</span><span class="p">.</span><span class="nx">Remove</span><span class="p">(</span><span class="nx">oldElem</span><span class="p">)</span>
+		<span class="nx">elem</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">freq</span><span class="p">.</span><span class="nx">PushBack</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">pair</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">touch</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">elem</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">elem</span> <span class="o">:=</span> <span class="nx">this</span><span class="p">.</span><span class="nx">freq</span><span class="p">.</span><span class="nx">PushBack</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">pair</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">touch</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+		<span class="nx">this</span><span class="p">.</span><span class="nx">elems</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">elem</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * Your LFUCache object will be instantiated and called as such:</span>
-<span class="sd"> * obj := Constructor(capacity);</span>
-<span class="sd"> * param_1 := obj.Get(key);</span>
-<span class="sd"> * obj.Put(key,value);</span>
-<span class="sd"> */</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm"> * Your LFUCache object will be instantiated and called as such:</span>
+<span class="cm"> * obj := Constructor(capacity);</span>
+<span class="cm"> * param_1 := obj.Get(key);</span>
+<span class="cm"> * obj.Put(key,value);</span>
+<span class="cm"> */</span>
 </pre></div>
 </div>
 <p>更聪明的做法是按 freq 分成多个桶，每次 touch 一个元素就把它挪到对应的
@@ -349,6 +350,71 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 桶内部是一个小的 LRU，这样 touch 就是 O(n) 了。</p>
 <p>想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 O(n)
 的查找变成 O(logN) 而已，大量重复的 freq 值是很浪费时间和空间的。</p>
+</section>
+<section id="add-two-numvers">
+<h2><a class="toc-backref" href="#id6">2. Add Two Numvers</a><a class="headerlink" href="#add-two-numvers" title="永久链接至标题">¶</a></h2>
+<p>凡是链表的题目都不能用 rust :’(</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Definition for singly-linked list.</span>
+<span class="cm"> */</span>
+<span class="kd">type</span> <span class="nx">ListNode</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Val</span>  <span class="kt">int</span>
+	<span class="nx">Next</span> <span class="o">*</span><span class="nx">ListNode</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">self</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="nx">Equal</span><span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">self</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">n</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="c1">// println(self, n, self == nil, n == nil, self == nil &amp;&amp; n == nil)</span>
+		<span class="k">return</span> <span class="nx">self</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">==</span> <span class="kc">nil</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">self</span><span class="p">.</span><span class="nx">Val</span> <span class="o">!=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Val</span> <span class="p">{</span>
+		<span class="c1">// println(self.Val, &quot;!=&quot;, n.Val)</span>
+		<span class="k">return</span> <span class="kc">false</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">Next</span><span class="p">.</span><span class="nx">Equal</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">Next</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">addTwoNumbers</span><span class="p">(</span><span class="nx">l1</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">,</span> <span class="nx">l2</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="nx">head</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ListNode</span><span class="p">{}</span>
+	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">head</span>
+	<span class="kd">var</span> <span class="nx">carry</span> <span class="kt">int</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">val</span> <span class="o">:=</span> <span class="nx">carry</span>
+		<span class="nx">end</span> <span class="o">:=</span> <span class="kc">true</span>
+		<span class="k">if</span> <span class="nx">l1</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">val</span> <span class="o">+=</span> <span class="nx">l1</span><span class="p">.</span><span class="nx">Val</span>
+			<span class="nx">l1</span> <span class="p">=</span> <span class="nx">l1</span><span class="p">.</span><span class="nx">Next</span>
+			<span class="nx">end</span> <span class="p">=</span> <span class="kc">false</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nx">l2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">val</span> <span class="o">+=</span> <span class="nx">l2</span><span class="p">.</span><span class="nx">Val</span>
+			<span class="nx">l2</span> <span class="p">=</span> <span class="nx">l2</span><span class="p">.</span><span class="nx">Next</span>
+			<span class="nx">end</span> <span class="p">=</span> <span class="kc">false</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nx">end</span> <span class="p">{</span>
+			<span class="k">break</span>
+		<span class="p">}</span>
+		<span class="nx">carry</span> <span class="p">=</span> <span class="nx">val</span> <span class="o">/</span> <span class="mi">10</span>
+		<span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">ListNode</span><span class="p">{</span>
+			<span class="nx">Val</span><span class="p">:</span> <span class="nx">val</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span>
+		<span class="p">}</span>
+		<span class="c1">// println(&quot;val&quot;, cur.Val)</span>
+		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="nx">carry</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="nx">cur</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">ListNode</span><span class="p">{</span>
+			<span class="nx">Val</span><span class="p">:</span> <span class="nx">carry</span><span class="p">,</span>
+		<span class="p">}</span>
+		<span class="c1">// println(&quot;carry val&quot;, cur.Val)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nx">head</span><span class="p">.</span><span class="nx">Next</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 
