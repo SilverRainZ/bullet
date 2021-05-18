@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
@@ -182,7 +183,7 @@
 <p>程序接受的输入以两个十进制位位为一组，
 第一位 <code class="code docutils literal notranslate"><span class="pre">start</span></code> 来指定一个箱子： 地图中值为（<code class="code docutils literal notranslate"><span class="pre">10</span> <span class="pre">*</span> <span class="pre">start</span> <span class="pre">+</span> <span class="pre">2</span></code>）的元素
 （在 <code class="code docutils literal notranslate"><span class="pre">find_start</span></code> 函数中处理，返回 x，y 为箱子的坐标）；
-第二位 <code class="code docutils literal notranslate"><span class="pre">direct</span></code> 用来指定推箱子的方向，<strong>字符</strong> 1 2 3 4 分别代表方向左右上下
+第二位 <code class="code docutils literal notranslate"><span class="pre">direct</span></code> 用来指定推箱子的方向，<em>字符</em> 1 2 3 4 分别代表方向左右上下
 （由 <code class="code docutils literal notranslate"><span class="pre">go_xx</span></code> 函数处理）。</p>
 <blockquote>
 <div><p>比如序列 2321 就是把值为 <code class="code docutils literal notranslate"><span class="pre">2*10</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">22</span></code> 的箱子往上 <code class="code docutils literal notranslate"><span class="pre">3</span></code> 移动， 再把该箱子往左 <code class="code docutils literal notranslate"><span class="pre">1</span></code> 移动。</p>
@@ -241,10 +242,10 @@
 <p>接下来函数把箱子的坐标 <code class="code docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> 和 移动终点的坐标 <code class="code docutils literal notranslate"><span class="pre">(i+1,</span> <span class="pre">y)</span></code> 传给函数 <code class="code docutils literal notranslate"><span class="pre">xchg_point</span></code>，
 函数 <code class="code docutils literal notranslate"><span class="pre">xchg_point</span></code> 比较简单，仅仅是交换两个点的值。</p>
 <p>这样就完成了一次左移，<code class="code docutils literal notranslate"><span class="pre">go_right</span></code> <code class="code docutils literal notranslate"><span class="pre">go_up</span></code> 等函数同理。</p>
-<blockquote>
-<div><p><strong>注意：</strong> 如果终点是边界的话，箱子的值会被置为 1，
-交换后的结果就是：箱子处变为 0，终点变为 1。</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果终点是边界的话，箱子的值会被置为 1，交换后的结果就是：箱子处变为 0，终点变为 1。</p>
+</div>
 <p>处理完一次移动之后 <code class="code docutils literal notranslate"><span class="pre">step</span></code> 自增 2，进行下一次移动，直到整个序列结束。
 就执行 <code class="code docutils literal notranslate"><span class="pre">check_no_start</span></code> 做最后的检查：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="nf">check_no_start</span><span class="p">()</span>
@@ -275,9 +276,10 @@
 <p>检查整个 <code class="code docutils literal notranslate"><span class="pre">map</span></code> 中是否有形如 <code class="code docutils literal notranslate"><span class="pre">X2</span></code> 的数字，即是否还有箱子存在，
 如果没有的话，返回 1，这就是我们期望的结果。</p>
 <p>根据以上流程我们就可以手动算出一个能移除所有箱子的序列，</p>
-<blockquote>
-<div><p>注意每个箱子移动可以不是连续的，可以先移动一个箱子到一个地方，再去移动另一个。</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>每个箱子移动可以不是连续的，可以先移动一个箱子到一个地方，再去移动另一个。</p>
+</div>
 <p>移动箱子的顺序的和路径如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">62</span> <span class="o">=</span> <span class="mi">62</span>
 <span class="mi">52</span> <span class="o">=</span> <span class="mi">515351</span>

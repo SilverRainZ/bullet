@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-18T14:19:29.676534+00:00</updated>
+  <updated>2021-05-18T14:58:52.055216+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -562,7 +562,7 @@ Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
 我写了LA, 新建后右击选择这个新账户的属性, 在&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;隶属于&lt;/span&gt;&lt;/code&gt;标签页输入对象&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;Administrators&lt;/span&gt;&lt;/code&gt;,
 就是把它归入Administrators组的意思. 你可以在&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;本地用户和组-&amp;gt;组&lt;/span&gt;&lt;/code&gt;里面看到它.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;然后在开始屏幕先把自己注销, 再切换到这个新的账户LA, 刚刚进入的时候, 会做一些初始化的工作, 等就行了.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;进入系统到 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;C:\Users\`\&lt;/span&gt; &lt;span class="pre"&gt;目录,&lt;/span&gt; &lt;span class="pre"&gt;**在文件夹选项中选择显示隐藏文件**\&lt;/span&gt; &lt;span class="pre"&gt;,&lt;/span&gt; &lt;span class="pre"&gt;对旧账户文件夹右键,&lt;/span&gt;
+&lt;li&gt;&lt;p&gt;进入系统到 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;C:\Users\`\&lt;/span&gt; &lt;span class="pre"&gt;目录,&lt;/span&gt; &lt;span class="pre"&gt;*在文件夹选项中选择显示隐藏文件*\&lt;/span&gt; &lt;span class="pre"&gt;,&lt;/span&gt; &lt;span class="pre"&gt;对旧账户文件夹右键,&lt;/span&gt;
 &lt;span class="pre"&gt;取得管理员所有权,&lt;/span&gt; &lt;span class="pre"&gt;然后把所有文件覆盖到\&lt;/span&gt; &lt;span class="pre"&gt;`C:\Users\LA&lt;/span&gt;&lt;/code&gt;下, 复制不过来的就算了.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;重启一次, 登陆到LA , 看看之前的软件的配置是否没哟改变.(桌面配置就无法保留了.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;回到中文名账户把Outlook连接关闭, 切换到本地账号, 注销回到LA, 把原来的账号删掉.&lt;/p&gt;&lt;/li&gt;
@@ -777,7 +777,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;p&gt;可以看到&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;接受一个State，和一个生成State的函数，最后生成一个State，
 注意最后生成的这个State是一个函数，还需要一个状态。&lt;/p&gt;
 &lt;p&gt;act1是一个带状态计算，接受状态s后（不能直接接受，必须用runState「脱壳」）生成一个tuple，
-左边是值，右边是新的状态。从fact2的类型签名可以知道，act2是fact2应用值iv后得到的 &lt;strong&gt;带状态计算&lt;/strong&gt; 。
+左边是值，右边是新的状态。从fact2的类型签名可以知道，act2是fact2应用值iv后得到的 &lt;em&gt;带状态计算&lt;/em&gt; 。
 那么它还需要一个状态，这个&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;函数的最终值就是act2脱壳后应用新状态的值。&lt;/p&gt;
 &lt;p&gt;注意上面这段代码是表示了当带有&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;gt;&amp;gt;=&lt;/span&gt;&lt;/code&gt;的运算遇到一个状态时所做的操作，似乎少了一个runState?&lt;/p&gt;
 &lt;p&gt;那么对于：&lt;/p&gt;
@@ -912,7 +912,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 都是从看雪的&lt;a class="reference external" href="http://bbs.pediy.com/showthread.php?t=184679"&gt;OD从零系列教程&lt;/a&gt;里看来的.
 最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,
 还是觉得应该先把这些记下来.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;下面的一些信息是基于自己现有的知识推测出来的, 不一定对.&lt;/strong&gt;
+&lt;p&gt;&lt;em&gt;下面的一些信息是基于自己现有的知识推测出来的, 不一定对.&lt;/em&gt;
 关于函数的说明, 都是基于MSDN的粗浅翻译, 要想了解更准确的信息, 请查阅MSDN.&lt;/p&gt;
 &lt;div class="contents topic" id="id2"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
@@ -1282,12 +1282,12 @@ LONG WINAPI UnhandledExceptionFilter(
 &gt; 1. 每个线程相关的异常处理例程可以处理或者不处理这个异常,
 &gt;    如果他不处理并且安装了多个线程相关的异常处理例程, 可交由链起来的其他例程处理.
 &gt; 1. 如果这些例程均选择不处理异常,如果程序处于被调试状态,操作系统仍会再次挂起程序通知debugger.
-&gt; 1. **如果程序未处于被调试状态或者debugger没有能够处理,
-&gt;    并且你调用SetUnhandledExceptionFilter安装了最后异常处理例程的话,系统转向对它的调用.**
-&gt; 1. **如果你没有安装最后异常处理例程或者他没有处理这个异常,
+&gt; 1. *如果程序未处于被调试状态或者debugger没有能够处理,
+&gt;    并且你调用SetUnhandledExceptionFilter安装了最后异常处理例程的话,系统转向对它的调用.*
+&gt; 1. *如果你没有安装最后异常处理例程或者他没有处理这个异常,
 &gt;    系统会调用默认的系统处理程序(UnhandledExceptionFilter),通常显示一个对话框,
 &gt;    你可以选择关闭或者最后将其附加到调试器上的调试按钮.
-&gt;    如果没有调试器能被附加于其上或者调试器也处理不了,系统就调用ExitProcess终结程序.**
+&gt;    如果没有调试器能被附加于其上或者调试器也处理不了,系统就调用ExitProcess终结程序.*
 &gt; 1. 不过在终结之前,系统仍然对发生异常的线程异常处理句柄来一次展开,
 &gt;    这是线程异常处理例程最后清理的机会.
 
@@ -1903,11 +1903,6 @@ cat /etc/bandit_pass/bandit17
 &lt;h3&gt;bandit21&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/overthewire-bandit.rst&lt;/span&gt;, line 97)&lt;/p&gt;
-&lt;p&gt;No directive entry for “note” in module “docutils.parsers.rst.languages.zh_cn”.
-Using English fallback for directive “note”.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="admonition-title"&gt;注解&lt;/p&gt;
 &lt;p&gt;To beat this level, you need to login twice: once to run the setuid command, and once to start a network daemon to which the setuid will connect.&lt;/p&gt;
@@ -2030,7 +2025,7 @@ cat /tmp/log &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&a
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;执行 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;cat&lt;/span&gt; &lt;span class="pre"&gt;/etc/passwd&lt;/span&gt; &lt;span class="pre"&gt;|&lt;/span&gt; &lt;span class="pre"&gt;grep&lt;/span&gt; &lt;span class="pre"&gt;bandit26&lt;/span&gt;&lt;/code&gt; 得到:&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;bandit26&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;\ &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11026&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11026&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;bandit&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;\ &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;bandit26&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;\ &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;showtext&lt;/span&gt;
+&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;bandit26&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;\ &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11026&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11026&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;bandit&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;\ &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;bandit26&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;\ &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;showtext&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;(我到这里就卡住了)&lt;/p&gt;
@@ -2573,7 +2568,7 @@ i 节点位图占据 &lt;code class="code docutils literal notranslate"&gt;&lt;s
 (由 PIC 或者异常触发的中断不一定如此)&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;p&gt;从 中断描述符表(IDT) 获得第 n 个描述符&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;检查描述符的特权级 DPL 是否 &lt;strong&gt;数值上大于等于&lt;/strong&gt; 当前的特权级 CPL
+&lt;li&gt;&lt;p&gt;检查描述符的特权级 DPL 是否 &lt;em&gt;数值上大于等于&lt;/em&gt; 当前的特权级 CPL
 (即当前段的级别至少要高于要执行的中断的特权级), 是则继续,
 否则触发一个通用保护中断(General Protection Fault, int 13)&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -2938,7 +2933,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;程序接受的输入以两个十进制位位为一组，
 第一位 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;start&lt;/span&gt;&lt;/code&gt; 来指定一个箱子： 地图中值为（&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;10&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;start&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;2&lt;/span&gt;&lt;/code&gt;）的元素
 （在 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;find_start&lt;/span&gt;&lt;/code&gt; 函数中处理，返回 x，y 为箱子的坐标）；
-第二位 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;direct&lt;/span&gt;&lt;/code&gt; 用来指定推箱子的方向，&lt;strong&gt;字符&lt;/strong&gt; 1 2 3 4 分别代表方向左右上下
+第二位 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;direct&lt;/span&gt;&lt;/code&gt; 用来指定推箱子的方向，&lt;em&gt;字符&lt;/em&gt; 1 2 3 4 分别代表方向左右上下
 （由 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;go_xx&lt;/span&gt;&lt;/code&gt; 函数处理）。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;比如序列 2321 就是把值为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;2*10&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;2&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;22&lt;/span&gt;&lt;/code&gt; 的箱子往上 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;3&lt;/span&gt;&lt;/code&gt; 移动， 再把该箱子往左 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;1&lt;/span&gt;&lt;/code&gt; 移动。&lt;/p&gt;
@@ -2997,10 +2992,15 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;接下来函数把箱子的坐标 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;(x,&lt;/span&gt; &lt;span class="pre"&gt;y)&lt;/span&gt;&lt;/code&gt; 和 移动终点的坐标 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;(i+1,&lt;/span&gt; &lt;span class="pre"&gt;y)&lt;/span&gt;&lt;/code&gt; 传给函数 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xchg_point&lt;/span&gt;&lt;/code&gt;，
 函数 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xchg_point&lt;/span&gt;&lt;/code&gt; 比较简单，仅仅是交换两个点的值。&lt;/p&gt;
 &lt;p&gt;这样就完成了一次左移，&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;go_right&lt;/span&gt;&lt;/code&gt; &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;go_up&lt;/span&gt;&lt;/code&gt; 等函数同理。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 如果终点是边界的话，箱子的值会被置为 1，
-交换后的结果就是：箱子处变为 0，终点变为 1。&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/2015-huashangctf-re300.rst&lt;/span&gt;, line 185)&lt;/p&gt;
+&lt;p&gt;No directive entry for “note” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “note”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;如果终点是边界的话，箱子的值会被置为 1，交换后的结果就是：箱子处变为 0，终点变为 1。&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;处理完一次移动之后 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;step&lt;/span&gt;&lt;/code&gt; 自增 2，进行下一次移动，直到整个序列结束。
 就执行 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;check_no_start&lt;/span&gt;&lt;/code&gt; 做最后的检查：&lt;/p&gt;
 &lt;div class="highlight-c notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="nf"&gt;check_no_start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -3031,9 +3031,10 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;检查整个 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;map&lt;/span&gt;&lt;/code&gt; 中是否有形如 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;X2&lt;/span&gt;&lt;/code&gt; 的数字，即是否还有箱子存在，
 如果没有的话，返回 1，这就是我们期望的结果。&lt;/p&gt;
 &lt;p&gt;根据以上流程我们就可以手动算出一个能移除所有箱子的序列，&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;注意每个箱子移动可以不是连续的，可以先移动一个箱子到一个地方，再去移动另一个。&lt;/p&gt;
-&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;每个箱子移动可以不是连续的，可以先移动一个箱子到一个地方，再去移动另一个。&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;移动箱子的顺序的和路径如下：&lt;/p&gt;
 &lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="mi"&gt;62&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;62&lt;/span&gt;
 &lt;span class="mi"&gt;52&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;515351&lt;/span&gt;
@@ -3316,12 +3317,12 @@ You cant have that file...
 &lt;p&gt;可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell 命令 “/bin/cat filename”。&lt;/p&gt;
 &lt;p&gt;问题出在 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;access&lt;/span&gt;&lt;/code&gt; 函数， man 是这样说的：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;The access() function shall check the file named by the pathname pointed to by the path argument for accessibility according to the bit pattern contained in amode, &lt;strong&gt;using the real user ID in place of the effective user ID and the real group ID in place of the effective group ID.&lt;/strong&gt;&lt;/p&gt;
+&lt;div&gt;&lt;p&gt;The access() function shall check the file named by the pathname pointed to by the path argument for accessibility according to the bit pattern contained in amode, &lt;em&gt;using the real user ID in place of the effective user ID and the real group ID in place of the effective group ID.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;而 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;suid&lt;/span&gt;&lt;/code&gt; 权限改变的只是进程的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;euid&lt;/span&gt;&lt;/code&gt;，因此当你执行 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;./printfile&lt;/span&gt; &lt;span class="pre"&gt;/etc/leviathan_pass/leviathan3&lt;/span&gt;&lt;/code&gt; 的时候，access 函数总是失败的。&lt;/p&gt;
-&lt;p&gt;但是用 gdb 改变程序的流程也是&lt;a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs"&gt;**不可行**&lt;/a&gt;的，非 root 的 gdb 调试带 suid 权限的程序时，程序不会获得本来应该有的权限（否则 gdb 就可以任意地改变程序的行为了），即使绕过了 access 函数，你依然会得到一个 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;Permission&lt;/span&gt; &lt;span class="pre"&gt;denied&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;但是用 gdb 改变程序的流程也是&lt;a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs"&gt;*不可行*&lt;/a&gt;的，非 root 的 gdb 调试带 suid 权限的程序时，程序不会获得本来应该有的权限（否则 gdb 就可以任意地改变程序的行为了），即使绕过了 access 函数，你依然会得到一个 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;Permission&lt;/span&gt; &lt;span class="pre"&gt;denied&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;到这里我就没辙了，只能看别人的 writeup 了：&lt;a class="reference external" href="https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/"&gt;OverTheWire Leviathan Wargame Solution 2&lt;/a&gt;，看完发现脑洞确实不够大。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Solution:&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的，执行 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;./printfile&lt;/span&gt; &lt;span class="pre"&gt;&amp;quot;flag&lt;/span&gt; &lt;span class="pre"&gt;here&amp;quot;&lt;/span&gt;&lt;/code&gt;，对于 access 函数来说是执行了 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;access(&amp;quot;flag&lt;/span&gt; &lt;span class="pre"&gt;here&amp;quot;,&lt;/span&gt; &lt;span class="pre"&gt;4)&lt;/span&gt;&lt;/code&gt;, 检查对 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;flag&lt;/span&gt; &lt;span class="pre"&gt;here&lt;/span&gt;&lt;/code&gt; 这个文件的访问权限，而对 cat 来说是这样的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;system(&amp;quot;cat&lt;/span&gt; &lt;span class="pre"&gt;flag&lt;/span&gt; &lt;span class="pre"&gt;here&amp;quot;)&lt;/span&gt;&lt;/code&gt;，因此可以利用这个区别来绕过 access 函数。&lt;/p&gt;
 &lt;div class="highlight-shell notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;leviathan2@melinda:/tmp$ mkdir slove
 leviathan2@melinda:/tmp$ &lt;span class="nb"&gt;cd&lt;/span&gt; slove
@@ -3475,7 +3476,7 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
 &lt;li&gt;&lt;p&gt;使用 terminator 代替 konsole&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;使用 dzen2 + &lt;span class="sphinxnotes-strike"&gt;condy&lt;/span&gt; conky 代替 xmobar&lt;/p&gt;
 &lt;p&gt;需要启动两个 dzen2，一个接受 xmoand 的输出，一个接受 conky 的输出，
-需要注意的是 dzen2 &lt;strong&gt;不支持&lt;/strong&gt; 按屏幕的百分比显示，
+需要注意的是 dzen2 &lt;em&gt;不支持&lt;/em&gt; 按屏幕的百分比显示，
 我在网上找到了&lt;a class="reference external" href="https://github.com/ervandew/dotfiles/blob/master/bin/dzen2"&gt;这个脚本&lt;/a&gt;，
 可以从 xrandr 获取屏幕宽度，按指定的比例算出宽度来，我针对我的需要做了一点修改：&lt;/p&gt;
 &lt;/li&gt;
@@ -4241,10 +4242,10 @@ $ pacman -Ql python-sphinx | wc -l
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;除去打包上的槽点，nodejs-gitbook 这工具的使用体验也是相当差：目录文件 SUMMARY.md
-需要自己手动写；在我 i5 + 8G + SSD 的电脑上生成一本有 24 个 md 文件的书籍需要 &lt;strong&gt;8.6 秒&lt;/strong&gt;
+需要自己手动写；在我 i5 + 8G + SSD 的电脑上生成一本有 24 个 md 文件的书籍需要 &lt;em&gt;8.6 秒&lt;/em&gt;
 —— 它似乎并没有办法 incremental build；&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;gitbook&lt;/span&gt; &lt;span class="pre"&gt;serve&lt;/span&gt;&lt;/code&gt; 命令能在本地启动一个 HTTP Server
 预览书籍，并且文件改变的时候网页会自动刷新，这很赞，可是你为什么没告诉我每次文件改动
-都要 &lt;strong&gt;重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍&lt;/strong&gt; 呢？于是每次改动后你
+都要 &lt;em&gt;重载所有插件，重启 HTTP Server 并且所有的文件重新生成一遍&lt;/em&gt; 呢？于是每次改动后你
 需要十多秒后才能够「实时预览」。&lt;/p&gt;
 &lt;p&gt;以上所述的问题针对 GitBook 3.2.1 及以下版本。&lt;/p&gt;
 &lt;/section&gt;
@@ -4492,8 +4493,8 @@ Disqus 的开源替代：&lt;a class="reference external" href="https://posativ.
 AUR 里面还有有现成的包能用，于是就决定是你了，Isso！&lt;/p&gt;
 &lt;p&gt;我的博客托管在 Github 上，源码存放于：
 &lt;a class="reference external" href="https://github.com/SilverRainZ/tech"&gt;https://github.com/SilverRainZ/tech&lt;/a&gt;，
-Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;strong&gt;以下的操作均针对该代码仓库
-以及 vps 上的 Arch 环境。&lt;/strong&gt;&lt;/p&gt;
+Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 &lt;em&gt;以下的操作均针对该代码仓库
+以及 vps 上的 Arch 环境。&lt;/em&gt;&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;架设服务&lt;/a&gt;&lt;/h2&gt;

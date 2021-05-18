@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
@@ -148,10 +149,10 @@
 <p>登入机器后发现家目录有个带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="code docutils literal notranslate"><span class="pre">printfile</span></code>，
 属主是 <code class="code docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="code docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code>
 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。</p>
-<blockquote>
-<div><p><strong>Note:</strong> 关于 linux 下的权限，更多请参见
-<a class="reference external" href="TODO">linux/privileges.md//TODO</a>。</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>关于 linux 下的权限，更多请参见 <a class="reference external" href="TODO">linux/privileges.md//TODO</a>。</p>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:~$ ll printfile
 -r-sr-x--- 1 leviathan3 leviathan2 7498 Nov 14  2014 printfile*
 leviathan2@melinda:~$ ./printfile
@@ -229,9 +230,9 @@ You cant have that file...
 <blockquote>
 <div><p>The access() function shall check the file named by the pathname
 pointed to by the path argument for accessibility according to the
-bit pattern contained in amode, <strong>using the real user ID in place of
-the effective user</strong> <strong>ID and the real group ID in place of the
-effective group ID.</strong></p>
+bit pattern contained in amode, <em>using the real user ID in place of
+the effective user</em> <em>ID and the real group ID in place of the
+effective group ID.</em></p>
 </div></blockquote>
 <p>而 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="code docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行
 <code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access
@@ -246,7 +247,7 @@ effective group ID.</strong></p>
 Wargame Solution
 2</a>
 ，看完发现脑洞确实不够大。</p>
-<p><strong>Solution:</strong>:</p>
+<p><em>Solution:</em>:</p>
 <p>access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的， 执行
 <code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>， 对于 access 函数来说是执行了
 <code class="code docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="code docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，
@@ -442,7 +443,7 @@ puts(&quot;Wrong&quot;Wrong
 <span class="x">; 跳转至此：</span>
 <span class="x">   0x08048545 &lt;+56&gt;:    mov    0xc(%ebp),%eax       ; char** argv</span>
 <span class="x">   0x08048548 &lt;+59&gt;:    add    $0x4,%eax            ; char** argv + 4</span>
-<span class="x">   0x0804854b &lt;+62&gt;:    mov    (%eax),%eax          ; char* argv[1] 指向 &#39;1234&#39;</span>
+<span class="x">   0x0804854b &lt;+62&gt;:    mov    (%eax),%eax          ; char** argv[1] 指向 &#39;1234&#39;</span>
 <span class="x">   0x0804854d &lt;+64&gt;:    mov    %eax,(%esp)</span>
 <span class="x">   0x08048550 &lt;+67&gt;:    call   0x8048400 &lt;atoi@plt&gt; ; atoi(&#39;1234&#39;)</span>
 <span class="x">-&gt; 0x08048555 &lt;+72&gt;:    cmp    0x1c(%esp),%eax      ; eax = 1234;  [esp + 0x1c] = 0x1bd3</span>

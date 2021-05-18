@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
@@ -92,7 +93,7 @@
 都是从看雪的<a class="reference external" href="http://bbs.pediy.com/showthread.php?t=184679">OD从零系列教程</a>里看来的.
 最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,
 还是觉得应该先把这些记下来.</p>
-<p><strong>下面的一些信息是基于自己现有的知识推测出来的, 不一定对.</strong>
+<p><em>下面的一些信息是基于自己现有的知识推测出来的, 不一定对.</em>
 关于函数的说明, 都是基于MSDN的粗浅翻译, 要想了解更准确的信息, 请查阅MSDN.</p>
 <div class="contents topic" id="id2">
 <p class="topic-title">目录</p>
@@ -457,12 +458,12 @@ LONG WINAPI UnhandledExceptionFilter(
 > 1. 每个线程相关的异常处理例程可以处理或者不处理这个异常,
 >    如果他不处理并且安装了多个线程相关的异常处理例程, 可交由链起来的其他例程处理.
 > 1. 如果这些例程均选择不处理异常,如果程序处于被调试状态,操作系统仍会再次挂起程序通知debugger.
-> 1. **如果程序未处于被调试状态或者debugger没有能够处理,
->    并且你调用SetUnhandledExceptionFilter安装了最后异常处理例程的话,系统转向对它的调用.**
-> 1. **如果你没有安装最后异常处理例程或者他没有处理这个异常,
+> 1. *如果程序未处于被调试状态或者debugger没有能够处理,
+>    并且你调用SetUnhandledExceptionFilter安装了最后异常处理例程的话,系统转向对它的调用.*
+> 1. *如果你没有安装最后异常处理例程或者他没有处理这个异常,
 >    系统会调用默认的系统处理程序(UnhandledExceptionFilter),通常显示一个对话框,
 >    你可以选择关闭或者最后将其附加到调试器上的调试按钮.
->    如果没有调试器能被附加于其上或者调试器也处理不了,系统就调用ExitProcess终结程序.**
+>    如果没有调试器能被附加于其上或者调试器也处理不了,系统就调用ExitProcess终结程序.*
 > 1. 不过在终结之前,系统仍然对发生异常的线程异常处理句柄来一次展开,
 >    这是线程异常处理例程最后清理的机会.
 
