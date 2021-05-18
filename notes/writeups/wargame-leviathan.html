@@ -100,14 +100,14 @@
 <section id="leviathan1">
 <h2>leviathan1<a class="headerlink" href="#leviathan1" title="永久链接至标题">¶</a></h2>
 <p>flag: rioGegei8m</p>
-<p>在 <code class="docutils literal notranslate"><span class="pre">~/.backup/bookmarks.html</span></code> 搜索 <code class="docutils literal notranslate"><span class="pre">password</span></code> 可得。</p>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">~/.backup/bookmarks.html</span></code> 搜索 <code class="code docutils literal notranslate"><span class="pre">password</span></code> 可得。</p>
 </section>
 <section id="leviathan2">
 <h2>leviathan2<a class="headerlink" href="#leviathan2" title="永久链接至标题">¶</a></h2>
 <p>flag: ougahZi8Ta</p>
 <p>home 目录下有一程序名为 check，执行之，要求输入密码， 首先
-<code class="docutils literal notranslate"><span class="pre">strings</span> <span class="pre">check</span></code> 查看一下程序中的字符串，似乎没有发现什么像 flag
-的字串，不过倒是发现了一个 <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code>，推测程序会启动一个 shell。</p>
+<code class="code docutils literal notranslate"><span class="pre">strings</span> <span class="pre">check</span></code> 查看一下程序中的字符串，似乎没有发现什么像 flag
+的字串，不过倒是发现了一个 <code class="code docutils literal notranslate"><span class="pre">/bin/sh</span></code>，推测程序会启动一个 shell。</p>
 <p>用 gdb 调试，对 main 下断点后反汇编，关键部分如下：</p>
 <div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">0x0804857a &lt;+77&gt;:    call   0x80483c0 &lt;printf@plt&gt;</span>
 <span class="x">0x0804857f &lt;+82&gt;:    call   0x80483d0 &lt;getchar@plt&gt;</span>
@@ -129,24 +129,24 @@
 <span class="x">0x080485c3 &lt;+150&gt;:   jmp    0x80485d1 &lt;main+164&gt;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">printf</span></code> 用来输出 “password” 字样，之后连续三个
-<code class="docutils literal notranslate"><span class="pre">getchar</span></code>，之后把该字符串和 <code class="docutils literal notranslate"><span class="pre">esp</span> <span class="pre">+</span> <span class="pre">14</span></code> 处的字符串作为参数给
-<code class="docutils literal notranslate"><span class="pre">strcmp&#64;plt</span></code>，根据比较的结果决定流程， 因此对 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> 下断：
-<code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">strcmp&#64;plt</span></code>，输入密码后查看堆栈：<code class="docutils literal notranslate"><span class="pre">x/10x</span> <span class="pre">$esp</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">printf</span></code> 用来输出 “password” 字样，之后连续三个
+<code class="code docutils literal notranslate"><span class="pre">getchar</span></code>，之后把该字符串和 <code class="code docutils literal notranslate"><span class="pre">esp</span> <span class="pre">+</span> <span class="pre">14</span></code> 处的字符串作为参数给
+<code class="code docutils literal notranslate"><span class="pre">strcmp&#64;plt</span></code>，根据比较的结果决定流程， 因此对 <code class="code docutils literal notranslate"><span class="pre">strcmp</span></code> 下断：
+<code class="code docutils literal notranslate"><span class="pre">break</span> <span class="pre">strcmp&#64;plt</span></code>，输入密码后查看堆栈：<code class="code docutils literal notranslate"><span class="pre">x/10x</span> <span class="pre">$esp</span></code></p>
 <p>过程如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0xffffd63c</span><span class="p">:</span>     <span class="mh">0x080485b3</span>      <span class="mh">0xffffd654</span>      <span class="mh">0xffffd658</span>      <span class="mh">0x0804a000</span>
 <span class="mh">0xffffd64c</span><span class="p">:</span>     <span class="mh">0x08048642</span>      <span class="mh">0x00000001</span>      <span class="mh">0x00333231</span>      <span class="mh">0x00786573</span>
 <span class="mh">0xffffd65c</span><span class="p">:</span>     <span class="mh">0x00646f67</span>      <span class="mh">0x65766f6c</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">0xffffd658</span></code> 处即是该程序的 password，用 <code class="docutils literal notranslate"><span class="pre">x/s</span> <span class="pre">0xffffd658</span></code> 可看。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">0xffffd658</span></code> 处即是该程序的 password，用 <code class="code docutils literal notranslate"><span class="pre">x/s</span> <span class="pre">0xffffd658</span></code> 可看。</p>
 </section>
 <section id="leviathan3">
 <h2>leviathan3<a class="headerlink" href="#leviathan3" title="永久链接至标题">¶</a></h2>
 <p>flag: Ahdiemoo1j</p>
 <p>这道题想了很久还是不会，最终上网看答案了……</p>
-<p>登入机器后发现家目录有个带 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="docutils literal notranslate"><span class="pre">printfile</span></code>，
-属主是 <code class="docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="docutils literal notranslate"><span class="pre">suid</span></code>
+<p>登入机器后发现家目录有个带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限的可执行文件 <code class="code docutils literal notranslate"><span class="pre">printfile</span></code>，
+属主是 <code class="code docutils literal notranslate"><span class="pre">leviathan3</span></code>，用户组是 <code class="code docutils literal notranslate"><span class="pre">leviathan2</span></code>，带 <code class="code docutils literal notranslate"><span class="pre">suid</span></code>
 的程序执行时可以获得和 owner/grouper 相同的权限（euid/egid）。</p>
 <blockquote>
 <div><p><strong>Note:</strong> 关于 linux 下的权限，更多请参见
@@ -162,9 +162,9 @@ You cant have that file...
 </pre></div>
 </div>
 <p>从字面意思上看，这个程序接受一个文件路径然后把文件的内容显示出来，但是要求它打印
-<code class="docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan3</span></code> 却提示
-<code class="docutils literal notranslate"><span class="pre">You</span> <span class="pre">cant</span> <span class="pre">have</span> <span class="pre">that</span> <span class="pre">file...</span></code>， 上 gdb 分析看看。</p>
-<p>以下是 <code class="docutils literal notranslate"><span class="pre">diaasm</span> <span class="pre">main</span></code> 的结果，假设执行了 <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">filename</span></code>：</p>
+<code class="code docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan3</span></code> 却提示
+<code class="code docutils literal notranslate"><span class="pre">You</span> <span class="pre">cant</span> <span class="pre">have</span> <span class="pre">that</span> <span class="pre">file...</span></code>， 上 gdb 分析看看。</p>
+<p>以下是 <code class="code docutils literal notranslate"><span class="pre">diaasm</span> <span class="pre">main</span></code> 的结果，假设执行了 <code class="code docutils literal notranslate"><span class="pre">r</span> <span class="pre">filename</span></code>：</p>
 <div class="highlight-objdump notranslate"><div class="highlight"><pre><span></span><span class="x">  0x0804852d &lt;+0&gt;:     push   %ebp</span>
 <span class="x">  0x0804852e &lt;+1&gt;:     mov    %esp,%ebp</span>
 <span class="x">  0x08048530 &lt;+3&gt;:     and    $0xfffffff0,%esp</span>
@@ -225,7 +225,7 @@ You cant have that file...
 </div>
 <p>可以看到程序接受一个文件路径，先检查对该文件的访问权限，然后执行 shell
 命令 “/bin/cat filename”。</p>
-<p>问题出在 <code class="docutils literal notranslate"><span class="pre">access</span></code> 函数， man 是这样说的：</p>
+<p>问题出在 <code class="code docutils literal notranslate"><span class="pre">access</span></code> 函数， man 是这样说的：</p>
 <blockquote>
 <div><p>The access() function shall check the file named by the pathname
 pointed to by the path argument for accessibility according to the
@@ -233,25 +233,25 @@ bit pattern contained in amode, <strong>using the real user ID in place of
 the effective user</strong> <strong>ID and the real group ID in place of the
 effective group ID.</strong></p>
 </div></blockquote>
-<p>而 <code class="docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行
-<code class="docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access
+<p>而 <code class="code docutils literal notranslate"><span class="pre">suid</span></code> 权限改变的只是进程的 <code class="code docutils literal notranslate"><span class="pre">euid</span></code>，因此当你执行
+<code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">/etc/leviathan_pass/leviathan3</span></code> 的时候，access
 函数总是失败的。</p>
 <p>但是用 gdb 改变程序的流程也是
 <a class="reference external" href="http://unix.stackexchange.com/questions/15911/can-gdb-debug-suid-root-programs">不可行</a>
 的，非 root 的 gdb 调试带 suid
 权限的程序时，程序不会获得本来应该有的权限 （否则 gdb
 就可以任意地改变程序的行为了），即使绕过了 access 函数，
-你依然会得到一个 <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>。</p>
+你依然会得到一个 <code class="code docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>。</p>
 <p>到这里我就没辙了，只能看别人的 writeup 了： <a class="reference external" href="https://rundata.wordpress.com/2013/03/27/overthewire-leviathan-wargame-solution-2/">OverTheWire Leviathan
 Wargame Solution
 2</a>
 ，看完发现脑洞确实不够大。</p>
 <p><strong>Solution:</strong>:</p>
 <p>access() 接受的是个字符串参数，而 cat 的参数却是由 shell 处理的， 执行
-<code class="docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>， 对于 access 函数来说是执行了
-<code class="docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，
-而对 cat 来说是这样的 <code class="docutils literal notranslate"><span class="pre">system(&quot;cat</span> <span class="pre">flag</span> <span class="pre">here&quot;)</span></code> =
-<code class="docutils literal notranslate"><span class="pre">system*(&quot;cat</span> <span class="pre">flag;</span> <span class="pre">cat</span> <span class="pre">here&quot;)</span></code>， 因此可以利用这个区别来绕过 access
+<code class="code docutils literal notranslate"><span class="pre">./printfile</span> <span class="pre">&quot;flag</span> <span class="pre">here&quot;</span></code>， 对于 access 函数来说是执行了
+<code class="code docutils literal notranslate"><span class="pre">access(&quot;flag</span> <span class="pre">here&quot;,</span> <span class="pre">4)</span></code>, 检查对 <code class="code docutils literal notranslate"><span class="pre">flag</span> <span class="pre">here</span></code> 这个文件的访问权限，
+而对 cat 来说是这样的 <code class="code docutils literal notranslate"><span class="pre">system(&quot;cat</span> <span class="pre">flag</span> <span class="pre">here&quot;)</span></code> =
+<code class="code docutils literal notranslate"><span class="pre">system*(&quot;cat</span> <span class="pre">flag;</span> <span class="pre">cat</span> <span class="pre">here&quot;)</span></code>， 因此可以利用这个区别来绕过 access
 函数。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan2@melinda:/tmp$ mkdir slove
 leviathan2@melinda:/tmp$ cd slove
@@ -281,7 +281,7 @@ system(&quot;/bin/cat /etc/leviathan_pass/lev&quot;...ougahZi8Ta
 <section id="leviathan4">
 <h2>leviathan4<a class="headerlink" href="#leviathan4" title="永久链接至标题">¶</a></h2>
 <p>flag: vuH0coox6m</p>
-<p>这次学乖了，扫了几眼汇编，程序把一大堆东西放到栈里然后 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code>，
+<p>这次学乖了，扫了几眼汇编，程序把一大堆东西放到栈里然后 <code class="code docutils literal notranslate"><span class="pre">strcmp</span></code>，
 果断用 ltrace 看看：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan3@melinda:~$ ll level3
 -r-sr-x--- 1 leviathan4 leviathan3 9962 Mar 21  2015 level3*
@@ -314,7 +314,7 @@ $
 +++ exited (status 0) +++
 </pre></div>
 </div>
-<p>唔，结果直接出来了，前面的 <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> 还是个障眼法，在 ltrace
+<p>唔，结果直接出来了，前面的 <code class="code docutils literal notranslate"><span class="pre">strcmp</span></code> 还是个障眼法，在 ltrace
 里面是拿不到 euid 权限的，在外面再试一次：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan3@melinda:~$ ./level3
 Enter the password&gt; snlprintf
@@ -331,8 +331,8 @@ $
 <h2>leviathan5<a class="headerlink" href="#leviathan5" title="永久链接至标题">¶</a></h2>
 <p>flag: Tith4cokei</p>
 <p>诶，为什么题目越往后越简单呢……</p>
-<p>登录，<code class="docutils literal notranslate"><span class="pre">.trash</span></code> 目录下有一程序
-<code class="docutils literal notranslate"><span class="pre">bin</span></code>，执行后输出一组八位二进制数字：</p>
+<p>登录，<code class="code docutils literal notranslate"><span class="pre">.trash</span></code> 目录下有一程序
+<code class="code docutils literal notranslate"><span class="pre">bin</span></code>，执行后输出一组八位二进制数字：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan4@melinda:~/.trash$ ./bin
 01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
 </pre></div>
@@ -344,11 +344,11 @@ fopen(&quot;/etc/leviathan_pass/leviathan5&quot;, &quot;r&quot;)                
 +++ exited (status 255) +++
 </pre></div>
 </div>
-<p>这里程序以二进制方式打开 <code class="docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan5</span></code>
+<p>这里程序以二进制方式打开 <code class="code docutils literal notranslate"><span class="pre">/etc/leviathan_pass/leviathan5</span></code>
 之后异常退出了， 因为在 ltrace
 包裹下它并没有读取这个文件的权限。这里就可以大胆猜测输出的数字
 就是文件的二进制表示了，不放心的话继续用 gdb 粗略看看它做了什么，
-<code class="docutils literal notranslate"><span class="pre">fopen</span></code> 之后调用 <code class="docutils literal notranslate"><span class="pre">fget</span></code>，得到内容之后 <code class="docutils literal notranslate"><span class="pre">putchar</span></code>，八九不离十。</p>
+<code class="code docutils literal notranslate"><span class="pre">fopen</span></code> 之后调用 <code class="code docutils literal notranslate"><span class="pre">fget</span></code>，得到内容之后 <code class="code docutils literal notranslate"><span class="pre">putchar</span></code>，八九不离十。</p>
 <p>复制那段数字，用 vim 把转成字串数组，再用一行 python 搞定：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;01010100&#39;</span><span class="p">,</span> <span class="s1">&#39;01101001&#39;</span><span class="p">,</span> <span class="s1">&#39;01110100&#39;</span><span class="p">,</span> <span class="s1">&#39;01101000&#39;</span><span class="p">,</span> <span class="s1">&#39;00110100&#39;</span><span class="p">,</span> <span class="s1">&#39;01100011&#39;</span><span class="p">,</span> <span class="s1">&#39;01101111&#39;</span><span class="p">,</span> <span class="s1">&#39;01101011&#39;</span><span class="p">,</span> <span class="s1">&#39;01100101&#39;</span><span class="p">,</span> <span class="s1">&#39;01101001&#39;</span><span class="p">,</span> <span class="s1">&#39;00001010&#39;</span><span class="p">])</span>
 <span class="go">&#39;Tith4cokei\n&#39;</span>
@@ -358,8 +358,8 @@ fopen(&quot;/etc/leviathan_pass/leviathan5&quot;, &quot;r&quot;)                
 <section id="leviathan6">
 <h2>leviathan6<a class="headerlink" href="#leviathan6" title="永久链接至标题">¶</a></h2>
 <p>flag: UgaoFee4li</p>
-<p>登录，执行直接执行 <code class="docutils literal notranslate"><span class="pre">~/leviathan5</span></code>，提示找不到
-<code class="docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>，新建文件 <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">2333</span> <span class="pre">&gt;</span> <span class="pre">/tmp/file.log</span></code>，看看
+<p>登录，执行直接执行 <code class="code docutils literal notranslate"><span class="pre">~/leviathan5</span></code>，提示找不到
+<code class="code docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>，新建文件 <code class="code docutils literal notranslate"><span class="pre">echo</span> <span class="pre">2333</span> <span class="pre">&gt;</span> <span class="pre">/tmp/file.log</span></code>，看看
 ltrace：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan5@melinda:~$ ./leviathan5
 Cannot find /tmp/file.log
@@ -395,9 +395,9 @@ leviathan5@melinda:~$
 </pre></div>
 </div>
 <p>看起来是打印一个文件之后把文件删除：
-<code class="docutils literal notranslate"><span class="pre">fopen</span> <span class="pre">-&gt;</span> <span class="pre">fgetc</span> <span class="pre">-&gt;</span> <span class="pre">feof</span> <span class="pre">-&gt;</span> <span class="pre">putchar</span> <span class="pre">-&gt;</span> <span class="pre">getuid</span> <span class="pre">-&gt;</span> <span class="pre">setuid</span> <span class="pre">-&gt;</span> <span class="pre">unlink</span></code>，
+<code class="code docutils literal notranslate"><span class="pre">fopen</span> <span class="pre">-&gt;</span> <span class="pre">fgetc</span> <span class="pre">-&gt;</span> <span class="pre">feof</span> <span class="pre">-&gt;</span> <span class="pre">putchar</span> <span class="pre">-&gt;</span> <span class="pre">getuid</span> <span class="pre">-&gt;</span> <span class="pre">setuid</span> <span class="pre">-&gt;</span> <span class="pre">unlink</span></code>，
 不知道 getuid 和 setuid 在这里有什么用。</p>
-<p>所以把 flag 文件链接到 <code class="docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>：</p>
+<p>所以把 flag 文件链接到 <code class="code docutils literal notranslate"><span class="pre">/tmp/file.log</span></code>：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan5@melinda:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
 leviathan5@melinda:~$ ./leviathan5
 UgaoFee4li
@@ -408,7 +408,7 @@ UgaoFee4li
 <h2>leviathan7<a class="headerlink" href="#leviathan7" title="永久链接至标题">¶</a></h2>
 <p>flag: ahy7MaeBo9</p>
 <p>直接执行可以看到需要一个 4 位的数字做参数，用 ltrace 可以看到程序调用了
-<code class="docutils literal notranslate"><span class="pre">itoa</span></code> 来把字符串转成数字：</p>
+<code class="code docutils literal notranslate"><span class="pre">itoa</span></code> 来把字符串转成数字：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan6@melinda:~$ ./leviathan6
 usage: ./leviathan6 &lt;4 digit code&gt;
 leviathan6@melinda:~$ ./leviathan6 1234
@@ -474,7 +474,7 @@ puts(&quot;Wrong&quot;Wrong
 <span class="x">$</span>
 </pre></div>
 </div>
-<p>程序把输入的参数用 <code class="docutils literal notranslate"><span class="pre">atoi</span></code> 转成数字然后和常数 <code class="docutils literal notranslate"><span class="pre">0x1bd3</span></code> 比较，相同则
+<p>程序把输入的参数用 <code class="code docutils literal notranslate"><span class="pre">atoi</span></code> 转成数字然后和常数 <code class="code docutils literal notranslate"><span class="pre">0x1bd3</span></code> 比较，相同则
 PASS， 于是 get 到 7123 就是 key：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>leviathan6@melinda:~$ ./leviathan6 7123
 $ cat /etc/leviathan_pass/leviathan7

@@ -117,11 +117,11 @@ Check Update 一直不动，从官网下载了在线升级器，下完了整个�
 腾出主分区给 Arch。</p>
 <p>在 <a class="reference external" href="https://wiki.archlinux.org/index.php/Beginners'_guide">Arch Wiki 的光芒照耀下</a>，
 安装过程一切正常。</p>
-<p>装好后尝试了一下 KDE，果然已经不适应了，<code class="docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-Rsc</span></code> 之，然后回到 XMoand。</p>
+<p>装好后尝试了一下 KDE，果然已经不适应了，<code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-Rsc</span></code> 之，然后回到 XMoand。</p>
 <p>趁着重新配置的时候更新了一下配置：</p>
 <ul>
-<li><p>使用 aur/ttf-iosevka 代替 <code class="docutils literal notranslate"><span class="pre">Tsentsiu</span> <span class="pre">Mono</span> <span class="pre">HG</span></code> 作为编辑器和终端的字体</p></li>
-<li><p>使用 xbindskey 管理快捷键，而不是用 xmoand 的 <code class="docutils literal notranslate"><span class="pre">additionalKeys</span></code>
+<li><p>使用 aur/ttf-iosevka 代替 <code class="code docutils literal notranslate"><span class="pre">Tsentsiu</span> <span class="pre">Mono</span> <span class="pre">HG</span></code> 作为编辑器和终端的字体</p></li>
+<li><p>使用 xbindskey 管理快捷键，而不是用 xmoand 的 <code class="code docutils literal notranslate"><span class="pre">additionalKeys</span></code>
 （听小药壶说可以用 scheme 来写 .xbindskeyrc）</p></li>
 <li><p>使用 terminator 代替 konsole</p></li>
 <li><p>使用 dzen2 + <span class="sphinxnotes-strike">condy</span> conky 代替 xmobar</p>
@@ -224,7 +224,7 @@ cat - <span class="p">|</span> dzen2 <span class="nv">$arg</span> <span class="s
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>受上面那个 dzen2 wrapper 启发，在 <code class="docutils literal notranslate"><span class="pre">.xinitrc</span></code> 里面增加了判断外接屏幕是否存在的脚本：</p></li>
+<li><p>受上面那个 dzen2 wrapper 启发，在 <code class="code docutils literal notranslate"><span class="pre">.xinitrc</span></code> 里面增加了判断外接屏幕是否存在的脚本：</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dual screens auto dectection</span>
 <span class="nv">internal</span><span class="o">=</span><span class="s2">&quot;^\(\(eDP\|LVDS\)-\?[0-9]\+\)&quot;</span>

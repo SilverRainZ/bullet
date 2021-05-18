@@ -102,18 +102,18 @@
 </div>
 <section id="id1">
 <h3>批量处理文件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
-<p>用 <code class="docutils literal notranslate"><span class="pre">args</span></code> 批量打开文件, 用 <code class="docutils literal notranslate"><span class="pre">argdo</span></code> 批量处理:</p>
-<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; 给 MnO2 的 PR: 把书中所有的 ``` 替换为 ```haskell</span>
+<p>用 <code class="code docutils literal notranslate"><span class="pre">args</span></code> 批量打开文件, 用 <code class="code docutils literal notranslate"><span class="pre">argdo</span></code> 批量处理:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot; 给 MnO2 的 PR: 把书中所有的 `` 替换为 ``haskell</span>
 <span class="p">:</span><span class="k">cd</span> GitHub\learnyouahaskell<span class="p">-</span>zh\
 <span class="p">:</span>args *\*\*.md
-<span class="p">:</span><span class="k">argdo</span> %s<span class="sr">/```\(\n.\)\@=/</span>```haskell/ge <span class="p">|</span> <span class="k">update</span>
+<span class="p">:</span><span class="k">argdo</span> %s<span class="sr">/``\(\n.\)\@=/</span>``haskell/ge <span class="p">|</span> <span class="k">update</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>其中<code class="docutils literal notranslate"><span class="pre">\(\)\&#64;=</span></code>是正则的零宽断言</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/ge</span></code>的<code class="docutils literal notranslate"><span class="pre">e</span></code>代表忽略错误</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>是命令连接符</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> 表示文件发生改动后存盘, 不用 <code class="docutils literal notranslate"><span class="pre">update</span></code> 的话处理完一个文件会提示文件未保存
+<li><p>其中<code class="code docutils literal notranslate"><span class="pre">\(\)\&#64;=</span></code>是正则的零宽断言</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">/ge</span></code>的<code class="code docutils literal notranslate"><span class="pre">e</span></code>代表忽略错误</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">|</span></code>是命令连接符</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">update</span></code> 表示文件发生改动后存盘, 不用 <code class="code docutils literal notranslate"><span class="pre">update</span></code> 的话处理完一个文件会提示文件未保存
 (意思大概是处理完一个文件随即退出, 要手动存盘)</p></li>
 </ul>
 </section>

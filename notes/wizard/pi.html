@@ -168,11 +168,11 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mkdir .ssh
 </pre></div>
 </div>
-<p>从 la-tlp450 执行 <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">-i</span> <span class="pre">.ssh/pi3</span> <span class="pre">la&#64;la-pi3</span></code></p>
+<p>从 la-tlp450 执行 <code class="code docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">-i</span> <span class="pre">.ssh/pi3</span> <span class="pre">la&#64;la-pi3</span></code></p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>记不住 authorized_keys 的名字和它的权限没有关系，
-用 <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> 代替手动复制</p>
+用 <code class="code docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> 代替手动复制</p>
 </div>
 </li>
 <li><p>禁用 root 登陆 <a class="reference external" href="https://wiki.archlinux.org/index.php/OpenSSH_(简体中文)#禁用或限制_root_账户登录">OpenSSH_(简体中文)#禁用或限制_root_账户登录</a>:</p>
@@ -253,7 +253,7 @@
 <h4><a class="toc-backref" href="#id21">挂载大容量存储</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
 <div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">待处理</p>
-<p>想用 <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">--user</span></code> 管理这个 mount，试了挺久没有成功，先放着</p>
+<p>想用 <code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">--user</span></code> 管理这个 mount，试了挺久没有成功，先放着</p>
 </div>
 <p>参考 <a class="reference external" href="https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/">这篇文章</a>
 和 <em class="manpage">SYSTEMD.MOUNT(5)</em>:</p>
@@ -268,7 +268,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>systemd 对 mount unit 的文件名有要求，使用 <code class="docutils literal notranslate"><span class="pre">systemd-escape</span> <span class="pre">--path</span></code> 转义之</p>
+<p>systemd 对 mount unit 的文件名有要求，使用 <code class="code docutils literal notranslate"><span class="pre">systemd-escape</span> <span class="pre">--path</span></code> 转义之</p>
 </div>
 <p>编写 mount 文件如下：</p>
 <div class="literal-block-wrapper docutils container" id="id12">
@@ -342,8 +342,8 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>本来想用 <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">/home/la/public</span></code> ，试了下发现不支持 follow symlink，只好用
-mnt 的地址 <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">/mnt/la-wdbuzg0010bb/la-pi3-public</span></code></p>
+<p>本来想用 <code class="code docutils literal notranslate"><span class="pre">root</span> <span class="pre">/home/la/public</span></code> ，试了下发现不支持 follow symlink，只好用
+mnt 的地址 <code class="code docutils literal notranslate"><span class="pre">root</span> <span class="pre">/mnt/la-wdbuzg0010bb/la-pi3-public</span></code></p>
 </div>
 <p>修改 public 目录权限让 nginx.service 对应的 http 用户能够正常读写:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> chown :http -R /mnt/la-wdbuzg0010bb/la-pi3-public
@@ -412,7 +412,7 @@ mnt 的地址 <code class="docutils literal notranslate"><span class="pre">root<
 </pre></div>
 </div>
 <p><a class="reference external" href="https://archlinux.org/packages/syncthing">syncthing</a> 提供的 systemd service 没有开启网页管理界面，通过
-<code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span></code> 启用它:</p>
+<code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span></code> 启用它:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl edit --now syncthing@la.service
 </pre></div>
 </div>

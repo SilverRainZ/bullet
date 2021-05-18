@@ -154,7 +154,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 <strong>以下�
 以避免来自收到来自一些混乱邪恶的打包者的恶意（比如前阵子就有人在 Pypi 和 Gem
 投了恶意包 Orz）。</p>
 <p><span class="sphinxnotes-strike">考虑把 Isso 收养到 archlinuxcn 源里，这个以后再说吧……</span></p>
-<p>安装完成后，打开 <code class="docutils literal notranslate"><span class="pre">/etc/isso.conf</span></code> 文件，文件对各个配置项都有详细的解释，
+<p>安装完成后，打开 <code class="code docutils literal notranslate"><span class="pre">/etc/isso.conf</span></code> 文件，文件对各个配置项都有详细的解释，
 需要重点关注的配置如下：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isso configuration file</span>
 <span class="k">[general]</span>
@@ -185,7 +185,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 <strong>以下�
 </pre></div>
 </div>
 <p>更详细的配置参考： <a class="reference external" href="https://posativ.org/isso/docs/configuration/server/">Server Configuration</a></p>
-<p>填写配置之后执行 <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">isso.service</span></code> 就能启动 Isso 了。但注意配置文件
+<p>填写配置之后执行 <code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">isso.service</span></code> 就能启动 Isso 了。但注意配置文件
 里监听的是本地地址的端口，这里将用 nginx 反向代理将连接转发给 Isso。</p>
 <p>nginx 配置如下（参考 <a class="reference external" href="https://posativ.org/isso/docs/quickstart/#running-isso">Running Isso</a>）：</p>
 <div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
@@ -201,7 +201,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 <strong>以下�
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>其中 <code class="docutils literal notranslate"><span class="pre">comments.silverrainz.me</span></code> 是指向 vps 的域名，你需要在域名所使用的 DNS
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">comments.silverrainz.me</span></code> 是指向 vps 的域名，你需要在域名所使用的 DNS
 服务器提供者那里修改 A 记录。</p>
 <section id="id6">
 <h3><a class="toc-backref" href="#id15">邮件通知</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
@@ -220,7 +220,7 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 <strong>以下�
 </div>
 <section id="jekyll-s-way">
 <h3><a class="toc-backref" href="#id17">Jekyll’s Way</a><a class="headerlink" href="#jekyll-s-way" title="永久链接至标题">¶</a></h3>
-<p>对于 Jekyll 博客，比较好的做法是 <code class="docutils literal notranslate"><span class="pre">_includes</span></code> 目录下在建立 <code class="docutils literal notranslate"><span class="pre">comments</span></code> 文件用来
+<p>对于 Jekyll 博客，比较好的做法是 <code class="code docutils literal notranslate"><span class="pre">_includes</span></code> 目录下在建立 <code class="code docutils literal notranslate"><span class="pre">comments</span></code> 文件用来
 存放评论框代码：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ site.baseurl }}/assets/comments.css&quot;</span><span class="p">&gt;</span>
 
@@ -232,15 +232,15 @@ Isso 则将部署在一台跑着 Arch Linux 的小破 vps 上。 <strong>以下�
          <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;{{ page.id }}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>其中 <code class="docutils literal notranslate"><span class="pre">data-isso-id</span></code> 和 <code class="docutils literal notranslate"><span class="pre">data-title</span></code>  用来指定文章的唯一标识符和标题。
-为每个文章指定标识符便于以后的各种迁移。<code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.id</span> <span class="pre">}}</span></code>
-和  <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.title</span> <span class="pre">}}</span></code>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">data-isso-id</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">data-title</span></code>  用来指定文章的唯一标识符和标题。
+为每个文章指定标识符便于以后的各种迁移。<code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.id</span> <span class="pre">}}</span></code>
+和  <code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.title</span> <span class="pre">}}</span></code>
 是 Jekyll 提供的模板，用于获取本页面的 ID 和标题。
-title 和 id 可以在文件的 yaml 头中设置，但 Jekyll 会为 <code class="docutils literal notranslate"><span class="pre">_posts</span></code> 中的文章自动生成 ID，
-对于 <code class="docutils literal notranslate"><span class="pre">_post/2017-06-10-switch-from-duoshuo-to-isso.md</span></code>，
-其 ID 是 <code class="docutils literal notranslate"><span class="pre">/2017/06/10/switch-from-duoshuo-to-isso</span></code>。</p>
-<p>然后在页面模板 <code class="docutils literal notranslate"><span class="pre">_layouts/page.html</span></code> 里面引用 <code class="docutils literal notranslate"><span class="pre">comments</span></code> 文件：
-<code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">include</span> <span class="pre">comments</span> <span class="pre">%}</span></code>
+title 和 id 可以在文件的 yaml 头中设置，但 Jekyll 会为 <code class="code docutils literal notranslate"><span class="pre">_posts</span></code> 中的文章自动生成 ID，
+对于 <code class="code docutils literal notranslate"><span class="pre">_post/2017-06-10-switch-from-duoshuo-to-isso.md</span></code>，
+其 ID 是 <code class="code docutils literal notranslate"><span class="pre">/2017/06/10/switch-from-duoshuo-to-isso</span></code>。</p>
+<p>然后在页面模板 <code class="code docutils literal notranslate"><span class="pre">_layouts/page.html</span></code> 里面引用 <code class="code docutils literal notranslate"><span class="pre">comments</span></code> 文件：
+<code class="code docutils literal notranslate"><span class="pre">{%</span> <span class="pre">include</span> <span class="pre">comments</span> <span class="pre">%}</span></code>
 就可以在每个使用了 page 模板的网页上显示评论框了。</p>
 <p>详情请参见：<a class="reference external" href="https://github.com/SilverRainZ/tech/commit/91fba1ed944ddc48d10df6dd21fceae5a0860b74">Commit: Replace duoshuo with isso</a></p>
 </section>
@@ -259,15 +259,15 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 </pre></div>
 </div>
 <p>运行 certbot 申请证书需要各种参数，参数也可以写在配置文件中，方便续签证书使用，
-假设配置文件地址为 <code class="docutils literal notranslate"><span class="pre">/etc/letsencrypt/cli.ini</span></code>：</p>
+假设配置文件地址为 <code class="code docutils literal notranslate"><span class="pre">/etc/letsencrypt/cli.ini</span></code>：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">rsa-key-size</span> <span class="o">=</span> <span class="s">4096</span>
 <span class="na">domains</span> <span class="o">=</span> <span class="s">comments.silverrainz.me</span>
 <span class="na">email</span> <span class="o">=</span> <span class="s">&lt;e-mail address&gt;</span>
 <span class="na">authenticator</span> <span class="o">=</span> <span class="s">nginx</span>
 </pre></div>
 </div>
-<p>其中 <code class="docutils literal notranslate"><span class="pre">domains</span></code> 是一个用逗号分隔的域名列表，可以让一个证书能用在多个域名上。
-<code class="docutils literal notranslate"><span class="pre">authenticator</span> <span class="pre">=</span> <span class="pre">nginx</span></code> 需要你安装 certbot-nginx。</p>
+<p>其中 <code class="code docutils literal notranslate"><span class="pre">domains</span></code> 是一个用逗号分隔的域名列表，可以让一个证书能用在多个域名上。
+<code class="code docutils literal notranslate"><span class="pre">authenticator</span> <span class="pre">=</span> <span class="pre">nginx</span></code> 需要你安装 certbot-nginx。</p>
 <p>certbot 的更多用法见：<a class="reference external" href="https://certbot.eff.org/docs/using.html">User Guide</a></p>
 <p>执行以下命令申请证书：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># certbot -c /etc/letsencrypt/cli.ini certonly</span>
@@ -279,7 +279,7 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
  - ...
 </pre></div>
 </div>
-<p>获得证书后，修改 nginx 中 <code class="docutils literal notranslate"><span class="pre">comments.silverrainz.me</span></code> 的 server blcok：</p>
+<p>获得证书后，修改 nginx 中 <code class="code docutils literal notranslate"><span class="pre">comments.silverrainz.me</span></code> 的 server blcok：</p>
 <div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
     <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
     <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
@@ -311,7 +311,7 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 <section id="id8">
 <h2><a class="toc-backref" href="#id19">样式</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>Isso 的评论框默认样式是配合亮色背景工作的，我用 CSS 稍稍做了一下调整，保存在
-<code class="docutils literal notranslate"><span class="pre">assets/comments.css</span></code> 中：</p>
+<code class="code docutils literal notranslate"><span class="pre">assets/comments.css</span></code> 中：</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">isso-thread</span> <span class="p">{</span>
     <span class="k">padding</span><span class="p">:</span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
     <span class="k">margin</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
@@ -355,7 +355,7 @@ Let’s Encrypt 访问你的网站上的随机验证文件完成，如果你使�
 而 Isso 仅支持 Disqus 和 Wordpress 的 WXR 文件。本着不重复造轮子的原则，我找到了
 这个脚本：<a class="reference external" href="https://github.com/JamesPan/duoshuo-migrator">duoshuo-migrator</a>，
 注意脚本依赖 python2 和 python2-lxml。</p>
-<p>假设多说数据文件名为 <code class="docutils literal notranslate"><span class="pre">duoshuo.json</span></code>：</p>
+<p>假设多说数据文件名为 <code class="code docutils literal notranslate"><span class="pre">duoshuo.json</span></code>：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://raw.githubusercontent.com/JamesPan/duoshuo-migrator/master/duoshuo-migrator.py
 $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 </pre></div>
@@ -375,7 +375,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 <span class="o">...</span>
 </pre></div>
 </div>
-<p>而 <code class="docutils literal notranslate"><span class="pre">wp.xml</span></code> 中对应的部分是：</p>
+<p>而 <code class="code docutils literal notranslate"><span class="pre">wp.xml</span></code> 中对应的部分是：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>...
     &lt;item&gt;
       &lt;title&gt;关于&lt;/title&gt;
@@ -407,13 +407,13 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 ...
 </pre></div>
 </div>
-<p>在多说中我使用 Jekyll 提供的 <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.id</span> <span class="pre">}}</span></code> 来标识文章，
-我在 about 页面设置的 id 是 <code class="docutils literal notranslate"><span class="pre">/about</span></code>，因此在 about 页面的评论框代码会请求获取
-<code class="docutils literal notranslate"><span class="pre">/about</span></code> 页面中的评论，而数据库中的 URI 却是 <code class="docutils literal notranslate"><span class="pre">/about.html</span></code>。</p>
-<p>从多说评论数据转换而来的 <code class="docutils literal notranslate"><span class="pre">wp.xml</span></code> 中并没有保留之前的文章 ID (Thread ID)，Isso 应该是
+<p>在多说中我使用 Jekyll 提供的 <code class="code docutils literal notranslate"><span class="pre">{{</span> <span class="pre">page.id</span> <span class="pre">}}</span></code> 来标识文章，
+我在 about 页面设置的 id 是 <code class="code docutils literal notranslate"><span class="pre">/about</span></code>，因此在 about 页面的评论框代码会请求获取
+<code class="code docutils literal notranslate"><span class="pre">/about</span></code> 页面中的评论，而数据库中的 URI 却是 <code class="code docutils literal notranslate"><span class="pre">/about.html</span></code>。</p>
+<p>从多说评论数据转换而来的 <code class="code docutils literal notranslate"><span class="pre">wp.xml</span></code> 中并没有保留之前的文章 ID (Thread ID)，Isso 应该是
 直接从域名里把 URI 取出来当作文章 ID 的：
-<code class="docutils literal notranslate"><span class="pre">&lt;link&gt;http://lastavenger.github.io/about.html&lt;/link&gt;</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">/about.html</span></code>。</p>
-<p>于是尝试用 vim 把链接里面的 <code class="docutils literal notranslate"><span class="pre">.html</span></code> 去掉：<code class="docutils literal notranslate"><span class="pre">:%s/.html&lt;\/link&gt;/&lt;\/link&gt;/</span></code>，重新导入，
+<code class="code docutils literal notranslate"><span class="pre">&lt;link&gt;http://lastavenger.github.io/about.html&lt;/link&gt;</span></code> =&gt; <code class="code docutils literal notranslate"><span class="pre">/about.html</span></code>。</p>
+<p>于是尝试用 vim 把链接里面的 <code class="code docutils literal notranslate"><span class="pre">.html</span></code> 去掉：<code class="code docutils literal notranslate"><span class="pre">:%s/.html&lt;\/link&gt;/&lt;\/link&gt;/</span></code>，重新导入，
 评论就乖乖地出现了。</p>
 </section>
 <section id="id10">
@@ -426,7 +426,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 <p>当然 Isso 的缺点也是很多的……</p>
 <ul class="simple">
 <li><p>没有管理界面，要管理评论只能手动操作数据库</p></li>
-<li><p>交互并不好：从不在白名单的地址（<code class="docutils literal notranslate"><span class="pre">/etc/isso.conf</span></code> 的 <code class="docutils literal notranslate"><span class="pre">hosts</span></code> 列表）发出评论，
+<li><p>交互并不好：从不在白名单的地址（<code class="code docutils literal notranslate"><span class="pre">/etc/isso.conf</span></code> 的 <code class="code docutils literal notranslate"><span class="pre">hosts</span></code> 列表）发出评论，
 评论框是没反应的；如果你的评论 字数不足/邮件地址格式不对/网址不对，点评论按钮也不会
 有任何反馈</p></li>
 <li><p>以后遇到了再补……</p></li>

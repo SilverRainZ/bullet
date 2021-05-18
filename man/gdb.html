@@ -99,9 +99,9 @@ ncurses</a></p></li>
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">shell</span></code> 暂时进入 shell</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>/<code class="docutils literal notranslate"><span class="pre">s</span></code> 单条语句，步过/步入</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ni</span></code>/<code class="docutils literal notranslate"><span class="pre">ns</span></code> 单条指令，步过/步入</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">shell</span></code> 暂时进入 shell</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span></code>/<code class="code docutils literal notranslate"><span class="pre">s</span></code> 单条语句，步过/步入</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ni</span></code>/<code class="code docutils literal notranslate"><span class="pre">ns</span></code> 单条指令，步过/步入</p></li>
 </ul>
 </section>
 <section id="breakpoint">
@@ -120,16 +120,16 @@ ncurses</a></p></li>
 </section>
 <section id="print">
 <h2>Print<a class="headerlink" href="#print" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/FMT</span> <span class="pre">ADDRESS</span></code> 打印内存内容，FMT: A repeat count followed by a
+<p><code class="code docutils literal notranslate"><span class="pre">x</span> <span class="pre">/FMT</span> <span class="pre">ADDRESS</span></code> 打印内存内容，FMT: A repeat count followed by a
 format letter and a size letter.</p>
 <ul class="simple">
-<li><p>Fromat: <code class="docutils literal notranslate"><span class="pre">/x</span></code> 十六进制，<code class="docutils literal notranslate"><span class="pre">d</span></code> 十进制，<code class="docutils literal notranslate"><span class="pre">u</span></code>
-十六进制无符号，<code class="docutils literal notranslate"><span class="pre">i</span></code> 指令， <code class="docutils literal notranslate"><span class="pre">o</span></code> 八进制， <code class="docutils literal notranslate"><span class="pre">t</span></code> 二进制，<code class="docutils literal notranslate"><span class="pre">a</span></code>
-地址 (?)，<code class="docutils literal notranslate"><span class="pre">c</span></code> 字符，<code class="docutils literal notranslate"><span class="pre">f</span></code> 浮点数， <code class="docutils literal notranslate"><span class="pre">s</span></code> C Style 字符串</p></li>
-<li><p>Size: <code class="docutils literal notranslate"><span class="pre">b</span></code> byte, <code class="docutils literal notranslate"><span class="pre">h</span></code> halfword, <code class="docutils literal notranslate"><span class="pre">w</span></code> word, <code class="docutils literal notranslate"><span class="pre">g</span></code> giant, 8 bytes</p></li>
+<li><p>Fromat: <code class="code docutils literal notranslate"><span class="pre">/x</span></code> 十六进制，<code class="code docutils literal notranslate"><span class="pre">d</span></code> 十进制，<code class="code docutils literal notranslate"><span class="pre">u</span></code>
+十六进制无符号，<code class="code docutils literal notranslate"><span class="pre">i</span></code> 指令， <code class="code docutils literal notranslate"><span class="pre">o</span></code> 八进制， <code class="code docutils literal notranslate"><span class="pre">t</span></code> 二进制，<code class="code docutils literal notranslate"><span class="pre">a</span></code>
+地址 (?)，<code class="code docutils literal notranslate"><span class="pre">c</span></code> 字符，<code class="code docutils literal notranslate"><span class="pre">f</span></code> 浮点数， <code class="code docutils literal notranslate"><span class="pre">s</span></code> C Style 字符串</p></li>
+<li><p>Size: <code class="code docutils literal notranslate"><span class="pre">b</span></code> byte, <code class="code docutils literal notranslate"><span class="pre">h</span></code> halfword, <code class="code docutils literal notranslate"><span class="pre">w</span></code> word, <code class="code docutils literal notranslate"><span class="pre">g</span></code> giant, 8 bytes</p></li>
 </ul>
 <p>对于某些 format letter，size letter 不一定有用。</p>
-<p><code class="docutils literal notranslate"><span class="pre">p</span></code> 打印变量和表达式，支持部分 format letter</p>
+<p><code class="code docutils literal notranslate"><span class="pre">p</span></code> 打印变量和表达式，支持部分 format letter</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>print $rdi              # 查看 rdi 寄存器值
 print $1                # 查看第一次 print 的输出
 print var               # 打印 var 的值
@@ -141,10 +141,10 @@ print {void *}argv@argc # 查看所有启动参数地址
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$NUM</span></code> 代表历史 print 输出，<code class="docutils literal notranslate"><span class="pre">$xxx</span></code> 代表当前寄存器的值， 若
-<code class="docutils literal notranslate"><span class="pre">xxx</span></code> 非寄存器名，fallback 到用户自定义变量</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">{TYPE}ADREXP</span></code> 对 <code class="docutils literal notranslate"><span class="pre">ADREXP</span></code> 用类型 <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> 解析，</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&#64;NUM</span></code> 将地址视为长度为 <code class="docutils literal notranslate"><span class="pre">NUM</span></code> 的数组起点</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">$NUM</span></code> 代表历史 print 输出，<code class="code docutils literal notranslate"><span class="pre">$xxx</span></code> 代表当前寄存器的值， 若
+<code class="code docutils literal notranslate"><span class="pre">xxx</span></code> 非寄存器名，fallback 到用户自定义变量</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">{TYPE}ADREXP</span></code> 对 <code class="code docutils literal notranslate"><span class="pre">ADREXP</span></code> 用类型 <code class="code docutils literal notranslate"><span class="pre">TYPE</span></code> 解析，</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&#64;NUM</span></code> 将地址视为长度为 <code class="code docutils literal notranslate"><span class="pre">NUM</span></code> 的数组起点</p></li>
 </ul>
 </section>
 </section>

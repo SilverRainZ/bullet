@@ -97,7 +97,7 @@
 就算是看了大半本书， 知乎上对Haskell的讨论还是又非常多看不懂。</p>
 <p>State Monad是一种函数，当然也是一种Monad，是一种带状态的计算，等待着一个状态，
 如果得到状态后会产生一个值和新的状态。</p>
-<p>书里用栈作为例子，实现了push和pop，但是只提供了do记法的示例，自己尝试用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写并没有成功。</p>
+<p>书里用栈作为例子，实现了push和pop，但是只提供了do记法的示例，自己尝试用<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写并没有成功。</p>
 <p>State Monad对于bind(&gt;&gt;=)的一种解释是这样子的：
 来自：<a class="reference external" href="https://wiki.haskell.org/State_Monad">https://wiki.haskell.org/State_Monad</a></p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="p">`</span><span class="o">&gt;&gt;=</span><span class="p">`</span> <span class="ow">::</span> <span class="kt">State</span> <span class="n">s</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">State</span> <span class="n">s</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">State</span> <span class="n">s</span> <span class="n">b</span>
@@ -106,12 +106,12 @@
                       <span class="n">act2</span> <span class="ow">=</span> <span class="n">fact2</span> <span class="n">iv</span>
 </pre></div>
 </div>
-<p>可以看到<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接受一个State，和一个生成State的函数，最后生成一个State，
+<p>可以看到<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接受一个State，和一个生成State的函数，最后生成一个State，
 注意最后生成的这个State是一个函数，还需要一个状态。</p>
 <p>act1是一个带状态计算，接受状态s后（不能直接接受，必须用runState「脱壳」）生成一个tuple，
 左边是值，右边是新的状态。从fact2的类型签名可以知道，act2是fact2应用值iv后得到的 <strong>带状态计算</strong> 。
-那么它还需要一个状态，这个<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>函数的最终值就是act2脱壳后应用新状态的值。</p>
-<p>注意上面这段代码是表示了当带有<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>的运算遇到一个状态时所做的操作，似乎少了一个runState?</p>
+那么它还需要一个状态，这个<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>函数的最终值就是act2脱壳后应用新状态的值。</p>
+<p>注意上面这段代码是表示了当带有<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>的运算遇到一个状态时所做的操作，似乎少了一个runState?</p>
 <p>那么对于：</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span> <span class="kt">Stack</span> <span class="ow">=</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
 
@@ -134,10 +134,10 @@
 <span class="p">(</span><span class="mi">5</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>怎么用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写上面的do notation呢？</p>
-<p>do实际上是嵌套的&gt;&gt;=的一个语法糖，<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">foo</span></code> 就是一个绑定， 而且一旦绑定，
-在之后的语句里也可以使用x了，所以相当于<code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">&gt;&gt;=</span> <span class="pre">(\x</span> <span class="pre">-&gt;</span> <span class="pre">后面的语句)</span></code>。
-下面的两段程序是等价的，第二段程序为了最后能用<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">（x*y）</span></code>，
+<p>怎么用<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>改写上面的do notation呢？</p>
+<p>do实际上是嵌套的&gt;&gt;=的一个语法糖，<code class="code docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">foo</span></code> 就是一个绑定， 而且一旦绑定，
+在之后的语句里也可以使用x了，所以相当于<code class="code docutils literal notranslate"><span class="pre">foo</span> <span class="pre">&gt;&gt;=</span> <span class="pre">(\x</span> <span class="pre">-&gt;</span> <span class="pre">后面的语句)</span></code>。
+下面的两段程序是等价的，第二段程序为了最后能用<code class="code docutils literal notranslate"><span class="pre">return</span> <span class="pre">（x*y）</span></code>，
 就得两个lambda嵌套起来。</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">i</span> <span class="ow">=</span> <span class="kr">do</span>
     <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">f</span> <span class="mi">3</span>
@@ -149,11 +149,11 @@
     <span class="n">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>但是do里面也可以不用绑定，不用绑定的话，<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>也可以不必嵌套，而且和上面的不同，
+<p>但是do里面也可以不用绑定，不用绑定的话，<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>也可以不必嵌套，而且和上面的不同，
 这里有push和pop两个函数，pop相当于act1，push则是fact2，他们的行为不同，
-<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> 的前面必须是一个act1类型，后面必须是fact2类型，
-如果用<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>串起来应该是 <code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span></code>，
-但是要push三个值，push并不需要从<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接收值，
+<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> 的前面必须是一个act1类型，后面必须是fact2类型，
+如果用<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>串起来应该是 <code class="code docutils literal notranslate"><span class="pre">pop</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span> <span class="pre">&gt;&gt;=</span> <span class="pre">push</span></code>，
+但是要push三个值，push并不需要从<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>接收值，
 可以用lambda来更改(因为没有利用到前面的值，所以这里嵌套与否都没问题)：</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">test&#39;</span> <span class="ow">::</span> <span class="kt">State</span> <span class="kt">Stack</span> <span class="kt">Int</span>
 <span class="nf">test&#39;</span> <span class="ow">=</span> <span class="n">push</span> <span class="mi">3</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">push</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">push</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;&gt;=</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">pop</span><span class="p">)</span>
@@ -163,17 +163,17 @@
 (5,[4,3])
 </pre></div>
 </div>
-<p>最后，书里的<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> 实现是这样子的：</p>
+<p>最后，书里的<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> 实现是这样子的：</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">State</span> <span class="n">h</span><span class="p">)</span> <span class="o">&gt;&gt;=</span> <span class="n">f</span> <span class="ow">=</span> <span class="kt">State</span> <span class="o">$</span> <span class="nf">\</span><span class="n">s</span> <span class="ow">-&gt;</span> <span class="kr">let</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">newState</span><span class="p">)</span> <span class="ow">=</span> <span class="n">h</span> <span class="n">s</span>
                                     <span class="p">(</span><span class="kt">State</span> <span class="n">g</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">a</span>
                                 <span class="kr">in</span>  <span class="n">g</span> <span class="n">newState</span>
 </pre></div>
 </div>
-<p>现在看来就好懂多了。对于State Monad，<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>的意义是，等待一个初始状态，
+<p>现在看来就好懂多了。对于State Monad，<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>的意义是，等待一个初始状态，
 取一个带状态计算，讲初始状态应用到带状态计算上，得到一个值和新状态，
-值和<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>右边的函数应用得到新的带状态计算，这个带状态计算又和新状态作用，
+值和<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>右边的函数应用得到新的带状态计算，这个带状态计算又和新状态作用，
 得到最终值和最终状态。当然这里的值和状态都可以继续传递下去，形成一条链。</p>
-<p>（我觉得State Monad有个反人类的地方就是，本来按顺序沿着<code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>处理状态，
+<p>（我觉得State Monad有个反人类的地方就是，本来按顺序沿着<code class="code docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>处理状态，
 偏偏初始状态是放在最右的)</p>
 <hr class="docutils" />
 <section data-isso-id="/blog/do-notation-and-bind-of-haskell" data-title="do 记法和 &gt;&gt;= 的等效表达" id="isso-thread"></section></section>

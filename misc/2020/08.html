@@ -93,19 +93,19 @@
 <h2>GTK 3.99 - GTK Development Blog<a class="headerlink" href="#gtk-3-99-gtk-development-blog" title="永久链接至标题">¶</a></h2>
 <p>&#64;mclasen 在这篇博客 <a class="footnote-reference brackets" href="#id7" id="id2">1</a> 里大概讲了一下 3.98 之后引入的新 feature：</p>
 <dl class="simple">
-<dt>Event controllers for keyboard shortcuts:</dt><dd><p>说的应该是 <code class="docutils literal notranslate"><span class="pre">GtkShortcutControllers</span></code> <a class="footnote-reference brackets" href="#id8" id="id3">2</a></p>
+<dt>Event controllers for keyboard shortcuts:</dt><dd><p>说的应该是 <code class="code docutils literal notranslate"><span class="pre">GtkShortcutControllers</span></code> <a class="footnote-reference brackets" href="#id8" id="id3">2</a></p>
 <ul class="simple">
-<li><p>Event Controller 看起来 <a class="footnote-reference brackets" href="#id9" id="id4">3</a> 是将 GTK3 中各种输入事件的处理从 <code class="docutils literal notranslate"><span class="pre">GtkWidget</span></code>
+<li><p>Event Controller 看起来 <a class="footnote-reference brackets" href="#id9" id="id4">3</a> 是将 GTK3 中各种输入事件的处理从 <code class="code docutils literal notranslate"><span class="pre">GtkWidget</span></code>
 中拆出来的工具类</p></li>
-<li><p>在 GTK3 中，全局的键盘快捷键是通过 <code class="docutils literal notranslate"><span class="pre">GtkAccelGroup</span></code> 或者绑定
-<code class="docutils literal notranslate"><span class="pre">::button-press-event</span></code> 实现的，前者的 API 我一眼没看懂……
-<code class="docutils literal notranslate"><span class="pre">GtkShortcutControllers</span></code> 看起来直观多了</p></li>
+<li><p>在 GTK3 中，全局的键盘快捷键是通过 <code class="code docutils literal notranslate"><span class="pre">GtkAccelGroup</span></code> 或者绑定
+<code class="code docutils literal notranslate"><span class="pre">::button-press-event</span></code> 实现的，前者的 API 我一眼没看懂……
+<code class="code docutils literal notranslate"><span class="pre">GtkShortcutControllers</span></code> 看起来直观多了</p></li>
 </ul>
 </dd>
 <dt>Movable popovers</dt><dd><p>Gnome3 之后他们一直很喜欢这种风格的交互</p>
 </dd>
 <dt>Row-recycling list and grid views</dt><dd><p>可以看这篇博客 <a class="footnote-reference brackets" href="#id10" id="id5">4</a> ，我还没细看，只浏览了下关键字：
-比如说对于列表控件 ，数据（data）存储在 <code class="docutils literal notranslate"><span class="pre">GListModel</span></code> 中，
+比如说对于列表控件 ，数据（data）存储在 <code class="code docutils literal notranslate"><span class="pre">GListModel</span></code> 中，
 而表示一个行的控件（view）仅会创建视野中能看到的那部分，
 滚动浏览的时候，新出现的 row 会复用消失掉的 row 的控件，
 对于有大量 row 的 list 和 grid 的场景会有显著的性能提升（Srain 有救了</p>

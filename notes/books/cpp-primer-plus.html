@@ -101,12 +101,12 @@
 <section id="ch3">
 <h2>ch3 处理数据<a class="headerlink" href="#ch3" title="永久链接至标题">¶</a></h2>
 <ul>
-<li><p>使用 <code class="docutils literal notranslate"><span class="pre">cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">hex;</span></code> 控制程序以 16 进制输出数字，类似的控制符有
-<code class="docutils literal notranslate"><span class="pre">oct</span></code> 和 <code class="docutils literal notranslate"><span class="pre">dec</span></code> 如果想要声明变量 <code class="docutils literal notranslate"><span class="pre">hex</span></code> 则要用 <code class="docutils literal notranslate"><span class="pre">std::hex</span></code>
+<li><p>使用 <code class="code docutils literal notranslate"><span class="pre">cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">hex;</span></code> 控制程序以 16 进制输出数字，类似的控制符有
+<code class="code docutils literal notranslate"><span class="pre">oct</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">dec</span></code> 如果想要声明变量 <code class="code docutils literal notranslate"><span class="pre">hex</span></code> 则要用 <code class="code docutils literal notranslate"><span class="pre">std::hex</span></code>
 来表示该控制符</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">func(void)</span></code> 和 <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">func()</span></code> 都表示该程序不接受任何参数</p>
+<li><p><code class="code docutils literal notranslate"><span class="pre">int</span> <span class="pre">func(void)</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">int</span> <span class="pre">func()</span></code> 都表示该程序不接受任何参数</p>
 <blockquote>
-<div><p>NOTE: 在 C语言中， <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">func()</span></code> 则表示接受任意多的参数</p>
+<div><p>NOTE: 在 C语言中， <code class="code docutils literal notranslate"><span class="pre">int</span> <span class="pre">func()</span></code> 则表示接受任意多的参数</p>
 </div></blockquote>
 </li>
 <li><p>强制类型转换：</p></li>
@@ -138,11 +138,11 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">cin</span> <span class="pre">&lt;&lt;</span> <span class="pre">str</span></code> 的读取以空白符号为终点，使用
-<code class="docutils literal notranslate"><span class="pre">cin.getline(str,</span> <span class="pre">size)</span></code> 可破： 读取指定数目，遇到换行停止，而
-<code class="docutils literal notranslate"><span class="pre">cin.get(str,</span> <span class="pre">size)</span></code> 则不丢弃换行</p></li>
-<li><p>C++ 风格的字符串：<code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;string&gt;</span></code> 可以用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 拼接，更加安全</p></li>
-<li><p>声明结构体变量允许省略 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 关键字</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">cin</span> <span class="pre">&lt;&lt;</span> <span class="pre">str</span></code> 的读取以空白符号为终点，使用
+<code class="code docutils literal notranslate"><span class="pre">cin.getline(str,</span> <span class="pre">size)</span></code> 可破： 读取指定数目，遇到换行停止，而
+<code class="code docutils literal notranslate"><span class="pre">cin.get(str,</span> <span class="pre">size)</span></code> 则不丢弃换行</p></li>
+<li><p>C++ 风格的字符串：<code class="code docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;string&gt;</span></code> 可以用 <code class="code docutils literal notranslate"><span class="pre">+</span></code> 拼接，更加安全</p></li>
+<li><p>声明结构体变量允许省略 <code class="code docutils literal notranslate"><span class="pre">struct</span></code> 关键字</p></li>
 <li><p>不允许直接将整数赋给指针</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mh">0xb800</span><span class="p">;</span>  <span class="c1">// no allowed</span>

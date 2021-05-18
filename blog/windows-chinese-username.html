@@ -89,29 +89,33 @@
              <section id="windows">
 <h1>把 Windows 中文用户名改为英文<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h1>
 <p>上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
-没注意到当前我的账户名是中文的. 导致了我在 <code class="docutils literal notranslate"><span class="pre">C:\Users\</span></code> 目录下的用户目录变成了中文的.
+没注意到当前我的账户名是中文的. 导致了我在 <a href="#id1"><span class="problematic" id="id2">`</span></a>C:Users` 目录下的用户目录变成了中文的.
 本来以为问题不大, 没想到有些程序对中文路径名的支持还是这么差.</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/bullet/bullet/blog/windows-chinese-username.rst</span>, line 11); <em><a href="#id2">backlink</a></em></p>
+<p>Inline interpreted text or phrase reference start-string without end-string.</p>
+</div>
 <p>首先是Virtual Box, 虽然能够安装上, 但是无论如何虚拟机就是打不开, 经确认是因为路径的关系了,
 再接着是Haskell Platform, cabal update 的时候也是报错说路径错误什么的.</p>
 <p>因为重装系统就要把两个一起重装了, 实在麻烦(事实上是我还不会用Grub).
 我在网上稍微百度了一下怎么在不重装的情况下把用户目录给换成英文的.
 但是实在找不到简单又靠谱的方法, 都是改注册表什么的, 也就作罢. 放假回来下午稍微一折腾, done.</p>
 <ul class="simple">
-<li><p>首先在<code class="docutils literal notranslate"><span class="pre">我的电脑-&gt;管理-&gt;本地用户和组-&gt;用户</span></code> 新建一个用户,名字要是英文的, 全称就随便了,
-我写了LA, 新建后右击选择这个新账户的属性, 在<code class="docutils literal notranslate"><span class="pre">隶属于</span></code>标签页输入对象<code class="docutils literal notranslate"><span class="pre">Administrators</span></code>,
-就是把它归入Administrators组的意思. 你可以在<code class="docutils literal notranslate"><span class="pre">本地用户和组-&gt;组</span></code>里面看到它.</p></li>
+<li><p>首先在<code class="code docutils literal notranslate"><span class="pre">我的电脑-&gt;管理-&gt;本地用户和组-&gt;用户</span></code> 新建一个用户,名字要是英文的, 全称就随便了,
+我写了LA, 新建后右击选择这个新账户的属性, 在<code class="code docutils literal notranslate"><span class="pre">隶属于</span></code>标签页输入对象<code class="code docutils literal notranslate"><span class="pre">Administrators</span></code>,
+就是把它归入Administrators组的意思. 你可以在<code class="code docutils literal notranslate"><span class="pre">本地用户和组-&gt;组</span></code>里面看到它.</p></li>
 <li><p>然后在开始屏幕先把自己注销, 再切换到这个新的账户LA, 刚刚进入的时候, 会做一些初始化的工作, 等就行了.</p></li>
-<li><p>进入系统到 <code class="docutils literal notranslate"><span class="pre">C:\Users\</span></code>目录, <strong>在文件夹选项中选择显示隐藏文件</strong>, 对旧账户文件夹右键,
-取得管理员所有权, 然后把所有文件覆盖到<code class="docutils literal notranslate"><span class="pre">C:\Users\LA</span></code>下, 复制不过来的就算了.</p></li>
+<li><p>进入系统到 <code class="code docutils literal notranslate"><span class="pre">C:\Users\`\</span> <span class="pre">目录,</span> <span class="pre">**在文件夹选项中选择显示隐藏文件**\</span> <span class="pre">,</span> <span class="pre">对旧账户文件夹右键,</span>
+<span class="pre">取得管理员所有权,</span> <span class="pre">然后把所有文件覆盖到\</span> <span class="pre">`C:\Users\LA</span></code>下, 复制不过来的就算了.</p></li>
 <li><p>重启一次, 登陆到LA , 看看之前的软件的配置是否没哟改变.(桌面配置就无法保留了.</p></li>
 <li><p>回到中文名账户把Outlook连接关闭, 切换到本地账号, 注销回到LA, 把原来的账号删掉.</p></li>
 <li><p>把新账户连接到Outlook, 等他同步完.</p></li>
 <li><p>配置文件强制迁移后可能还是会有些问题, 有可能有些软件硬编码了你的用户路径,
-这就只能把个别软件配置删掉了, 自行到 <code class="docutils literal notranslate"><span class="pre">LA\AppData</span></code> 中找.</p>
+这就只能把个别软件配置删掉了, 自行到 <code class="code docutils literal notranslate"><span class="pre">LA\AppData</span></code> 中找.</p>
 <ul>
 <li><p>我遇到的另一个问题是OneDrive同步失效了,打开OneDrive的Metro版, 显示”找不到此位置”,
 在文件夹导航栏中也找不到OneDrive,图标栏也没有. 我的解决方案是:
-到<code class="docutils literal notranslate"><span class="pre">LA\AppData\Local\Microsoft\Windows\SkyDrive</span></code> (我这里真的是SkyDrive)中把Setting文件夹剪切掉,
+到<code class="code docutils literal notranslate"><span class="pre">LA\AppData\Local\Microsoft\Windows\SkyDrive</span></code> (我这里真的是SkyDrive)中把Setting文件夹剪切掉,
 过一会OneDrive就自动开始同步了, 这个时候把同步暂停, 更改同步位置, 把以前的旧文件覆盖过去就行了.</p></li>
 </ul>
 </li>

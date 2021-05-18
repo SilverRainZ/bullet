@@ -98,7 +98,7 @@
 最后我在 teeworlds 的论坛找到了<a class="reference external" href="https://www.teeworlds.com/forum/viewtopic.php?id=7737">这个帖子</a>。</p>
 <p>帖子里给出了几个 PHP 脚本，可以用来扫描 teeworlds 的 master 服务器信息和单个游戏服务器信息，
 分别适用与 0.5 和 0.6 版本的服务端。我不懂 PHP，还好代码很简单，对于单个游戏服务信息的获取，
-只要向服务器发送字节串 <code class="docutils literal notranslate"><span class="pre">\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x67\x69\x65\x33\x05</span></code>，
+只要向服务器发送字节串 <code class="code docutils literal notranslate"><span class="pre">\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x67\x69\x65\x33\x05</span></code>，
 服务器就会返回返回包含游戏的数据，我对照着<a class="reference external" href="http://pastebin.com/W0qjxzvr">其中的一个脚本</a>
 写了个 Python 版本：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
@@ -140,7 +140,7 @@
 <p>从上面的代码就可以看出数据的形式了，没有什么好说的地方，仅仅是想用中文记录下来，
 或许以后有人会需要吧。</p>
 <p>上面的代码被我整合进了 <a class="reference external" href="https://github.com/SilverRainZ/teebot">SilverRainZ/teebot</a> 里，
-如果你在 #archlinux-cn 频道的话，输入 <code class="docutils literal notranslate"><span class="pre">.tee</span></code> 就能知道现在社区的游戏服务器里有几个人啦。</p>
+如果你在 #archlinux-cn 频道的话，输入 <code class="code docutils literal notranslate"><span class="pre">.tee</span></code> 就能知道现在社区的游戏服务器里有几个人啦。</p>
 <hr class="docutils" />
 <section data-isso-id="/blog/get-teeworlds-server-information" data-title="获取 teeworlds 服务器信息" id="isso-thread"></section></section>
 

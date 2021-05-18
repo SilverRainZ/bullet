@@ -197,8 +197,8 @@
 <section id="bandit17">
 <h2>bandit17<a class="headerlink" href="#bandit17" title="永久链接至标题">¶</a></h2>
 <p>flag: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</p>
-<p>注意登入远程主机时的说明，这次我们对 <code class="docutils literal notranslate"><span class="pre">/var/tmp/</span></code> 没有写权限， 用
-<code class="docutils literal notranslate"><span class="pre">mktemp</span> <span class="pre">-d</span></code> 建立临时目录，对该目录我们就有写权限。</p>
+<p>注意登入远程主机时的说明，这次我们对 <code class="code docutils literal notranslate"><span class="pre">/var/tmp/</span></code> 没有写权限， 用
+<code class="code docutils literal notranslate"><span class="pre">mktemp</span> <span class="pre">-d</span></code> 建立临时目录，对该目录我们就有写权限。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mktemp -d
 $ nc -v -w 2 localhost 31000-32000 2&gt;a
 # 为什么连接成功的提示也会在 `stderr` 里面？

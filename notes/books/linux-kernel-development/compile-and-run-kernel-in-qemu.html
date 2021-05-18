@@ -109,7 +109,7 @@
 </pre></div>
 </div>
 <p>Though this repo named ‘linux-2.6’, but its content is same as
-<code class="docutils literal notranslate"><span class="pre">torvalds/linux.git</span></code>, :-(</p>
+<code class="code docutils literal notranslate"><span class="pre">torvalds/linux.git</span></code>, :-(</p>
 </section>
 <section id="compile-it">
 <h3>Compile it:<a class="headerlink" href="#compile-it" title="永久链接至标题">¶</a></h3>
@@ -118,9 +118,9 @@ $ make defconfig
 $ make -j8
 </pre></div>
 </div>
-<p>The compiled executable kernel located at <code class="docutils literal notranslate"><span class="pre">linux-2.6/vmlinux</span></code>, the
+<p>The compiled executable kernel located at <code class="code docutils literal notranslate"><span class="pre">linux-2.6/vmlinux</span></code>, the
 compressed kernel image we needed is
-<code class="docutils literal notranslate"><span class="pre">linx-2.6/arch/x86_64/boot/bzImage</span></code> (bzip2 compressed)</p>
+<code class="code docutils literal notranslate"><span class="pre">linx-2.6/arch/x86_64/boot/bzImage</span></code> (bzip2 compressed)</p>
 </section>
 </section>
 <section id="initramfs">
@@ -132,7 +132,7 @@ $ touch init
 $ chmod +x init
 </pre></div>
 </div>
-<p>Input below script in file <code class="docutils literal notranslate"><span class="pre">init</span></code>:</p>
+<p>Input below script in file <code class="code docutils literal notranslate"><span class="pre">init</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/busybox sh</span>
 
 <span class="o">/</span><span class="n">busybox</span> <span class="n">mount</span> <span class="o">-</span><span class="n">t</span> <span class="n">proc</span> <span class="n">none</span> <span class="o">/</span><span class="n">proc</span>

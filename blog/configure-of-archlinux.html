@@ -126,13 +126,13 @@
 <li><p>scrot</p></li>
 <li><p>compton</p></li>
 </ul>
-<p>xmobar, 配置文件在<code class="docutils literal notranslate"><span class="pre">.xmobarrc</span></code>, 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
+<p>xmobar, 配置文件在<code class="code docutils literal notranslate"><span class="pre">.xmobarrc</span></code>, 是个基于文字的状态栏, 可以显示从 stdin 接收到的内容,
 也可以自己获取系统信息, <span class="sphinxnotes-strike">我这里的中文显示还有问题, 部分中文乱码, 应该是字体的锅.</span></p>
 <blockquote>
 <div><p>2015-8-30: 使用 ArchLinux Wiki 中建议的字体, 效果良好.
-<code class="docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span> <span class="pre">&quot;xft:Bitstream</span> <span class="pre">Vera</span> <span class="pre">Sans</span> <span class="pre">Mono:size=9:bold:antialias=true&quot;</span></code></p>
+<code class="code docutils literal notranslate"><span class="pre">font</span> <span class="pre">=</span> <span class="pre">&quot;xft:Bitstream</span> <span class="pre">Vera</span> <span class="pre">Sans</span> <span class="pre">Mono:size=9:bold:antialias=true&quot;</span></code></p>
 </div></blockquote>
-<p>dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按<code class="docutils literal notranslate"><span class="pre">mod</span> <span class="pre">+</span> <span class="pre">q</span></code>触发.</p>
+<p>dmenu 是个启动器, 功能比较简单, 所以不需要什么特殊的配置, 在 XMonad 里按<code class="code docutils literal notranslate"><span class="pre">mod</span> <span class="pre">+</span> <span class="pre">q</span></code>触发.</p>
 <p>trayer 是个系统托盘, 用来容纳各种图标, 启动选项如下:</p>
 <blockquote>
 <div><p>2015-8-30: trayer 不支持多个屏幕, 建议使用 AUR 里的 trayer-srg<sup>AUR</sup></p>
@@ -149,7 +149,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>feh --bg-scale /home/la/Pictures/Wallpapers/blog-bg.jpg
 </pre></div>
 </div>
-<p>scrot 截图的快捷键在 XMonad 的配置文件<code class="docutils literal notranslate"><span class="pre">~/.xmonad/xmonad.hs</span></code>里面绑定:</p>
+<p>scrot 截图的快捷键在 XMonad 的配置文件<code class="code docutils literal notranslate"><span class="pre">~/.xmonad/xmonad.hs</span></code>里面绑定:</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">defaultConfig</span>
 <span class="p">`</span><span class="n">additionalKeys</span><span class="p">`</span>
 <span class="p">[</span> <span class="p">(</span> <span class="p">(</span><span class="n">controlMask</span><span class="p">,</span> <span class="n">xK_Print</span><span class="p">)</span>
@@ -159,9 +159,9 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">-s</span></code>参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
-只能在截图后用<code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">'mv</span> <span class="pre">$f</span> <span class="pre">~/Pictures/Screenshots'</span></code>把截图放到指定目录.</p>
-<p>上面这些配置大多写在启动脚本<code class="docutils literal notranslate"><span class="pre">startup.sh</span></code>里, 每个命令后边都得加上一个<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">-s</span></code>参数可以让你自己选择截图的区域, 不过这个工具竟然没法指定图片的存放位置,
+只能在截图后用<code class="code docutils literal notranslate"><span class="pre">-e</span> <span class="pre">'mv</span> <span class="pre">$f</span> <span class="pre">~/Pictures/Screenshots'</span></code>把截图放到指定目录.</p>
+<p>上面这些配置大多写在启动脚本<code class="code docutils literal notranslate"><span class="pre">startup.sh</span></code>里, 每个命令后边都得加上一个<code class="code docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
 </section>
 <section id="id2">
 <h2><a class="toc-backref" href="#id8">无线网络管理</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -171,10 +171,10 @@
 <li><p>network-manager-applet</p></li>
 <li><p>gnome-keyring</p></li>
 </ul>
-<p>注意如果你之前连接无线网络用的是<code class="docutils literal notranslate"><span class="pre">netctl</span></code>的话, 记得把有关的服务给 disable 了,
+<p>注意如果你之前连接无线网络用的是<code class="code docutils literal notranslate"><span class="pre">netctl</span></code>的话, 记得把有关的服务给 disable 了,
 因为 networkmanager 和他有冲突, 安装完后执行 NetworkManager 启动服务.</p>
 <p>network-manager-applet 是 networkmanager 的前端.</p>
-<p>似乎不安装 <code class="docutils literal notranslate"><span class="pre">gnome-keyring</span></code>的话就无法连上加密的无线网络.</p>
+<p>似乎不安装 <code class="code docutils literal notranslate"><span class="pre">gnome-keyring</span></code>的话就无法连上加密的无线网络.</p>
 </section>
 <section id="im">
 <h2><a class="toc-backref" href="#id9">IM</a><a class="headerlink" href="#im" title="永久链接至标题">¶</a></h2>
@@ -193,7 +193,7 @@
 <h3><a class="toc-backref" href="#id11">其他</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>IRC 客户端用火狐的 ChatZilla</p></li>
-<li><p>Telegram 客户端用 Cutegram, 得装 <code class="docutils literal notranslate"><span class="pre">fcitx-qt5</span></code> 才能正常输入,
+<li><p>Telegram 客户端用 Cutegram, 得装 <code class="code docutils literal notranslate"><span class="pre">fcitx-qt5</span></code> 才能正常输入,
 另 TG 似乎已经被墙(手机上却仍然可以登录), Cutegram 无法登录, 挂个代理就行.</p></li>
 <li><p>qTox 也还凑合, 主要是可以听歌.</p></li>
 </ul>
@@ -201,20 +201,20 @@
 </section>
 <section id="gtk">
 <h2><a class="toc-backref" href="#id12">GTK</a><a class="headerlink" href="#gtk" title="永久链接至标题">¶</a></h2>
-<p>默认的 gtk 界面在 XMonad 下相当地丑, 可以安装<code class="docutils literal notranslate"><span class="pre">lxappearance</span></code>来调整 GTK 的主题.</p>
+<p>默认的 gtk 界面在 XMonad 下相当地丑, 可以安装<code class="code docutils literal notranslate"><span class="pre">lxappearance</span></code>来调整 GTK 的主题.</p>
 <p>对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…</p>
 <div class="topic">
 <p class="topic-title">Update</p>
 <p>2015-7-24: 经过 IRC 里 <a class="reference internal" href="../about/friends.html#friend-farseerfc" title="farseerfc friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;farseerfc</span></code></a> 前辈和 <a class="reference internal" href="../about/friends.html#friend-quininer" title="quininer friend"><code class="xref any any-friend docutils literal notranslate"><span class="pre">&#64;quininer</span></code></a> 的 <span class="sphinxnotes-strike">调教</span> ,
 发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.</p>
-<p>2015-8-30: 安装社区源<code class="docutils literal notranslate"><span class="pre">gnome-breeze-git</span></code>主题, 以及 plasma5 的<code class="docutils literal notranslate"><span class="pre">breeze</span></code>主题,
-可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量<code class="docutils literal notranslate"><span class="pre">QT_STYLE_OVERRIDE=breeze</span></code></p>
+<p>2015-8-30: 安装社区源<code class="code docutils literal notranslate"><span class="pre">gnome-breeze-git</span></code>主题, 以及 plasma5 的<code class="code docutils literal notranslate"><span class="pre">breeze</span></code>主题,
+可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量<code class="code docutils literal notranslate"><span class="pre">QT_STYLE_OVERRIDE=breeze</span></code></p>
 </div>
 </section>
 <section id="id4">
 <h2><a class="toc-backref" href="#id13">输入法:</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<p>在<code class="docutils literal notranslate"><span class="pre">~/.xprofile</span></code>中加入:</p>
+<p>在<code class="code docutils literal notranslate"><span class="pre">~/.xprofile</span></code>中加入:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
 <span class="nb">export</span> <span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
 <span class="nb">export</span> <span class="nv">XMODIFIERS</span><span class="o">=</span><span class="s2">&quot;@im=fcitx&quot;</span>

@@ -123,15 +123,15 @@
 <h2><a class="toc-backref" href="#id7">ch1</a><a class="headerlink" href="#ch1" title="永久链接至标题">¶</a></h2>
 <p>使用 community/rustup 包而不是 community/rust 包，方便获取比官方源还新的 rust。
 community/rustup 没有自带 toolchain，和书中的描述不符。 但不重要，使用
-<code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">toolchain</span> <span class="pre">install</span> <span class="pre">nightly</span></code> 即可。</p>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">update</span></code> 来更新 lock 文件，但默认只会 bump semver 的 fix 部分，
-即 <code class="docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.1.2</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.2.0</span></code> 。若确定要更新，需要手动更改
-<code class="docutils literal notranslate"><span class="pre">Cargo.toml</span></code> 并重新 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code> 。</p>
+<code class="code docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">toolchain</span> <span class="pre">install</span> <span class="pre">nightly</span></code> 即可。</p>
+<p>使用 <code class="code docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">update</span></code> 来更新 lock 文件，但默认只会 bump semver 的 fix 部分，
+即 <code class="code docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.1.2</span></code> 而不是 <code class="code docutils literal notranslate"><span class="pre">1.1.1</span> <span class="pre">-&gt;</span> <span class="pre">1.2.0</span></code> 。若确定要更新，需要手动更改
+<code class="code docutils literal notranslate"><span class="pre">Cargo.toml</span></code> 并重新 <code class="code docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code> 。</p>
 </section>
 <section id="ch2">
 <h2><a class="toc-backref" href="#id8">ch2</a><a class="headerlink" href="#ch2" title="永久链接至标题">¶</a></h2>
-<p>需要 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">namespace::of::trait</span></code> 才能使用某个实现了 trait 的 struct 对应的方法。
-需要 use的 trait 可以通过 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 生成的本地依赖的文档查看。</p>
+<p>需要 <code class="code docutils literal notranslate"><span class="pre">use</span> <span class="pre">namespace::of::trait</span></code> 才能使用某个实现了 trait 的 struct 对应的方法。
+需要 use的 trait 可以通过 <code class="code docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 生成的本地依赖的文档查看。</p>
 <p>模式匹配真香！！！</p>
 <p>Rust 允许重新声明变量，不会出现命名难题。这也很香。</p>
 </section>
@@ -141,10 +141,10 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <dt>变量默认不可变</dt><dd><p><span class="sphinxnotes-strike">那为啥要叫变量</span> ， 好处是安全 &amp; 并发友好，有利于优等等等等。</p>
 </dd>
 </dl>
-<p><code class="docutils literal notranslate"><span class="pre">isize</span></code> 和 <code class="docutils literal notranslate"><span class="pre">usize</span></code> 类似 <code class="docutils literal notranslate"><span class="pre">size_t</span></code> in C</p>
-<p>只有 <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span> <span class="pre">--debug</span></code> 才会检测整数溢出并 panic。</p>
-<p>Rust 的 <code class="docutils literal notranslate"><span class="pre">char</span></code> 有 4 byte 长，足够容纳 unicode。</p>
-<p>Tuple 可以用模式匹配或者 <code class="docutils literal notranslate"><span class="pre">x.1</span></code> 这样的下标索引。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">isize</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">usize</span></code> 类似 <code class="code docutils literal notranslate"><span class="pre">size_t</span></code> in C</p>
+<p>只有 <code class="code docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span> <span class="pre">--debug</span></code> 才会检测整数溢出并 panic。</p>
+<p>Rust 的 <code class="code docutils literal notranslate"><span class="pre">char</span></code> 有 4 byte 长，足够容纳 unicode。</p>
+<p>Tuple 可以用模式匹配或者 <code class="code docutils literal notranslate"><span class="pre">x.1</span></code> 这样的下标索引。</p>
 <p>函数返回值是最后一个表达式的值 -&gt; 那就没法随时 return 了？
 有 return 关键字，这设计有点奇怪。</p>
 </section>
@@ -161,9 +161,9 @@ community/rustup 没有自带 toolchain，和书中的描述不符。 但不重�
 <li><p>借用（borrowing）而不是浅拷贝（shadow copy）</p></li>
 <li><p>永远不会自动 “deep copy”</p></li>
 </ul>
-<p>提供了 <code class="docutils literal notranslate"><span class="pre">Copy</span></code> trait 为简单类型提供支持。</p>
+<p>提供了 <code class="code docutils literal notranslate"><span class="pre">Copy</span></code> trait 为简单类型提供支持。</p>
 </dd>
-<dt>Reference</dt><dd><p>使用 reference <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 来借用数据到一个更小的作用域。
+<dt>Reference</dt><dd><p>使用 reference <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> 来借用数据到一个更小的作用域。
 同一份数据的 mutable reference 只能有一个。
 reference 的作用域是「从声明开始到最后一次使用」。</p>
 </dd>
@@ -188,7 +188,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Color</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">#[derive(Debug)]</span></code> 自动实现 <code class="docutils literal notranslate"><span class="pre">Debug</span></code> trait，便于被 <code class="docutils literal notranslate"><span class="pre">println!(&quot;{:?}&quot;)</span></code>
+<p>使用 <code class="code docutils literal notranslate"><span class="pre">#[derive(Debug)]</span></code> 自动实现 <code class="code docutils literal notranslate"><span class="pre">Debug</span></code> trait，便于被 <code class="code docutils literal notranslate"><span class="pre">println!(&quot;{:?}&quot;)</span></code>
 答应出来。</p>
 <p>Struct method:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">foo</span><span class="p">;</span><span class="w"></span>
@@ -204,9 +204,9 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <p>注意 self 的借用方式</p>
 </div>
 <dl class="simple">
-<dt>Automatic referencing and dereferencing</dt><dd><p>消除了 C/C++ 中 <code class="docutils literal notranslate"><span class="pre">foo.bar</span></code> 和 <code class="docutils literal notranslate"><span class="pre">foo-&gt;bar</span></code> 的区别</p>
+<dt>Automatic referencing and dereferencing</dt><dd><p>消除了 C/C++ 中 <code class="code docutils literal notranslate"><span class="pre">foo.bar</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">foo-&gt;bar</span></code> 的区别</p>
 </dd>
-<dt>Associated function</dt><dd><p>类似 class function，使用 <code class="docutils literal notranslate"><span class="pre">::</span></code> 操作符</p>
+<dt>Associated function</dt><dd><p>类似 class function，使用 <code class="code docutils literal notranslate"><span class="pre">::</span></code> 操作符</p>
 </dd>
 </dl>
 </section>
@@ -221,14 +221,14 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 </pre></div>
 </div>
 <dl>
-<dt><code class="docutils literal notranslate"><span class="pre">Option&lt;T&gt;</span></code></dt><dd><p>避免了空值的泛滥</p>
+<dt><code class="code docutils literal notranslate"><span class="pre">Option&lt;T&gt;</span></code></dt><dd><p>避免了空值的泛滥</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>然而空值是广泛存在于现实的，因为「太好实现了」</p>
 </div>
 </dd>
 </dl>
-<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">let</span></code> 语法怪怪的:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">let</span></code> 语法怪怪的:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">some_u8_value</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -241,7 +241,7 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <dt>Rust module system:</dt><dd><ul class="simple">
 <li><p>Packages</p></li>
 <li><p>Crates</p></li>
-<li><p>Modules：<code class="docutils literal notranslate"><span class="pre">mod</span></code> 和 <code class="docutils literal notranslate"><span class="pre">use</span></code> 关键字</p></li>
+<li><p>Modules：<code class="code docutils literal notranslate"><span class="pre">mod</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">use</span></code> 关键字</p></li>
 <li><p>Path?</p></li>
 </ul>
 </dd>
@@ -250,17 +250,17 @@ reference 的作用域是「从声明开始到最后一次使用」。</p>
 <li><p>各种符号默认私有</p></li>
 <li><p>结构体成员默认私有，所以构造函数必须与结构体关联（associate）</p></li>
 <li><p>枚举成员默认公有</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">use</span></code> 和 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">...</span> <span class="pre">as</span></code> 之于 <code class="docutils literal notranslate"><span class="pre">import</span></code> 、 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">...</span> <span class="pre">as</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pub</span> <span class="pre">use</span></code> 允许外部调用 use 的 module</p></li>
-<li><p>支持 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::{foo,bar}</span></code></p></li>
-<li><p>支持 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::*</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">use</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">use</span> <span class="pre">...</span> <span class="pre">as</span></code> 之于 <code class="code docutils literal notranslate"><span class="pre">import</span></code> 、 <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">...</span> <span class="pre">as</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">pub</span> <span class="pre">use</span></code> 允许外部调用 use 的 module</p></li>
+<li><p>支持 <code class="code docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::{foo,bar}</span></code></p></li>
+<li><p>支持 <code class="code docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod::*</span></code></p></li>
 </ul>
 <dl>
-<dt><code class="docutils literal notranslate"><span class="pre">mod</span></code> 关键字</dt><dd><p>有点奇妙，引发了我对模块系统的疑惑…</p>
+<dt><code class="code docutils literal notranslate"><span class="pre">mod</span></code> 关键字</dt><dd><p>有点奇妙，引发了我对模块系统的疑惑…</p>
 <p>Q:</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mod</span> <span class="pre">foo;</span></code> 加载 foo 模块的内容</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mod</span> <span class="pre">foo</span> <span class="pre">{};</span></code> 实现 foo 模块的内容</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">mod</span> <span class="pre">foo;</span></code> 加载 foo 模块的内容</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">mod</span> <span class="pre">foo</span> <span class="pre">{};</span></code> 实现 foo 模块的内容</p></li>
 </ol>
 <p>There’s no implicit mapping between file system tree to module tree, so:</p>
 <blockquote>
@@ -288,38 +288,38 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <h2><a class="toc-backref" href="#id14">ch8 数据结构</a><a class="headerlink" href="#ch8" title="永久链接至标题">¶</a></h2>
 <p>泛型 Yes!</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">Vector&lt;T&gt;</span></code></dt><dd><ul class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">Vector&lt;T&gt;</span></code></dt><dd><ul class="simple">
 <li><p>持有元素引用时不可变 – 考虑 realloc</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">&amp;vec</span> <span class="pre">{}</span></code> 遍历</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">&amp;vec</span> <span class="pre">{}</span></code> 遍历</p></li>
 <li><p>可以存储枚举 wrap 的不同类型的数据</p></li>
 </ul>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">&amp;str</span></code> 和 <code class="docutils literal notranslate"><span class="pre">String</span></code></dt><dd><ul class="simple">
-<li><p>字面量是 <code class="docutils literal notranslate"><span class="pre">&amp;str</span></code> ，使用 <code class="docutils literal notranslate"><span class="pre">&quot;foo&quot;.to_string()</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">String::from(&quot;foo&quot;)</span></code>
-从字面量创建 <code class="docutils literal notranslate"><span class="pre">String()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> 会移动所有权</p></li>
+<dt><code class="code docutils literal notranslate"><span class="pre">&amp;str</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">String</span></code></dt><dd><ul class="simple">
+<li><p>字面量是 <code class="code docutils literal notranslate"><span class="pre">&amp;str</span></code> ，使用 <code class="code docutils literal notranslate"><span class="pre">&quot;foo&quot;.to_string()</span></code> 或者 <code class="code docutils literal notranslate"><span class="pre">String::from(&quot;foo&quot;)</span></code>
+从字面量创建 <code class="code docutils literal notranslate"><span class="pre">String()</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">+</span></code> 会移动所有权</p></li>
 </ul>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">s3</span> <span class="pre">=</span> <span class="pre">s1</span> <span class="pre">+</span> <span class="pre">&amp;s2</span></code></dt><dd><p>s1 会被转移以避免复制，s2 会被复制</p>
+<dt><code class="code docutils literal notranslate"><span class="pre">let</span> <span class="pre">s3</span> <span class="pre">=</span> <span class="pre">s1</span> <span class="pre">+</span> <span class="pre">&amp;s2</span></code></dt><dd><p>s1 会被转移以避免复制，s2 会被复制</p>
 </dd>
 </dl>
 <p>运行时索引字符串 slice 会导致 panic</p>
-<p><code class="docutils literal notranslate"><span class="pre">entry().or_insert()</span></code> 返回一个 <code class="docutils literal notranslate"><span class="pre">&amp;mut</span></code> 很香，可以优雅地写 counter</p>
+<p><code class="code docutils literal notranslate"><span class="pre">entry().or_insert()</span></code> 返回一个 <code class="code docutils literal notranslate"><span class="pre">&amp;mut</span></code> 很香，可以优雅地写 counter</p>
 </section>
 <section id="ch9">
 <h2><a class="toc-backref" href="#id15">ch9 错误处理</a><a class="headerlink" href="#ch9" title="永久链接至标题">¶</a></h2>
 <p><em>No Exception!</em></p>
-<p><code class="docutils literal notranslate"><span class="pre">panic!</span></code> and <code class="docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code></p>
-<p>一种 match 语句的消除方法： <code class="docutils literal notranslate"><span class="pre">Result.unwrap_or_else()</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">?</span></code> for error propagating，好大一颗糖，支持链式调用，
-确实比 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">err</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 香</p>
-<p>迷之 <code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> : 见 <a class="reference internal" href="#ch12"><span class="std std-ref">ch12 构建一个命令行程序</span></a></p>
+<p><code class="code docutils literal notranslate"><span class="pre">panic!</span></code> and <code class="code docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code></p>
+<p>一种 match 语句的消除方法： <code class="code docutils literal notranslate"><span class="pre">Result.unwrap_or_else()</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">?</span></code> for error propagating，好大一颗糖，支持链式调用，
+确实比 <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">err</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 香</p>
+<p>迷之 <code class="code docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> : 见 <a class="reference internal" href="#ch12"><span class="std std-ref">ch12 构建一个命令行程序</span></a></p>
 </section>
 <section id="ch10-trait">
 <h2><a class="toc-backref" href="#id16">ch10 泛型、trait 和生命周期</a><a class="headerlink" href="#ch10-trait" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt>T</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> 语法可用于函数、结构体、枚举、impl block</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> 语法可用于函数、结构体、枚举、impl block</p></li>
 <li><p>可以为泛型的某一个特化提供实现</p></li>
 <li><p>用 单态化（monomorphization）避免泛型的运行时开销</p></li>
 </ul>
@@ -328,8 +328,8 @@ the file mirrors the logical module path. <a class="footnote-reference brackets"
 <li><p>要使用 trait 方法必须引入 use trait</p></li>
 <li><p>无法为外部类型实现外部 trait</p></li>
 <li><p>trait 可以自带默认实现，但重载实现中无法调用默认实现</p></li>
-<li><p>当作为类型参数时用 <code class="docutils literal notranslate"><span class="pre">impl</span> <span class="pre">TraitName</span></code>
-or <code class="docutils literal notranslate"><span class="pre">fn</span> <span class="pre">foo&lt;T:</span> <span class="pre">TraitName&gt;</span></code> 然后用 <code class="docutils literal notranslate"><span class="pre">T</span></code>， 后者更为完备</p></li>
+<li><p>当作为类型参数时用 <code class="code docutils literal notranslate"><span class="pre">impl</span> <span class="pre">TraitName</span></code>
+or <code class="code docutils literal notranslate"><span class="pre">fn</span> <span class="pre">foo&lt;T:</span> <span class="pre">TraitName&gt;</span></code> 然后用 <code class="code docutils literal notranslate"><span class="pre">T</span></code>， 后者更为完备</p></li>
 <li><p>blanket implementation?</p></li>
 </ul>
 </dd>
@@ -343,8 +343,8 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <dt>编译器对入参出参的生命周期预设</dt><dd><ul class="simple">
 <li><p>每一个入参都有独立的生命周期参数</p></li>
 <li><p>如果只有一个输入生命周期参数，那么它同时也是输出生命周期参数</p></li>
-<li><p>如果有多个输入生命周期参数并且其中一个是 <code class="docutils literal notranslate"><span class="pre">&amp;self</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">&amp;mut</span> <span class="pre">self</span></code>
-则输出生命周期参数即为 <code class="docutils literal notranslate"><span class="pre">self</span></code> 的生命周期</p></li>
+<li><p>如果有多个输入生命周期参数并且其中一个是 <code class="code docutils literal notranslate"><span class="pre">&amp;self</span></code> 或者 <code class="code docutils literal notranslate"><span class="pre">&amp;mut</span> <span class="pre">self</span></code>
+则输出生命周期参数即为 <code class="code docutils literal notranslate"><span class="pre">self</span></code> 的生命周期</p></li>
 </ul>
 </dd>
 </dl>
@@ -352,21 +352,21 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <section id="ch11">
 <h2><a class="toc-backref" href="#id17">ch11 编写自动化测试</a><a class="headerlink" href="#ch11" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">super::*</span></code> 比较方便</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#[should_panic]</span></code> 标记一个会 panic 的 case</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#[test]</span></code> 修饰的函数亦可用 <code class="docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code> 作为返回值</p></li>
-<li><p>用 <code class="docutils literal notranslate"><span class="pre">--</span></code> 区分给 cargo test 的参数和给 test binary 的参数</p></li>
-<li><p>集成测试放置于特殊的 “tests” 目录，模块不需要 <code class="docutils literal notranslate"><span class="pre">#[cfg(test)]</span></code> 修饰</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">user</span> <span class="pre">super::*</span></code> 比较方便</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">#[should_panic]</span></code> 标记一个会 panic 的 case</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">#[test]</span></code> 修饰的函数亦可用 <code class="code docutils literal notranslate"><span class="pre">Result&lt;T,E&gt;</span></code> 作为返回值</p></li>
+<li><p>用 <code class="code docutils literal notranslate"><span class="pre">--</span></code> 区分给 cargo test 的参数和给 test binary 的参数</p></li>
+<li><p>集成测试放置于特殊的 “tests” 目录，模块不需要 <code class="code docutils literal notranslate"><span class="pre">#[cfg(test)]</span></code> 修饰</p></li>
 </ul>
 </section>
 <section id="ch12">
 <span id="id6"></span><h2><a class="toc-backref" href="#id18">ch12 构建一个命令行程序</a><a class="headerlink" href="#ch12" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">std::env::args()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">std::proecss::exit(exit_code)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> 代表任意实现了 <code class="docutils literal notranslate"><span class="pre">Error</span></code> 的类型，编译时不会单态化，
+<li><p><code class="code docutils literal notranslate"><span class="pre">std::env::args()</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">std::proecss::exit(exit_code)</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Box&lt;dyn</span> <span class="pre">Error&gt;</span></code> 代表任意实现了 <code class="code docutils literal notranslate"><span class="pre">Error</span></code> 的类型，编译时不会单态化，
 有一定的动态性</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">eprintln!</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">eprintln!</span></code></p></li>
 </ul>
 </section>
 <section id="ch13">
@@ -374,9 +374,9 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <dl class="simple">
 <dt>闭包</dt><dd><p>可以捕获 scope 的 匿名函数，捕获方式有三种：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">FnOnce</span></code> 移动所有权</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FnMut</span></code> 可变借用</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Fn</span></code> 不可变借用</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">FnOnce</span></code> 移动所有权</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">FnMut</span></code> 可变借用</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Fn</span></code> 不可变借用</p></li>
 </ul>
 </dd>
 <dt>Iterator Adaptor</dt><dd><p>对 Iterator 做变换，返回另一个迭代器，可形成链式调用</p>
@@ -385,13 +385,13 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 </section>
 <section id="ch14-release-profiles">
 <h2><a class="toc-backref" href="#id20">ch14 Release Profiles</a><a class="headerlink" href="#ch14-release-profiles" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 很方便</p>
+<p><code class="code docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">doc</span> <span class="pre">--open</span></code> 很方便</p>
 <p>翻译有点儿怪……</p>
-<p>可以用 <code class="docutils literal notranslate"><span class="pre">pub</span> <span class="pre">use</span></code> 重导出，在统一的地方管理公开 API</p>
+<p>可以用 <code class="code docutils literal notranslate"><span class="pre">pub</span> <span class="pre">use</span></code> 重导出，在统一的地方管理公开 API</p>
 <dl class="simple">
-<dt>Cargo workspace</dt><dd><p>很有意思，一堆项目共享同一个 <code class="docutils literal notranslate"><span class="pre">Cargo.lock</span></code> ：确保所有 create 使用相同版本的依赖</p>
+<dt>Cargo workspace</dt><dd><p>很有意思，一堆项目共享同一个 <code class="code docutils literal notranslate"><span class="pre">Cargo.lock</span></code> ：确保所有 create 使用相同版本的依赖</p>
 </dd>
-<dt>Cargo subcommand</dt><dd><p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">xxx</span></code> 会执行 <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">cargo-xxx</span></code> ，略粗暴</p>
+<dt>Cargo subcommand</dt><dd><p><code class="code docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">xxx</span></code> 会执行 <code class="code docutils literal notranslate"><span class="pre">$PATH</span></code> 中的 <code class="code docutils literal notranslate"><span class="pre">cargo-xxx</span></code> ，略粗暴</p>
 </dd>
 </dl>
 </section>
@@ -400,9 +400,9 @@ or <code class="docutils literal notranslate"><span class="pre">fn</span> <span 
 <p><span class="sphinxnotes-strike">说实话 C++ 里的智能指针让我感到「非用不可」而不是「用得舒服」</span></p>
 <p>常见的智能指针</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Box&lt;T&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Rc&lt;T&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Ref&lt;T&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">RefMut&lt;T&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">RefCell&lt;T&gt;</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Box&lt;T&gt;</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Rc&lt;T&gt;</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Ref&lt;T&gt;</span></code> <code class="code docutils literal notranslate"><span class="pre">RefMut&lt;T&gt;</span></code> <code class="code docutils literal notranslate"><span class="pre">RefCell&lt;T&gt;</span></code></p></li>
 </ul>
 </section>
 </section>

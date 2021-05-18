@@ -131,10 +131,10 @@
         <span class="k">print</span> <span class="s1">&#39;Try Again !&#39;</span>
 </pre></div>
 </div>
-<p>正常人反着推肯定是写: <code class="docutils literal notranslate"><span class="pre">arr[i]</span> <span class="pre">-</span>&#160; <span class="pre">(key[seed]</span> <span class="pre">^</span> <span class="pre">seed)</span></code> 不过这样肯定推不出来,
+<p>正常人反着推肯定是写: <code class="code docutils literal notranslate"><span class="pre">arr[i]</span> <span class="pre">-</span>&#160; <span class="pre">(key[seed]</span> <span class="pre">^</span> <span class="pre">seed)</span></code> 不过这样肯定推不出来,
 因为出题人写错了… (师兄想出来的… 打死我也不知道是题目错了啊…),
-出题的用了正确的算法给出密文之后, 把 <code class="docutils literal notranslate"><span class="pre">rst.append((ord(v)</span> <span class="pre">^</span> <span class="pre">ord(key[seed])</span> <span class="pre">+</span> <span class="pre">seed)</span> <span class="pre">%</span> <span class="pre">255)</span></code>
-写成了: <code class="docutils literal notranslate"><span class="pre">rst.append((ord(v)</span> <span class="pre">+</span> <span class="pre">seed</span> <span class="pre">^</span> <span class="pre">ord(key[seed]))</span> <span class="pre">%</span> <span class="pre">255)</span></code>
+出题的用了正确的算法给出密文之后, 把 <code class="code docutils literal notranslate"><span class="pre">rst.append((ord(v)</span> <span class="pre">^</span> <span class="pre">ord(key[seed])</span> <span class="pre">+</span> <span class="pre">seed)</span> <span class="pre">%</span> <span class="pre">255)</span></code>
+写成了: <code class="code docutils literal notranslate"><span class="pre">rst.append((ord(v)</span> <span class="pre">+</span> <span class="pre">seed</span> <span class="pre">^</span> <span class="pre">ord(key[seed]))</span> <span class="pre">%</span> <span class="pre">255)</span></code>
 所以没必要深究什么了,代码:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
@@ -167,7 +167,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">WCTF{ILOVEPYTHONSOMUCH}</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">WCTF{ILOVEPYTHONSOMUCH}</span></code></p>
 </section>
 <section id="elf">
 <h2>简单的ELF逆向:<a class="headerlink" href="#elf" title="永久链接至标题">¶</a></h2>
@@ -214,7 +214,7 @@
 </pre></div>
 </div>
 <p>果然代码的可读性不是很好, 前面的printf之类的被我省去了, 重点放在while循环和那个if上,
-可以看到if要求的是几个变量必须分别为 <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">8,</span> <span class="pre">2,</span> <span class="pre">3,}</span></code>
+可以看到if要求的是几个变量必须分别为 <code class="code docutils literal notranslate"><span class="pre">0,</span> <span class="pre">8,</span> <span class="pre">2,</span> <span class="pre">3,}</span></code>
 应该就是flag 的后部分了, 从最后的判断right和wrong可以看出v13是判断正确与否的变量.</p>
 <p>while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic View模式, 这样汇编代码显得很清晰,
 把重点放在while循环对应的那部分, 简单分析得到, 红笔标注的地方就是程序内为数不多的循环了,
@@ -253,7 +253,7 @@
 但是我们回到代码中, 对arr_2有这样的操作:</p>
 <img alt="3" src="../_images/idf-reverse-writeup-3.png" />
 <p>刚好17个项(0-10h),
-所以说 <code class="docutils literal notranslate"><span class="pre">arr_i[i]</span> <span class="pre">=</span> <span class="pre">((arr_2[i]</span> <span class="pre">–</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">(arr_2[i]</span> <span class="pre">–</span> <span class="pre">1)&gt;&gt;0x1f)&gt;&gt;1</span></code>
+所以说 <code class="code docutils literal notranslate"><span class="pre">arr_i[i]</span> <span class="pre">=</span> <span class="pre">((arr_2[i]</span> <span class="pre">–</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">(arr_2[i]</span> <span class="pre">–</span> <span class="pre">1)&gt;&gt;0x1f)&gt;&gt;1</span></code>
 (忽略了shr 和 sar 以及各种细节问题… 所幸没有出错)
 (vim 来处理这些最爽了)</p>
 <p>代码:</p>
@@ -277,7 +277,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">wctf{ElF_lnX_Ckm_0823}</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">wctf{ElF_lnX_Ckm_0823}</span></code></p>
 </section>
 <section id="pe">
 <h2>简单的PE文件逆向:<a class="headerlink" href="#pe" title="永久链接至标题">¶</a></h2>
@@ -309,7 +309,7 @@
 </pre></div>
 </div>
 <p>同样是把flag分成两部分, 后面五个必须是1024},前面的在一个for循环里算出:
-<code class="docutils literal notranslate"><span class="pre">v76[i]</span> <span class="pre">!=</span> <span class="pre">byte_415768[*(&amp;v53</span> <span class="pre">+</span> <span class="pre">i)]</span></code>
+<code class="code docutils literal notranslate"><span class="pre">v76[i]</span> <span class="pre">!=</span> <span class="pre">byte_415768[*(&amp;v53</span> <span class="pre">+</span> <span class="pre">i)]</span></code>
 通过一个数组v53[]运算出下标, 再用下标从另一个数组byte_415768[]取出值来, 数组是:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>v53 = 1;
 v54 = 4;
@@ -351,7 +351,7 @@ byte_415768 db 73h
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">wctf{Pe_cRackme1c1024}</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">flag:</span> <span class="pre">wctf{Pe_cRackme1c1024}</span></code></p>
 <hr class="docutils" />
 <section data-isso-id="/blog/idf-reverse-writeup" data-title="IDF 实验室逆向题部分题解" id="isso-thread"></section></section>
 </section>

@@ -107,11 +107,11 @@
 <span class="nf">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">head</span> <span class="n">ys</span> <span class="kt">:</span> <span class="n">transpose</span> <span class="p">(</span><span class="kt">Matrix</span> <span class="o">$</span> <span class="n">map</span> <span class="n">tail</span> <span class="n">ys</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>一直爆empty list exception, 因为pattern matching 不到 ys, 最后一步是<code class="docutils literal notranslate"><span class="pre">[[],[]...]</span></code>
-而不是<code class="docutils literal notranslate"><span class="pre">[]</span></code>, 上网查了一下矩阵转置函数才知道可以用<code class="docutils literal notranslate"><span class="pre">[]:_</span></code>来匹配.</p>
+<p>一直爆empty list exception, 因为pattern matching 不到 ys, 最后一步是<code class="code docutils literal notranslate"><span class="pre">[[],[]...]</span></code>
+而不是<code class="code docutils literal notranslate"><span class="pre">[]</span></code>, 上网查了一下矩阵转置函数才知道可以用<code class="code docutils literal notranslate"><span class="pre">[]:_</span></code>来匹配.</p>
 <p>对于矩阵乘法, 我采取的是将右边那个矩阵转置, 这样就可以简化成行乘行, 左边矩阵拆成单行乘过去.</p>
-<p>在用<code class="docutils literal notranslate"><span class="pre">$</span></code>的时候总是遇到问题…总是报错, 也不知道为什么…我把简单地$当成让函数右结合的操作符,
-但是如果写: <code class="docutils literal notranslate"><span class="pre">getMartix</span> <span class="pre">$</span> <span class="pre">Matrix</span> <span class="pre">xs</span> <span class="pre">`mmul`</span> <span class="pre">ys</span></code> 就错误.
+<p>在用<code class="code docutils literal notranslate"><span class="pre">$</span></code>的时候总是遇到问题…总是报错, 也不知道为什么…我把简单地$当成让函数右结合的操作符,
+但是如果写: <code class="code docutils literal notranslate"><span class="pre">getMartix</span> <span class="pre">$</span> <span class="pre">Matrix</span> <span class="pre">xs</span> <span class="pre">`mmul</span></code> ys` 就错误.
 看来理解还是有偏差的.</p>
 <p>下面的代码分别实现了:</p>
 <ul class="simple">
@@ -122,7 +122,7 @@
 <li><p>矩阵的Eq实例和show实例</p></li>
 </ul>
 <p>到底乘法用的是 multiplication 还是 product 呢… 好奇怪.</p>
-<p>因为定义矩阵直接用了 <code class="docutils literal notranslate"><span class="pre">[[Int]]</span></code>, 无法限制每个list的长度,
+<p>因为定义矩阵直接用了 <code class="code docutils literal notranslate"><span class="pre">[[Int]]</span></code>, 无法限制每个list的长度,
 所以并不能保证这个Matrix里面肯定是一个符合定义的矩阵, 这个不知道怎么加以限制.</p>
 <p>看看接下来教的什么或许可以再往代码里加点东西, 改天看看别人是怎么写的.</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span> <span class="kt">Matrix</span> <span class="ow">=</span> <span class="kt">Matrix</span> <span class="p">{</span><span class="n">getMartix</span> <span class="ow">::</span> <span class="p">[[</span><span class="kt">Int</span><span class="p">]]}</span>

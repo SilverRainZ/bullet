@@ -98,7 +98,7 @@
 <dl>
 <dt>Stop using GtkBox padding, fill and expand child properties</dt><dd><p>GtkBox child properties 被 GtkWidget 的 properties 替代</p>
 </dd>
-<dt>Stop using <code class="docutils literal notranslate"><span class="pre">gdk_pixbuf_get_from_window()</span></code> and</dt><dd><p><code class="docutils literal notranslate"><span class="pre">gdk_cairo_set_source_surface()</span></code></p>
+<dt>Stop using <code class="code docutils literal notranslate"><span class="pre">gdk_pixbuf_get_from_window()</span></code> and</dt><dd><p><code class="code docutils literal notranslate"><span class="pre">gdk_cairo_set_source_surface()</span></code></p>
 </dd>
 <dt>Stop using GtkWidget event signals</dt><dd><p>相关的 signal 被 event controllers key 和 gestures 替代</p>
 <table class="docutils align-default">
@@ -107,26 +107,26 @@
 <col style="width: 51%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">key-release-event</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">GtkEventControllerKey</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">key-release-event</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">GtkEventControllerKey</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">button-press-event</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">GtkGesture</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">button-press-event</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">GtkGesture</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">button-release-event</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">GtkGesture</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">button-release-event</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">GtkGesture</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <p><em>Custom widgets in GTK 4 – Input</em> <a class="footnote-reference brackets" href="#id6" id="id3">2</a> 给出了 event controller 的简单用法。</p>
 </dd>
-<dt>Reduce the use of <code class="docutils literal notranslate"><span class="pre">gtk_widget_destroy()</span></code></dt><dd><p>使用更安全的 <code class="docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 或 <code class="docutils literal notranslate"><span class="pre">g_object_unref()</span></code></p>
+<dt>Reduce the use of <code class="code docutils literal notranslate"><span class="pre">gtk_widget_destroy()</span></code></dt><dd><p>使用更安全的 <code class="code docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 或 <code class="code docutils literal notranslate"><span class="pre">g_object_unref()</span></code></p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p><code class="docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 不是已经废弃了吗？？？</p>
+<p><code class="code docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 不是已经废弃了吗？？？</p>
 </div>
 </dd>
-<dt>Reduce the use of generic container APIs</dt><dd><p><code class="docutils literal notranslate"><span class="pre">gtk_container_add()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 已被移除，
+<dt>Reduce the use of generic container APIs</dt><dd><p><code class="code docutils literal notranslate"><span class="pre">gtk_container_add()</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">gtk_container_remove()</span></code> 已被移除，
 使用容器自带的 add 和 remove 函数</p>
 </dd>
 </dl>
@@ -140,12 +140,12 @@ and use complex widgets as child widgets instead of deriving from them.</p>
 </dd>
 <dt>Life-cycle handling</dt><dd><p>The “destroy” signal can no longer be used to break reference cycles.</p>
 </dd>
-<dt>Stop using <code class="docutils literal notranslate"><span class="pre">gtk_get_current_...</span></code> APIs</dt><dd><p>The function gtk_get_current_event() and its variants have been
+<dt>Stop using <code class="code docutils literal notranslate"><span class="pre">gtk_get_current_...</span></code> APIs</dt><dd><p>The function gtk_get_current_event() and its variants have been
 replaced by equivalent event controller APIs:
-<code class="docutils literal notranslate"><span class="pre">gtk_event_controller_get_current_event()</span></code>, etc.</p>
+<code class="code docutils literal notranslate"><span class="pre">gtk_event_controller_get_current_event()</span></code>, etc.</p>
 </dd>
 <dt>Convert your ui files</dt><dd><p>The <code class="file docutils literal notranslate"><span class="pre">gtk4-builder-tool</span></code> simplify command can perform many of the
-necessary changes automatically, when called with the <code class="docutils literal notranslate"><span class="pre">–3to4</span></code> option.</p>
+necessary changes automatically, when called with the <code class="code docutils literal notranslate"><span class="pre">–3to4</span></code> option.</p>
 </dd>
 </dl>
 </section>
@@ -327,7 +327,7 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 </dd>
 </dl>
 <p>写 khufu 的 cli 时候发现脚本启动很慢。
-使用 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-X</span> <span class="pre">importtime</span> <span class="pre">...</span></code> 统计脚本启动时 import 所占时间:</p>
+使用 <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">-X</span> <span class="pre">importtime</span> <span class="pre">...</span></code> 统计脚本启动时 import 所占时间:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span> <span class="n">many</span> <span class="n">line</span> <span class="n">emitted</span> <span class="o">...</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="p">:</span>       <span class="mi">323</span> <span class="o">|</span>     <span class="mi">405157</span> <span class="o">|</span> <span class="n">sphinxnote</span><span class="o">.</span><span class="n">khufu</span>
 </pre></div>
@@ -347,10 +347,10 @@ See <em>List Widget Overview</em> <a class="footnote-reference brackets" href="#
 <p class="admonition-title">注解</p>
 <p>The first type annotation must be enclosed in quotes, making it a “forward reference”</p>
 </div>
-<p>Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code>
+<p>Python 3.7+ 不需要使用奇怪的 “forward reference”，只需要 <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code>
 即可 <a class="footnote-reference brackets" href="#id27" id="id25">12</a> 。</p>
-<p>Python 3.10 后 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> 会成为默认行为。</p>
-<p><code class="docutils literal notranslate"><span class="pre">__import__('pkg_resources').declare_namespace(__name__)</span></code> <a class="footnote-reference brackets" href="#id28" id="id26">13</a> 耗了很长时间。</p>
+<p>Python 3.10 后 <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> 会成为默认行为。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">__import__('pkg_resources').declare_namespace(__name__)</span></code> <a class="footnote-reference brackets" href="#id28" id="id26">13</a> 耗了很长时间。</p>
 <p>最后:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span><span class="p">:</span>       <span class="mi">405</span> <span class="o">|</span>      <span class="mi">32024</span> <span class="o">|</span> <span class="n">sphinxnote</span><span class="o">.</span><span class="n">khufu</span>
 </pre></div>

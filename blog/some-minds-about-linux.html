@@ -99,9 +99,9 @@
 我甚至不知道用什么关键词去Google.</p>
 <p>比如说呢, 这个暑假回家带了一台旧笔记本回来, 想要在上面只装一个openSUSE 13.2,
 安装过程一切顺利, 安装完毕后把系统更新到最新后就没法开机了, grub似乎正常,
-卡在了<code class="docutils literal notranslate"><span class="pre">initrd</span> <span class="pre">/boot/initrd-3.16.7-7-desktop</span></code>这里, 可选的另一个是<code class="docutils literal notranslate"><span class="pre">initrd-3.16.6-2-desktop</span></code>,
+卡在了<code class="code docutils literal notranslate"><span class="pre">initrd</span> <span class="pre">/boot/initrd-3.16.7-7-desktop</span></code>这里, 可选的另一个是<code class="code docutils literal notranslate"><span class="pre">initrd-3.16.6-2-desktop</span></code>,
 这似乎是内核版本? 在网上搜索了很久, 凡是贴近这种情况的资料几乎都是英文的,
-基本看不懂. 而且我连Rescue CD都不会用, 谈何修复?  最后我只能忍着不<code class="docutils literal notranslate"><span class="pre">zypper</span> <span class="pre">up</span></code>,
+基本看不懂. 而且我连Rescue CD都不会用, 谈何修复?  最后我只能忍着不<code class="code docutils literal notranslate"><span class="pre">zypper</span> <span class="pre">up</span></code>,
 用着不更新的openSUSE.</p>
 <p>又比如今天折腾wine, (我甚至觉得这根本不是折腾…),
 openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他很方便地安装
@@ -122,7 +122,7 @@ openSUSE社区的HillWood维护了一个项目叫winetricks-zh, 可以通过他�
 <p>尝试几次都得到错误的结果后我就怀疑是wine-64bit的问题, 如果你只安装wine-32bit的话,
 winetricks就会提示 wineserver not found, 不能启动, 安装了完整的wine包,
 默认的wine却是64bit的, 但是再切换32bit之后依然错误.</p>
-<p>在这之后我就把所有的配置<code class="docutils literal notranslate"><span class="pre">~/.wine</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.local/share/applictions</span></code>和<code class="docutils literal notranslate"><span class="pre">~/.local/share/wineprefixs</span></code>
+<p>在这之后我就把所有的配置<code class="code docutils literal notranslate"><span class="pre">~/.wine</span></code>, <code class="code docutils literal notranslate"><span class="pre">~/.local/share/applictions</span></code>和<code class="code docutils literal notranslate"><span class="pre">~/.local/share/wineprefixs</span></code>
 全都删除了, 再把和wine有关的包统统删掉, 又重新安装了一次, 桌面终于出现了启动器,
 但是依然卡死.  最后我放弃了用轻聊版, 用了QQ正式版, 出乎意料地顺利(checksum错误竟然没问题?)
 勉强安装是安装成功了, 速度还好.</p>

@@ -97,14 +97,14 @@
 然而 AUR 里面没有就作罢了。</p>
 <section id="id1">
 <h2>生成函数调用图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<p>安装 egypt 直接 <code class="docutils literal notranslate"><span class="pre">yaourt</span> <span class="pre">-S</span> <span class="pre">egypt</span></code> 即可，
-之后在 makefile 里面的 CFLAG 里面增加一句 <code class="docutils literal notranslate"><span class="pre">-fdump-rtl-expand</span></code>，
-再 make 一次，gcc 会在 bulid 目录下生成 <code class="docutils literal notranslate"><span class="pre">*.expand</span></code> 文件，
+<p>安装 egypt 直接 <code class="code docutils literal notranslate"><span class="pre">yaourt</span> <span class="pre">-S</span> <span class="pre">egypt</span></code> 即可，
+之后在 makefile 里面的 CFLAG 里面增加一句 <code class="code docutils literal notranslate"><span class="pre">-fdump-rtl-expand</span></code>，
+再 make 一次，gcc 会在 bulid 目录下生成 <code class="code docutils literal notranslate"><span class="pre">*.expand</span></code> 文件，
 这是 egypt 生成 call graph 所需要的信息。</p>
 <blockquote>
-<div><p>我这里生成的文件的后缀都是 <code class="docutils literal notranslate"><span class="pre">*.192r.expand</span></code>，并不知道是什么意思……</p>
+<div><p>我这里生成的文件的后缀都是 <code class="code docutils literal notranslate"><span class="pre">*.192r.expand</span></code>，并不知道是什么意思……</p>
 </div></blockquote>
-<p>之后执行 <code class="docutils literal notranslate"><span class="pre">egypt</span> <span class="pre">*.expand</span> <span class="pre">&gt;</span> <span class="pre">main.dot</span></code>
+<p>之后执行 <code class="code docutils literal notranslate"><span class="pre">egypt</span> <span class="pre">*.expand</span> <span class="pre">&gt;</span> <span class="pre">main.dot</span></code>
 就能生成代表整个项目里所有的 C 函数的调用关系的 dot 文件了。</p>
 <p>dot 文件大概长这样，每一行代表连接两个顶点的边
 用 Graphviz 的 dot 命令可以从 dot 文件生成 png。</p>
@@ -120,7 +120,7 @@
     ...
 </pre></div>
 </div>
-<p>执行 <code class="docutils literal notranslate"><span class="pre">dot</span> <span class="pre">main.dot</span> <span class="pre">-Tpng</span> <span class="pre">-o</span> <span class="pre">main.png</span></code>，于是从整个 OS67 生成了这么一张可怕的图片：</p>
+<p>执行 <code class="code docutils literal notranslate"><span class="pre">dot</span> <span class="pre">main.dot</span> <span class="pre">-Tpng</span> <span class="pre">-o</span> <span class="pre">main.png</span></code>，于是从整个 OS67 生成了这么一张可怕的图片：</p>
 <img alt="" src="../_images/os67-func-call-graph.png" />
 <p>这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
 没法做什么简化，所以对于整个项目我只生成了后面的模块调用图。</p>
@@ -145,7 +145,7 @@
 <span class="go">└── usr     # 用户例程</span>
 </pre></div>
 </div>
-<p>需要生成调用图的模块有 <code class="docutils literal notranslate"><span class="pre">dev</span> <span class="pre">drv</span> <span class="pre">fs</span> <span class="pre">kern</span> <span class="pre">libs</span> <span class="pre">mm</span> <span class="pre">proc</span></code>，来写个小脚本自动生成好了：</p>
+<p>需要生成调用图的模块有 <code class="code docutils literal notranslate"><span class="pre">dev</span> <span class="pre">drv</span> <span class="pre">fs</span> <span class="pre">kern</span> <span class="pre">libs</span> <span class="pre">mm</span> <span class="pre">proc</span></code>，来写个小脚本自动生成好了：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/sh</span>
 <span class="nv">mods</span><span class="o">=</span><span class="s1">&#39;dev drv fs kern libs mm proc&#39;</span>
 
@@ -177,19 +177,19 @@
 <a class="reference external" href="https://www.flourish.org/cinclude2dot/">flourish.org/cinclude2dot/</a>。</p>
 <blockquote>
 <div><p>AUR 里面没有所以顺手给打了一个包：
-<cite>cinclude2dot:sup:`AUR</cite> &lt;<a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/">https://aur.archlinux.org/packages/cinclude2dot/</a>&gt;`_，
+<code class="code docutils literal notranslate"><span class="pre">cinclude2dot\</span> <span class="pre">:sup:`AUR</span></code> &lt;<a class="reference external" href="https://aur.archlinux.org/packages/cinclude2dot/">https://aur.archlinux.org/packages/cinclude2dot/</a>&gt;`_，
 所以现在也可以直接用 yaourt 装 cinclude2dot 了。</p>
 </div></blockquote>
-<p>执行 <code class="docutils literal notranslate"><span class="pre">cinclude2dot</span> <span class="pre">--include</span> <span class="pre">inc</span> <span class="pre">&gt;</span> <span class="pre">main.dot</span></code> 会在当前目录递归地找 <code class="docutils literal notranslate"><span class="pre">*.c</span></code> 文件，
-然后在 <code class="docutils literal notranslate"><span class="pre">inc</span></code> 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
-如果启用 <code class="docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">module</span></code> 的话，会把 <code class="docutils literal notranslate"><span class="pre">xxx.c</span></code> 和 <code class="docutils literal notranslate"><span class="pre">xxx.h</span></code> 合并为一个模块 <code class="docutils literal notranslate"><span class="pre">xxx</span></code>，
+<p>执行 <code class="code docutils literal notranslate"><span class="pre">cinclude2dot</span> <span class="pre">--include</span> <span class="pre">inc</span> <span class="pre">&gt;</span> <span class="pre">main.dot</span></code> 会在当前目录递归地找 <code class="code docutils literal notranslate"><span class="pre">*.c</span></code> 文件，
+然后在 <code class="code docutils literal notranslate"><span class="pre">inc</span></code> 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
+如果启用 <code class="code docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">module</span></code> 的话，会把 <code class="code docutils literal notranslate"><span class="pre">xxx.c</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">xxx.h</span></code> 合并为一个模块 <code class="code docutils literal notranslate"><span class="pre">xxx</span></code>，
 然而这样生成的图片还是太大了点。</p>
 <img alt="" src="../_images/os67-mod-include-graph.png" />
-<p>cinclude2dot 还提供了一个 <code class="docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 选项，把相同目录的文件合并为一个模块，
+<p>cinclude2dot 还提供了一个 <code class="code docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 选项，把相同目录的文件合并为一个模块，
 这正是我想要的功能，然而这样生成的图过分简单，
-所有的目录都指向了存放头文件的目录 <code class="docutils literal notranslate"><span class="pre">inc</span></code>。试了一下 directory 和 module 选项也不能一起用，
+所有的目录都指向了存放头文件的目录 <code class="code docutils literal notranslate"><span class="pre">inc</span></code>。试了一下 directory 和 module 选项也不能一起用，
 果然还是得自己在 dot 文件上改一改。</p>
-<p>执行 <code class="docutils literal notranslate"><span class="pre">cinclude2dot</span> <span class="pre">--include</span> <span class="pre">inc</span> <span class="pre">--merge</span> <span class="pre">module</span> <span class="pre">&gt;</span> <span class="pre">$dotfile</span></code>，得到各个「文件」间的调用关系。</p>
+<p>执行 <code class="code docutils literal notranslate"><span class="pre">cinclude2dot</span> <span class="pre">--include</span> <span class="pre">inc</span> <span class="pre">--merge</span> <span class="pre">module</span> <span class="pre">&gt;</span> <span class="pre">$dotfile</span></code>，得到各个「文件」间的调用关系。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>digraph &quot;source tree&quot; {
     &quot;ls&quot; -&gt; &quot;usys&quot;
     &quot;tty&quot; -&gt; &quot;printk&quot;
@@ -205,22 +205,22 @@
 </pre></div>
 </div>
 <p>如果 dev/tty.c 包含了 inc/printk.h，说明它调用了 libs/printk.c 里的函数，
-那就有关系 <code class="docutils literal notranslate"><span class="pre">&quot;tty&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code>，
-那可以考虑把文件名替换为该文件所在的目录名，那关系就变成了 <code class="docutils literal notranslate"><span class="pre">&quot;dev&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;libs&quot;</span></code>。</p>
+那就有关系 <code class="code docutils literal notranslate"><span class="pre">&quot;tty&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code>，
+那可以考虑把文件名替换为该文件所在的目录名，那关系就变成了 <code class="code docutils literal notranslate"><span class="pre">&quot;dev&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;libs&quot;</span></code>。</p>
 <p>这样替换要注意的是：</p>
 <ul class="simple">
-<li><p>不能将头文件目录当成一个模块，如 <code class="docutils literal notranslate"><span class="pre">&quot;tty&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code> 的关系的右边本来就是一个头文件，
+<li><p>不能将头文件目录当成一个模块，如 <code class="code docutils literal notranslate"><span class="pre">&quot;tty&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code> 的关系的右边本来就是一个头文件，
 在这里它应当属于 libs 模块而不属于 inc，
-如果强行加入 inc 的话结果就和上面用 <code class="docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 的效果差不多了：
+如果强行加入 inc 的话结果就和上面用 <code class="code docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 的效果差不多了：
 每个顶点会都指向 inc</p></li>
-<li><p>排除 inc 后，要注意的是有些只包含宏定义的头文件并没有对应的 <code class="docutils literal notranslate"><span class="pre">*.c</span></code> 文件，
-比如上面的 <code class="docutils literal notranslate"><span class="pre">&quot;p2i&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;type&quot;</span></code> 存在 inc/type.h ，但是并没有 type.c 这么一个文件，
+<li><p>排除 inc 后，要注意的是有些只包含宏定义的头文件并没有对应的 <code class="code docutils literal notranslate"><span class="pre">*.c</span></code> 文件，
+比如上面的 <code class="code docutils literal notranslate"><span class="pre">&quot;p2i&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;type&quot;</span></code> 存在 inc/type.h ，但是并没有 type.c 这么一个文件，
 那么这一行应当删除掉</p></li>
-<li><p>将文件名替换成目录名后会出现重复的项目，<code class="docutils literal notranslate"><span class="pre">&quot;ide&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&quot;vga&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code>
-替换后的结果都是 <code class="docutils literal notranslate"><span class="pre">&quot;drv&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;libs&quot;</span></code>，需要去重</p></li>
+<li><p>将文件名替换成目录名后会出现重复的项目，<code class="code docutils literal notranslate"><span class="pre">&quot;ide&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">&quot;vga&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;printk&quot;</span></code>
+替换后的结果都是 <code class="code docutils literal notranslate"><span class="pre">&quot;drv&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;libs&quot;</span></code>，需要去重</p></li>
 </ul>
 <p>把这些事情交给脚本吧，从每个要统计的模块（目录）里面取得文件列表，
-把文件名替换为目录名，去除单独的 <code class="docutils literal notranslate"><span class="pre">*.h</span></code> 文件对应的行，去除重复行。</p>
+把文件名替换为目录名，去除单独的 <code class="code docutils literal notranslate"><span class="pre">*.h</span></code> 文件对应的行，去除重复行。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/sh</span>
 
 <span class="nv">mods</span><span class="o">=</span><span class="s1">&#39;kern drv proc mm usr dev fs libs&#39;</span>

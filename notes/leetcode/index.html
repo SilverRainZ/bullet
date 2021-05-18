@@ -36,7 +36,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="Sphinx As PIM System" href="../sphinx-as-pim/index.html" />
+    <link rel="next" title="动态规划" href="dp.html" />
     <link rel="prev" title="大调训练计划" href="../ionian/index.html" /> 
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -94,6 +94,26 @@
 <dd class="field-odd"><p>2021-03-10</p>
 </dd>
 </dl>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dp.html">动态规划</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dp.html#id4">排列组合问题 </a></li>
+<li class="toctree-l2"><a class="reference internal" href="dp.html#id6">概念 </a></li>
+<li class="toctree-l2"><a class="reference internal" href="dp.html#id8">背包九讲 </a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dp.html#id9">01 背包问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dp.html#id10">问题抽象</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dp.html#id11">空间复杂度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dp.html#id12">恰好放满背包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dp.html#ci-v"><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dp.html#id13">参考</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <p>借鉴了 <a class="reference external" href="https://github.com/iosmanthus/leetcode-rust">iosmanthus/leetcode-rust</a> 的做法，主要用 Rust 来刷题。</p>
 <p>先从 🔥 <a class="reference external" href="https://leetcode.com/problemset/top-100-liked-questions/">Top 100 Liked Questions</a> 开始看看？</p>
 <div class="contents local topic" id="id1">
@@ -199,8 +219,8 @@
 </section>
 <section id="lru-cache">
 <h2><a class="toc-backref" href="#id4">127. LRU Cache</a><a class="headerlink" href="#lru-cache" title="永久链接至标题">¶</a></h2>
-<p>想用 rust 写个 LRU cache 吧发现 <code class="docutils literal notranslate"><span class="pre">std::collection:LinkedList</span></code> 没有暴露出类似
-链表节点的结构体……有的话所有权也是问题，<code class="docutils literal notranslate"><span class="pre">Cursor</span></code> 看起来像然而 nightly only，
+<p>想用 rust 写个 LRU cache 吧发现 <code class="code docutils literal notranslate"><span class="pre">std::collection:LinkedList</span></code> 没有暴露出类似
+链表节点的结构体……有的话所有权也是问题，<code class="code docutils literal notranslate"><span class="pre">Cursor</span></code> 看起来像然而 nightly only，
 好像还是太菜了 —— 是说我自己。</p>
 <p>但如果换成 go 的话…… <span class="sphinxnotes-strike">这么简单的题也算 medium 吗</span> ，可能因为太实用了所以写起来不难？</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
@@ -267,7 +287,7 @@
 Leetcode 给过了…… 要是在 <a class="reference external" href="http://acm.scau.edu.cn:8000">http://acm.scau.edu.cn:8000</a> 是肯定要 TLE。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>看一眼输入输出限制，想想边界值，比如 <code class="docutils literal notranslate"><span class="pre">cap</span> <span class="pre">==</span> <span class="pre">0</span></code> 的情况就忽略了</p>
+<p>看一眼输入输出限制，想想边界值，比如 <code class="code docutils literal notranslate"><span class="pre">cap</span> <span class="pre">==</span> <span class="pre">0</span></code> 的情况就忽略了</p>
 </div>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
@@ -506,7 +526,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../ionian/index.html" title="上一章">大调训练计划</a></li>
-      <li>Next: <a href="../sphinx-as-pim/index.html" title="下一章">Sphinx As PIM System</a></li>
+      <li>Next: <a href="dp.html" title="下一章">动态规划</a></li>
   </ul></li>
 </ul>
 </div>

@@ -101,8 +101,8 @@
 <p>好了说点正事。</p>
 <section id="id1">
 <h2>安装<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<p>Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">ghc</span></code>,
-但是比ghc更方便的是Haskell Platform, 安装同样可以<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">haskell-platform</span></code>,
+<p>Haskell的编译器是GHC，我的系统是openSUSE，安装ghc可以直接<code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">ghc</span></code>,
+但是比ghc更方便的是Haskell Platform, 安装同样可以<code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">zypper</span> <span class="pre">in</span> <span class="pre">haskell-platform</span></code>,
 在 Windows 上则可以直接去官网下载安装包。</p>
 </section>
 <section id="id2">
@@ -110,18 +110,18 @@
 <p>因为借书的时候已经是考试周的前夕，所以到现在翻看书的时间仅限于之前在阅览室里无聊的那一会还有回家的路上，
 现在是第五章，似乎有点初窥门径的感觉，又怕是自己想得太简单了。 总得来说是这么些感受吧：</p>
 <ul class="simple">
-<li><p>列表推导式很神奇，<code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">|</span> <span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">xs</span> <span class="pre">,</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100]</span></code>,其形式类似于之前用来描述集合的公式，
+<li><p>列表推导式很神奇，<code class="code docutils literal notranslate"><span class="pre">[x</span> <span class="pre">|</span> <span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">xs</span> <span class="pre">,</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100]</span></code>,其形式类似于之前用来描述集合的公式，
 之前上离散的时候不明白为什么要有谓词这个鸡肋的概念，原来可以用在这里;</p></li>
 <li><p>类型类（Type Class）: 有点像是接口之类的东西，这个类型类的实例具有特定的特征，
 类型类也必须为这些实例提供对应的方法，两个数如果可比较（Ord），那么就能判断这两个数的相等性（Eq）;</p></li>
 <li><p>模式匹配（Pattern Macthing）: 一开始我自动脑补成了函数的重载，但其实不是重载，
-因为函数的参数根本就没有改变。 是不是觉得模式匹配只是可以避免<code class="docutils literal notranslate"><span class="pre">if-else</span></code>而已，
+因为函数的参数根本就没有改变。 是不是觉得模式匹配只是可以避免<code class="code docutils literal notranslate"><span class="pre">if-else</span></code>而已，
 类似于case？ 后来书里也说到了模式匹配就是case的语法糖，我暂时是说不出模式匹配到底有什么特别的地方，
 但是在写递归函数的时候模式匹配用起来特别顺手；</p></li>
 <li><p>递归： 拜模式匹配所赐，递归在Haskell写起来真是漂亮极了。</p></li>
 <li><p>柯里函数 （Curry Function）： 请注意他的命名来自于 Haskell Curry, 对，
-和Haskell这个名字的来源一样。柯里函数的出现解释了为什么接受多个参数的函数的声明必须类似于<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>
-而不是 <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>, 柯里函数是一个一元函数， 每次调用只接受一个参数，
+和Haskell这个名字的来源一样。柯里函数的出现解释了为什么接受多个参数的函数的声明必须类似于<code class="code docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>
+而不是 <code class="code docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>, 柯里函数是一个一元函数， 每次调用只接受一个参数，
 并返回一个固化了该参数的一元函数，书里的比喻非常有趣，对于代码：</p></li>
 </ul>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">multThree</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>

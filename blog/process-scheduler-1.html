@@ -167,7 +167,7 @@
 <h2><a class="toc-backref" href="#id15">IDT</a><a class="headerlink" href="#idt" title="永久链接至标题">¶</a></h2>
 <p>为了让用户空间的程序顺利进入内核态, 需要对 中断描述符表(IDT) 做一些设置.</p>
 <p>(以下内容摘自 xv6 中文文档, 有小改动)</p>
-<p>我们假设一个用户态程序执行<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">n</span></code>指令触发中断, 则 CPU 会取得中断号 n, 进行如下步骤:
+<p>我们假设一个用户态程序执行<code class="code docutils literal notranslate"><span class="pre">int</span> <span class="pre">n</span></code>指令触发中断, 则 CPU 会取得中断号 n, 进行如下步骤:
 (由 PIC 或者异常触发的中断不一定如此)</p>
 <ol class="arabic simple">
 <li><p>从 中断描述符表(IDT) 获得第 n 个描述符</p></li>
@@ -179,13 +179,13 @@
 <div><p>通过设置 DPL, 可以限制用户态能用 int 指令触发的中断号, 系统调用的实现即是如此</p>
 </div></blockquote>
 <ol class="arabic simple">
-<li><p>如果目标段描述符的 <code class="docutils literal notranslate"><span class="pre">RPL</span> <span class="pre">&lt;</span> <span class="pre">CPL</span></code>, 则在 CPU 内部保存<code class="docutils literal notranslate"><span class="pre">esp</span></code>和<code class="docutils literal notranslate"><span class="pre">ss</span></code>的值.
+<li><p>如果目标段描述符的 <code class="code docutils literal notranslate"><span class="pre">RPL</span> <span class="pre">&lt;</span> <span class="pre">CPL</span></code>, 则在 CPU 内部保存<code class="code docutils literal notranslate"><span class="pre">esp</span></code>和<code class="code docutils literal notranslate"><span class="pre">ss</span></code>的值.
 这个时候意味这特权级转换要发生了.</p></li>
-<li><p>从一个任务状态段(TSS)加载<code class="docutils literal notranslate"><span class="pre">ssX</span></code>和<code class="docutils literal notranslate"><span class="pre">espX</span></code>, X 是 RPL 的值, 所以对于系统调用,
-取出的会是 <code class="docutils literal notranslate"><span class="pre">ss0</span></code>和<code class="docutils literal notranslate"><span class="pre">esp0</span></code></p></li>
-<li><p>将<code class="docutils literal notranslate"><span class="pre">ss</span></code> <code class="docutils literal notranslate"><span class="pre">esp</span></code> <code class="docutils literal notranslate"><span class="pre">eflags</span></code> <code class="docutils literal notranslate"><span class="pre">cs</span></code> <code class="docutils literal notranslate"><span class="pre">eip</span></code>压栈</p></li>
-<li><p>清除<code class="docutils literal notranslate"><span class="pre">eflags</span></code>中的某些位</p></li>
-<li><p>设置<code class="docutils literal notranslate"><span class="pre">cs</span></code>和<code class="docutils literal notranslate"><span class="pre">ip</span></code>为 IDT[n] 中指定的值. (执行中断服务例程)</p></li>
+<li><p>从一个任务状态段(TSS)加载<code class="code docutils literal notranslate"><span class="pre">ssX</span></code>和<code class="code docutils literal notranslate"><span class="pre">espX</span></code>, X 是 RPL 的值, 所以对于系统调用,
+取出的会是 <code class="code docutils literal notranslate"><span class="pre">ss0</span></code>和<code class="code docutils literal notranslate"><span class="pre">esp0</span></code></p></li>
+<li><p>将<code class="code docutils literal notranslate"><span class="pre">ss</span></code> <code class="code docutils literal notranslate"><span class="pre">esp</span></code> <code class="code docutils literal notranslate"><span class="pre">eflags</span></code> <code class="code docutils literal notranslate"><span class="pre">cs</span></code> <code class="code docutils literal notranslate"><span class="pre">eip</span></code>压栈</p></li>
+<li><p>清除<code class="code docutils literal notranslate"><span class="pre">eflags</span></code>中的某些位</p></li>
+<li><p>设置<code class="code docutils literal notranslate"><span class="pre">cs</span></code>和<code class="code docutils literal notranslate"><span class="pre">ip</span></code>为 IDT[n] 中指定的值. (执行中断服务例程)</p></li>
 </ol>
 <p>对于普通的中断, 其中断返回地址是发生中断时的执行的那条指令的地址
 (需要将 IDT 的类型设置为 中断门(Interrupt gate))
@@ -194,7 +194,7 @@
 </pre></div>
 </div>
 <p>对于系统调用, 我们需要主动执行 int 指令, 并让其返回到下一条指令处.
-因此要将处理系统调用的 IDT 设置为 陷阱门(Trap gate), 并且 DPL 为<code class="docutils literal notranslate"><span class="pre">IDT_DPL_USER</span></code>(3).
+因此要将处理系统调用的 IDT 设置为 陷阱门(Trap gate), 并且 DPL 为<code class="code docutils literal notranslate"><span class="pre">IDT_DPL_USER</span></code>(3).
 如下:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">idt_install</span><span class="p">(</span><span class="n">ISR_SYSCALL</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">_syscall</span><span class="p">,</span> <span class="n">SEL_KCODE</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">GATE_TRAP</span><span class="p">,</span> <span class="n">IDT_PR</span> <span class="o">|</span> <span class="n">IDT_DPL_USER</span><span class="p">);</span>
 </pre></div>
@@ -202,10 +202,10 @@
 </section>
 <section id="tss">
 <h2><a class="toc-backref" href="#id16">TSS</a><a class="headerlink" href="#tss" title="永久链接至标题">¶</a></h2>
-<p>在特权级转换的时候, 需要从任务状态段取出<code class="docutils literal notranslate"><span class="pre">ss0</span></code>和<code class="docutils literal notranslate"><span class="pre">esp0</span></code>, 因此在转换之前需要设置 TSS.</p>
-<p>CPU 会从寄存器<code class="docutils literal notranslate"><span class="pre">tr</span></code>获得 TSS 的选择子, 然后从 GDT 表里面找出对应的描述符,
+<p>在特权级转换的时候, 需要从任务状态段取出<code class="code docutils literal notranslate"><span class="pre">ss0</span></code>和<code class="code docutils literal notranslate"><span class="pre">esp0</span></code>, 因此在转换之前需要设置 TSS.</p>
+<p>CPU 会从寄存器<code class="code docutils literal notranslate"><span class="pre">tr</span></code>获得 TSS 的选择子, 然后从 GDT 表里面找出对应的描述符,
 由描述符就可以获得 TSS 的基址了.</p>
-<p>TSS 的选择子放在 GDT 里, 但是其<code class="docutils literal notranslate"><span class="pre">AC_RE</span></code>(ACCESS_REVERSE)位为 0 来表示
+<p>TSS 的选择子放在 GDT 里, 但是其<code class="code docutils literal notranslate"><span class="pre">AC_RE</span></code>(ACCESS_REVERSE)位为 0 来表示
 它是一个 TSS 描述符而不是 GDT 描述符.</p>
 <p>因此 TSS 的初始化是这样的:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">tss_init</span><span class="p">(){</span>
@@ -215,7 +215,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>在从进程的内核态回到用户态的时候, 要设置一次 TSS, 以下函数在<code class="docutils literal notranslate"><span class="pre">uvm_switch</span></code>里面被调用:</p>
+<p>在从进程的内核态回到用户态的时候, 要设置一次 TSS, 以下函数在<code class="code docutils literal notranslate"><span class="pre">uvm_switch</span></code>里面被调用:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">tss_set</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">ss0</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">esp0</span><span class="p">){</span>
     <span class="n">memset</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">tss</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">tss</span><span class="p">));</span>
     <span class="n">tss</span><span class="p">.</span><span class="n">ss0</span> <span class="o">=</span> <span class="n">ss0</span><span class="p">;</span>
@@ -234,7 +234,7 @@
 <p>那如何从内核态返回用户态呢? iret 指令会按 int 压栈的顺序逆序将寄存器们出栈,
 程序就会从内核态又返回到用户态了.</p>
 <p>有意思的地方就是, 要从内核态到用户态, 我们可以构造一个栈, 然后执行 iret 指令,
-iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<code class="docutils literal notranslate"><span class="pre">proc_alloc</span></code>完成,
+iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<code class="code docutils literal notranslate"><span class="pre">proc_alloc</span></code>完成,
 每个新建的进程都通过这种方式”假装回到”用户空间.</p>
 <p>为了方便地构造栈, 我们需要定义出中断时保存的上下文, int 指令保存的信息还不够,
 我们需要自己保存更多的寄存器:</p>
@@ -270,13 +270,13 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 <p>只要完整地保存了以上信息并正确还原, 就能确保从中断返回时, 程序依然正常运行.
 注意的是我们不必显式地建立以上的一个结构体(构建第一个进程的时候除外), 在中断发生时,
 这个结构体会在进程的内核栈上被建立.中断返回时, 这些信息又会从栈里被弹出.</p>
-<p>中断上下文的<code class="docutils literal notranslate"><span class="pre">err_code</span></code>到<code class="docutils literal notranslate"><span class="pre">ss</span></code>部分由 int 指令压入, 之后跳转到<code class="docutils literal notranslate"><span class="pre">OS67/kern/loader.asm</span></code>
-中的由汇编编写的中断服务例程(ISR)入口. 有的中断不产生<code class="docutils literal notranslate"><span class="pre">err_code</span></code>,
-就由该中断入口压入一个假的<code class="docutils literal notranslate"><span class="pre">err_code</span></code>. 这些入口代码有两个宏生成,
-分别是<code class="docutils literal notranslate"><span class="pre">m_fault</span></code>和<code class="docutils literal notranslate"><span class="pre">m_irq</span></code>, 负责处理异常中断和硬件中断.
-另外还有<code class="docutils literal notranslate"><span class="pre">_syscall</span></code>和<code class="docutils literal notranslate"><span class="pre">_isr_unknown</span></code>处理系统调用和未定义的中断.</p>
-<p>每个入口都会压入自己的中断号, 然后统一跳转到<code class="docutils literal notranslate"><span class="pre">_isr_stub</span></code>, 压入上下文的剩余部分,
-再调到由 C 编写的<code class="docutils literal notranslate"><span class="pre">isr_stub</span></code>, 由此再根据入口压入中断号调用真正的 ISR.
+<p>中断上下文的<code class="code docutils literal notranslate"><span class="pre">err_code</span></code>到<code class="code docutils literal notranslate"><span class="pre">ss</span></code>部分由 int 指令压入, 之后跳转到<code class="code docutils literal notranslate"><span class="pre">OS67/kern/loader.asm</span></code>
+中的由汇编编写的中断服务例程(ISR)入口. 有的中断不产生<code class="code docutils literal notranslate"><span class="pre">err_code</span></code>,
+就由该中断入口压入一个假的<code class="code docutils literal notranslate"><span class="pre">err_code</span></code>. 这些入口代码有两个宏生成,
+分别是<code class="code docutils literal notranslate"><span class="pre">m_fault</span></code>和<code class="code docutils literal notranslate"><span class="pre">m_irq</span></code>, 负责处理异常中断和硬件中断.
+另外还有<code class="code docutils literal notranslate"><span class="pre">_syscall</span></code>和<code class="code docutils literal notranslate"><span class="pre">_isr_unknown</span></code>处理系统调用和未定义的中断.</p>
+<p>每个入口都会压入自己的中断号, 然后统一跳转到<code class="code docutils literal notranslate"><span class="pre">_isr_stub</span></code>, 压入上下文的剩余部分,
+再调到由 C 编写的<code class="code docutils literal notranslate"><span class="pre">isr_stub</span></code>, 由此再根据入口压入中断号调用真正的 ISR.
 关于这些 ISR 的详情…太长了表示扯不下去了… :(</p>
 </section>
 <section id="id6">
@@ -320,34 +320,34 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 <span class="x">    ret</span>
 </pre></div>
 </div>
-<p>这里的 <code class="docutils literal notranslate"><span class="pre">eip</span></code> 和 <code class="docutils literal notranslate"><span class="pre">esp</span></code> 的保存都非常巧妙, eip 在执行 <code class="docutils literal notranslate"><span class="pre">context_switch</span></code> 时被压入,
-又在 <code class="docutils literal notranslate"><span class="pre">ret</span></code> 的时候被弹出. 而 <code class="docutils literal notranslate"><span class="pre">esp</span></code> 则直接作为 <code class="docutils literal notranslate"><span class="pre">context</span></code> 的地址被保存.</p>
+<p>这里的 <code class="code docutils literal notranslate"><span class="pre">eip</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">esp</span></code> 的保存都非常巧妙, eip 在执行 <code class="code docutils literal notranslate"><span class="pre">context_switch</span></code> 时被压入,
+又在 <code class="code docutils literal notranslate"><span class="pre">ret</span></code> 的时候被弹出. 而 <code class="code docutils literal notranslate"><span class="pre">esp</span></code> 则直接作为 <code class="code docutils literal notranslate"><span class="pre">context</span></code> 的地址被保存.</p>
 <p>可以看到这个函数可以切换当前的执行流到另一个执行流, 进程的切换就是这样实现的,
-当然要切换的不止这个, 页表也要切换, 代表当前执行进程的 <code class="docutils literal notranslate"><span class="pre">proc</span></code> 变量也要更新.
-页表的切换由 <code class="docutils literal notranslate"><span class="pre">uvm_switch</span></code> 执行, <code class="docutils literal notranslate"><span class="pre">proc</span></code> 的更新则在 <code class="docutils literal notranslate"><span class="pre">scheduler</span></code> 执行.</p>
+当然要切换的不止这个, 页表也要切换, 代表当前执行进程的 <code class="code docutils literal notranslate"><span class="pre">proc</span></code> 变量也要更新.
+页表的切换由 <code class="code docutils literal notranslate"><span class="pre">uvm_switch</span></code> 执行, <code class="code docutils literal notranslate"><span class="pre">proc</span></code> 的更新则在 <code class="code docutils literal notranslate"><span class="pre">scheduler</span></code> 执行.</p>
 </section>
 </section>
 <section id="id7">
 <h2><a class="toc-backref" href="#id20">虚拟内存映射</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>由于之前的思路问题, 因此 OS67 的内存管理方式不得不和 xv6 不太一样.</p>
-<p>OS67 的内存分配实现在 <code class="docutils literal notranslate"><span class="pre">OS67/mm/pmm.c</span></code>, 使用一个简单的栈来存放未分配的内存页,
-<code class="docutils literal notranslate"><span class="pre">malloc</span></code> 就是 <code class="docutils literal notranslate"><span class="pre">pop</span></code> 而 <code class="docutils literal notranslate"><span class="pre">mfree</span></code> 就是 <code class="docutils literal notranslate"><span class="pre">push</span></code>. 这么做简单明了,
+<p>OS67 的内存分配实现在 <code class="code docutils literal notranslate"><span class="pre">OS67/mm/pmm.c</span></code>, 使用一个简单的栈来存放未分配的内存页,
+<code class="code docutils literal notranslate"><span class="pre">malloc</span></code> 就是 <code class="code docutils literal notranslate"><span class="pre">pop</span></code> 而 <code class="code docutils literal notranslate"><span class="pre">mfree</span></code> 就是 <code class="code docutils literal notranslate"><span class="pre">push</span></code>. 这么做简单明了,
 虽然申请多个页的时候效率不高, 不过我们不考虑这种需要大量内存的情况.</p>
 <p>对于虚拟内存映射, 策略是这样的: 内核以及未分配的内存的虚拟地址和物理地址一一对应,
 用户地址映射到 0xc0000000 上. 内核在初始化页表的时候, 建立一个映射所有物理内存的页表,
 之后建立的进程页表中的内核部分就复用内核页表的页表项, 避免内存浪费,
 同时在特权级转换时也不必切换页表, 亦能很方便地从内核空间访问到用户空间的内存.</p>
 <p>将用户地址映射到 0xc0000000 的好处是不需要在建立正式页表前建立临时页表来把内核映射到高处,
-另外 <code class="docutils literal notranslate"><span class="pre">malloc</span></code> 出来的是物理地址, 可以直接对其读写而不必做转换.
-缺点则是程序必须经过重定位(链接时使用参数 <code class="docutils literal notranslate"><span class="pre">-Ttext</span> <span class="pre">0xc0000000</span></code>)才能运行在高地址,
+另外 <code class="code docutils literal notranslate"><span class="pre">malloc</span></code> 出来的是物理地址, 可以直接对其读写而不必做转换.
+缺点则是程序必须经过重定位(链接时使用参数 <code class="code docutils literal notranslate"><span class="pre">-Ttext</span> <span class="pre">0xc0000000</span></code>)才能运行在高地址,
 也许有更多的缺点还没发现.</p>
 </section>
 <section id="id8">
 <h2><a class="toc-backref" href="#id21">第一个进程</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <section id="id9">
 <h3><a class="toc-backref" href="#id22">构造</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<p>结构体 proc 用来储存一个进程的信息, 内核中有一个数组<code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ptable[NPROC]</span></code>来管理所有的进程.
-结构体<code class="docutils literal notranslate"><span class="pre">proc</span></code>定义如下:</p>
+<p>结构体 proc 用来储存一个进程的信息, 内核中有一个数组<code class="code docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ptable[NPROC]</span></code>来管理所有的进程.
+结构体<code class="code docutils literal notranslate"><span class="pre">proc</span></code>定义如下:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">proc</span><span class="p">{</span>
     <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="n">pid</span><span class="p">;</span>
     <span class="kt">uint32_t</span> <span class="n">size</span><span class="p">;</span>
@@ -371,55 +371,55 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由<cod
 </pre></div>
 </div>
 <p>这里主要关注的是两个上下文, 进程页表以及内核栈.</p>
-<p>这里涉及的代码都在<code class="docutils literal notranslate"><span class="pre">OS37/proc/proc.c</span></code>中.</p>
-<p>第一个进程需要手动创建, 由<code class="docutils literal notranslate"><span class="pre">proc_init</span></code>完成.</p>
-<p><code class="docutils literal notranslate"><span class="pre">proc_inint</span></code>首先调用<code class="docutils literal notranslate"><span class="pre">proc_alloc</span></code>从<code class="docutils literal notranslate"><span class="pre">ptable</span></code>获得一个空的进程结构体槽位,
-<code class="docutils literal notranslate"><span class="pre">proc_alloc</span></code>做了一些必要的初始化操作.</p>
-<p><code class="docutils literal notranslate"><span class="pre">proc_alloc</span></code>为新进程申请了内核栈, 并对他进行了一定的构造:</p>
+<p>这里涉及的代码都在<code class="code docutils literal notranslate"><span class="pre">OS37/proc/proc.c</span></code>中.</p>
+<p>第一个进程需要手动创建, 由<code class="code docutils literal notranslate"><span class="pre">proc_init</span></code>完成.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">proc_inint</span></code>首先调用<code class="code docutils literal notranslate"><span class="pre">proc_alloc</span></code>从<code class="code docutils literal notranslate"><span class="pre">ptable</span></code>获得一个空的进程结构体槽位,
+<code class="code docutils literal notranslate"><span class="pre">proc_alloc</span></code>做了一些必要的初始化操作.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">proc_alloc</span></code>为新进程申请了内核栈, 并对他进行了一定的构造:</p>
 <ul class="simple">
-<li><p>为中断上下文<code class="docutils literal notranslate"><span class="pre">fm</span></code>留出空间, 并把<code class="docutils literal notranslate"><span class="pre">proc-&gt;fm</span></code>指向该空间.</p></li>
-<li><p>在<code class="docutils literal notranslate"><span class="pre">fm</span></code>之后放置了指向中断返回函数<code class="docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>的指针</p></li>
-<li><p>为进程上下文<code class="docutils literal notranslate"><span class="pre">context</span></code>留出空间, 并把<code class="docutils literal notranslate"><span class="pre">proc-&gt;content</span></code>改空间,</p></li>
-<li><p>把<code class="docutils literal notranslate"><span class="pre">proc-&gt;context-eip</span></code>指向了函数<code class="docutils literal notranslate"><span class="pre">fork_ret</span></code>.</p></li>
+<li><p>为中断上下文<code class="code docutils literal notranslate"><span class="pre">fm</span></code>留出空间, 并把<code class="code docutils literal notranslate"><span class="pre">proc-&gt;fm</span></code>指向该空间.</p></li>
+<li><p>在<code class="code docutils literal notranslate"><span class="pre">fm</span></code>之后放置了指向中断返回函数<code class="code docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>的指针</p></li>
+<li><p>为进程上下文<code class="code docutils literal notranslate"><span class="pre">context</span></code>留出空间, 并把<code class="code docutils literal notranslate"><span class="pre">proc-&gt;content</span></code>改空间,</p></li>
+<li><p>把<code class="code docutils literal notranslate"><span class="pre">proc-&gt;context-eip</span></code>指向了函数<code class="code docutils literal notranslate"><span class="pre">fork_ret</span></code>.</p></li>
 </ul>
-<p>在 xv6 中<code class="docutils literal notranslate"><span class="pre">fork_ret</span></code>被用来处理锁, 这 OS67 中, 这个函数碰巧被用来解决一个
+<p>在 xv6 中<code class="code docutils literal notranslate"><span class="pre">fork_ret</span></code>被用来处理锁, 这 OS67 中, 这个函数碰巧被用来解决一个
 奇怪的 bug &lt;<a class="reference external" href="https://github.com/SilverRainZ/OS67/commit/fc0e84caa1c3ae95998342f2b03125e2226d0dd6">https://github.com/SilverRainZ/OS67/commit/fc0e84caa1c3ae95998342f2b03125e2226d0dd6</a>&gt;`_ .
-因此, 正常 alloc 出来的新进程都会返回到<code class="docutils literal notranslate"><span class="pre">fork_ret</span></code>. 从<code class="docutils literal notranslate"><span class="pre">fork_ret</span></code>返回后,
-又会跳转到<code class="docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>准备从中断返回. 接下来就会逐步把<code class="docutils literal notranslate"><span class="pre">fm</span></code>弹出,
-尽管此时的<code class="docutils literal notranslate"><span class="pre">fm</span></code>还没有初始化.</p>
-<p>之后<code class="docutils literal notranslate"><span class="pre">proc_init</span></code>为第一个进程申请了一个页目录<code class="docutils literal notranslate"><span class="pre">proc-&gt;pgdir</span></code>,
-调用<code class="docutils literal notranslate"><span class="pre">kvm_init</span></code>建立到内核的一对一的地址映射. 为之前的内核栈也建立地址映射.</p>
-<p>再接着, 通过声明在用户程序<code class="docutils literal notranslate"><span class="pre">OS67/proc/init.asm</span></code>中的全局变量<code class="docutils literal notranslate"><span class="pre">__init_start</span></code> <code class="docutils literal notranslate"><span class="pre">__init_end</span></code>
-的地址获得编译进内核里的用户程序的位置, 调用<code class="docutils literal notranslate"><span class="pre">uvm_init_fst</span></code>把程序复制到一个新的页中,
-并把该页映射到<code class="docutils literal notranslate"><span class="pre">USER_BASE</span></code>(0xc0000000).</p>
-<p>然后开始手动构建一个<code class="docutils literal notranslate"><span class="pre">fm</span></code>, 为各个段寄存器设置正确的段选择子,
-为 eflags 寄存器加上 IF 标志(允许中断), 设置用户栈, 最后把<code class="docutils literal notranslate"><span class="pre">eip</span></code>设定为<code class="docutils literal notranslate"><span class="pre">USER_BASE</span></code>.</p>
-<p>最后把进程的状态<code class="docutils literal notranslate"><span class="pre">proc-&gt;state</span></code>设置为可运行 <code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>.</p>
+因此, 正常 alloc 出来的新进程都会返回到<code class="code docutils literal notranslate"><span class="pre">fork_ret</span></code>. 从<code class="code docutils literal notranslate"><span class="pre">fork_ret</span></code>返回后,
+又会跳转到<code class="code docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>准备从中断返回. 接下来就会逐步把<code class="code docutils literal notranslate"><span class="pre">fm</span></code>弹出,
+尽管此时的<code class="code docutils literal notranslate"><span class="pre">fm</span></code>还没有初始化.</p>
+<p>之后<code class="code docutils literal notranslate"><span class="pre">proc_init</span></code>为第一个进程申请了一个页目录<code class="code docutils literal notranslate"><span class="pre">proc-&gt;pgdir</span></code>,
+调用<code class="code docutils literal notranslate"><span class="pre">kvm_init</span></code>建立到内核的一对一的地址映射. 为之前的内核栈也建立地址映射.</p>
+<p>再接着, 通过声明在用户程序<code class="code docutils literal notranslate"><span class="pre">OS67/proc/init.asm</span></code>中的全局变量<code class="code docutils literal notranslate"><span class="pre">__init_start</span></code> <code class="code docutils literal notranslate"><span class="pre">__init_end</span></code>
+的地址获得编译进内核里的用户程序的位置, 调用<code class="code docutils literal notranslate"><span class="pre">uvm_init_fst</span></code>把程序复制到一个新的页中,
+并把该页映射到<code class="code docutils literal notranslate"><span class="pre">USER_BASE</span></code>(0xc0000000).</p>
+<p>然后开始手动构建一个<code class="code docutils literal notranslate"><span class="pre">fm</span></code>, 为各个段寄存器设置正确的段选择子,
+为 eflags 寄存器加上 IF 标志(允许中断), 设置用户栈, 最后把<code class="code docutils literal notranslate"><span class="pre">eip</span></code>设定为<code class="code docutils literal notranslate"><span class="pre">USER_BASE</span></code>.</p>
+<p>最后把进程的状态<code class="code docutils literal notranslate"><span class="pre">proc-&gt;state</span></code>设置为可运行 <code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>.</p>
 <p>以上是比较关键的步骤, 现在可以准备运行第一个进程了.</p>
 </section>
 <section id="id10">
 <h3><a class="toc-backref" href="#id23">运行</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
-<p>执行了<code class="docutils literal notranslate"><span class="pre">proc_init</span></code>之后, <code class="docutils literal notranslate"><span class="pre">scheduler</span></code>紧接其后,
-它在<code class="docutils literal notranslate"><span class="pre">ptable</span></code>中寻找第一个<code class="docutils literal notranslate"><span class="pre">state</span></code>为<code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程,
-调用<code class="docutils literal notranslate"><span class="pre">uvm_switch</span></code>切换到该进程的页表并设置好 TSS.</p>
-<p>接着更新<code class="docutils literal notranslate"><span class="pre">proc</span></code>变量, 把<code class="docutils literal notranslate"><span class="pre">proc-&gt;state</span></code>设置为<code class="docutils literal notranslate"><span class="pre">P_RUNNING</span></code>.
-最后调用<code class="docutils literal notranslate"><span class="pre">context_switch</span></code>切换到进程.  不出意外的话,
-<code class="docutils literal notranslate"><span class="pre">context_switch</span></code>会弹出<code class="docutils literal notranslate"><span class="pre">proc-&gt;context</span></code>中设定好的寄存器,
-新进程返回到<code class="docutils literal notranslate"><span class="pre">fork_ret</span></code>之后返回到<code class="docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>中, 又把<code class="docutils literal notranslate"><span class="pre">proc-&gt;fm</span></code>弹出.
+<p>执行了<code class="code docutils literal notranslate"><span class="pre">proc_init</span></code>之后, <code class="code docutils literal notranslate"><span class="pre">scheduler</span></code>紧接其后,
+它在<code class="code docutils literal notranslate"><span class="pre">ptable</span></code>中寻找第一个<code class="code docutils literal notranslate"><span class="pre">state</span></code>为<code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程,
+调用<code class="code docutils literal notranslate"><span class="pre">uvm_switch</span></code>切换到该进程的页表并设置好 TSS.</p>
+<p>接着更新<code class="code docutils literal notranslate"><span class="pre">proc</span></code>变量, 把<code class="code docutils literal notranslate"><span class="pre">proc-&gt;state</span></code>设置为<code class="code docutils literal notranslate"><span class="pre">P_RUNNING</span></code>.
+最后调用<code class="code docutils literal notranslate"><span class="pre">context_switch</span></code>切换到进程.  不出意外的话,
+<code class="code docutils literal notranslate"><span class="pre">context_switch</span></code>会弹出<code class="code docutils literal notranslate"><span class="pre">proc-&gt;context</span></code>中设定好的寄存器,
+新进程返回到<code class="code docutils literal notranslate"><span class="pre">fork_ret</span></code>之后返回到<code class="code docutils literal notranslate"><span class="pre">_isr_stub_ret</span></code>中, 又把<code class="code docutils literal notranslate"><span class="pre">proc-&gt;fm</span></code>弹出.
 于是第一个进程就成功运行在 0xc0000000 的用户空间上了.</p>
 </section>
 </section>
 <section id="id11">
 <h2><a class="toc-backref" href="#id24">调度</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
-<p>这里使用非常简单的轮转法, 每次触发时钟中断都会执行<code class="docutils literal notranslate"><span class="pre">sched</span></code>,
-<code class="docutils literal notranslate"><span class="pre">sched</span></code>把当前进程状态由<code class="docutils literal notranslate"><span class="pre">P_RUNNING</span></code>变更为<code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>. 接着执行<code class="docutils literal notranslate"><span class="pre">context_switch</span></code>.
-这样 CPU 执行流就回到了刚才<code class="docutils literal notranslate"><span class="pre">scheduler</span></code>中的循环,
-<code class="docutils literal notranslate"><span class="pre">scheduler</span></code>继续寻找一个<code class="docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程并切换到它.</p>
+<p>这里使用非常简单的轮转法, 每次触发时钟中断都会执行<code class="code docutils literal notranslate"><span class="pre">sched</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">sched</span></code>把当前进程状态由<code class="code docutils literal notranslate"><span class="pre">P_RUNNING</span></code>变更为<code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>. 接着执行<code class="code docutils literal notranslate"><span class="pre">context_switch</span></code>.
+这样 CPU 执行流就回到了刚才<code class="code docutils literal notranslate"><span class="pre">scheduler</span></code>中的循环,
+<code class="code docutils literal notranslate"><span class="pre">scheduler</span></code>继续寻找一个<code class="code docutils literal notranslate"><span class="pre">P_RUNABLE</span></code>的进程并切换到它.</p>
 </section>
 <section id="e-n-d">
 <h2><a class="toc-backref" href="#id25">E.N.D.</a><a class="headerlink" href="#e-n-d" title="永久链接至标题">¶</a></h2>
 <p>至此, 用户级进程已经成功实现并且被调度. 但是没有有效的接口来启动更多的进程.
-我们需要实现一些系统调用比如<code class="docutils literal notranslate"><span class="pre">fork</span></code>和<code class="docutils literal notranslate"><span class="pre">exec</span></code>来做这些事情.
+我们需要实现一些系统调用比如<code class="code docutils literal notranslate"><span class="pre">fork</span></code>和<code class="code docutils literal notranslate"><span class="pre">exec</span></code>来做这些事情.
 :( 但是我已经写不下去了… 如果可以话下次再写吧.</p>
 <p><span class="sphinxnotes-strike">不一定有下次</span></p>
 <hr class="docutils" />

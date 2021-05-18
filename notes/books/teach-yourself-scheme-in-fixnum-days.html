@@ -126,7 +126,7 @@ Tutorial.zh-CN</a></p></li>
 <p>以下代码使用 chicken 运行。</p>
 <section id="quote">
 <h3>quote<a class="headerlink" href="#quote" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">quote</span></code> 用来阻止符号（symbol）被求值，<code class="docutils literal notranslate"><span class="pre">'</span></code> 是其缩略形式:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">quote</span></code> 用来阻止符号（symbol）被求值，<code class="code docutils literal notranslate"><span class="pre">'</span></code> 是其缩略形式:</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>         <span class="k">=&gt; </span><span class="mi">3</span>
 <span class="p">(</span><span class="k">quote </span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span> <span class="k">=&gt; </span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&#39;</span><span class="p">(</span><span class="nv">+</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>        <span class="k">=&gt; </span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
@@ -136,20 +136,20 @@ Tutorial.zh-CN</a></p></li>
 <section id="id4">
 <h4>特殊形式(?)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
 <p>普通的 symbol 会对所以参数求值并返回值，特殊形式的 symbol
-不会对所有的参数求值： <code class="docutils literal notranslate"><span class="pre">qutoe</span></code>（这是当然的） <code class="docutils literal notranslate"><span class="pre">lambda</span></code> <code class="docutils literal notranslate"><span class="pre">define</span></code>
-<code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">set!</span></code></p>
+不会对所有的参数求值： <code class="code docutils literal notranslate"><span class="pre">qutoe</span></code>（这是当然的） <code class="code docutils literal notranslate"><span class="pre">lambda</span></code> <code class="code docutils literal notranslate"><span class="pre">define</span></code>
+<code class="code docutils literal notranslate"><span class="pre">if</span></code> <code class="code docutils literal notranslate"><span class="pre">set!</span></code></p>
 </section>
 </section>
 <section id="pair-list">
 <h3>pair &amp; list<a class="headerlink" href="#pair-list" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">(cons</span> <span class="pre">1</span> <span class="pre">2)</span></code> 生成一个 pair <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">.</span> <span class="pre">2)</span></code>，pair 的第一个元素被称为
+<p><code class="code docutils literal notranslate"><span class="pre">(cons</span> <span class="pre">1</span> <span class="pre">2)</span></code> 生成一个 pair <code class="code docutils literal notranslate"><span class="pre">(1</span> <span class="pre">.</span> <span class="pre">2)</span></code>，pair 的第一个元素被称为
 car， 第二个元素被称为 cdr.</p>
 <p>按照如下定义嵌套的 pair 被称为 list：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'()</span></code> 是 list</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(cons</span> <span class="pre">element</span> <span class="pre">list)</span></code> 是 list，element 可以是任意类型</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">'()</span></code> 是 list</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">(cons</span> <span class="pre">element</span> <span class="pre">list)</span></code> 是 list，element 可以是任意类型</p></li>
 </ul>
-<p>可以使用 <code class="docutils literal notranslate"><span class="pre">(null?</span> <span class="pre">list)</span></code> 来判断表是否空（<code class="docutils literal notranslate"><span class="pre">'()</span></code>）</p>
+<p>可以使用 <code class="code docutils literal notranslate"><span class="pre">(null?</span> <span class="pre">list)</span></code> 来判断表是否空（<code class="code docutils literal notranslate"><span class="pre">'()</span></code>）</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>                      <span class="k">=&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="o">&#39;</span><span class="p">())))</span>  <span class="k">=&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
 <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="mi">5</span><span class="p">))</span>             <span class="k">=&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
@@ -158,8 +158,8 @@ car， 第二个元素被称为 cdr.</p>
 </div>
 <section id="car-cdr-list">
 <h4>car &amp; cdr &amp; list<a class="headerlink" href="#car-cdr-list" title="永久链接至标题">¶</a></h4>
-<p>函数 <code class="docutils literal notranslate"><span class="pre">car</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cdr</span></code> 分别取回一个 pair 的 car 部分和 cdr 部分，
-<code class="docutils literal notranslate"><span class="pre">list</span></code> 用于构造一个表</p>
+<p>函数 <code class="code docutils literal notranslate"><span class="pre">car</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">cdr</span></code> 分别取回一个 pair 的 car 部分和 cdr 部分，
+<code class="code docutils literal notranslate"><span class="pre">list</span></code> 用于构造一个表</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; pair</span>
 <span class="p">(</span><span class="nb">car </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">))</span>                          <span class="k">=&gt; </span><span class="mi">1</span>
 <span class="p">(</span><span class="nb">cdr </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">))</span>                          <span class="k">=&gt; </span><span class="mi">2</span>
@@ -195,7 +195,7 @@ car， 第二个元素被称为 cdr.</p>
 <h3>procedure<a class="headerlink" href="#procedure" title="永久链接至标题">¶</a></h3>
 <section id="lambda">
 <h4>lambda<a class="headerlink" href="#lambda" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">lambda</span></code>，接受两个参数，返回一个
+<p><code class="code docutils literal notranslate"><span class="pre">lambda</span></code>，接受两个参数，返回一个
 procedure，参数一是参数表，参数二是函数体：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nb">display </span><span class="s">&quot;archlinuxcn&quot;</span><span class="p">))</span>     <span class="k">=&gt; </span><span class="o">#</span><span class="nv">&lt;procedure</span> <span class="p">(</span><span class="nf">?</span><span class="p">)</span><span class="nv">&gt;</span>
 <span class="p">((</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nb">display </span><span class="s">&quot;archlinuxcn&quot;</span><span class="p">)))</span>   <span class="k">=&gt; </span><span class="nv">archlinuxcn</span>
@@ -205,9 +205,9 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="define">
 <h4>define<a class="headerlink" href="#define" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">define</span></code>
+<p><code class="code docutils literal notranslate"><span class="pre">define</span></code>
 声明并绑定一个全局变量，参数一为变量名，参数二为被绑定的对象，
-借此可以复用 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 所生成的 procedure。</p>
+借此可以复用 <code class="code docutils literal notranslate"><span class="pre">lambda</span></code> 所生成的 procedure。</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="nv">add</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span> <span class="nv">y</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">x</span> <span class="nv">y</span><span class="p">)))</span>
 <span class="nv">add</span>         <span class="k">=&gt; </span><span class="o">#</span><span class="nv">&lt;procedure</span> <span class="p">(</span><span class="nf">add</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span><span class="nv">&gt;</span>
 <span class="p">(</span><span class="nf">add</span> <span class="mi">1</span> <span class="mi">3</span><span class="p">)</span>   <span class="k">=&gt; </span><span class="mi">4</span>
@@ -229,10 +229,10 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <h3>分支<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <section id="if">
 <h4>if<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">(if</span> <span class="pre">predicate</span> <span class="pre">then_value</span> <span class="pre">else_value)</span></code> 当 <code class="docutils literal notranslate"><span class="pre">predicate</span></code> 为真则对
-<code class="docutils literal notranslate"><span class="pre">then_value</span></code> 求值， 反之则对 <code class="docutils literal notranslate"><span class="pre">else_value</span></code> 求值，<code class="docutils literal notranslate"><span class="pre">else_value</span></code>
-部分可以省略，求得的值会传出括号外。 对于 <code class="docutils literal notranslate"><span class="pre">predicate</span></code>，任意值（包括
-<code class="docutils literal notranslate"><span class="pre">#t</span></code>）被认为 ture，<code class="docutils literal notranslate"><span class="pre">#f</span></code> 则是 false。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(if</span> <span class="pre">predicate</span> <span class="pre">then_value</span> <span class="pre">else_value)</span></code> 当 <code class="code docutils literal notranslate"><span class="pre">predicate</span></code> 为真则对
+<code class="code docutils literal notranslate"><span class="pre">then_value</span></code> 求值， 反之则对 <code class="code docutils literal notranslate"><span class="pre">else_value</span></code> 求值，<code class="code docutils literal notranslate"><span class="pre">else_value</span></code>
+部分可以省略，求得的值会传出括号外。 对于 <code class="code docutils literal notranslate"><span class="pre">predicate</span></code>，任意值（包括
+<code class="code docutils literal notranslate"><span class="pre">#t</span></code>）被认为 ture，<code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则是 false。</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nb">abs </span><span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">x</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="nv">x</span><span class="p">)</span>  <span class="nv">x</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -240,11 +240,11 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <section id="not-and-or">
 <h4>not &amp; and &amp; or<a class="headerlink" href="#not-and-or" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">not</span></code> 接受一个参数，取反</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> 接受任意个参数，从左到右求值，若出现 <code class="docutils literal notranslate"><span class="pre">#f</span></code> 则返回 <code class="docutils literal notranslate"><span class="pre">#f</span></code>，
-若全不为 <code class="docutils literal notranslate"><span class="pre">#f</span></code> 则返回最后一个参数的值</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> 接受任意个参数，从左到右求值，返回第一个不是 <code class="docutils literal notranslate"><span class="pre">#f</span></code> 的参数，
-若全是 <code class="docutils literal notranslate"><span class="pre">#f</span></code> 则返回最后一个参数的值</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">not</span></code> 接受一个参数，取反</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">and</span></code> 接受任意个参数，从左到右求值，若出现 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则返回 <code class="code docutils literal notranslate"><span class="pre">#f</span></code>，
+若全不为 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则返回最后一个参数的值</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">and</span></code> 接受任意个参数，从左到右求值，返回第一个不是 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 的参数，
+若全是 <code class="code docutils literal notranslate"><span class="pre">#f</span></code> 则返回最后一个参数的值</p></li>
 </ul>
 </section>
 <section id="cond">
@@ -258,17 +258,17 @@ procedure，参数一是参数表，参数二是函数体：</p>
   <span class="p">(</span><span class="k">else </span>       <span class="nv">clauses_else</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>遇到成立的 <code class="docutils literal notranslate"><span class="pre">predicate</span></code> 则执行对应的子句后返回，全部不成立则执行
-<code class="docutils literal notranslate"><span class="pre">else</span></code> 的子句。</p>
+<p>遇到成立的 <code class="code docutils literal notranslate"><span class="pre">predicate</span></code> 则执行对应的子句后返回，全部不成立则执行
+<code class="code docutils literal notranslate"><span class="pre">else</span></code> 的子句。</p>
 </section>
 <section id="equ">
 <h4>equ<a class="headerlink" href="#equ" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> 判断两个数字是否相等</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">eq?</span></code>
+<li><p><code class="code docutils literal notranslate"><span class="pre">=</span></code> 判断两个数字是否相等</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">eq?</span></code>
 比较两个参数的地址，不要使用它来比较数字：其结果取决于编译器实现</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">eqv?</span></code> 是 <code class="docutils literal notranslate"><span class="pre">eq</span></code> 的超集，对于原子类型（atom？）会进行正确的比较</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">equal?</span></code> 比较 list 与 vector</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">eqv?</span></code> 是 <code class="code docutils literal notranslate"><span class="pre">eq</span></code> 的超集，对于原子类型（atom？）会进行正确的比较</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">equal?</span></code> 比较 list 与 vector</p></li>
 </ul>
 <p>ref:
 <a class="reference external" href="http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme">http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme</a></p>
@@ -276,12 +276,12 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="let">
 <h3>let<a class="headerlink" href="#let" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">(let</span> <span class="pre">bind</span> <span class="pre">body)</span></code> 为 <code class="docutils literal notranslate"><span class="pre">body</span></code> 语句绑定局部变量，变量在 <code class="docutils literal notranslate"><span class="pre">bind</span></code>
-中初始化， <code class="docutils literal notranslate"><span class="pre">bind</span></code> 中的变量不可互相引用：</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(let</span> <span class="pre">bind</span> <span class="pre">body)</span></code> 为 <code class="code docutils literal notranslate"><span class="pre">body</span></code> 语句绑定局部变量，变量在 <code class="code docutils literal notranslate"><span class="pre">bind</span></code>
+中初始化， <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 中的变量不可互相引用：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">))</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">2</span><span class="p">))</span>   <span class="k">=&gt; </span><span class="mi">3</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">let</span></code> 是 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 的语法糖：</p>
+<p><code class="code docutils literal notranslate"><span class="pre">let</span></code> 是 <code class="code docutils literal notranslate"><span class="pre">lambda</span></code> 的语法糖：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">p</span> <span class="nv">v</span><span class="p">))</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">p</span> <span class="mi">1</span><span class="p">))</span>       <span class="k">=&gt; </span><span class="mi">2</span>
 <span class="c1">; equal to</span>
 <span class="p">((</span><span class="k">lambda </span><span class="p">(</span><span class="nf">p</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">p</span> <span class="mi">1</span><span class="p">))</span> <span class="nv">v</span><span class="p">)</span>    <span class="k">=&gt; </span><span class="mi">2</span>
@@ -289,15 +289,15 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </div>
 <section id="id7">
 <h4>let*<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">let*</span></code> 可以引用定义在同个绑定中的变量（<code class="docutils literal notranslate"><span class="pre">let*</span></code> 事实上是嵌套的
-<code class="docutils literal notranslate"><span class="pre">let</span></code> 的语法糖）：</p>
+<p>使用 <code class="code docutils literal notranslate"><span class="pre">let*</span></code> 可以引用定义在同个绑定中的变量（<code class="code docutils literal notranslate"><span class="pre">let*</span></code> 事实上是嵌套的
+<code class="code docutils literal notranslate"><span class="pre">let</span></code> 的语法糖）：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let* </span><span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nf">j</span> <span class="p">(</span><span class="nb">- </span><span class="nv">i</span><span class="p">)))</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="nv">j</span><span class="p">))</span>    <span class="k">=&gt; </span><span class="mi">0</span>
 </pre></div>
 </div>
 </section>
 <section id="named-let">
 <h4>named let<a class="headerlink" href="#named-let" title="永久链接至标题">¶</a></h4>
-<p>可以为一个 <code class="docutils literal notranslate"><span class="pre">let</span></code> 命名来实现循环：</p>
+<p>可以为一个 <code class="code docutils literal notranslate"><span class="pre">let</span></code> 命名来实现循环：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-let</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span><span class="p">)</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span><span class="p">))</span>
     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">p</span>
@@ -308,7 +308,7 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="letrec">
 <h4>letrec<a class="headerlink" href="#letrec" title="永久链接至标题">¶</a></h4>
-<p>允许 <code class="docutils literal notranslate"><span class="pre">bind</span></code> 中的变量递归地调用自己：</p>
+<p>允许 <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 中的变量递归地调用自己：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">sum-letrec</span> <span class="nv">xs</span><span class="p">)</span>
   <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">sum1</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">xs1</span><span class="p">)</span>
                   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">xs1</span><span class="p">)</span> <span class="mi">0</span>
@@ -320,10 +320,10 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="do">
 <h3>do<a class="headerlink" href="#do" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">(do</span> <span class="pre">binds</span> <span class="pre">(predicate</span> <span class="pre">value)</span> <span class="pre">body)</span></code> 变量在 <code class="docutils literal notranslate"><span class="pre">bind</span></code> 中被绑定， 若
-<code class="docutils literal notranslate"><span class="pre">predicate</span></code> 为真， 则函数跳出 <code class="docutils literal notranslate"><span class="pre">do</span></code> 语句，值 <code class="docutils literal notranslate"><span class="pre">value</span></code> 被传递出来，
-否则循环继续。 <code class="docutils literal notranslate"><span class="pre">bind</span></code> 的形式是 <code class="docutils literal notranslate"><span class="pre">((p</span> <span class="pre">i</span> <span class="pre">j)</span> <span class="pre">...</span> <span class="pre">)</span></code> 变量 <code class="docutils literal notranslate"><span class="pre">p</span></code>
-被初始化为 <code class="docutils literal notranslate"><span class="pre">i</span></code>， 在循环后被更新为 <code class="docutils literal notranslate"><span class="pre">j</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">(do</span> <span class="pre">binds</span> <span class="pre">(predicate</span> <span class="pre">value)</span> <span class="pre">body)</span></code> 变量在 <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 中被绑定， 若
+<code class="code docutils literal notranslate"><span class="pre">predicate</span></code> 为真， 则函数跳出 <code class="code docutils literal notranslate"><span class="pre">do</span></code> 语句，值 <code class="code docutils literal notranslate"><span class="pre">value</span></code> 被传递出来，
+否则循环继续。 <code class="code docutils literal notranslate"><span class="pre">bind</span></code> 的形式是 <code class="code docutils literal notranslate"><span class="pre">((p</span> <span class="pre">i</span> <span class="pre">j)</span> <span class="pre">...</span> <span class="pre">)</span></code> 变量 <code class="code docutils literal notranslate"><span class="pre">p</span></code>
+被初始化为 <code class="code docutils literal notranslate"><span class="pre">i</span></code>， 在循环后被更新为 <code class="code docutils literal notranslate"><span class="pre">j</span></code></p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-do</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">do </span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">))</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">* </span><span class="nv">p</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">))))</span> <span class="p">((</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">p</span><span class="p">)))</span>
 </pre></div>
@@ -352,15 +352,15 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <h3>Higher Order Function<a class="headerlink" href="#higher-order-function" title="永久链接至标题">¶</a></h3>
 <section id="map">
 <h4>map<a class="headerlink" href="#map" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">(map</span> <span class="pre">procedure</span> <span class="pre">list1</span> <span class="pre">list2</span> <span class="pre">...)</span></code> <code class="docutils literal notranslate"><span class="pre">map</span></code> 把 <code class="docutils literal notranslate"><span class="pre">procedure</span></code>
-应用到列表上， 返回新的列表，表的个数由 <code class="docutils literal notranslate"><span class="pre">procedure</span></code> 决定</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(map</span> <span class="pre">procedure</span> <span class="pre">list1</span> <span class="pre">list2</span> <span class="pre">...)</span></code> <code class="code docutils literal notranslate"><span class="pre">map</span></code> 把 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>
+应用到列表上， 返回新的列表，表的个数由 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code> 决定</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">map </span><span class="nv">sub1</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="k">=&gt; </span><span class="p">(</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="for-each">
 <h4>for-each<a class="headerlink" href="#for-each" title="永久链接至标题">¶</a></h4>
-<p>格式与 <code class="docutils literal notranslate"><span class="pre">map</span></code> 相同，不返回具体的值，用于副作用：</p>
+<p>格式与 <code class="code docutils literal notranslate"><span class="pre">map</span></code> 相同，不返回具体的值，用于副作用：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="nv">sum</span> <span class="mi">0</span><span class="p">)</span>
 <span class="p">(</span><span class="nb">for-each </span><span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="p">(</span><span class="k">set! </span><span class="nv">sum</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">sum</span> <span class="nv">x</span><span class="p">)))</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
 <span class="k">=&gt; </span><span class="mi">10</span>
@@ -371,7 +371,7 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="fold">
 <h4>fold<a class="headerlink" href="#fold" title="永久链接至标题">¶</a></h4>
-<p>有左折叠（<code class="docutils literal notranslate"><span class="pre">foldl</span></code>）和右折叠（<code class="docutils literal notranslate"><span class="pre">foldr</span></code>）:</p>
+<p>有左折叠（<code class="code docutils literal notranslate"><span class="pre">foldl</span></code>）和右折叠（<code class="code docutils literal notranslate"><span class="pre">foldr</span></code>）:</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">foldl</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>    <span class="k">=&gt; </span><span class="mi">6</span>
 <span class="p">(</span><span class="nf">foldr</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>    <span class="k">=&gt; </span><span class="mi">6</span>
 </pre></div>
@@ -393,10 +393,10 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <h3>input<a class="headerlink" href="#input" title="永久链接至标题">¶</a></h3>
 <section id="port">
 <h4>port<a class="headerlink" href="#port" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">(open-input-file</span> <span class="pre">file-name)</span></code> 用于打开一个文件返回一个端口，
-<code class="docutils literal notranslate"><span class="pre">(read-char</span> <span class="pre">port)</span></code> 从端口读取一个字符，读取到 EOF 的时候返回一个
-<code class="docutils literal notranslate"><span class="pre">eof-object</span></code>， 可用 <code class="docutils literal notranslate"><span class="pre">eof-object?</span></code> 检查，使用
-<code class="docutils literal notranslate"><span class="pre">(close-input-port</span> <span class="pre">port)</span></code> 关闭端口</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(open-input-file</span> <span class="pre">file-name)</span></code> 用于打开一个文件返回一个端口，
+<code class="code docutils literal notranslate"><span class="pre">(read-char</span> <span class="pre">port)</span></code> 从端口读取一个字符，读取到 EOF 的时候返回一个
+<code class="code docutils literal notranslate"><span class="pre">eof-object</span></code>， 可用 <code class="code docutils literal notranslate"><span class="pre">eof-object?</span></code> 检查，使用
+<code class="code docutils literal notranslate"><span class="pre">(close-input-port</span> <span class="pre">port)</span></code> 关闭端口</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">kitten</span> <span class="nv">fname</span><span class="p">)</span>
   <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">fp</span> <span class="p">(</span><span class="nb">open-input-file </span><span class="nv">fname</span><span class="p">)))</span>
     <span class="p">(</span><span class="k">let </span><span class="nv">loop</span> <span class="p">((</span><span class="nf">chr</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">fp</span><span class="p">)))</span>
@@ -407,16 +407,16 @@ procedure，参数一是参数表，参数二是函数体：</p>
         <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">fp</span><span class="p">)))))))</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(call-with-input-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code> ： 函数将打开
-<code class="docutils literal notranslate"><span class="pre">file-name</span></code> 得到的端口传递给 <code class="docutils literal notranslate"><span class="pre">procedure</span></code>， <code class="docutils literal notranslate"><span class="pre">procedure</span></code>
+<p><code class="code docutils literal notranslate"><span class="pre">(call-with-input-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code> ： 函数将打开
+<code class="code docutils literal notranslate"><span class="pre">file-name</span></code> 得到的端口传递给 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>， <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>
 结束后端口需要手动关闭</p>
-<p><code class="docutils literal notranslate"><span class="pre">(with-input-from-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code> ：
-将文件作为标准输入打开，因此 <code class="docutils literal notranslate"><span class="pre">procedure</span></code> 不需要参数， <code class="docutils literal notranslate"><span class="pre">procedure</span></code>
+<p><code class="code docutils literal notranslate"><span class="pre">(with-input-from-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code> ：
+将文件作为标准输入打开，因此 <code class="code docutils literal notranslate"><span class="pre">procedure</span></code> 不需要参数， <code class="code docutils literal notranslate"><span class="pre">procedure</span></code>
 结束后文件会自动被关闭</p>
 </section>
 <section id="read">
 <h4>read<a class="headerlink" href="#read" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">(read</span> <span class="pre">port)</span></code> 从端口中读入一个 S-Expression（!）：</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(read</span> <span class="pre">port)</span></code> 从端口中读入一个 S-Expression（!）：</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-s</span> <span class="nv">fname</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">with-input-from-file </span><span class="nv">fname</span>
     <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
@@ -432,32 +432,32 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <h3>output<a class="headerlink" href="#output" title="永久链接至标题">¶</a></h3>
 <section id="id10">
 <h4>port<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">(open-output-file</span> <span class="pre">file-name)</span></code>
+<p><code class="code docutils literal notranslate"><span class="pre">(open-output-file</span> <span class="pre">file-name)</span></code>
 打开一个文件，返回一个用于输出到该文件的端口</p>
-<p><code class="docutils literal notranslate"><span class="pre">(open-output-file</span> <span class="pre">file-name)</span></code> 关闭输出端口</p>
-<p><code class="docutils literal notranslate"><span class="pre">(call-with-output-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">(with-output-to-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">(open-output-file</span> <span class="pre">file-name)</span></code> 关闭输出端口</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(call-with-output-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">(with-output-to-file</span> <span class="pre">file-name</span> <span class="pre">procedure)</span></code></p>
 </section>
 <section id="output-func">
 <h4>output func<a class="headerlink" href="#output-func" title="永久链接至标题">¶</a></h4>
-<p>以下函数的 <code class="docutils literal notranslate"><span class="pre">port</span></code> 都是可选参数，省略则输出到 stdout</p>
-<p><code class="docutils literal notranslate"><span class="pre">(wirte</span> <span class="pre">obj</span> <span class="pre">port)</span></code> 将 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 输出至 <code class="docutils literal notranslate"><span class="pre">port</span></code>，</p>
+<p>以下函数的 <code class="code docutils literal notranslate"><span class="pre">port</span></code> 都是可选参数，省略则输出到 stdout</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(wirte</span> <span class="pre">obj</span> <span class="pre">port)</span></code> 将 <code class="code docutils literal notranslate"><span class="pre">obj</span></code> 输出至 <code class="code docutils literal notranslate"><span class="pre">port</span></code>，</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">write </span><span class="sc">#\c</span><span class="p">)</span>         <span class="k">=&gt; </span><span class="sc">#\c</span>
 <span class="p">(</span><span class="nb">write </span><span class="s">&quot;string&quot;</span><span class="p">)</span>    <span class="k">=&gt; </span><span class="s">&quot;string&quot;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(display</span> <span class="pre">obj</span> <span class="pre">port)</span></code> 将 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 输出至 <code class="docutils literal notranslate"><span class="pre">port</span></code>，</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(display</span> <span class="pre">obj</span> <span class="pre">port)</span></code> 将 <code class="code docutils literal notranslate"><span class="pre">obj</span></code> 输出至 <code class="code docutils literal notranslate"><span class="pre">port</span></code>，</p>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">display </span><span class="sc">#\c</span><span class="p">)</span>         <span class="k">=&gt; </span><span class="nv">c</span>
 <span class="p">(</span><span class="nb">display </span><span class="s">&quot;string&quot;</span><span class="p">)</span>    <span class="k">=&gt; </span><span class="nv">string</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">(wirte-char</span> <span class="pre">char</span> <span class="pre">port)</span></code> 往 <code class="docutils literal notranslate"><span class="pre">port</span></code> 写入一个字符</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(wirte-char</span> <span class="pre">char</span> <span class="pre">port)</span></code> 往 <code class="code docutils literal notranslate"><span class="pre">port</span></code> 写入一个字符</p>
 </section>
 </section>
 <section id="id11">
 <h3>赋值<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<p>赋值具有破坏性（destructive）, Scheme 中具有破坏性的方法都以 <code class="docutils literal notranslate"><span class="pre">!</span></code> 结尾</p>
-<p><code class="docutils literal notranslate"><span class="pre">(set!</span> <span class="pre">var</span> <span class="pre">val)</span></code> 为一个参数赋值，赋值前参数应该被定义</p>
+<p>赋值具有破坏性（destructive）, Scheme 中具有破坏性的方法都以 <code class="code docutils literal notranslate"><span class="pre">!</span></code> 结尾</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(set!</span> <span class="pre">var</span> <span class="pre">val)</span></code> 为一个参数赋值，赋值前参数应该被定义</p>
 <section id="lexical-closure">
 <h4>词法闭包（lexical closure）<a class="headerlink" href="#lexical-closure" title="永久链接至标题">¶</a></h4>
 <blockquote>
@@ -469,11 +469,11 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="id12">
 <h4>副作用<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
-<p>赋值 <code class="docutils literal notranslate"><span class="pre">set!</span></code> 和 IO 操作都是副作用，</p>
+<p>赋值 <code class="code docutils literal notranslate"><span class="pre">set!</span></code> 和 IO 操作都是副作用，</p>
 </section>
 <section id="id13">
 <h4>表的赋值<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">set-car!</span></code> <code class="docutils literal notranslate"><span class="pre">set-cdr!</span></code> 分别用于为表的 car 和 cdr 部分赋值，
+<p><code class="code docutils literal notranslate"><span class="pre">set-car!</span></code> <code class="code docutils literal notranslate"><span class="pre">set-cdr!</span></code> 分别用于为表的 car 和 cdr 部分赋值，
 参数可以是 S-Expression</p>
 </section>
 <section id="list">
@@ -528,8 +528,8 @@ procedure，参数一是参数表，参数二是函数体：</p>
 <p class="admonition-title">注解</p>
 <p>此处有小坑，（尚未找到对此的规范描述，仅为自行总结）
 不清楚 pair 中储存的到底是值还是引用，还是两者都有， 反正当 pair
-中储存了 pair 时，用的是引用， 注意 <code class="docutils literal notranslate"><span class="pre">set!</span></code>
-更改的是这个变量名的指向， <code class="docutils literal notranslate"><span class="pre">set-cdr!</span></code> 更改的是指向的对象内部的值
+中储存了 pair 时，用的是引用， 注意 <code class="code docutils literal notranslate"><span class="pre">set!</span></code>
+更改的是这个变量名的指向， <code class="code docutils literal notranslate"><span class="pre">set-cdr!</span></code> 更改的是指向的对象内部的值
 :(</p>
 </div>
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; 普通类型</span>
@@ -558,8 +558,8 @@ procedure，参数一是参数表，参数二是函数体：</p>
 </section>
 <section id="symbol">
 <h2>Symbol<a class="headerlink" href="#symbol" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">(symbol?</span> <span class="pre">x)</span></code> 判断 <code class="docutils literal notranslate"><span class="pre">x</span></code> 是否为一个符号，<code class="docutils literal notranslate"><span class="pre">(string-&gt;symbol</span> <span class="pre">str)</span></code> 将
-<code class="docutils literal notranslate"><span class="pre">str</span></code> 转换为符号，<code class="docutils literal notranslate"><span class="pre">(symbol-&gt;string</span> <span class="pre">sym)</span></code> 将 <code class="docutils literal notranslate"><span class="pre">sym</span></code> 转化为字符串</p>
+<p><code class="code docutils literal notranslate"><span class="pre">(symbol?</span> <span class="pre">x)</span></code> 判断 <code class="code docutils literal notranslate"><span class="pre">x</span></code> 是否为一个符号，<code class="code docutils literal notranslate"><span class="pre">(string-&gt;symbol</span> <span class="pre">str)</span></code> 将
+<code class="code docutils literal notranslate"><span class="pre">str</span></code> 转换为符号，<code class="code docutils literal notranslate"><span class="pre">(symbol-&gt;string</span> <span class="pre">sym)</span></code> 将 <code class="code docutils literal notranslate"><span class="pre">sym</span></code> 转化为字符串</p>
 </section>
 </section>
 

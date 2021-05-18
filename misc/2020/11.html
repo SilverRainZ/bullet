@@ -334,7 +334,7 @@ e.g. 沪深300、道琼斯工业指数 等。</p>
 如柬埔寨、泰国。其纪年法，称佛灭纪元，以释迦牟尼佛灭度（涅槃）当年度为计算基准。
 一般以 <strong>公元前544年</strong> 为佛涅槃元年 <a class="footnote-reference brackets" href="#id25" id="id22">8</a></p>
 </div></blockquote>
-<p>由此可知，佛灭纪年的年份减去 544 即为公元纪年， <code class="docutils literal notranslate"><span class="pre">2533</span> <span class="pre">-</span> <span class="pre">544</span> <span class="pre">=</span> <span class="pre">1989</span></code> ，
+<p>由此可知，佛灭纪年的年份减去 544 即为公元纪年， <code class="code docutils literal notranslate"><span class="pre">2533</span> <span class="pre">-</span> <span class="pre">544</span> <span class="pre">=</span> <span class="pre">1989</span></code> ，
 所以万佛塔奠基于公元 1989 年。</p>
 <p>BTW 上文提到阴阳历，查了下也是个有意思的概念：</p>
 <blockquote>
@@ -362,16 +362,16 @@ e.g. 沪深300、道琼斯工业指数 等。</p>
 <h2><a class="toc-backref" href="#id43">LilyPond 文件结构 <a class="footnote-reference brackets" href="#id30" id="id28">11</a></a><a class="headerlink" href="#lilypond" title="永久链接至标题">¶</a></h2>
 <p>可能出现在 top-level 的表达式如下：</p>
 <ul class="simple">
-<li><p>Output definition, such as <code class="docutils literal notranslate"><span class="pre">\paper</span></code>, <code class="docutils literal notranslate"><span class="pre">\midi</span></code>, and <code class="docutils literal notranslate"><span class="pre">\layout</span></code>
+<li><p>Output definition, such as <code class="code docutils literal notranslate"><span class="pre">\paper</span></code>, <code class="code docutils literal notranslate"><span class="pre">\midi</span></code>, and <code class="code docutils literal notranslate"><span class="pre">\layout</span></code>
 重复的定义会被合并，若冲突后者优先</p></li>
-<li><p>Direct scheme expression, such as <code class="docutils literal notranslate"><span class="pre">#(set-default-paper-size</span> <span class="pre">&quot;a7&quot;</span> <span class="pre">'landscape)</span></code>
+<li><p>Direct scheme expression, such as <code class="code docutils literal notranslate"><span class="pre">#(set-default-paper-size</span> <span class="pre">&quot;a7&quot;</span> <span class="pre">'landscape)</span></code>
 这里的 scheme 是指 <a class="reference external" href="https://wikipedia.org/wiki/Scheme_(programming_language)">Scheme_(programming_language)</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\header</span></code> 表达式，定义谱面的头部，包含标题、作曲家等信息</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\score</span></code> 表达式，包含单个 Music Expression <a class="footnote-reference brackets" href="#id31" id="id29">12</a> ，所有顶层的 <code class="docutils literal notranslate"><span class="pre">\score</span></code>
-会被隐式地包含在 <code class="docutils literal notranslate"><span class="pre">\book</span></code> 里</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\book</span></code> 表达式，用来实现同一份 <code class="docutils literal notranslate"><span class="pre">*.ly</span></code> 文件输出多份谱子</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\bookpart</span></code> 表达式，似乎是用来占位以保证谱子不跨页的</p></li>
-<li><p>任意 Music Expression，会被隐式地加上 <code class="docutils literal notranslate"><span class="pre">\score</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">\header</span></code> 表达式，定义谱面的头部，包含标题、作曲家等信息</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">\score</span></code> 表达式，包含单个 Music Expression <a class="footnote-reference brackets" href="#id31" id="id29">12</a> ，所有顶层的 <code class="code docutils literal notranslate"><span class="pre">\score</span></code>
+会被隐式地包含在 <code class="code docutils literal notranslate"><span class="pre">\book</span></code> 里</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">\book</span></code> 表达式，用来实现同一份 <code class="code docutils literal notranslate"><span class="pre">*.ly</span></code> 文件输出多份谱子</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">\bookpart</span></code> 表达式，似乎是用来占位以保证谱子不跨页的</p></li>
+<li><p>任意 Music Expression，会被隐式地加上 <code class="code docutils literal notranslate"><span class="pre">\score</span></code></p></li>
 <li><p>Markup text</p></li>
 <li><p>Variable</p></li>
 </ul>
@@ -402,9 +402,9 @@ e.g. 沪深300、道琼斯工业指数 等。</p>
 </section>
 <section id="yield-in-python">
 <h2><a class="toc-backref" href="#id45">Yield in Python</a><a class="headerlink" href="#yield-in-python" title="永久链接至标题">¶</a></h2>
-<p>简单来说，使用了 <cite>yield</cite> 关键字的函数被 <cite>__call__</cite> 时，函数体不会被执行，
-而是返回一个 Generator 对象，这个对象是 iterable 的。当该对象被 <cite>__iter__</cite> 的时候，
-对应的函数体开始执行，遇到 <code class="docutils literal notranslate"><span class="pre">yield</span></code> 时返回，当该对象被 <code class="docutils literal notranslate"><span class="pre">__next__</span></code> 的时候，
+<p>简单来说，使用了 <code class="code docutils literal notranslate"><span class="pre">yield</span></code> 关键字的函数被 <code class="code docutils literal notranslate"><span class="pre">__call__</span></code> 时，函数体不会被执行，
+而是返回一个 Generator 对象，这个对象是 iterable 的。当该对象被 <code class="code docutils literal notranslate"><span class="pre">__iter__</span></code> 的时候，
+对应的函数体开始执行，遇到 <code class="code docutils literal notranslate"><span class="pre">yield</span></code> 时返回，当该对象被 <code class="code docutils literal notranslate"><span class="pre">__next__</span></code> 的时候，
 从上次 yield 的地方 resume。</p>
 <div class="admonition seealso">
 <p class="admonition-title">参见</p>

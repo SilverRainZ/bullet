@@ -94,16 +94,16 @@
 <p>内核文档 <a class="reference external" href="https://www.kernel.org/doc/Documentation/networking/tuntap.txt">Universal TUN/TAP device driver</a> 介绍了 Linux Kernel 提供的的 TUN/TAP
 设备，允许用户编写程序来接受和传输来自用户程序的网络数据包。TUN 设备需要读写 IP
 数据包，对 TAP 设备来说则是以太网帧。</p>
-<p>通过打开设备文件 <code class="docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> ，以及调用 <code class="docutils literal notranslate"><span class="pre">ioctl()</span></code> 来获得一个 TAP/TUN 设备。
-设备的种类由 <code class="docutils literal notranslate"><span class="pre">ifreq.ifr_flags</span></code> 决定。</p>
+<p>通过打开设备文件 <code class="code docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> ，以及调用 <code class="code docutils literal notranslate"><span class="pre">ioctl()</span></code> 来获得一个 TAP/TUN 设备。
+设备的种类由 <code class="code docutils literal notranslate"><span class="pre">ifreq.ifr_flags</span></code> 决定。</p>
 <p><a class="reference external" href="http://vtun.sourceforge.net/tun">http://vtun.sourceforge.net/tun</a> 提供了使用 TUN/TAP 设备的一些示例。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>示例和文档的描述有出入，如文档说使用 TUN 还是 TAP 设备取决于 <code class="docutils literal notranslate"><span class="pre">ioctl()</span></code> 的
-flags，而示例中则通过直接打开 <code class="docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/dev/net/tap</span></code> 来使用不
+<p>示例和文档的描述有出入，如文档说使用 TUN 还是 TAP 设备取决于 <code class="code docutils literal notranslate"><span class="pre">ioctl()</span></code> 的
+flags，而示例中则通过直接打开 <code class="code docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">/dev/net/tap</span></code> 来使用不
 同的设备。</p>
 <p>但是在 <a class="reference external" href="https://www.kernel.org/doc/Documentation/admin-guide/devices.txt">https://www.kernel.org/doc/Documentation/admin-guide/devices.txt</a> 中
-并没有找到 <code class="docutils literal notranslate"><span class="pre">/dev/net/tap</span></code> 的设备号（<code class="docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> 的是 MAJOR 10 MINOR
+并没有找到 <code class="code docutils literal notranslate"><span class="pre">/dev/net/tap</span></code> 的设备号（<code class="code docutils literal notranslate"><span class="pre">/dev/net/tun</span></code> 的是 MAJOR 10 MINOR
 200），因此还是以内核文档为准。</p>
 </div>
 </section>
@@ -140,9 +140,9 @@ else if(Msg == NETMSG_INPUT)
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>函数 <code class="docutils literal notranslate"><span class="pre">time_freq()</span></code> 返回不同平台下 time_get 获得的时间单位同毫秒的比率。</p>
+<p>函数 <code class="code docutils literal notranslate"><span class="pre">time_freq()</span></code> 返回不同平台下 time_get 获得的时间单位同毫秒的比率。</p>
 </div>
-<p>函数 <code class="docutils literal notranslate"><span class="pre">DoSnapshot</span></code> 保存当前游戏的状态，需要关注的代码如下:</p>
+<p>函数 <code class="code docutils literal notranslate"><span class="pre">DoSnapshot</span></code> 保存当前游戏的状态，需要关注的代码如下:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">src</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">cpp</span><span class="c1">#611</span>
 <span class="n">void</span> <span class="n">CServer</span><span class="p">::</span><span class="n">DoSnapshot</span><span class="p">()</span>
 <span class="p">{</span>
@@ -153,9 +153,9 @@ else if(Msg == NETMSG_INPUT)
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">DoSnapshot</span></code> 函数在 <code class="docutils literal notranslate"><span class="pre">CServer::Run</span></code> 中被调用，不少部分靠猜，
-不一定对， <code class="docutils literal notranslate"><span class="pre">CServer::Run</span></code> 包含了整个服务端的主要流程，其中有个游戏循环
-<code class="docutils literal notranslate"><span class="pre">while(m_RunServer)</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code> ，游戏循环采用了一个叫 tick 的概念来计时:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">DoSnapshot</span></code> 函数在 <code class="code docutils literal notranslate"><span class="pre">CServer::Run</span></code> 中被调用，不少部分靠猜，
+不一定对， <code class="code docutils literal notranslate"><span class="pre">CServer::Run</span></code> 包含了整个服务端的主要流程，其中有个游戏循环
+<code class="code docutils literal notranslate"><span class="pre">while(m_RunServer)</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code> ，游戏循环采用了一个叫 tick 的概念来计时:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// src/engine/server/server.cpp#1690
 int CServer::Run()
 {
@@ -202,9 +202,9 @@ int CServer::Run()
          }
 </pre></div>
 </div>
-<p>如上，循环一开始先把 <code class="docutils literal notranslate"><span class="pre">NewTicks</span></code> 置 0，并在 <code class="docutils literal notranslate"><span class="pre">t</span></code> 保存当前时间，之后进行某些我
-没看懂的的操作，接着进行判断 <code class="docutils literal notranslate"><span class="pre">while(t</span> <span class="pre">&gt;</span> <span class="pre">TickStartTime(m_CurrentGameTick+1))</span></code> ，</p>
-<p><code class="docutils literal notranslate"><span class="pre">TickStartTime</span></code> 函数如下:</p>
+<p>如上，循环一开始先把 <code class="code docutils literal notranslate"><span class="pre">NewTicks</span></code> 置 0，并在 <code class="code docutils literal notranslate"><span class="pre">t</span></code> 保存当前时间，之后进行某些我
+没看懂的的操作，接着进行判断 <code class="code docutils literal notranslate"><span class="pre">while(t</span> <span class="pre">&gt;</span> <span class="pre">TickStartTime(m_CurrentGameTick+1))</span></code> ，</p>
+<p><code class="code docutils literal notranslate"><span class="pre">TickStartTime</span></code> 函数如下:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">src</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">cpp</span><span class="c1">#452</span>
 <span class="n">int64</span> <span class="n">CServer</span><span class="p">::</span><span class="n">TickStartTime</span><span class="p">(</span><span class="nb">int</span> <span class="n">Tick</span><span class="p">)</span>
 <span class="p">{</span>
@@ -213,8 +213,8 @@ int CServer::Run()
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>传入的是 <code class="docutils literal notranslate"><span class="pre">m_CurrentGameTick+1</span></code> ，所以猜测函数得出的是，下一个 Tick 的时间戳，
-同时猜测一个时间戳的单位为 <code class="docutils literal notranslate"><span class="pre">SERVER_TICK_SPEED</span></code>  ，即 50 （单位大概是微秒？）。
+<p>传入的是 <code class="code docutils literal notranslate"><span class="pre">m_CurrentGameTick+1</span></code> ，所以猜测函数得出的是，下一个 Tick 的时间戳，
+同时猜测一个时间戳的单位为 <code class="code docutils literal notranslate"><span class="pre">SERVER_TICK_SPEED</span></code>  ，即 50 （单位大概是微秒？）。
 如果这个循环开始的时间以及超过下个 Tick 的开始时间，说明现在处于新的 Tick 中了，
 于是:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m_CurrentGameTick</span><span class="o">++</span><span class="p">;</span>

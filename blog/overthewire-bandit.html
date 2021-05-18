@@ -97,7 +97,7 @@
 <p>OverTheWire 使用 Wechall 的计分板来计分,
 具体参见 <a class="reference external" href="http://overthewire.org/about/wechall.html">WeChall Scoreborad</a></p>
 <p>因为题目都在远程的 ssh 主机上, 所以你需要让远程主机知道你是谁.
-在你的 <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> 里加上两个环境变量:</p>
+在你的 <code class="code docutils literal notranslate"><span class="pre">.bashrc</span></code> 里加上两个环境变量:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">WECHALLUSER</span><span class="o">=</span><span class="s2">&quot;你在 WeChall 的用户名&quot;</span>
 <span class="nb">export</span> <span class="nv">WECHALLTOKEN</span><span class="o">=</span><span class="s2">&quot;你在 WeChall 的 WarToken&quot;</span>
 </pre></div>
@@ -105,14 +105,14 @@
 <p>WarToken 可以在 WeChall 网站的
 <a class="reference external" href="http://www.wechall.net/warboxes">Account -&gt; WarBoxes -&gt; Your current WarToken</a>
 获得.</p>
-<p>在 <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> 中添加:</p>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> 中添加:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="o">*.</span><span class="n">labs</span><span class="o">.</span><span class="n">overthewire</span><span class="o">.</span><span class="n">org</span>
 <span class="n">SendEnv</span> <span class="n">WECHALLTOKEN</span>
 <span class="n">SendEnv</span> <span class="n">WECHALLUSER</span>
 </pre></div>
 </div>
 <p>在 ssh 连接的时候就会把你的帐号信息发送给远程主机.</p>
-<p>在登入一个新的关卡后, 执行 <code class="docutils literal notranslate"><span class="pre">wechall</span></code> 便可获得该关卡的分数.</p>
+<p>在登入一个新的关卡后, 执行 <code class="code docutils literal notranslate"><span class="pre">wechall</span></code> 便可获得该关卡的分数.</p>
 </section>
 <section id="id2">
 <h2>题目<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -128,9 +128,9 @@
 cat /tmp.tmpxxx/log <span class="p">|</span> grep Succ
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">-v</span></code> 用来给出连接的详细信息, <code class="docutils literal notranslate"><span class="pre">-w</span> <span class="pre">2</span></code> 指定 timeout,
-不知道为什么 <code class="docutils literal notranslate"><span class="pre">-v</span></code> 的信息是直接输出到 <code class="docutils literal notranslate"><span class="pre">stderr</span></code> 的.
-<code class="docutils literal notranslate"><span class="pre">tmp/tmp.xxx</span></code> 使用 <code class="docutils literal notranslate"><span class="pre">mktemp</span> <span class="pre">-d</span></code> 产生的临时目录.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">-v</span></code> 用来给出连接的详细信息, <code class="code docutils literal notranslate"><span class="pre">-w</span> <span class="pre">2</span></code> 指定 timeout,
+不知道为什么 <code class="code docutils literal notranslate"><span class="pre">-v</span></code> 的信息是直接输出到 <code class="code docutils literal notranslate"><span class="pre">stderr</span></code> 的.
+<code class="code docutils literal notranslate"><span class="pre">tmp/tmp.xxx</span></code> 使用 <code class="code docutils literal notranslate"><span class="pre">mktemp</span> <span class="pre">-d</span></code> 产生的临时目录.</p>
 <p>最后有应答的只有五个端口, 挨个挨个试.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl s_client -connect localhost:31xxx -ssl3 -quiet
 </pre></div>
@@ -159,12 +159,12 @@ cat /etc/bandit_pass/bandit17
 <p>Try connecting to your own network daemon to see if it works as you think</p>
 </div>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">bandit20</span></code> 的家目录下提供了一个程序 <code class="docutils literal notranslate"><span class="pre">suconnect</span></code>, 会从你指定的端口读取 <code class="docutils literal notranslate"><span class="pre">bandit20</span></code> 的密码,
+<p><code class="code docutils literal notranslate"><span class="pre">bandit20</span></code> 的家目录下提供了一个程序 <code class="code docutils literal notranslate"><span class="pre">suconnect</span></code>, 会从你指定的端口读取 <code class="code docutils literal notranslate"><span class="pre">bandit20</span></code> 的密码,
 如果正确的话返回本关卡的密码.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> GbKksEFF4yrVs6il55v6gwY5aVje5f0j <span class="p">|</span> nc -l -p <span class="m">1234</span> <span class="p">&amp;</span> ./suconnect <span class="m">1234</span>
 </pre></div>
 </div>
-<p>这里主要是 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 的用法, 使两个命令同时执行:</p>
+<p>这里主要是 <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> 的用法, 使两个命令同时执行:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</span>
 </pre></div>
 </div>
@@ -183,13 +183,13 @@ cat /etc/bandit_pass/bandit17
 </div>
 </div></blockquote>
 <p>这题我觉得有点意思.</p>
-<p>cron 是一个定时执行工具, 任务可以通过命令 <code class="docutils literal notranslate"><span class="pre">crontab</span></code> 设定,
-配置储存在 <code class="docutils literal notranslate"><span class="pre">/etc/cron.d</span></code> 中, 每分钟 cron 会被触发一次,
-到该目录检测是否有任务要执行: <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/cron.d/cronjob_bandit24</span></code></p>
+<p>cron 是一个定时执行工具, 任务可以通过命令 <code class="code docutils literal notranslate"><span class="pre">crontab</span></code> 设定,
+配置储存在 <code class="code docutils literal notranslate"><span class="pre">/etc/cron.d</span></code> 中, 每分钟 cron 会被触发一次,
+到该目录检测是否有任务要执行: <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/cron.d/cronjob_bandit24</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>* * * * * bandit24 /usr/bin/cronjob_bandit24.sh <span class="p">&amp;</span>&gt; /dev/null
 </pre></div>
 </div>
-<p>所以说 <code class="docutils literal notranslate"><span class="pre">/usr/bin/cronjob_bandit24.sh</span></code> 会每分钟执行一次, 看看这个脚本的内容是什么:</p>
+<p>所以说 <code class="code docutils literal notranslate"><span class="pre">/usr/bin/cronjob_bandit24.sh</span></code> 会每分钟执行一次, 看看这个脚本的内容是什么:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="nv">myname</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span>
@@ -207,8 +207,8 @@ cat /etc/bandit_pass/bandit17
 <span class="k">done</span>
 </pre></div>
 </div>
-<p>每次都执行 <code class="docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 下的所有可执行文件, 之后删除.
-当然是以 <code class="docutils literal notranslate"><span class="pre">bandit24</span></code> 的身份执行这些操作.</p>
+<p>每次都执行 <code class="code docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 下的所有可执行文件, 之后删除.
+当然是以 <code class="code docutils literal notranslate"><span class="pre">bandit24</span></code> 的身份执行这些操作.</p>
 <p>所以我们可以构造一个脚本让他执行.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 cp /etc/bandit_pass/bandit24 /tmp/tmp.xxx/psw
@@ -216,11 +216,11 @@ chmod <span class="m">666</span> /tmp/tmp.xxx/
 </pre></div>
 </div>
 <p>这个脚本把密码文件复制到临时目录并且更改他的权限(至少让所有人可读).</p>
-<p>中间出了很多愚蠢的错误, 比如写错目录,搞错 <code class="docutils literal notranslate"><span class="pre">sh</span></code> 的路径什么的,
-另外, 不能用重定向导出 <code class="docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码, 因为没有权限(为什么没有权限我就不清楚了).</p>
-<p>脚本写完后, <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>, 再把它复制到 <code class="docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 目录下, 记得备份,
+<p>中间出了很多愚蠢的错误, 比如写错目录,搞错 <code class="code docutils literal notranslate"><span class="pre">sh</span></code> 的路径什么的,
+另外, 不能用重定向导出 <code class="code docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码, 因为没有权限(为什么没有权限我就不清楚了).</p>
+<p>脚本写完后, <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>, 再把它复制到 <code class="code docutils literal notranslate"><span class="pre">/var/spool/bandit24</span></code> 目录下, 记得备份,
 每隔一分钟该目录就会被清空.</p>
-<p>脚本执行后, 到 <code class="docutils literal notranslate"><span class="pre">/tmp/tmp.xxx</span></code> 里就可以看到存有 key 的文件了:</p>
+<p>脚本执行后, 到 <code class="code docutils literal notranslate"><span class="pre">/tmp/tmp.xxx</span></code> 里就可以看到存有 key 的文件了:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="n">UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</span>
 </pre></div>
 </div>
@@ -229,8 +229,8 @@ chmod <span class="m">666</span> /tmp/tmp.xxx/
 <blockquote>
 <div><p>A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinaties, called brute-forcing.</p>
 </div></blockquote>
-<p>有一个守护进程在 <code class="docutils literal notranslate"><span class="pre">30002</span></code> 端口监听, 把 <code class="docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码和一个四位数字组成的 pincode 传给它,
-如果密码和 pincode 都正确的话会返回 <code class="docutils literal notranslate"><span class="pre">bandit25</span></code> 的密码.</p>
+<p>有一个守护进程在 <code class="code docutils literal notranslate"><span class="pre">30002</span></code> 端口监听, 把 <code class="code docutils literal notranslate"><span class="pre">bandit24</span></code> 的密码和一个四位数字组成的 pincode 传给它,
+如果密码和 pincode 都正确的话会返回 <code class="code docutils literal notranslate"><span class="pre">bandit25</span></code> 的密码.</p>
 <p>所以自然是爆破了, 直接用 nc 链接该端口会提示:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">am</span> <span class="n">the</span> <span class="n">pincode</span> <span class="n">checker</span> <span class="k">for</span> <span class="n">user</span> <span class="n">bandit25</span><span class="o">.</span> <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">password</span> <span class="k">for</span> <span class="n">user</span> <span class="n">bandit24</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">secret</span> <span class="n">pincode</span> <span class="n">on</span> <span class="n">a</span> <span class="n">single</span> <span class="n">line</span><span class="p">,</span> <span class="n">separated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
 </pre></div>
@@ -260,8 +260,8 @@ cat /tmp/log <span class="p">|</span> grep <span class="s2">&quot;Corr&quot;</sp
 <p>这是 26 个 level 里面最有意思的一道题的, 可惜我没能做出来…
 参考的答案是这个:
 <a class="reference external" href="http://codebluedev.blogspot.com/2015/07/overthewire-bandit-level-26.html">overthewire-bandit-level-26</a></p>
-<p>题干里说 <code class="docutils literal notranslate"><span class="pre">bandit26</span></code> 的 shell 并不是普通的 <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">bandit25</span></code> 的家目录下给出了 <code class="docutils literal notranslate"><span class="pre">bandit26</span></code> 的私钥,
+<p>题干里说 <code class="code docutils literal notranslate"><span class="pre">bandit26</span></code> 的 shell 并不是普通的 <code class="code docutils literal notranslate"><span class="pre">/bin/bash</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">bandit25</span></code> 的家目录下给出了 <code class="code docutils literal notranslate"><span class="pre">bandit26</span></code> 的私钥,
 登录上去只是打印出了 bandit26 的 ASCII Art 就退出了.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> _                     _ _ _   ___   __
 | |                   | (_) | |__ / /
@@ -271,36 +271,36 @@ cat /tmp/log <span class="p">|</span> grep <span class="s2">&quot;Corr&quot;</sp
 |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
 </pre></div>
 </div>
-<p>执行 <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/passwd</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">bandit26</span></code> 得到:</p>
+<p>执行 <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/passwd</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">bandit26</span></code> 得到:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">bandit26</span><span class="o">**</span>\ <span class="p">:</span><span class="n">x</span><span class="p">:</span><span class="mi">11026</span><span class="p">:</span><span class="mi">11026</span><span class="p">:</span><span class="n">bandit</span> <span class="n">level</span> <span class="mi">26</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span>\ <span class="o">**</span><span class="n">bandit26</span><span class="o">**</span>\ <span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">showtext</span>
 </pre></div>
 </div>
 <p>(我到这里就卡住了)</p>
-<p>发现 <code class="docutils literal notranslate"><span class="pre">showtext</span></code> 是一个 shell 脚本, 内容如下</p>
+<p>发现 <code class="code docutils literal notranslate"><span class="pre">showtext</span></code> 是一个 shell 脚本, 内容如下</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
 more ~/text.txt
 <span class="nb">exit</span> <span class="m">0</span>
 </pre></div>
 </div>
-<p>即 ssh 连上去后执行默认 shell, 用 <code class="docutils literal notranslate"><span class="pre">more</span></code> 打印出了 ~/text.txt 之后就退出了, 如图:</p>
+<p>即 ssh 连上去后执行默认 shell, 用 <code class="code docutils literal notranslate"><span class="pre">more</span></code> 打印出了 ~/text.txt 之后就退出了, 如图:</p>
 <img alt="../_images/overthewire-bandit26-1.png" src="../_images/overthewire-bandit26-1.png" />
-<p>一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 <code class="docutils literal notranslate"><span class="pre">-t</span></code> + 命令 是不行的,
-这个命令不会被解释, 因为 <code class="docutils literal notranslate"><span class="pre">bash</span></code> 没有执行.</p>
-<p>正确答案是通过 <code class="docutils literal notranslate"><span class="pre">more</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">more</span></code> 在要输出的内容行数多于终端行数的时候会停下来, 等待你翻页,
-所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, <code class="docutils literal notranslate"><span class="pre">more</span></code> 就停下来了. (好脑洞)</p>
+<p>一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 <code class="code docutils literal notranslate"><span class="pre">-t</span></code> + 命令 是不行的,
+这个命令不会被解释, 因为 <code class="code docutils literal notranslate"><span class="pre">bash</span></code> 没有执行.</p>
+<p>正确答案是通过 <code class="code docutils literal notranslate"><span class="pre">more</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">more</span></code> 在要输出的内容行数多于终端行数的时候会停下来, 等待你翻页,
+所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, <code class="code docutils literal notranslate"><span class="pre">more</span></code> 就停下来了. (好脑洞)</p>
 <img alt="../_images/overthewire-bandit26-2.png" src="../_images/overthewire-bandit26-2.png" />
-<p>在 <code class="docutils literal notranslate"><span class="pre">more</span></code> 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 <code class="docutils literal notranslate"><span class="pre">vi</span></code>,
-有了 <code class="docutils literal notranslate"><span class="pre">vi</span></code>, 就相当于有了一个终端.</p>
-<p>在命令模式执行 <code class="docutils literal notranslate"><span class="pre">:r</span> <span class="pre">/etc/bandit_pass/bandit26</span></code>, 密码的内容就会被读入.</p>
+<p>在 <code class="code docutils literal notranslate"><span class="pre">more</span></code> 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 <code class="code docutils literal notranslate"><span class="pre">vi</span></code>,
+有了 <code class="code docutils literal notranslate"><span class="pre">vi</span></code>, 就相当于有了一个终端.</p>
+<p>在命令模式执行 <code class="code docutils literal notranslate"><span class="pre">:r</span> <span class="pre">/etc/bandit_pass/bandit26</span></code>, 密码的内容就会被读入.</p>
 <img alt="../_images/overthewire-bandit26-3.png" src="../_images/overthewire-bandit26-3.png" />
-<p>要打开 <code class="docutils literal notranslate"><span class="pre">sh</span></code> 的话, 可以:</p>
+<p>要打开 <code class="code docutils literal notranslate"><span class="pre">sh</span></code> 的话, 可以:</p>
 <div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="k">set</span> <span class="k">shell</span> <span class="k">sh</span><span class="p">=</span><span class="sr">/bin/</span><span class="k">sh</span>
 <span class="p">:</span><span class="k">sh</span>
 </pre></div>
 </div>
-<p>这样就可以执行 <code class="docutils literal notranslate"><span class="pre">wechall</span></code> 拿分了:</p>
+<p>这样就可以执行 <code class="code docutils literal notranslate"><span class="pre">wechall</span></code> 拿分了:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">:</span> <span class="mi">5</span><span class="n">czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z</span>
 </pre></div>
 </div>
