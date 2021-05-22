@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-21T14:55:34.285661+00:00</updated>
+  <updated>2021-05-22T14:42:00.819626+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -300,8 +300,8 @@ byte_415768 db 73h
     <content type="html">&lt;section id="hello-haskell"&gt;
 
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
-&lt;a class="reference internal" href="notes/books/index.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
-&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="fleurer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;fleurer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
+&lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》（未找到）&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
+&lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleurer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
 没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="reference external" href="https://github.com/MaskRay"&gt;&amp;#64;MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
 &lt;div class="topic"&gt;
@@ -358,7 +358,7 @@ byte_415768 db 73h
 </content>
     <link href="https://silverrainz.me/blog/haskell-beginning.html" rel="alternate"/>
     <summary>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
-Haskell 趣学指南 ，这下子更没有不学的理由了。</summary>
+《Haskell 趣学指南》（未找到） ，这下子更没有不学的理由了。</summary>
     <category term="Haskell" label="Haskell"/>
     <published>2015-01-30T00:00:00+00:00</published>
   </entry>
@@ -756,7 +756,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;section id="do"&gt;
 
-&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="notes/books/index.html#book-Haskell" title="Haskell 趣学指南 book"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
+&lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》（未找到）&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。&lt;/p&gt;
 &lt;p&gt;当然这和后面的内容有点难有关系（岂止是有点难？！），本来脑子就不够用，
@@ -847,7 +847,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" data-title="do 记法和 &amp;gt;&amp;gt;= 的等效表达" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" rel="alternate"/>
-    <summary>明明在开学的时候，Haskell 趣学指南 就只剩下三十来页了，但是还书日在即，
+    <summary>明明在开学的时候，《Haskell 趣学指南》（未找到） 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。</summary>
     <category term="Haskell" label="Haskell"/>
@@ -1802,7 +1802,7 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="topic"&gt;
 &lt;p class="topic-title"&gt;Update&lt;/p&gt;
-&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 前辈和 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike"&gt;调教&lt;/span&gt; ,
+&lt;p&gt;2015-7-24: 经过 IRC 里 &lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="friend farseerfc"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 前辈和 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;span class="sphinxnotes-strike"&gt;调教&lt;/span&gt; ,
 发现原来 dolphin 还是 kde4 而 konsole 已经是 kde5 了.&lt;/p&gt;
 &lt;p&gt;2015-8-30: 安装社区源&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;gnome-breeze-git&lt;/span&gt;&lt;/code&gt;主题, 以及 plasma5 的&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;breeze&lt;/span&gt;&lt;/code&gt;主题,
 可以有比较统一的外表. 设置 Qt5 应用程序的主题可以设置环境变量&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;QT_STYLE_OVERRIDE=breeze&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
@@ -3071,7 +3071,7 @@ Using English fallback for directive “note”.&lt;/p&gt;
 报告应该可以随便水过去，据说连答辩都可以省掉了……&lt;/p&gt;
 &lt;p&gt;前面说的都是废话，报告里要求画出函数调用图，于是就打算直接用软件生成好了。&lt;/p&gt;
 &lt;p&gt;用到的软件有 graphviz，egypt&lt;sup&gt;AUR&lt;/sup&gt;，cinclude2dot&lt;sup&gt;AUR&lt;/sup&gt;，
-&lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="farseerfc friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
+&lt;a class="reference internal" href="about/friends.html#friend-farseerfc" title="friend farseerfc"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤farseerfc&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 推荐了 &lt;a class="reference external" href="http://makepp.sourceforge.net/"&gt;makepp&lt;/a&gt;，
 然而 AUR 里面没有就作罢了。&lt;/p&gt;
 &lt;section id="id1"&gt;
 &lt;h2&gt;生成函数调用图&lt;/h2&gt;
@@ -3973,7 +3973,7 @@ $5500 的报酬，同时开源社区也能得到 $500 的赞助。&lt;/p&gt;
 &lt;/div&gt;
 &lt;section id="proposal"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;从写 Proposal 到放弃&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="quininer friend"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;#64;quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
+&lt;p&gt;三月初的时候在 #archlinux-cn 听 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 说今年 Tox
 社区要参加 GSoC 并开始招人的事情， &lt;span class="sphinxnotes-strike"&gt;当然也提及了 Tox 去年闹出的一桩事：&lt;/span&gt;
 &lt;a class="reference external" href="https://github.com/irungentoo/toxcore/issues/1379"&gt;Current situation of Tox #1379&lt;/a&gt;
 这时候我才知道 GSoC 的存在。简单在网上搜索了一下，正好大三下学期也基本没课了，
@@ -4873,7 +4873,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 然后爱上，最后也伤害她。事情的收尾是不体面的，我从来不是一个完美受害者，
 甚至我才是真正的加害者，我只是因为过分软弱，被宽容，被同情罢了。我什么都不能再做了，
 再动弹一下都会让事情更坏。事件的余波到现在还在发挥着影响，但未来总是会落定吧。
-时间会推着我往前走。只是我大不相同了。就如同画 &lt;a class="reference internal" href="notes/zxsys/way-to-artist/find-yourself.html#artwork-768" title="xfczk-010 artwork"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;xfczk-010&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 时我所想的:&lt;/p&gt;
+时间会推着我往前走。只是我大不相同了。就如同画 &lt;a class="reference internal" href="notes/zxsys/way-to-artist/find-yourself.html#artwork-xfczk-010" title="artwork xfczk-010"&gt;&lt;code class="xref any any-artwork docutils literal notranslate"&gt;&lt;span class="pre"&gt;《xfczk-010》（未找到）&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 时我所想的:&lt;/p&gt;
 &lt;figure class="align-default" id="id2"&gt;
 &lt;img alt="_images/IMG_20210204_145427__01__01.jpg" src="_images/IMG_20210204_145427__01__01.jpg" style="width: 60%;" /&gt;
 &lt;figcaption&gt;
