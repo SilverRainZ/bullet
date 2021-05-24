@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-23T18:32:33.190431+00:00</updated>
+  <updated>2021-05-24T10:13:52.042921+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -302,11 +302,11 @@ byte_415768 db 73h
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
 &lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》（未找到）&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
 &lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleurer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
-没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="reference external" href="https://github.com/MaskRay"&gt;&amp;#64;MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
+没想到在图书馆借到了他的书。。。另一个译者是蓝莲花的 &lt;a class="reference external" href="https://github.com/MaskRay"&gt;👤MaskRay&lt;/a&gt; ，曾经在中大听过蓝莲花的宣讲会，
 可惜当时他并没有在场。 不得不说世界真是太小了.&lt;/p&gt;
 &lt;div class="topic"&gt;
 &lt;p class="topic-title"&gt;2021-02-12&lt;/p&gt;
-&lt;p&gt;当时在宣讲会上的是诸葛建伟老师和 &lt;a class="reference external" href="https://github.com/ztrix"&gt;&amp;#64;ztrix&lt;/a&gt; ，
+&lt;p&gt;当时在宣讲会上的是诸葛建伟老师和 &lt;a class="reference external" href="https://github.com/ztrix"&gt;👤ztrix&lt;/a&gt; ，
 后来我加入长亭科技，ztrix 自然也成为了我的老板。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;好了说点正事。&lt;/p&gt;
@@ -3829,7 +3829,7 @@ Arch Linux 的包的 prefix 通常是 &lt;code class="code docutils literal notr
 可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt;
 得到程序所有文件的列表和路径，再由包管理器把这些文件和路径存为软件包，
 安装的时候根据路径把文件放到应该放的位置（这大概就是 Staged Install？）。
-（这里感谢青蛙老师 &lt;a class="reference external" href="https://github.com/hexchain"&gt;&amp;#64;hexchain&lt;/a&gt; 的指导）&lt;/p&gt;
+（这里感谢青蛙老师 &lt;a class="reference external" href="https://github.com/hexchain"&gt;👤hexchain&lt;/a&gt; 的指导）&lt;/p&gt;
 &lt;p&gt;变量 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;DESTDIR&lt;/span&gt;&lt;/code&gt;&lt;a class="footnote-reference brackets" href="#fn-destdir" id="id7"&gt;4&lt;/a&gt; 就是用来实现 Staged Install 的，把之前的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;make&lt;/span&gt; &lt;span class="pre"&gt;install&lt;/span&gt;&lt;/code&gt; 改成这样：&lt;/p&gt;
 &lt;div class="highlight-Makefile notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PREFIX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /usr/local
 &lt;span class="nf"&gt;install&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
@@ -4810,7 +4810,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;p&gt;这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
 不知道这里何时能够不荒废。&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/SrainApp/srain"&gt;SrainApp/srain&lt;/a&gt; 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/SrainApp/srain"&gt;⛺SrainApp/srain&lt;/a&gt; 是一个我业余时间开发的 GTK3 IRC 客户端。代码托管在 github 上。&lt;/p&gt;
 &lt;p&gt;2015 年末的时候，我刚写完了自己的玩具内核 OS67，处于一段不知道做点什么东西的过渡期。&lt;/p&gt;
 &lt;p&gt;同年我已经开始用 openSUSE，为了解决一些问题尝试在 IRC 上提问。
 再后来开始用 Arch Linux，整天挂在 #archlinux-cn （那个时候还没有 offtopic）里灌水，

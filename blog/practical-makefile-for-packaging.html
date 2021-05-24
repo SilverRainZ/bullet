@@ -264,7 +264,7 @@ Arch Linux 的包的 prefix 通常是 <code class="code docutils literal notrans
 可能对系统造成破坏，直接安装也不利于打包，正确的做法是，由 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>
 得到程序所有文件的列表和路径，再由包管理器把这些文件和路径存为软件包，
 安装的时候根据路径把文件放到应该放的位置（这大概就是 Staged Install？）。
-（这里感谢青蛙老师 <a class="reference external" href="https://github.com/hexchain">&#64;hexchain</a> 的指导）</p>
+（这里感谢青蛙老师 <a class="reference external" href="https://github.com/hexchain">👤hexchain</a> 的指导）</p>
 <p>变量 <code class="code docutils literal notranslate"><span class="pre">DESTDIR</span></code><a class="footnote-reference brackets" href="#fn-destdir" id="id7">4</a> 就是用来实现 Staged Install 的，把之前的 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> 改成这样：</p>
 <div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">PREFIX</span> <span class="o">=</span> /usr/local
 <span class="nf">install</span><span class="o">:</span>

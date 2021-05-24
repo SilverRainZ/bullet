@@ -197,7 +197,7 @@ Simple Body Elements 包含。大部分的 Inline Elements 都支持 “mixed co
 </dd>
 </dl>
 <p><code class="code docutils literal notranslate"><span class="pre">docutils.nodes</span></code> 提供了上述节点的实现。</p>
-<p>调用 <code class="code docutils literal notranslate"><span class="pre">node.walkabout(visitor)</span></code> 可以以 <a class="reference external" href="https://zh.wikipedia.org/wiki/访问者模式">访问者模式</a> 遍历 doctree，
+<p>调用 <code class="code docutils literal notranslate"><span class="pre">node.walkabout(visitor)</span></code> 可以以 <a class="reference external" href="https://zh.wikipedia.org/wiki/访问者模式">📖访问者模式</a> 遍历 doctree，
 <code class="code docutils literal notranslate"><span class="pre">visitor</span></code> 继承自 <code class="code docutils literal notranslate"><span class="pre">docutils.nodes.NodeVisitor</span></code> ，且需要实现各个类型节点的
 visit 和 depart 方法。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Translator</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">NodeVisitor</span><span class="p">):</span>
