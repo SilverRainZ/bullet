@@ -95,35 +95,38 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>这个笔记系统是带有强烈个人色彩的场景中中诞生的，并不适合所有人，你可以先了解一下我的 <a class="reference internal" href="#id9"><span class="std std-ref">场景</span></a> ，再决定是否继续阅读。另，开头讲了一些关于笔记的无聊往事，如果想跳过，也可以直接从 <a class="reference internal" href="#id9"><span class="std std-ref">场景</span></a> 开始阅读</p>
+<p>这个笔记系统是带有强烈个人色彩的场景中中诞生的，并不适合所有人，你可以先了解一下我的 <a class="reference internal" href="#id5"><span class="std std-ref">场景</span></a> ，再决定是否继续阅读。另，开头讲了一些关于笔记的无聊往事，如果想跳过，也可以直接从 <a class="reference internal" href="#id5"><span class="std std-ref">场景</span></a> 开始阅读</p>
 </div>
 <blockquote>
-<div><p><a class="reference internal" href="../about/me.html#friend-Me" title="friend SilverRainZ"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤Me</span></code></a> （指我自己）在使用一个还未存在的自建笔记系统，每次想写点东西都因为「无法解决依赖」而失败。 <a class="footnote-reference brackets" href="#id18" id="id1">1</a></p>
+<div><p><a class="reference internal" href="../about/me.html#friend-SilverRainZ" title="friend SilverRainZ"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤SilverRainZ</span></code></a> （指我自己）在使用一个还未存在的自建笔记系统，每次想写点东西都因为「无法解决依赖」而失败。 <a class="footnote-reference brackets" href="#id18" id="id1">1</a></p>
 </div></blockquote>
 <p>不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。 想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。想写一篇博客，文章里有一些交叉引用，不想用粗暴的 <code class="code docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=xxx&gt;</span></code> ，所以不写。
 因噎废食大概就是这样吧。</p>
 <div class="contents local topic" id="id2">
 <ul class="simple">
-<li><p><a class="reference internal" href="#id3" id="id23">漫长的选型</a></p></li>
-<li><p><a class="reference internal" href="#id8" id="id24">我的需求</a></p>
+<li><p><a class="reference internal" href="#id3" id="id25">漫长的选型</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id26">我的需求</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id9" id="id25">场景</a></p></li>
-<li><p><a class="reference internal" href="#id11" id="id26">选型</a></p></li>
-<li><p><a class="reference internal" href="#sphinx" id="id27">历史选择了 Sphinx</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id27">场景</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id28">选型</a></p></li>
+<li><p><a class="reference internal" href="#sphinx" id="id29">历史选择了 Sphinx</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id15" id="id28">系统架构</a></p>
+<li><p><a class="reference internal" href="#id11" id="id30">系统架构</a></p>
 <ul>
-<li><p><a class="reference internal" href="#git" id="id29">Git</a></p></li>
-<li><p><a class="reference internal" href="#neo-vim" id="id30">Neo(Vim)</a></p></li>
-<li><p><a class="reference internal" href="#vim" id="id31">从终端和 Vim 快速访问</a></p></li>
-<li><p><a class="reference internal" href="#id17" id="id32">博客</a></p></li>
+<li><p><a class="reference internal" href="#git" id="id31">Git</a></p></li>
+<li><p><a class="reference internal" href="#neo-vim" id="id32">Neo(Vim)</a></p></li>
+<li><p><a class="reference internal" href="#vim" id="id33">从终端和 Vim 快速访问</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id34">描述、引用和索引</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id35">博客</a></p></li>
+<li><p><a class="reference internal" href="#sphinxnotes" id="id36">SphinxNotes 还有什么？</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id37">其他扩展</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <section id="id3">
-<h2><a class="toc-backref" href="#id23">漫长的选型</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>漫长的选型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>我并非没有在找合适的记录工具，大学时用 OneNote，在我还热衷于成为一个黑客的时候，我用 OneNotes 记下了几十篇 OllyDBG 的学习笔记。那时候云同步功能还不够好，在一次误操作中丢失了部分笔记，从此成为软黑。</p>
 <p>后来 GitBook 流行起来，尝试用其管理笔记，缺点有三：</p>
 <ul class="simple">
@@ -134,22 +137,14 @@
 <p>2017 年我开始用 <a class="reference internal" href="use-sphinx-and-rst-to-manage-your-notes.html"><span class="doc">Sphinx 管理我的笔记</span></a> ，reStructuredText 已经很接近我心中理想的 markup language 的样子，结果刚建起一个框架便开始荒废。从那时到现在已经过去了四年，我记录下了些什么呢？——什么都没有</p>
 <p>2020 年，3、4 月的时候我尝试用 Golang 从零开始写一个笔记软件，后来发现无论是设计和工作量都不是我单枪匹马能胜任的，最后只留下只有零星几个 commit 的仓库。</p>
 <p>5 月，我建立了 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺SilverRainZ/bullet</a> 仓库准备再试试 Sphinx，之后学画需要记 <a class="reference internal" href="../notes/zxsys/index.html"><span class="doc">大量的笔记</span></a>，将他们电子化也是一个强大的驱动力。</p>
-<p>9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，尝试使用社区提供的 <a href="#id4"><span class="problematic" id="id5">:ghorg:`各种扩展 &lt;sphinx-contrib&gt;`</span></a> 来增强文档的功能，再后来发现自己的需求社区并不能满足，便自己建立了一个一人社区 <a href="#id6"><span class="problematic" id="id7">:ghorg:`sphinx-notes`</span></a>。</p>
-<div class="system-message" id="id4">
-<p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system.rst</span>, line 44); <em><a href="#id5">backlink</a></em></p>
-<p>Unknown interpreted text role “ghorg”.</p>
-</div>
-<div class="system-message" id="id6">
-<p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system.rst</span>, line 44); <em><a href="#id7">backlink</a></em></p>
-<p>Unknown interpreted text role “ghorg”.</p>
-</div>
-<p>2021 年，在陆续完善一些关键的 <a href="#id33"><span class="problematic" id="id34">`Sphinx 扩展`_</span></a> 之后，我的笔记系统 <span class="sphinxnotes-strike">发出了响亮的第一声啼哭</span> 开始慢慢形成了。</p>
+<p>9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，尝试使用社区提供的 <a class="reference external" href="https://github.com/sphinx-contrib">各种扩展</a> 来增强文档的功能，再后来发现自己的需求社区并不能满足，便自己建立了一个一人社区 <a class="reference external" href="https://github.com/sphinx-notes">👥sphinx-notes</a>。</p>
+<p>2021 年，在陆续完善一些关键的 <a href="#id38"><span class="problematic" id="id39">`Sphinx 扩展`_</span></a> 之后，我的笔记系统 <span class="sphinxnotes-strike">发出了响亮的第一声啼哭</span> 开始慢慢形成了。</p>
 </section>
-<section id="id8">
-<h2><a class="toc-backref" href="#id24">我的需求</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<section id="id4">
+<h2>我的需求<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在漫长的寻找中我慢慢明确了自己的需求，以及自己心目中的笔记系统是什么样子的。在提出需求之前，先来看看我的场景：</p>
-<section id="id9">
-<span id="id10"></span><h3><a class="toc-backref" href="#id25">场景</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<section id="id5">
+<span id="id6"></span><h3>场景<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>我希望 <em>笔记被良好分类且结构合理</em> ，对目录（Table Of Content）、交叉引用（Cross Reference）有大量需求</p>
 <ul>
@@ -169,8 +164,8 @@
 <li><p>我乐于折腾配置，我有一定的编程经验：我清楚自己的需求特殊，愿意为此折腾，包括写一些代码</p></li>
 </ul>
 </section>
-<section id="id11">
-<h3><a class="toc-backref" href="#id26">选型</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<section id="id7">
+<h3>选型<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>我将上面的场景尽量转化为一些指标用于选型：</p>
 <dl>
 <dt>使用纯文本</dt><dd><p>就编辑体验的一环来说，富文本往往绑定一个复杂的，羸弱（想想论坛编辑器）或者
@@ -213,71 +208,72 @@
 </dl>
 </section>
 <section id="sphinx">
-<h3><a class="toc-backref" href="#id27">历史选择了 Sphinx</a><a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h3>
+<h3>历史选择了 Sphinx<a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h3>
 <p>其实上面写一堆有些 <a class="reference external" href="https://zh.wikipedia.org/wiki/先射箭再画靶">📖先射箭再画靶</a> 的意思了，如题，最终我选择了 reStructuredText + Sphinx 作为笔记系统的核心。</p>
 <p>现在介绍会不会太晚？</p>
 <blockquote>
-<div><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html"><img alt="rst-badge" src="../_images/rst.png" style="height: 1em;" /></a> is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  <a class="footnote-reference brackets" href="#id20" id="id12">2</a></p>
-<p><a class="reference external" href="https://www.sphinx-doc.org"><img alt="sphinx-badge" src="../_images/sphinx.png" style="height: 4em;" /></a> Sphinx is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license. It was originally created for the Python documentation, and it has excellent facilities for the documentation of software projects in a range of languages. <a class="footnote-reference brackets" href="#id21" id="id13">3</a></p>
+<div><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html"><img alt="rst-badge" src="../_images/rst.png" style="height: 1em;" /></a> is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  <a class="footnote-reference brackets" href="#id20" id="id8">2</a></p>
+<p><a class="reference external" href="https://www.sphinx-doc.org"><img alt="sphinx-badge" src="../_images/sphinx.png" style="height: 4em;" /></a> Sphinx is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license. It was originally created for the Python documentation, and it has excellent facilities for the documentation of software projects in a range of languages. <a class="footnote-reference brackets" href="#id21" id="id9">3</a></p>
 </div></blockquote>
 <p>针对上面的指标，reStructuredText（下称 reSt） + Sphinx 具有哪些优势呢？</p>
 <ol class="arabic simple">
-<li><p>reST 语法虽然稍有些难以记忆，但其表达能力非常优秀</p></li>
+<li><p>reST 虽然稍显繁琐，但其表达能力非常优秀</p></li>
 <li><p>reST 在语法上提供了灵活的扩展方式</p></li>
 <li><p>Sphinx 作为 Python 官方的文档生产系统，久经考验，同时也被大量著名非 Python项目（Blender、DPDK、Linux Kernel）采用</p></li>
-<li><p>Sphinx 在 reST 的基础上实现了有优秀的扩展机制，同时有 <a class="reference external" href="https://pypi.org/search/?q=sphinxconrib">大量的现成的扩展</a> 可用</p></li>
+<li><p>Sphinx 提供了 <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">toctree::</span></code> 指令，能将文档以树状的形式组织起来</p></li>
+<li><p>Sphinx 支持丰富的交叉引用功能</p></li>
+<li><p>Sphinx 提供了 Domain 机制，为后续的 <a class="reference internal" href="#id13"><span class="std std-ref">描述、引用和索引</span></a> 提供了基础实现</p></li>
+<li><p>Sphinx 在 reST 的基础上实现了有优秀的扩展机制，同时有 <a class="reference external" href="https://pypi.org/search/?q=sphinxcontrib">大量的现成的扩展</a> 可用</p></li>
 </ol>
 <p>除此之外，单纯靠 Sphinx 无法达到的指标，我用扩展 + 其他组件搞定，请继续往下。</p>
 </section>
 </section>
-<section id="id15">
-<h2><a class="toc-backref" href="#id28">系统架构</a><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<section id="id11">
+<h2>系统架构<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>目前，我的笔记系统的架构是这样的（使用 <a class="reference external" href="https://pypi.org/project/sphinxcontrib-plantuml">📦sphinxcontrib-plantuml</a> 生成）：</p>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system.rst</span>, line 157)</p>
-<p>Unknown directive type “uml”.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. uml::
-   :caption: Bullet 笔记系统架构
+<figure class="align-default" id="id23">
+<p class="plantuml">
+<img src="../_images/plantuml-a9f385a4c905bb846652df7c0b3ce816a60e5423.png" alt="file &quot;HTML 文档&quot; as html
 
-   file &quot;HTML 文档&quot; as html
+package &quot;Sphinx&quot; as sphinx {
+   component &quot;Snippet 插件&quot; as snippet.ext
+}
+sphinx -u-&gt; html: 输出
 
-   package &quot;Sphinx&quot; as sphinx {
-      component &quot;Snippet 插件&quot; as snippet.ext
-   }
-   sphinx -u-&gt; html: 输出
+folder &quot;Git 仓库&quot; {
+   file &quot;Sphinx 配置&quot;
+   file &quot;reStructuredText 文档&quot; as rst
+}
+rst -u-&gt; sphinx: 构建
 
-   folder &quot;Git 仓库&quot; {
-      file &quot;Sphinx 配置&quot;
-      file &quot;reStructuredText 文档&quot; as rst
-   }
-   rst -u-&gt; sphinx: 构建
+cloud pages.github as &quot;Github Pages（主站）&quot;
+cloud pages.gitee as &quot;Gittee Pages（镜像）&quot;
+html -u-&gt; pages.github: git push
+pages.github -&gt; pages.gitee: Github Action
 
-   cloud pages.github as &quot;Github Pages（主站）&quot;
-   cloud pages.gitee as &quot;Gittee Pages（镜像）&quot;
-   html -u-&gt; pages.github: git push
-   pages.github -&gt; pages.gitee: Github Action
+file &quot;Snippet 索引&quot;  as snippet.cache
+agent &quot;Snippet 命令行工具&quot; as snippet.cli
+snippet.cli .u.&gt; snippet.cache: 读取
+snippet.ext .d.&gt; snippet.cache: 写入
+snippet.cli -u-&gt; html: 浏览
+snippet.cli -u-&gt; rst: 浏览，编辑
 
-   file &quot;Snippet 索引&quot;  as snippet.cache
-   agent &quot;Snippet 命令行工具&quot; as snippet.cli
-   snippet.cli .u.&gt; snippet.cache: 读取
-   snippet.ext .d.&gt; snippet.cache: 写入
-   snippet.cli -u-&gt; html: 浏览
-   snippet.cli -u-&gt; rst: 浏览，编辑
-
-   node shell as &quot;Z Shell&quot;
-   node editor as &quot;Neo(vim)&quot;
-   shell -u-&gt; snippet.cli: 浏览，编辑
-   editor -u-&gt; snippet.cli: 浏览，编辑
-</pre></div>
-</div>
-</div>
+node shell as &quot;Z Shell&quot;
+node editor as &quot;Neo(vim)&quot;
+shell -u-&gt; snippet.cli: 浏览，编辑
+editor -u-&gt; snippet.cli: 浏览，编辑"/>
+</p>
+<figcaption>
+<p><span class="caption-text">Bullet 笔记系统架构</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
 <section id="git">
-<h3><a class="toc-backref" href="#id29">Git</a><a class="headerlink" href="#git" title="永久链接至标题">¶</a></h3>
+<h3>Git<a class="headerlink" href="#git" title="永久链接至标题">¶</a></h3>
 <p>如图，我用 Git 来管理整个 Sphinx 项目的版本，用 GitLFS 管理图片资源（后来因为 gitee 不支持又去掉了），仓库沿用之前建立的 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺SilverRainZ/bullet</a> 上。</p>
 <p>一般来说 Sphinx 文档都会托管到 <a class="reference external" href="https://readthedocs.io">ReadTheDocs</a>，出于部署速度的访问速度的要求，我基于 GitHub Action 写了 <a class="reference external" href="https://github.com/sphinxnotes/pages">⛺sphinxnotes/pages</a> 用来自动部署 Sphinx 文档到 GitHub Pages，并使用 <a class="reference external" href="https://github.com/spyoungtech/mirror-action">⛺spyoungtech/mirror-action</a> 和 <a class="reference external" href="https://github.com/yanglbme/gitee-pages-action">⛺yanglbme/gitee-pages-action</a> 建立了国内的 Gitee 镜像。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>Github 和其他托管平台会在 Languages 统计时忽略常见的 Markup Languages（如 Markdown、restructuredText），为了让它能被统计 ，可以建立 <code class="file docutils literal notranslate"><span class="pre">.gitattributes</span></code> 文件加入以下内容 <a class="footnote-reference brackets" href="#id22" id="id16">4</a></p>
+<p>Github 和其他托管平台会在 Languages 统计时忽略常见的 Markup Languages（如 Markdown、restructuredText），为了让它能被统计 ，可以建立 <code class="file docutils literal notranslate"><span class="pre">.gitattributes</span></code> 文件加入以下内容 <a class="footnote-reference brackets" href="#id22" id="id12">4</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">rst</span> <span class="n">linguist</span><span class="o">-</span><span class="n">detectable</span><span class="o">=</span><span class="n">true</span>
 </pre></div>
 </div>
@@ -286,11 +282,11 @@
 </div>
 </section>
 <section id="neo-vim">
-<h3><a class="toc-backref" href="#id30">Neo(Vim)</a><a class="headerlink" href="#neo-vim" title="永久链接至标题">¶</a></h3>
+<h3>Neo(Vim)<a class="headerlink" href="#neo-vim" title="永久链接至标题">¶</a></h3>
 <p>我用 Neovim 编辑 reST 文件，关于如何在舒服地用 (Neo)vim 写 reST，我会再写一篇文章展开。</p>
 </section>
 <section id="vim">
-<h3><a class="toc-backref" href="#id31">从终端和 Vim 快速访问</a><a class="headerlink" href="#vim" title="永久链接至标题">¶</a></h3>
+<h3>从终端和 Vim 快速访问<a class="headerlink" href="#vim" title="永久链接至标题">¶</a></h3>
 <p>浏览器、Vim 和终端模拟器是我最常待的 workspace，前者当然可以方便的访问 Sphinx 生产的 HTML 文档，为了从后两者操作文档的需求，我写了 <a class="reference external" href="https://pypi.org/project/sphinxnotes-snippet">📦sphinxnotes-snippet</a> ，包含一个 Sphinx 扩展和一个命令行工具。</p>
 <dl class="simple">
 <dt>Snippet 扩展</dt><dd><p>会在构建文档的时候：</p>
@@ -347,8 +343,12 @@
 此外，编写编辑的时候，在不同笔记之间的跳转也流畅许多。</p>
 <p>关于 Snippet 的使用，我也会再写一篇文章展开，配合其他工具有非常多的玩法。</p>
 </section>
-<section id="id17">
-<h3><a class="toc-backref" href="#id32">博客</a><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<section id="id13">
+<span id="id14"></span><h3>描述、引用和索引<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>除了上述的 Snippet，另一个非常实用的扩展是 <a class="reference external" href="https://pypi.org/project/sphinxnotes-any">📦sphinxnotes-any</a></p>
+</section>
+<section id="id15">
+<h3>博客<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>博客是最难办的一件事情，单纯靠安排笔记的接口可以让它看起来像一个博客，但关键的
 目录、标签、归档、评论功能统统都没有。好在这件事情已经有人做了，并且做得非常舒服，非常符合 Sphinx 的哲学：</p>
 <dl class="field-list simple">
@@ -357,36 +357,61 @@
 </dd>
 </dl>
 <p>ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 <a class="reference external" href="https://posativ.org/isso/">Isso</a> 的话，可以试试我写的 <a class="reference external" href="https://pypi.org/project/sphinxnotes-isso">📦sphinxnotes-isso</a>，文章底部可以看到 Isso 的评论框。</p>
-<p>随着实践的增多和一些扩展的完成，我的笔记终于慢慢成形了。
-- 按体裁对内容进行分类，分为 博客、笔记、随记、手册、收藏等几类，</p>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<span class="docutils literal">/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system.rst</span>, line 282)</p>
-<p>Unexpected indentation.</p>
+<p>值得一提的是，Sphinx 的 sidebar 并不是全局的，可以用 glob pattern 让不同的页面用不同的，因此可以让 ABlog 引入的博客侧边栏不会影响现有的其他的文档：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">standard_page</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;about.html&#39;</span><span class="p">,</span> <span class="s1">&#39;localtoc.html&#39;</span><span class="p">,</span> <span class="s1">&#39;searchbox.html&#39;</span><span class="p">]</span>
+<span class="n">blog_post_page</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;about.html&#39;</span><span class="p">,</span> <span class="s1">&#39;postcard.html&#39;</span><span class="p">,</span> <span class="s1">&#39;localtoc.html&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;recentposts.html&#39;</span><span class="p">,</span> <span class="s1">&#39;tagcloud.html&#39;</span><span class="p">,</span> <span class="s1">&#39;categories.html&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;archives.html&#39;</span><span class="p">,</span> <span class="s1">&#39;searchbox.html&#39;</span><span class="p">]</span>
+
+<span class="n">html_sidebars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;blog&#39;</span><span class="p">:</span> <span class="n">blog_post_page</span><span class="p">,</span> <span class="c1"># ABlog&#39;s &quot;All Posts&quot; page</span>
+    <span class="s1">&#39;blog/**&#39;</span><span class="p">:</span> <span class="n">blog_post_page</span><span class="p">,</span> <span class="c1"># Inlucde posts and autogenerated pages</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<blockquote>
-<div><p>避免了不知道记在哪里的困境 。</p>
-</div></blockquote>
+<p>两种 sidebar 对比如图：</p>
+<figure class="align-default" id="id24">
+<img alt="../_images/sphinx-sidebar-with-without-ablog.png" src="../_images/sphinx-sidebar-with-without-ablog.png" />
+<figcaption>
+<p><span class="caption-text">左：默认 sidebar，右：博客 sidebar</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>比较遗憾的是，之前使用的 sphinx_rtd_theme 并不听 Sphinx 的 sidebar 配置 只能换成了默认的 Alabaster theme</p>
+</div>
+</section>
+<section id="sphinxnotes">
+<h3>SphinxNotes 还有什么？<a class="headerlink" href="#sphinxnotes" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
-<li><p>用 <a class="reference external" href="https://github.com/sphinx-notes/lilypond">⛺sphinx-notes/lilypond</a> 来保存 <a class="reference internal" href="../collections/scores/index.html"><span class="doc">谱子</span></a></p></li>
-<li><p>用 <a class="reference external" href="https://github.com/sphinx-notes/any">⛺sphinx-notes/any</a> 来结构化地记录 <a class="reference internal" href="../about/friends.html"><span class="doc">友链</span></a>、
-<a class="reference internal" href="../collections/art-works/index.html"><span class="doc">习作</span></a> 和 <a class="reference internal" href="../notes/books/index.html"><span class="doc">读书笔记</span></a>
-等</p></li>
-<li><p>用 <a class="reference external" href="https://github.com/executablebooks/sphinx-panels">⛺executablebooks/sphinx-panels</a> 为首页分栏，顺便还享用了它内置的
-<span class="fa fa-font-awesome"></span> 支持</p></li>
+<li><p>用 LilyPond + <a class="reference external" href="https://pypi.org/project/sphinx-notes-lilypond">📦sphinx-notes-lilypond</a> 来显示音符 <img class="lilypond-score" src=".././_lilypond/fe054cc0f6577b37cbee4644af6855a6ff620a5c/music.preview.png" alt="\relative { c' }" align="absbottom"/>  和 <a class="reference internal" href="../collections/scores/index.html"><span class="doc">带试听音频的乐谱</span></a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/sphinxnotes-strike">📦sphinxnotes-strike</a> 提供了 <code class="code docutils literal notranslate"><span class="pre">del</span></code> role 用来显示 reST 不支持的 <span class="sphinxnotes-strike">删除线</span></p></li>
 </ul>
+</section>
+<section id="id16">
+<h3>其他扩展<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>用 <code class="code docutils literal notranslate"><span class="pre">sphinx.ext.extlink</span></code> 来方便地生成外部链接</p></li>
+<li><p>用 <code class="code docutils literal notranslate"><span class="pre">sphinx.ext.graphviz</span></code> 和 <a class="reference external" href="https://pypi.org/project/sphinxcontrib-plantuml">📦sphinxcontrib-plantuml</a> 来各种图表</p></li>
+<li><p>用 <a class="reference external" href="https://github.com/executablebooks/sphinx-panels">⛺executablebooks/sphinx-panels</a> 提供 reST 不支持的分栏功能，顺便还享用了它内置的 <span class="fa fa-font"></span> Font Awesome 支持</p></li>
+</ul>
+<div class="admonition-todo admonition" id="id17">
+<p class="admonition-title">待处理</p>
+<p>see conf.py</p>
+</div>
 <p class="rubric">脚注</p>
 <dl class="footnote brackets">
 <dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>和 <a class="reference internal" href="../about/friends.html#friend-VOID001" title="friend VOID001"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤VOID001</span></code></a> 的 <a class="reference external" href="https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530">对话节选</a></p>
 </dd>
-<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id12">2</a></span></dt>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id8">2</a></span></dt>
 <dd><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">https://docutils.sourceforge.io/rst.html</a></p>
 </dd>
-<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id13">3</a></span></dt>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id9">3</a></span></dt>
 <dd><p><a class="reference external" href="https://www.sphinx-doc.org">https://www.sphinx-doc.org</a></p>
 </dd>
-<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id16">4</a></span></dt>
-<dd><p><span class="xref std std-doc">man/git</span></p>
+<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id12">4</a></span></dt>
+<dd><p><a class="reference internal" href="../man/git.html"><span class="doc">Git</span></a></p>
 </dd>
 </dl>
 <hr class="docutils" />
@@ -469,17 +494,20 @@
   <ul>
 <li><a class="reference internal" href="#">我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由</a><ul>
 <li><a class="reference internal" href="#id3">漫长的选型</a></li>
-<li><a class="reference internal" href="#id8">我的需求</a><ul>
-<li><a class="reference internal" href="#id9">场景</a></li>
-<li><a class="reference internal" href="#id11">选型</a></li>
+<li><a class="reference internal" href="#id4">我的需求</a><ul>
+<li><a class="reference internal" href="#id5">场景</a></li>
+<li><a class="reference internal" href="#id7">选型</a></li>
 <li><a class="reference internal" href="#sphinx">历史选择了 Sphinx</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id15">系统架构</a><ul>
+<li><a class="reference internal" href="#id11">系统架构</a><ul>
 <li><a class="reference internal" href="#git">Git</a></li>
 <li><a class="reference internal" href="#neo-vim">Neo(Vim)</a></li>
 <li><a class="reference internal" href="#vim">从终端和 Vim 快速访问</a></li>
-<li><a class="reference internal" href="#id17">博客</a></li>
+<li><a class="reference internal" href="#id13">描述、引用和索引</a></li>
+<li><a class="reference internal" href="#id15">博客</a></li>
+<li><a class="reference internal" href="#sphinxnotes">SphinxNotes 还有什么？</a></li>
+<li><a class="reference internal" href="#id16">其他扩展</a></li>
 </ul>
 </li>
 </ul>

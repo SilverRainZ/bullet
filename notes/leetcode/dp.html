@@ -115,7 +115,7 @@
 </ul>
 </div>
 <section id="id4">
-<h2><a class="toc-backref" href="#id17">排列组合问题 <a class="footnote-reference brackets" href="#id14" id="id3">1</a></a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>排列组合问题 <a class="footnote-reference brackets" href="#id14" id="id3">1</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>顺序的有关与无关</p>
 <dl class="simple">
 <dt>排列</dt><dd><ul class="simple">
@@ -133,7 +133,7 @@
 </dl>
 </section>
 <section id="id6">
-<h2><a class="toc-backref" href="#id18">概念 <a class="footnote-reference brackets" href="#id15" id="id5">2</a></a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2>概念 <a class="footnote-reference brackets" href="#id15" id="id5">2</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>抽象问题 - 清晰的可枚举的问题</p></li>
 <li><p>寻找可以利用的重复计算</p></li>
@@ -146,11 +146,11 @@
 </div>
 </section>
 <section id="id8">
-<h2><a class="toc-backref" href="#id19">背包九讲 <a class="footnote-reference brackets" href="#id16" id="id7">3</a></a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>背包九讲 <a class="footnote-reference brackets" href="#id16" id="id7">3</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <section id="id9">
-<h3><a class="toc-backref" href="#id20">01 背包问题</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3>01 背包问题<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <section id="id10">
-<h4><a class="toc-backref" href="#id21">问题抽象</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<h4>问题抽象<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
 <p><code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span></code> 为前 i 件物品放入容量为 v 的背包时的最大价值，即此时的 <code class="code docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">i]</span></code> 的物品都做出了 <em>未知但正确</em> 的选择，面对「放不放 i」这个问题，选择的方式是</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="o">-</span><span class="n">Ci</span><span class="p">]</span> <span class="o">+</span> <span class="n">Wi</span><span class="p">,</span> <span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="p">])</span>
 </pre></div>
@@ -170,7 +170,7 @@ for i &lt;- 1 to N
 </div>
 </section>
 <section id="id11">
-<h4><a class="toc-backref" href="#id22">空间复杂度</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<h4>空间复杂度<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
 <p>在 1 to N 的循环里，<code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span> <span class="pre">&lt;-</span> <span class="pre">max(F[i-1,</span> <span class="pre">v],</span> <span class="pre">F[i-1,</span> <span class="pre">v-Ci]</span> <span class="pre">+</span> <span class="pre">Wi)</span></code> 说明 <code class="code docutils literal notranslate"><span class="pre">F[i,</span> <span class="pre">v]</span></code> 只依赖上一次循环（<code class="code docutils literal notranslate"><span class="pre">i-1</span></code>）的结果，所以只需要存 <code class="code docutils literal notranslate"><span class="pre">F[i-1,</span> <span class="pre">Ci-1..V]</span></code> 而不是矩阵 <code class="code docutils literal notranslate"><span class="pre">F[0..N,</span> <span class="pre">0..V]</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">WARNING</span><span class="p">::</span> <span class="n">错误的伪代码</span>
 <span class="n">F</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="n">V</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
@@ -188,7 +188,7 @@ for i &lt;- 1 to N
 </div>
 </section>
 <section id="id12">
-<h4><a class="toc-backref" href="#id23">恰好放满背包</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<h4>恰好放满背包<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
 <p>原始问题仅要求了「价值最大」， 当挑选第一个物品时 <code class="code docutils literal notranslate"><span class="pre">F[1,</span> <span class="pre">v]</span> <span class="pre">=</span> <span class="pre">max(F[0,</span> <span class="pre">v-Ci]</span> <span class="pre">+</span> <span class="pre">Wi,</span> <span class="pre">F[0,</span> <span class="pre">v])</span></code> 是可以选择 <code class="code docutils literal notranslate"><span class="pre">F[0,</span> <span class="pre">v]</span></code> 且 <code class="code docutils literal notranslate"><span class="pre">v!=0</span></code> 的，此时背包出现了空隙。</p>
 <p>若要求恰好把背包放满，让其无法选 F[0,v] 即可:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="mi">0</span>
@@ -201,13 +201,13 @@ for i &lt;- 1 to N
 </div>
 </section>
 <section id="ci-v">
-<h4><a class="toc-backref" href="#id24"><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化</a><a class="headerlink" href="#ci-v" title="永久链接至标题">¶</a></h4>
+<h4><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化<a class="headerlink" href="#ci-v" title="永久链接至标题">¶</a></h4>
 <p>:’( 不想看算了吧。</p>
 </section>
 </section>
 </section>
 <section id="id13">
-<h2><a class="toc-backref" href="#id25">参考</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<h2>参考<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <dl class="footnote brackets">
 <dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
 <dd><p><a class="reference external" href="https://www.zhihu.com/question/450108393/answer/1788658078">https://www.zhihu.com/question/450108393/answer/1788658078</a></p>

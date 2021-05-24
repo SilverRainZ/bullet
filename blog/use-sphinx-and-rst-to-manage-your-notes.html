@@ -88,7 +88,7 @@
 
           <div class="body" role="main">
              <section id="sphinx-restructuredtext">
-<h1><a class="toc-backref" href="#id8">用 Sphinx + reStructuredText 构建笔记系统</a><a class="headerlink" href="#sphinx-restructuredtext" title="永久链接至标题">¶</a></h1>
+<h1>用 Sphinx + reStructuredText 构建笔记系统<a class="headerlink" href="#sphinx-restructuredtext" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺SilverRainZ/bullet</a> 反馈</p>
@@ -113,7 +113,7 @@
 </ul>
 </div>
 <section id="id2">
-<h2><a class="toc-backref" href="#id9">前言</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>前言<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>GitBook 是一个用于发布书籍的平台，允许你用 Markdown 编写书籍并使用 git 仓库管理，
 还能通过这个平台发布到网络上，GitBook 同时也是 Gitbook 平台推出的书籍生成工具的名字。</p>
 <p>去年十月的的时候我开始用 GitBook + Markdown 维护自己的一些零碎的笔记。
@@ -126,7 +126,7 @@
 </ol>
 </section>
 <section id="node-js">
-<h2><a class="toc-backref" href="#id10">为什么我不喜欢 Node.js</a><a class="headerlink" href="#node-js" title="永久链接至标题">¶</a></h2>
+<h2>为什么我不喜欢 Node.js<a class="headerlink" href="#node-js" title="永久链接至标题">¶</a></h2>
 <p>我不知道 Node.js 开发者为何如此热衷于用它来造各种轮子甚至用来写各种本地应用。
 Node 的包管理器 npm 会将一个应用的所有依赖都安装在项目目录下。
 每个应用的依赖都是独立的 —— 这对部署来说很方便。并且 npm 的分包粒度相当细，
@@ -163,7 +163,7 @@ $ pacman -Ql python-sphinx | wc -l
 <p>以上所述的问题针对 GitBook 3.2.1 及以下版本。</p>
 </section>
 <section id="markdown-vs-restructuredtext">
-<h2><a class="toc-backref" href="#id11">Markdown vs reStructuredText</a><a class="headerlink" href="#markdown-vs-restructuredtext" title="永久链接至标题">¶</a></h2>
+<h2>Markdown vs reStructuredText<a class="headerlink" href="#markdown-vs-restructuredtext" title="永久链接至标题">¶</a></h2>
 <p>Markdown 是啥这里就不说了……Markdown 的问题在于它太轻又没有一个统一的标准。
 因此各个社区都自顾自地实现了一套自己的方言，同样是叫 Markdown，
 你在这里可以显示的内容，换了一个地方就打回原型。
@@ -246,7 +246,7 @@ Interpreted Text 的前后。reStructuredText 利用 Interpreted Text 实现了�
 </ul>
 </section>
 <section id="sphinx">
-<h2><a class="toc-backref" href="#id12">Sphinx 简介</a><a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h2>
+<h2>Sphinx 简介<a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h2>
 <p>Sphinx 是 Georg Brandl 用 Python 编写的文档创建工具，以 BSD 协议开源，使用
 reStructuredText 作为标记语言。Sphinx 被用来编写 <a class="reference external" href="https://docs.python.org/">Python 的官方文档</a>。
 去年 6 月的时候，<a class="reference external" href="https://lwn.net/Articles/692704/">Linux Kernel 也开始使用 Sphinx + reStructuredText 管理内核文档</a>。
@@ -264,7 +264,7 @@ reStructuredText 作为标记语言。Sphinx 被用来编写 <a class="reference
 </div></blockquote>
 </section>
 <section id="markdown-restructuredtext">
-<h2><a class="toc-backref" href="#id13">将 Markdown 笔记转化为 reStructuredText</a><a class="headerlink" href="#markdown-restructuredtext" title="永久链接至标题">¶</a></h2>
+<h2>将 Markdown 笔记转化为 reStructuredText<a class="headerlink" href="#markdown-restructuredtext" title="永久链接至标题">¶</a></h2>
 <p>使用 Sphinx 管理笔记的第一步是将之前笔记转成 rst 格式，Pandoc 大法好：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> md in <span class="k">$(</span>find . -name <span class="s1">&#39;*.md&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
     pandoc --from<span class="o">=</span>markdown --to<span class="o">=</span>rst --output<span class="o">=</span><span class="k">$(</span>dirname <span class="nv">$md</span><span class="k">)</span>/<span class="k">$(</span>basename <span class="nv">$md</span><span class="k">)</span>.rst <span class="nv">$md</span><span class="p">;</span>
@@ -273,7 +273,7 @@ reStructuredText 作为标记语言。Sphinx 被用来编写 <a class="reference
 </div>
 </section>
 <section id="shpinx">
-<h2><a class="toc-backref" href="#id14">Shpinx 的安装和使用</a><a class="headerlink" href="#shpinx" title="永久链接至标题">¶</a></h2>
+<h2>Shpinx 的安装和使用<a class="headerlink" href="#shpinx" title="永久链接至标题">¶</a></h2>
 <p>执行 <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span></code> 即可安装 Sphinx，Arch Linux 用户可以执行
 <code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">python-sphinx</span></code> 安装。Sphinx 提供了 <code class="code docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> 程序，
 可以交互式地建立一个 Sphinx 项目。项目目录下的 conf.py 储存了 Sphinx 的配置，
@@ -289,7 +289,7 @@ index.rst 则是默认的文档首页。</p>
 </div>
 </section>
 <section id="id5">
-<h2><a class="toc-backref" href="#id15">组织和索引</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>组织和索引<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>Sphinx 定义了 <code class="code docutils literal notranslate"><span class="pre">toctree</span></code> 指令作为目录树，各个文档由目录树组织在一起，
 在构建文档的时候，如果存在没有被引用到的文档，Sphinx 会发出警告。</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
@@ -324,7 +324,7 @@ Description.
 所有的笔记通过 index.rst 被组织到一起。</p>
 </section>
 <section id="id6">
-<h2><a class="toc-backref" href="#id16">使用 Read The Docs 发布</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2>使用 Read The Docs 发布<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="http://readthedocs.io/">Read The Docs</a> 是一个托管和展示文档的平台，支持 Sphinx
 项目。在网站上注册后，授权 Github 即可从 Github 那边导入仓库。</p>
 <p>因此可以将笔记本身托管在 Github 上，每次更新时会通过 webhook 自动更新
