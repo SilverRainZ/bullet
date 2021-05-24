@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-24T10:13:52.042921+00:00</updated>
+  <updated>2021-05-24T16:36:16.392524+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -16,6 +16,10 @@
     </author>
     <content type="html">&lt;section id="idf"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;地址在这里：&lt;a class="reference external" href="http://ctf.idf.cn/index.php?g=game&amp;amp;m=list&amp;amp;a=index&amp;amp;id=21"&gt;IDF逆向题&lt;/a&gt;
 这些题都比较水，好在我和它一样水。&lt;/p&gt;
 &lt;section id="python-btyecode"&gt;
@@ -285,8 +289,7 @@ byte_415768 db 73h
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/idf-reverse-writeup.html" rel="alternate"/>
-    <summary>地址在这里：IDF逆向题
-这些题都比较水，好在我和它一样水。1</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈1</summary>
     <category term="Reverse" label="Reverse"/>
     <published>2015-01-02T00:00:00+00:00</published>
   </entry>
@@ -299,6 +302,10 @@ byte_415768 db 73h
     </author>
     <content type="html">&lt;section id="hello-haskell"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
 &lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》（未找到）&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，这下子更没有不学的理由了。&lt;/p&gt;
 &lt;p&gt;多说一句，有趣的是这本书的译者之一竟然是 &lt;a class="reference internal" href="about/friends.html#friend-fleuria" title="friend fleurer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤fleuria&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; ，我曾经好几次发邮件询问他有关OS的事情，
@@ -357,8 +364,7 @@ byte_415768 db 73h
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/haskell-beginning.html" rel="alternate"/>
-    <summary>我想学Haskell的原因在很大程度上拜轮子叔所赐，前一阵子在图书馆意外发现了一本
-《Haskell 趣学指南》（未找到） ，这下子更没有不学的理由了。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Haskell" label="Haskell"/>
     <published>2015-01-30T00:00:00+00:00</published>
   </entry>
@@ -371,6 +377,10 @@ byte_415768 db 73h
     </author>
     <content type="html">&lt;section id="syntax-highligh-hs"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。&lt;/p&gt;
 &lt;p&gt;不过这种替换的做法有很大的问题，当你的字符串或者注释里出现了关键字，那么里面也会被高亮，
 有个想法就是将整段代码按是否高亮划分为一些元素:&lt;/p&gt;
@@ -532,7 +542,7 @@ byte_415768 db 73h
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/syntax-highlight-in-haskell.html" rel="alternate"/>
-    <summary>书还没看完，不过还是很想用Haskell写点什么出来，所以简单地实现了一个基于替换的Java代码高亮。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Haskell" label="Haskell"/>
     <published>2015-02-16T00:00:00+00:00</published>
   </entry>
@@ -545,11 +555,15 @@ byte_415768 db 73h
     </author>
     <content type="html">&lt;section id="windows"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
 没注意到当前我的账户名是中文的. 导致了我在 &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`&lt;/span&gt;&lt;/a&gt;C:Users` 目录下的用户目录变成了中文的.
 本来以为问题不大, 没想到有些程序对中文路径名的支持还是这么差.&lt;/p&gt;
 &lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/windows-chinese-username.rst&lt;/span&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/windows-chinese-username.rst&lt;/span&gt;, line 12); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Inline interpreted text or phrase reference start-string without end-string.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;首先是Virtual Box, 虽然能够安装上, 但是无论如何虚拟机就是打不开, 经确认是因为路径的关系了,
@@ -582,9 +596,7 @@ byte_415768 db 73h
 &lt;section data-isso-id="/blog/windows-chinese-username" data-title="把 Windows 中文用户名改为英文" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/windows-chinese-username.html" rel="alternate"/>
-    <summary>上次暑假回家重装系统,Win 8.1 和 openSUSE 13.2, 在同步Outlook账号的时候,
-没注意到当前我的账户名是中文的. 导致了我在 `C:Users` 目录下的用户目录变成了中文的.
-本来以为问题不大, 没想到有些程序对中文路径名的支持还是这么差.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Windows" label="Windows"/>
     <published>2015-03-08T00:00:00+00:00</published>
   </entry>
@@ -597,6 +609,10 @@ byte_415768 db 73h
     </author>
     <content type="html">&lt;section id="haskell"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
 想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
 好吧原来这么久简单的东西花了我那么多时间.&lt;/p&gt;
@@ -673,9 +689,7 @@ byte_415768 db 73h
 &lt;section data-isso-id="/blog/matrix-arithmetic-in-haskell" data-title="用 Haskell 实现的矩阵运算" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/matrix-arithmetic-in-haskell.html" rel="alternate"/>
-    <summary>这学期开线性代数, 虽然我一向不喜欢数学, 本着将Haskell运用到实践中的精神,
-想把上课教的几个矩阵运算写出来…虽然调试了半天, 回头一看,
-好吧原来这么久简单的东西花了我那么多时间.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Haskell" label="Haskell"/>
     <published>2015-03-17T00:00:00+00:00</published>
   </entry>
@@ -688,6 +702,10 @@ byte_415768 db 73h
     </author>
     <content type="html">&lt;section id="linux"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.&lt;/p&gt;
 &lt;p&gt;因为这学期又开始做手头的OS67, 打代码的环境就又切换到Linux下来了, Linux用得频繁了,
 自然就会想折腾了. 但是在这几天的折腾过程中, 我发现我似乎不是那么适合使用Linux.&lt;/p&gt;
@@ -743,7 +761,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="/blog/some-minds-about-linux" data-title="不求甚解者用不好 Linux" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/some-minds-about-linux.html" rel="alternate"/>
-    <summary>今晚无聊到写这么一篇废话, 很大程度上是想自我批评一下.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="瞎扯" label="瞎扯"/>
     <published>2015-03-27T00:00:00+00:00</published>
   </entry>
@@ -756,6 +774,10 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;section id="do"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;明明在开学的时候，&lt;a class="reference internal" href="notes/books/index.html#book-9787115335593" title="book Haskell 趣学指南"&gt;&lt;code class="xref any any-book docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Haskell&lt;/span&gt; &lt;span class="pre"&gt;趣学指南》（未找到）&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 就只剩下三十来页了，但是还书日在即，
 我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
 可是至今没看完。&lt;/p&gt;
@@ -847,9 +869,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="/blog/do-notation-and-bind-of-haskell" data-title="do 记法和 &amp;gt;&amp;gt;= 的等效表达" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/do-notation-and-bind-of-haskell.html" rel="alternate"/>
-    <summary>明明在开学的时候，《Haskell 趣学指南》（未找到） 就只剩下三十来页了，但是还书日在即，
-我就到图书馆问阿姨能不能还了马上再借，这样做的结果是，书还在我手里，
-可是至今没看完。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Haskell" label="Haskell"/>
     <published>2015-04-09T00:00:00+00:00</published>
   </entry>
@@ -862,6 +882,10 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;section id="hack"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
 大概八点二十分到机房, 老师并没有说什么.&lt;/p&gt;
 &lt;p&gt;这几天的心情不是太爽, 因此实验课没打算做作业. 然而桌面上有个OD, 就随便打开来看看了.&lt;/p&gt;
@@ -894,8 +918,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;section data-isso-id="/blog/record-of-a-boring-hack" data-title="记一次毫无技术含量的 Hack" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/record-of-a-boring-hack.html" rel="alternate"/>
-    <summary>早上起晚了, 八点的汇编实验课七点三十五才起床, 起来抄完待会要交的作业然后去等公交,
-大概八点二十分到机房, 老师并没有说什么.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Reverse" label="Reverse"/>
     <published>2015-05-12T00:00:00+00:00</published>
   </entry>
@@ -908,6 +931,10 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
     </author>
     <content type="html">&lt;section id="id1"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;这里面没有什么自己的东西,
 都是从看雪的&lt;a class="reference external" href="http://bbs.pediy.com/showthread.php?t=184679"&gt;OD从零系列教程&lt;/a&gt;里看来的.
 最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,
@@ -1222,7 +1249,7 @@ winetricks就会提示 wineserver not found, 不能启动, 安装了完整的win
 &lt;p&gt;这种反调试方法比前面的方法更具技巧性一些, 利用了Windows的异常处理机制,
 但是我还不了解这些异常处理, 不敢胡说,暂时略过.&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/threee-way-of-anti-debug.rst&lt;/span&gt;, line 320)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/threee-way-of-anti-debug.rst&lt;/span&gt;, line 322)&lt;/p&gt;
 &lt;p&gt;No directive entry for “raw” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “raw”.&lt;/p&gt;
 &lt;/div&gt;
@@ -1379,10 +1406,7 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/threee-way-of-anti-debug.html" rel="alternate"/>
-    <summary>这里面没有什么自己的东西,
-都是从看雪的OD从零系列教程里看来的.
-最近看到的几章都是讲反调试的, 虽然对其本质还没有去深入了解,
-还是觉得应该先把这些记下来.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Reverse" label="Reverse"/>
     <published>2015-05-19T00:00:00+00:00</published>
   </entry>
@@ -1395,6 +1419,10 @@ Hide Debugger插件的OutputDebugString exploit选项&lt;/p&gt;&lt;/li&gt;
     </author>
     <content type="html">&lt;section id="python"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;因为现在经常在三个系统(Win, openSUSE, Arch)之间切换, 一些软件的配置文件的部署成了问题,
 每次都从一台机复制到另一台实在麻烦, 而且不知道哪台电脑上使用的配置是最新改动的.&lt;/p&gt;
 &lt;p&gt;所以后来就把配置文件托管到了GitCafe, 后来因为用不惯 GitCafe 的 web 界面,
@@ -1499,8 +1527,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/first-attempt-of-python.html" rel="alternate"/>
-    <summary>因为现在经常在三个系统(Win, openSUSE, Arch)之间切换, 一些软件的配置文件的部署成了问题,
-每次都从一台机复制到另一台实在麻烦, 而且不知道哪台电脑上使用的配置是最新改动的.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Python" label="Python"/>
     <published>2015-06-15T00:00:00+00:00</published>
   </entry>
@@ -1513,6 +1540,10 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
     </author>
     <content type="html">&lt;section id="vim"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:&lt;/p&gt;
 &lt;p&gt;首先我把本来 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;.vimrc&lt;/span&gt;&lt;/code&gt; 里所有对于 Windows 的特殊配置都删除了, 反正现在也不怎么用 Windows,
 同时维护兼容两个平台的配置文件实在是麻烦.&lt;/p&gt;
@@ -1521,7 +1552,7 @@ sync.py 这个脚本是一个带参数运行的小工具, 需要输出 help 信�
 &lt;p&gt;这个是依云写的插件, 用来在普通模式关闭输入法, 插入模式自动恢复上次的输入法状态.
 (当然你用的得是 fctix)&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/install-vim-plugins.rst&lt;/span&gt;, line 9); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/install-vim-plugins.rst&lt;/span&gt;, line 3); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Duplicate implicit target name: “fcitx.vim”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;从这里可以下载: &lt;a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=3764"&gt;fcitx.vim&lt;/a&gt;.&lt;/p&gt;
@@ -1655,7 +1686,7 @@ $ ~ ./install.sh
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/install-vim-plugins.html" rel="alternate"/>
-    <summary>今天考完计组, 有一个空闲的下午, 于是决定来配一配 vim, 装了几个插件, 记录如下:</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Vim" label="Vim"/>
     <published>2015-07-02T00:00:00+00:00</published>
   </entry>
@@ -1668,11 +1699,15 @@ $ ~ ./install.sh
     </author>
     <content type="html">&lt;section id="arch-linux"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:&lt;/p&gt;
 &lt;img alt="" src="_images/archlinux-screenshot.png" /&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 17)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 19)&lt;/p&gt;
 &lt;p&gt;No directive entry for “contents” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;/div&gt;
@@ -1708,7 +1743,7 @@ Using English fallback for directive “contents”.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;dmenu&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;span class="sphinxnotes-strike"&gt;trayer&lt;/span&gt; trayer-srg&lt;sup&gt;AUR&lt;/sup&gt;&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 33)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 35)&lt;/p&gt;
 &lt;p&gt;No role entry for “sup” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for role “sup”.&lt;/p&gt;
 &lt;/div&gt;
@@ -1796,7 +1831,7 @@ Using English fallback for role “sup”.&lt;/p&gt;
 &lt;p&gt;对于 Qt 程序, dolphin 有很好看的外观, 但是同为 kde-applications 的
 konsole 的界面却依然很丑…&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 139)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 141)&lt;/p&gt;
 &lt;p&gt;No directive entry for “topic” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/div&gt;
@@ -1827,8 +1862,7 @@ Using English fallback for directive “topic”.&lt;/p&gt;
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/configure-of-archlinux.html" rel="alternate"/>
-    <summary>这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
-先上张图:</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Linux" label="Linux"/>
     <published>2015-07-20T00:00:00+00:00</published>
   </entry>
@@ -1841,6 +1875,10 @@ Using English fallback for directive “topic”.&lt;/p&gt;
     </author>
     <content type="html">&lt;section id="overthewire-bandit"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;题目地址: &lt;a class="reference external" href="http://overthewire.org/wargames/bandit/"&gt;OverTheWire: Bandit&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;考的都是些 Linux 下的基本操作, 虽然说是基本操作, 不过那些命令都没用过,
 所以做了这些题依然觉得受益匪浅. 其中还有有几道题很有意思…
@@ -2064,7 +2102,7 @@ more ~/text.txt
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-bandit.html" rel="alternate"/>
-    <summary>题目地址: OverTheWire: Bandit.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="CTF" label="CTF"/>
     <published>2015-07-26T00:00:00+00:00</published>
   </entry>
@@ -2077,6 +2115,10 @@ more ~/text.txt
     </author>
     <content type="html">&lt;section id="minix-v1"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2454,7 +2496,7 @@ i 节点位图占据 &lt;code class="code docutils literal notranslate"&gt;&lt;s
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/minix-v1-file-system.html" rel="alternate"/>
-    <summary>Minix v1 文件系统的实现Inode structure</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈Inode structure</summary>
     <category term="OS" label="OS"/>
     <published>2015-08-07T00:00:00+00:00</published>
   </entry>
@@ -2467,13 +2509,17 @@ i 节点位图占据 &lt;code class="code docutils literal notranslate"&gt;&lt;s
     </author>
     <content type="html">&lt;section id="flag"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;现在不开始的话, 以后也不会开始了.&lt;/p&gt;
 &lt;img alt="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" /&gt;
 &lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/flag" data-title="立 Flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/flag.html" rel="alternate"/>
-    <summary>现在不开始的话, 以后也不会开始了.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <published>2015-09-09T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -2485,9 +2531,16 @@ i 节点位图占据 &lt;code class="code docutils literal notranslate"&gt;&lt;s
     </author>
     <content type="html">&lt;section id="id1"&gt;
 
-&lt;p&gt;update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
 并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
 还请参考 &lt;a class="reference external" href="https://th0ar.gitbooks.io/xv6-chinese/content/content/chapter5.html"&gt;第五章 调度 | xv6 中文文档&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="contents topic" id="id2"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2824,9 +2877,7 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/process-scheduler-1.html" rel="alternate"/>
-    <summary>update: 在写这篇的时候, 我发觉我很难在这短短一篇博文里把进程的实现将清楚,
-并且可能存在一些理解的偏差, 因此本篇仅供参考, 更加准确的表述,
-还请参考 第五章 调度 | xv6 中文文档</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="OS" label="OS"/>
     <published>2015-09-14T00:00:00+00:00</published>
   </entry>
@@ -2839,6 +2890,15 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
     </author>
     <content type="html">&lt;section id="ctf-reverse-300"&gt;
 
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/2015-huashangctf-re300.rst&lt;/span&gt;, line 9)&lt;/p&gt;
+&lt;p&gt;No directive entry for “note” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “note”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;程序在此： &lt;a class="reference external" href="http://jianguoyun.com/p/Dbz27p8QtNrvBRiq2w4"&gt;toetrix-crackme.exe&lt;/a&gt;， VC++ 6.0 编写，无壳， CLI 程序。&lt;/p&gt;
 &lt;p&gt;这题本来我是一点都不会的，幸得尖刀某大牛指点思路，之后回头看反编译的代码
 总算是摸清楚了程序的流程。因为这种复杂度的题目之前没有做出来过，特此记录。&lt;/p&gt;
@@ -2992,11 +3052,6 @@ iret 就会将我们特地安排的值覆盖到寄存器上, 这个工作由&lt;
 &lt;p&gt;接下来函数把箱子的坐标 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;(x,&lt;/span&gt; &lt;span class="pre"&gt;y)&lt;/span&gt;&lt;/code&gt; 和 移动终点的坐标 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;(i+1,&lt;/span&gt; &lt;span class="pre"&gt;y)&lt;/span&gt;&lt;/code&gt; 传给函数 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xchg_point&lt;/span&gt;&lt;/code&gt;，
 函数 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xchg_point&lt;/span&gt;&lt;/code&gt; 比较简单，仅仅是交换两个点的值。&lt;/p&gt;
 &lt;p&gt;这样就完成了一次左移，&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;go_right&lt;/span&gt;&lt;/code&gt; &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;go_up&lt;/span&gt;&lt;/code&gt; 等函数同理。&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/2015-huashangctf-re300.rst&lt;/span&gt;, line 185)&lt;/p&gt;
-&lt;p&gt;No directive entry for “note” in module “docutils.parsers.rst.languages.zh_cn”.
-Using English fallback for directive “note”.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="admonition-title"&gt;注解&lt;/p&gt;
 &lt;p&gt;如果终点是边界的话，箱子的值会被置为 1，交换后的结果就是：箱子处变为 0，终点变为 1。&lt;/p&gt;
@@ -3053,7 +3108,8 @@ Using English fallback for directive “note”.&lt;/p&gt;
 &lt;section data-isso-id="/blog/2015-huashangctf-re300" data-title="2015 华山杯 CTF Reverse 300" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/2015-huashangctf-re300.html" rel="alternate"/>
-    <summary>程序在此： toetrix-crackme.exe， VC++ 6.0 编写，无壳， CLI 程序。</summary>
+    <summary>No directive entry for “note” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “note”.</summary>
     <category term="CTF" label="CTF"/>
     <published>2015-11-02T00:00:00+00:00</published>
   </entry>
@@ -3066,6 +3122,10 @@ Using English fallback for directive “note”.&lt;/p&gt;
     </author>
     <content type="html">&lt;section id="c"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;前天是操作系统课程设计的截止日期，这意味这 &lt;a class="reference external" href="https://github.com/SilverRainZ/OS67"&gt;OS67 这个坑&lt;/a&gt;
 已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
 报告应该可以随便水过去，据说连答辩都可以省掉了……&lt;/p&gt;
@@ -3226,9 +3286,7 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gen-graph-from-c-code.html" rel="alternate"/>
-    <summary>前天是操作系统课程设计的截止日期，这意味这 OS67 这个坑
-已经告一段落了，接下来的事情是写报告，不过鉴于 OS 的老师这一学期都没出现过，
-报告应该可以随便水过去，据说连答辩都可以省掉了……</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="C" label="C"/>
     <published>2015-12-25T00:00:00+00:00</published>
   </entry>
@@ -3241,6 +3299,10 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
     </author>
     <content type="html">&lt;section id="overthewire-leviathan"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;地址: &lt;a class="reference external" href="http://overthewire.org/wargames/leviathan/"&gt;OverTheWire: Leviathan&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;说实话题目不难，可是从开始做题到做完的时间跨度却有一个多月，人家 rr 却做了一会儿就搞定了，我都在干嘛呢？&lt;/p&gt;
 &lt;p&gt;完整的笔记在 &lt;a class="reference external" href="https://github.com/SilverRainZ/no-silver-bullet/blob/master/ctf/wargame-leviathan/wargame-leviathan.md"&gt;这里&lt;/a&gt;，
@@ -3352,7 +3414,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;section data-isso-id="/blog/overthewire-leviathan" data-title="OverTheWire Leviathan" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/overthewire-leviathan.html" rel="alternate"/>
-    <summary>地址: OverTheWire: Leviathan.</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="CTF" label="CTF"/>
     <published>2016-01-01T00:00:00+00:00</published>
   </entry>
@@ -3365,6 +3427,10 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
     </author>
     <content type="html">&lt;section id="teeworlds"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
 （什么是 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/Teeworlds"&gt;teeworlds&lt;/a&gt;？），
 然而大家总是凑不到一块玩，于是就琢磨能不能做个查询游戏信息的 IRC bot，
@@ -3422,10 +3488,7 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;section data-isso-id="/blog/get-teeworlds-server-information" data-title="获取 teeworlds 服务器信息" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/get-teeworlds-server-information.html" rel="alternate"/>
-    <summary>前阵子凤凰卷给 ArchliunxCN 社区开了个 teeworlds 游戏服务器
-（什么是 teeworlds？），
-然而大家总是凑不到一块玩，于是就琢磨能不能做个查询游戏信息的 IRC bot，
-有人进服务器是给个提示，bot 不难做，倒是对如何获取游戏信息没什么思路。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Teeworlds" label="Teeworlds"/>
     <published>2016-02-12T00:00:00+00:00</published>
   </entry>
@@ -3438,6 +3501,10 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
     </author>
     <content type="html">&lt;section id="thinkpad-l450"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;img alt="" src="_images/thinkpad-l450.jpg" /&gt;
 &lt;p&gt;元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
 只有 SSD 而没有 HDD 这点颇合我意，毕竟我没有囤积资源的癖好，256G 足矣，而且还能省下一笔 HDD 的钱。
@@ -3608,9 +3675,7 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;section data-isso-id="/blog/thinkpad-l450" data-title="入手 ThinkPad L450" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/thinkpad-l450.html" rel="alternate"/>
-    <summary>元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
-只有 SSD 而没有 HDD 这点颇合我意，毕竟我没有囤积资源的癖好，256G 足矣，而且还能省下一笔 HDD 的钱。
-机子在 ebay 上是 ￥3200，到手花了 ￥3700，以国内的价格来算还是值得的。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="设备" label="设备"/>
     <published>2016-03-11T00:00:00+00:00</published>
   </entry>
@@ -3623,13 +3688,17 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
     </author>
     <content type="html">&lt;section id="gsoc-2016"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;;-) 难以置信。&lt;/p&gt;
 &lt;img alt="" src="_images/gsoc-2016-mail.png" /&gt;
 &lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/gsoc-2016" data-title="GSoC 2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016.html" rel="alternate"/>
-    <summary>;-) 难以置信。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="GSoC" label="GSoC"/>
     <published>2016-04-23T00:00:00+00:00</published>
   </entry>
@@ -3642,6 +3711,10 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
     </author>
     <content type="html">&lt;section id="makefile"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;Note: 这篇文章假设你已经知道基本的 Makefile 编写规则&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
@@ -3736,7 +3809,7 @@ srain-avatar.png 是程序要用到的图片。srain-icon.png 是程序图标。
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;bindir&lt;/span&gt;&lt;/code&gt; 安装可执行文件的位置，其值应为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;$(exec_prefix)/bin&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 108)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 110)&lt;/p&gt;
 &lt;p&gt;Unexpected possible title overline or transition.
 Treating it as ordinary text because it’s so short.&lt;/p&gt;
 &lt;/div&gt;
@@ -3747,7 +3820,7 @@ Treating it as ordinary text because it’s so short.&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;datarootdir&lt;/span&gt;&lt;/code&gt; 用来安装只读的，架构无关的数据文件，其值应为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;$(prefix)/share&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;sysconfdir&lt;/span&gt;&lt;/code&gt; 用来安装只读的配置文件，其值应为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;$(predix)/etc&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 112)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/practical-makefile-for-packaging.rst&lt;/span&gt;, line 114)&lt;/p&gt;
 &lt;p&gt;Unexpected possible title overline or transition.
 Treating it as ordinary text because it’s so short.&lt;/p&gt;
 &lt;/div&gt;
@@ -3933,7 +4006,7 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/practical-makefile-for-packaging.html" rel="alternate"/>
-    <summary>Note: 这篇文章假设你已经知道基本的 Makefile 编写规则</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Linux" label="Linux"/>
     <category term="C" label="C"/>
     <category term="Makefile" label="Makefile"/>
@@ -3948,6 +4021,10 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
     </author>
     <content type="html">&lt;section id="gsoc-2016"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;这是一篇拖了一个月的流水帐……&lt;/p&gt;
 &lt;p&gt;谷歌编程之夏（Google Summer of Code/GSoC）是 Google 举办的年度编程活动，
 征集学生为开源社区编写代码，时间持续三个月，成功完成项目的学生可以得到 Google
@@ -4167,7 +4244,7 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016-sum-up.html" rel="alternate"/>
-    <summary>这是一篇拖了一个月的流水帐……GSoC 2013 Project</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈GSoC 2013 Project</summary>
     <category term="GSoC" label="GSoC"/>
     <published>2016-09-29T00:00:00+00:00</published>
   </entry>
@@ -4180,6 +4257,10 @@ changelog，把整理好的两个 patch 发给他们，并写了一封总结邮�
     </author>
     <content type="html">&lt;section id="sphinx-restructuredtext"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 &lt;a class="reference external" href="http://readthedocs.io/"&gt;Read The Docs&lt;/a&gt;
 上发布，地址是 &lt;a class="reference external" href="http://notes.silverrainz.me"&gt;notes.silverrainz.me&lt;/a&gt;，旧域名在过期前也同样有效。&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -4426,8 +4507,7 @@ Read The Docs 上的文档。&lt;/p&gt;
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/use-sphinx-and-rst-to-manage-your-notes.html" rel="alternate"/>
-    <summary>前几天把个人笔记从 GitBook 迁移到了 Sphinx 上，并在 Read The Docs
-上发布，地址是 notes.silverrainz.me，旧域名在过期前也同样有效。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Sphinx" label="Sphinx"/>
     <category term="reStructuredText" label="reStructuredText"/>
     <published>2017-03-29T00:00:00+00:00</published>
@@ -4441,6 +4521,10 @@ Read The Docs 上的文档。&lt;/p&gt;
     </author>
     <content type="html">&lt;section id="isso"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;前阵子多说 &lt;a class="reference external" href="http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241"&gt;对外宣布&lt;/a&gt;
 它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的
 评论管理后台的域名也已经停止解析了。&lt;/p&gt;
@@ -4789,9 +4873,7 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/switch-from-duoshuo-to-isso.html" rel="alternate"/>
-    <summary>前阵子多说 对外宣布
-它将在 2017 年 6 月 1 日停止服务。截至 6 月 9 日，评论框已经无法使用，甚至我的
-评论管理后台的域名也已经停止解析了。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Isso" label="Isso"/>
     <category term="多说" label="多说"/>
     <published>2017-06-10T00:00:00+00:00</published>
@@ -4805,6 +4887,10 @@ $ python2 duoshuo-migrator.py -i duoshuo.json -o wp.xml
     </author>
     <content type="html">&lt;section id="srain-1-0"&gt;
 
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="topic"&gt;
 &lt;p class="topic-title"&gt;前注&lt;/p&gt;
 &lt;p&gt;这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
@@ -4838,12 +4924,55 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
 &lt;section data-isso-id="/blog/srain-and-me" data-title="Srain 1.0 发布了" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/srain-and-me.html" rel="alternate"/>
-    <summary>这篇短文之前在知乎和朋友圈都发过了，发到博客仅为存档，另也做了一些小的修正和改动。
-不知道这里何时能够不荒废。</summary>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Srain" label="Srain"/>
     <category term="IRC" label="IRC"/>
     <category term="GTK" label="GTK"/>
     <published>2020-02-29T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://silverrainz.me/blog/from-jekyll-to-sphinx.html</id>
+    <title>博客迁移到 Sphinx</title>
+    <updated>2020-12-26T00:00:00+00:00</updated>
+    <author>
+      <name>Shengyu Zhang</name>
+    </author>
+    <content type="html">&lt;section id="sphinx"&gt;
+
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;因此标题是指「博客从 Jekyll 迁移到 Sphinx」&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;近半年发生了非常大的事情，死去又活来，居然也因祸得福，捡到了几个月的疗养时间。
+在这段时间里我慢慢把自己理想中的 PIM 系统架设起来。&lt;/p&gt;
+&lt;p&gt;2017 年我用 &lt;a class="reference internal" href="blog/use-sphinx-and-rst-to-manage-your-notes.html"&gt;&lt;span class="doc"&gt;Sphinx 管理我的笔记&lt;/span&gt;&lt;/a&gt;，
+结果建完便开始荒废，那时候英语非常差，即使把 Sphinx 文档读下来也不明所以，用不好应该也是理所当然吧。&lt;/p&gt;
+&lt;p&gt;5 月的时候，我已经建好了 SilverRainZ/bullet 仓库准备再试试 Sphinx，
+之后学画需要记大量的笔记，将他们电子化也是一个强大的驱动力。&lt;/p&gt;
+&lt;p&gt;于是在偷闲的这段时间里我好好学习了一下 Sphinx 和 Docutils，思考各种信息要如何组织，
+试用社区提供的 &lt;a class="reference external" href="https://github.com/sphinx-contrib"&gt;各种扩展&lt;/a&gt; ，其中不少年久失修，
+也就写了一些 &lt;a class="reference external" href="https://github.com/sphinx-notes"&gt;扩展&lt;/a&gt; 来满足自己的需求，顺便回馈社区。&lt;/p&gt;
+&lt;p&gt;个人主页、笔记、画、随记，甚至谱子也都被我慢慢搬进了 Sphinx。
+博客是最难办的一件事情，不用插件就不像博客，写个插件工作量又巨大，
+好在这件事情已经有人做了，并且做得非常舒服，完全符合我的想象。&lt;/p&gt;
+&lt;p&gt;sunpy 社区写了一个叫 &lt;a class="reference external" href="https://ablog.readthedocs.io"&gt;ablog&lt;/a&gt; 的 Sphinx 扩展，
+归类、标签、归档、RSS 应有尽有，开发也非常活跃。&lt;/p&gt;
+&lt;p&gt;很棒的一点是 Sphinx 的 sidebar 并不是全局的，可以用 glob pattern 让不同的页面用不同的
+sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。但遗憾的是，正在使用的 sphinx_rtd_theme 并不听 Sphinx 的 sidebar 配置，因此还是换到了 Alabaster。&lt;/p&gt;
+&lt;p&gt;文章没有用，本着不做 breaking change 的原则，还是迁移过去了，所以有了这篇没有人看的通知。&lt;/p&gt;
+&lt;p&gt;最重要的，新的博客地址是 &lt;a class="reference external" href="https://silverrainz.me/blog/"&gt;https://silverrainz.me/blog/&lt;/a&gt; , tech.silverrainz.me 之后会 redirect
+到新地址。&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;section data-isso-id="/blog/from-jekyll-to-sphinx" data-title="博客迁移到 Sphinx" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+</content>
+    <link href="https://silverrainz.me/blog/from-jekyll-to-sphinx.html" rel="alternate"/>
+    <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
+    <category term="PythonSphinx" label="Python Sphinx"/>
+    <published>2020-12-26T00:00:00+00:00</published>
   </entry>
   <entry>
     <id>https://silverrainz.me/blog/new-boy.html</id>

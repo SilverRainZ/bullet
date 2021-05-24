@@ -16,7 +16,7 @@
             
         </script>
     
-    <title>从 Jekyll 迁移到 Sphinx &#8212; 银色子弹</title>
+    <title>博客迁移到 Sphinx &#8212; 银色子弹</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -87,11 +87,19 @@
           
 
           <div class="body" role="main">
-             <section id="jekyll-sphinx">
-<h1>从 Jekyll 迁移到 Sphinx<a class="headerlink" href="#jekyll-sphinx" title="永久链接至标题">¶</a></h1>
+             <section id="sphinx">
+<h1>博客迁移到 Sphinx<a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺SilverRainZ/bullet</a> 反馈</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>因此标题是指「博客从 Jekyll 迁移到 Sphinx」</p>
+</div>
 <p>近半年发生了非常大的事情，死去又活来，居然也因祸得福，捡到了几个月的疗养时间。
 在这段时间里我慢慢把自己理想中的 PIM 系统架设起来。</p>
-<p>2017 年我用 :doc`Sphinx 管理我的笔记 &lt;./use-sphinx-and-rst-to-manage-your-notes&gt;`，
+<p>2017 年我用 <a class="reference internal" href="use-sphinx-and-rst-to-manage-your-notes.html"><span class="doc">Sphinx 管理我的笔记</span></a>，
 结果建完便开始荒废，那时候英语非常差，即使把 Sphinx 文档读下来也不明所以，用不好应该也是理所当然吧。</p>
 <p>5 月的时候，我已经建好了 SilverRainZ/bullet 仓库准备再试试 Sphinx，
 之后学画需要记大量的笔记，将他们电子化也是一个强大的驱动力。</p>
@@ -104,17 +112,36 @@
 <p>sunpy 社区写了一个叫 <a class="reference external" href="https://ablog.readthedocs.io">ablog</a> 的 Sphinx 扩展，
 归类、标签、归档、RSS 应有尽有，开发也非常活跃。</p>
 <p>很棒的一点是 Sphinx 的 sidebar 并不是全局的，可以用 glob pattern 让不同的页面用不同的
-sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。
-但遗憾的是，正在使用的 sphinx_rtd_theme 并不听 Sphinx 的 sidebar 配置，
-因此还是换到了 Alabaster。</p>
+sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。但遗憾的是，正在使用的 sphinx_rtd_theme 并不听 Sphinx 的 sidebar 配置，因此还是换到了 Alabaster。</p>
 <p>文章没有用，本着不做 breaking change 的原则，还是迁移过去了，所以有了这篇没有人看的通知。</p>
 <p>最重要的，新的博客地址是 <a class="reference external" href="https://silverrainz.me/blog/">https://silverrainz.me/blog/</a> , tech.silverrainz.me 之后会 redirect
 到新地址。</p>
 <hr class="docutils" />
-<section data-isso-id="/blog/from-jekyll-to-sphinx" data-title="从 Jekyll 迁移到 Sphinx" id="isso-thread"></section></section>
+<section data-isso-id="/blog/from-jekyll-to-sphinx" data-title="博客迁移到 Sphinx" id="isso-thread"></section></section>
 
 <div class="section">
-       
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="srain-and-me.html">
+      <i class="fa fa-arrow-circle-left"></i> Srain 1.0 发布了
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="new-boy.html">
+      嘿，我去 2010 <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
 </div>
 
           </div>
@@ -141,14 +168,28 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。
 
   
 <h2>
-   <i
-    class="fa fa-pencil"
-  ></i
-  >  Draft  
+   <i class="fa fa-calendar"></i>
+  2020-12-26 
 </h2>
 
 <ul>
-       
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>  
+</li>
+  
 <li id="tags">
   <span
     ><i
@@ -156,7 +197,8 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。
     ></i
     ></span
   >
-   draft 
+   
+  <a href="tag/python-sphinx.html">Python Sphinx</a>  
 </li>
  
 </ul>
@@ -276,6 +318,10 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。
     <a href="tag/python.html">Python</a>
   </li>
     
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python-sphinx.html">Python Sphinx</a>
+  </li>
+    
   <li class="ablog-cloud ablog-cloud-3">
     <a href="tag/reverse.html">Reverse</a>
   </li>
@@ -332,7 +378,7 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。
   </li>
     
   <li>
-    <a href="2020.html">2020 (1)</a>
+    <a href="2020.html">2020 (2)</a>
   </li>
     
   <li>
