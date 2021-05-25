@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由 &#8212; 银色子弹</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/blog/sphinx-as-note-taking-system-1.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <section id="sphinx-sphinx">
+<h1>我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由<a class="headerlink" href="#sphinx-sphinx" title="永久链接至标题">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>这是 <a class="reference internal" href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html" title="我如何用 Sphinx 建立笔记系统"><em>我如何用 Sphinx 建立笔记系统</em></a> 系列的第 一 篇，你可以通过订阅 <a class="reference external" href="https://silverrainz.me/blog/atom.xml" title="银色子弹 Feed"><span class="xref std std-ref">RSS</span></a> 来获取后续更新。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>这个笔记系统是带有强烈个人色彩的 <a class="reference internal" href="#id4"><span class="std std-ref">需求</span></a> 下诞生的，并不适合所有人，你可以稍作了解，再决定是否继续阅读。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>这篇文章作为系列的开场白，非常切题地只讲了我选择 Sphinx 的理由，不感兴趣也可以直接看 <span class="xref std std-doc">下一篇文章</span></p>
+</div>
+<blockquote>
+<div><p><a class="reference internal" href="../about/me.html#friend-SilverRainZ" title="friend SilverRainZ"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤SilverRainZ</span></code></a> （指我自己）在使用一个还未存在的自建笔记系统，每次想写点东西都因为「无法解决依赖」而失败。 <a class="footnote-reference brackets" href="#id11" id="id1">1</a></p>
+</div></blockquote>
+<p>不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。 想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。想写一篇博客，文章里有一些交叉引用，不想用粗暴的 <code class="code docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=xxx&gt;</span></code> ，所以不写。因噎废食大概就是这样吧。</p>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3" id="id16">漫长的尝试</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id17">需求</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id18">指标</a></p></li>
+<li><p><a class="reference internal" href="#restructuredtext-sphinx" id="id19">reStructuredText + Sphinx</a></p></li>
+</ul>
+</div>
+<section id="id3">
+<h2>漫长的尝试<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>我并非没有在找合适的记录工具，大学时用 OneNote，在我还热衷于成为一个黑客的时候，我用 OneNotes 记下了几十篇 OllyDBG 的学习笔记。那时候云同步功能还不够好，在一次误操作中丢失了部分笔记，从此成为软黑。</p>
+<p>后来 GitBook 流行起来，尝试用其管理笔记，缺点有三：</p>
+<ul class="simple">
+<li><p>太慢了</p></li>
+<li><p>Markdown 表达力太孱弱，索引靠手写，引用靠 HTML 链接</p></li>
+<li><p>打包非常恶心：我曾在 AUR 维护过 <a class="reference external" href="https://aur.archlinux.org/packages/nodejs-gitbook">📦nodejs-gitbook</a>，gitbook 提供了一个只许全局安装（Root 下而非 Home 下）的 gitbook-cli 作为安装器，而不允许用户单独安装 gitbook 本身：这让发行版的打包非常困难。</p></li>
+</ul>
+<p>2017 年我开始用 <a class="reference internal" href="use-sphinx-and-rst-to-manage-your-notes.html"><span class="doc">Sphinx 管理我的笔记</span></a> ，reStructuredText 已经很接近我心中理想的 markup language 的样子，结果刚建起一个框架便开始荒废。从那时到现在已经过去了四年，我记录下了些什么呢？——什么都没有</p>
+<p>2020 年，3、4 月的时候我尝试用 Golang 从零开始写一个笔记软件，后来发现无论是设计和工作量都不是我单枪匹马能胜任的，最后只留下只有零星几个 commit 的仓库。</p>
+<p>5 月，我建立了 <a class="reference external" href="https://github.com/SilverRainZ/bullet">⛺SilverRainZ/bullet</a> 仓库准备再试试 Sphinx，之后学画需要记 <a class="reference internal" href="../notes/zxsys/index.html"><span class="doc">大量的笔记</span></a>，将他们电子化也是一个强大的驱动力。</p>
+<p>9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，尝试使用社区提供的 <a class="reference external" href="https://github.com/sphinx-contrib">各种扩展</a> 来增强文档的功能，再后来发现自己的需求社区并不能满足，便自己建立了一个一人社区 <a class="reference external" href="https://github.com/sphinx-notes">👥sphinx-notes</a>。</p>
+<p>2021 年，在陆续完善一些关键的 Sphinx 扩展之后，我的笔记系统 <span class="sphinxnotes-strike">发出了响亮的第一声啼哭</span> 开始慢慢形成了。</p>
+</section>
+<section id="id4">
+<span id="id5"></span><h2>需求<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在漫长的寻找中我慢慢明确了自己的需求，以及自己心目中的笔记系统是什么样子的。</p>
+<ul class="simple">
+<li><p>我希望 <em>笔记被良好分类且结构合理</em> ，对目录（Table Of Content）、交叉引用（Cross Reference）有一定需求</p>
+<ul>
+<li><p>我有一个 <a class="reference internal" href="../blog.html" title="Posts"><span class="xref std std-ref">博客</span></a>，我认为它一种 <span class="sphinxnotes-strike">生产级别的</span> 笔记，应当作为系统的一部分</p></li>
+<li><p>一些不成体系的 <a class="reference internal" href="../misc/2021/index.html"><span class="doc">笔记片段</span></a> 有碎片化的属性，我需要他们能被合理组织</p></li>
+</ul>
+</li>
+<li><p>我希望能 <em>结构化地描述笔记中的对象</em> ，并对它们进行引用、索引和分类，听起来有些强迫症但并非空穴来风：</p>
+<ul>
+<li><p>我的 <a class="reference internal" href="../notes/zxsys/index.html"><span class="doc">绘画训练计划</span></a> 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：<a class="reference internal" href="../any-artworkmediumindex.html"><span class="std std-ref">Artwork Medium Reference Index</span></a></p></li>
+<li><p>我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：<a class="reference internal" href="../any-artistindex.html"><span class="std std-ref">Artist  Reference Index</span></a></p></li>
+<li><p>我的 <a class="reference internal" href="../any-friendindex.html"><span class="std std-ref">朋友们</span></a> 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 <a class="reference internal" href="../about/friends.html#friend-quininer" title="friend quininer"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤quininer</span></code></a>，其实也是避免冗余的一个方式</p></li>
+</ul>
+</li>
+<li><p>我是 Linux 用户（B.T.W. Arch Linux <a class="footnote-reference brackets" href="#id13" id="id6">2</a>），我在终端下工作，<em>我希望我的笔记在终端能被良好地检索和浏览</em></p></li>
+<li><p>我偏爱纯文本，作为曾经的 Mircosoft Word 的用户，我不喜欢复杂的富文本带来的难以预测的排版问题，以及兼容问题</p></li>
+<li><p>我乐于折腾配置，有一定的编程经验：我清楚自己的需求特殊，愿意为此折腾，包括写一些代码</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>指标<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>我将上面的需求尽量转化为一些指标用于选型：</p>
+<dl>
+<dt>使用纯文本</dt><dd><p>就编辑体验的一环来说，富文本往往绑定一个复杂的，羸弱（想想论坛编辑器）或者
+难以预料的（想想 MS Word）的编辑器，这当然不能怪他们，富文本编辑真是是太难了</p>
+<p>纯文本给我一种踏实感：</p>
+<ul>
+<li><p>不会产生冗余代码 – 你写什么它就是什么</p></li>
+<li><p>不限制编辑器 – 我可以继续用 (Neo)Vim</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>其实不一定，看看 VimWiki、Org-mode</p>
+</div>
+</li>
+<li><p>容易自动化地修改</p></li>
+</ul>
+</dd>
+<dt>表达能力及格</dt><dd><p>笔记系统所使用的表达方式（Markup language、富文本）要有一定的表达能力，对于书写中的常用格式（链接，引用，代码块、脚注、表格、提示、图片）都要有足够支持。</p>
+</dd>
+<dt>标准可扩展</dt><dd><p>在前面的指标里为什么我不要求「表达能力强」呢？</p>
+<ol class="arabic simple">
+<li><p>强实际上意味着集成度高，和后面某一条指标相悖</p></li>
+<li><p>强也意味着 Domain Specified，所有的通用 Markup language 都无法做到方方面面让人满意，笔记写多了总有自己的特殊需求。富文本里能打的可能只有也 OneNote 一个 —— 但我怎么可能去用它呢（笑）</p></li>
+</ol>
+<p>因此，够用就行—— 只要系统是可扩展，我们自己动手把它变强。</p>
+<p>B.T.W. 我不喜欢所有使用 Markdown 方言的笔记软件，这是不「标准」的扩展方式。</p>
+</dd>
+<dt>自由开源</dt><dd><p>我不信任商业软件、共享软件：软件项目会倒闭，会改变定价，会做 Breaking Change，会停止维护——当然自由软件也会，只是你和社区并非无能为力</p>
+</dd>
+<dt>组件化</dt><dd><p>我希望我的系统最终是由多个组件组合而成的，组件化意味着 <em>复杂度被分摊到了不同的组件上</em> ，在未来某一个项目跑路的时候，我只需要寻找它那一部分的替代品就好了。</p>
+</dd>
+<dt>目的单纯</dt><dd><p>承上，在系统里负责解释和渲染笔记的核心组件几乎是不可替代的，那么我希望那个它是目的是单纯且稳定的。如果它还多做了很多事情。比如说发布系统、帐号体系、权限控制，甚至 APP 等，又或者它是某个庞大项目的附庸，那么我也倾向于不使用它。</p>
+</dd>
+</dl>
+</section>
+<section id="restructuredtext-sphinx">
+<h2>reStructuredText + Sphinx<a class="headerlink" href="#restructuredtext-sphinx" title="永久链接至标题">¶</a></h2>
+<p>其实上面写一堆有些 <a class="reference external" href="https://zh.wikipedia.org/wiki/先射箭再画靶">📖先射箭再画靶</a> 的意思了，如题，最终我选择了 reStructuredText + Sphinx 作为笔记系统的核心。</p>
+<p>现在介绍会不会太晚？</p>
+<blockquote>
+<div><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html"><img alt="rst-badge" src="../_images/rst.png" style="height: 1em;" /></a> is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  <a class="footnote-reference brackets" href="#id14" id="id8">3</a></p>
+<p><a class="reference external" href="https://www.sphinx-doc.org"><img alt="sphinx-badge" src="../_images/sphinx.png" style="height: 4em;" /></a> Sphinx is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license. It was originally created for the Python documentation, and it has excellent facilities for the documentation of software projects in a range of languages. <a class="footnote-reference brackets" href="#id15" id="id9">4</a></p>
+</div></blockquote>
+<p>针对上面的指标，reStructuredText（下称 reSt） + Sphinx 具有哪些优势呢？</p>
+<ol class="arabic simple">
+<li><p>reST 虽然稍显繁琐，但其表达能力非常优秀（从本文可见一斑）</p></li>
+<li><p>“reST is designed for extensibility for specific application” 这不就是我想要的吗？</p></li>
+<li><p>Sphinx 作为 Python 官方的文档生产系统，久经考验，同时也被大量著名非 Python项目（Blender、DPDK、Linux Kernel）采用</p></li>
+<li><p>Sphinx 在 reST 的基础上实现了优秀的扩展机制，同时有 <a class="reference external" href="https://pypi.org/search/?q=sphinxcontrib">大量的现成的扩展</a> 可用</p></li>
+</ol>
+<p>更细节一点，Sphinx 提供的功能直击我的痛点（<span class="sphinxnotes-strike">组合拳来一套</span>）：</p>
+<ul class="simple">
+<li><p>toctree 指令能将文档以树状的形式组织起来</p></li>
+<li><p>交叉引用功能非常全面</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">Domain</a> 机制为后续的 <span class="xref std std-ref">描述、引用和索引</span> 提供了基础</p></li>
+</ul>
+<p>除此之外，单纯靠 Sphinx 无法达到的指标，我用扩展 + 其他组件搞定，请看下一篇文章：<span class="xref std std-doc">/blog/sphinx-as-note-taking-system-2</span>。</p>
+<p class="rubric">脚注</p>
+<dl class="footnote brackets">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>和 <a class="reference internal" href="../about/friends.html#friend-VOID001" title="friend VOID001"><code class="xref any any-friend docutils literal notranslate"><span class="pre">👤VOID001</span></code></a> 的 <a class="reference external" href="https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530">对话节选</a></p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">2</a></span></dt>
+<dd><p><a class="reference external" href="https://www.quora.com/What-is-meant-by-btw-I-use-arch">https://www.quora.com/What-is-meant-by-btw-I-use-arch</a></p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id8">3</a></span></dt>
+<dd><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">https://docutils.sourceforge.io/rst.html</a></p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id9">4</a></span></dt>
+<dd><p><a class="reference external" href="https://www.sphinx-doc.org">https://www.sphinx-doc.org</a></p>
+</dd>
+</dl>
+<hr class="docutils" />
+<section data-isso-id="/blog/sphinx-as-note-taking-system-1" data-title="我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由" id="isso-thread"></section></section>
+</section>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="new-boy.html">
+      <i class="fa fa-arrow-circle-left"></i> 嘿，我去 2010
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+  
+<h2>
+   <i class="fa fa-calendar"></i>
+  2021-05-24 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/shengyu-zhang.html">Shengyu Zhang</a>  
+</li>
+  
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.html">简体中文</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/sphinx.html">Sphinx</a>  
+</li>
+ 
+</ul>
+
+  <h3><a href="../index.html">目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由</a><ul>
+<li><a class="reference internal" href="#id3">漫长的尝试</a></li>
+<li><a class="reference internal" href="#id4">需求</a></li>
+<li><a class="reference internal" href="#id7">指标</a></li>
+<li><a class="reference internal" href="#restructuredtext-sphinx">reStructuredText + Sphinx</a></li>
+</ul>
+</li>
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="new-boy.html"
+      >21 March - 嘿，我去 2010</a
+    >
+  </li>
+  
+  <li>
+    <a href="from-jekyll-to-sphinx.html"
+      >26 December - 博客迁移到 Sphinx</a
+    >
+  </li>
+  
+  <li>
+    <a href="srain-and-me.html"
+      >29 February - Srain 1.0 发布了</a
+    >
+  </li>
+  
+  <li>
+    <a href="switch-from-duoshuo-to-isso.html"
+      >10 June - 从多说迁移到 Isso</a
+    >
+  </li>
+  
+  <li>
+    <a href="use-sphinx-and-rst-to-manage-your-notes.html"
+      >29 March - 用 Sphinx + reStructuredText 构建笔记系统</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="tag.html">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/c.html">C</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/ctf.html">CTF</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/gsoc.html">GSoC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/gtk.html">GTK</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="tag/haskell.html">Haskell</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/irc.html">IRC</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/isso.html">Isso</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/linux.html">Linux</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/makefile.html">Makefile</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/os.html">OS</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python.html">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/python-sphinx.html">Python Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="tag/reverse.html">Reverse</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="tag/sphinx.html">Sphinx</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/srain.html">Srain</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/teeworlds.html">Teeworlds</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/vim.html">Vim</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/windows.html">Windows</a>
+  </li>
+      
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/restructuredtext.html">reStructuredText</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E5%A4%9A%E8%AF%B4.html">多说</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%94%9F%E6%B4%BB.html">生活</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E7%9E%8E%E6%89%AF.html">瞎扯</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/%E8%AE%BE%E5%A4%87.html">设备</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="category.html">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html">我如何用 Sphinx 建立笔记系统 (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="2021.html">2021 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2020.html">2020 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2017.html">2017 (2)</a>
+  </li>
+    
+  <li>
+    <a href="2016.html">2016 (6)</a>
+  </li>
+    
+  <li>
+    <a href="2015.html">2015 (18)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020-2021, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

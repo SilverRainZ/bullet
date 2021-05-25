@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-24T19:31:05.031616+00:00</updated>
+  <updated>2021-05-25T09:54:50.014430+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -5023,5 +5023,173 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。但遗�
 课题是基础素描。</summary>
     <category term="生活" label="生活"/>
     <published>2021-03-21T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://silverrainz.me/blog/sphinx-as-note-taking-system-1.html</id>
+    <title>我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由</title>
+    <updated>2021-05-24T00:00:00+00:00</updated>
+    <author>
+      <name>Shengyu Zhang</name>
+    </author>
+    <content type="html">&lt;section id="sphinx-sphinx"&gt;
+
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 11)&lt;/p&gt;
+&lt;p&gt;No directive entry for “tip” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “tip”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition tip"&gt;
+&lt;p class="admonition-title"&gt;小技巧&lt;/p&gt;
+&lt;p&gt;这是 &lt;a class="reference internal" href="blog/category/%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8-sphinx-%E5%BB%BA%E7%AB%8B%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F.html" title="我如何用 Sphinx 建立笔记系统"&gt;&lt;em&gt;我如何用 Sphinx 建立笔记系统&lt;/em&gt;&lt;/a&gt; 系列的第 一 篇，你可以通过订阅 &lt;a class="reference external" href="https://silverrainz.me/blog/atom.xml" title="银色子弹 Feed"&gt;&lt;span class="xref std std-ref"&gt;RSS&lt;/span&gt;&lt;/a&gt; 来获取后续更新。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 13)&lt;/p&gt;
+&lt;p&gt;No directive entry for “replace” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “replace”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition tip"&gt;
+&lt;p class="admonition-title"&gt;小技巧&lt;/p&gt;
+&lt;p&gt;这个笔记系统是带有强烈个人色彩的 &lt;a class="reference internal" href="blog/sphinx-as-note-taking-system-1.html#id4"&gt;&lt;span class="std std-ref"&gt;需求&lt;/span&gt;&lt;/a&gt; 下诞生的，并不适合所有人，你可以稍作了解，再决定是否继续阅读。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition tip"&gt;
+&lt;p class="admonition-title"&gt;小技巧&lt;/p&gt;
+&lt;p&gt;这篇文章作为系列的开场白，非常切题地只讲了我选择 Sphinx 的理由，不感兴趣也可以直接看 &lt;span class="xref std std-doc"&gt;下一篇文章&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;div&gt;&lt;p&gt;&lt;a class="reference internal" href="about/me.html#friend-SilverRainZ" title="friend SilverRainZ"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤SilverRainZ&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; （指我自己）在使用一个还未存在的自建笔记系统，每次想写点东西都因为「无法解决依赖」而失败。 &lt;a class="footnote-reference brackets" href="#id11" id="id1"&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。 想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。想写一篇博客，文章里有一些交叉引用，不想用粗暴的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="pre"&gt;href=xxx&amp;gt;&lt;/span&gt;&lt;/code&gt; ，所以不写。因噎废食大概就是这样吧。&lt;/p&gt;
+&lt;div class="contents local topic" id="id2"&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id16"&gt;漫长的尝试&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id17"&gt;需求&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id18"&gt;指标&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#restructuredtext-sphinx" id="id19"&gt;reStructuredText + Sphinx&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;section id="id3"&gt;
+&lt;h2&gt;漫长的尝试&lt;/h2&gt;
+&lt;p&gt;我并非没有在找合适的记录工具，大学时用 OneNote，在我还热衷于成为一个黑客的时候，我用 OneNotes 记下了几十篇 OllyDBG 的学习笔记。那时候云同步功能还不够好，在一次误操作中丢失了部分笔记，从此成为软黑。&lt;/p&gt;
+&lt;p&gt;后来 GitBook 流行起来，尝试用其管理笔记，缺点有三：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;太慢了&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Markdown 表达力太孱弱，索引靠手写，引用靠 HTML 链接&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;打包非常恶心：我曾在 AUR 维护过 &lt;a class="reference external" href="https://aur.archlinux.org/packages/nodejs-gitbook"&gt;📦nodejs-gitbook&lt;/a&gt;，gitbook 提供了一个只许全局安装（Root 下而非 Home 下）的 gitbook-cli 作为安装器，而不允许用户单独安装 gitbook 本身：这让发行版的打包非常困难。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2017 年我开始用 &lt;a class="reference internal" href="blog/use-sphinx-and-rst-to-manage-your-notes.html"&gt;&lt;span class="doc"&gt;Sphinx 管理我的笔记&lt;/span&gt;&lt;/a&gt; ，reStructuredText 已经很接近我心中理想的 markup language 的样子，结果刚建起一个框架便开始荒废。从那时到现在已经过去了四年，我记录下了些什么呢？——什么都没有&lt;/p&gt;
+&lt;p&gt;2020 年，3、4 月的时候我尝试用 Golang 从零开始写一个笔记软件，后来发现无论是设计和工作量都不是我单枪匹马能胜任的，最后只留下只有零星几个 commit 的仓库。&lt;/p&gt;
+&lt;p&gt;5 月，我建立了 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 仓库准备再试试 Sphinx，之后学画需要记 &lt;a class="reference internal" href="notes/zxsys/index.html"&gt;&lt;span class="doc"&gt;大量的笔记&lt;/span&gt;&lt;/a&gt;，将他们电子化也是一个强大的驱动力。&lt;/p&gt;
+&lt;p&gt;9 月的时候生病，居然也因祸得福，捡到了几个月的疗养时间。在家的时候里我好好学习了一下 Sphinx 和 Docutils，思考各种类型的文档要如何组织，尝试使用社区提供的 &lt;a class="reference external" href="https://github.com/sphinx-contrib"&gt;各种扩展&lt;/a&gt; 来增强文档的功能，再后来发现自己的需求社区并不能满足，便自己建立了一个一人社区 &lt;a class="reference external" href="https://github.com/sphinx-notes"&gt;👥sphinx-notes&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;2021 年，在陆续完善一些关键的 Sphinx 扩展之后，我的笔记系统 &lt;span class="sphinxnotes-strike"&gt;发出了响亮的第一声啼哭&lt;/span&gt; 开始慢慢形成了。&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="id4"&gt;
+&lt;span id="id5"&gt;&lt;/span&gt;&lt;h2&gt;需求&lt;/h2&gt;
+&lt;p&gt;在漫长的寻找中我慢慢明确了自己的需求，以及自己心目中的笔记系统是什么样子的。&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;我希望 &lt;em&gt;笔记被良好分类且结构合理&lt;/em&gt; ，对目录（Table Of Content）、交叉引用（Cross Reference）有一定需求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;我有一个 &lt;a class="reference internal" href="#" title="Posts"&gt;&lt;span class="xref std std-ref"&gt;博客&lt;/span&gt;&lt;/a&gt;，我认为它一种 &lt;span class="sphinxnotes-strike"&gt;生产级别的&lt;/span&gt; 笔记，应当作为系统的一部分&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一些不成体系的 &lt;a class="reference internal" href="misc/2021/index.html"&gt;&lt;span class="doc"&gt;笔记片段&lt;/span&gt;&lt;/a&gt; 有碎片化的属性，我需要他们能被合理组织&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我希望能 &lt;em&gt;结构化地描述笔记中的对象&lt;/em&gt; ，并对它们进行引用、索引和分类，听起来有些强迫症但并非空穴来风：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="notes/zxsys/index.html"&gt;&lt;span class="doc"&gt;绘画训练计划&lt;/span&gt;&lt;/a&gt; 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：&lt;a class="reference internal" href="any-artworkmediumindex.html"&gt;&lt;span class="std std-ref"&gt;Artwork Medium Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：&lt;a class="reference internal" href="any-artistindex.html"&gt;&lt;span class="std std-ref"&gt;Artist  Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="any-friendindex.html"&gt;&lt;span class="std std-ref"&gt;朋友们&lt;/span&gt;&lt;/a&gt; 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，其实也是避免冗余的一个方式&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我是 Linux 用户（B.T.W. Arch Linux &lt;a class="footnote-reference brackets" href="#id13" id="id6"&gt;2&lt;/a&gt;），我在终端下工作，&lt;em&gt;我希望我的笔记在终端能被良好地检索和浏览&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我偏爱纯文本，作为曾经的 Mircosoft Word 的用户，我不喜欢复杂的富文本带来的难以预测的排版问题，以及兼容问题&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我乐于折腾配置，有一定的编程经验：我清楚自己的需求特殊，愿意为此折腾，包括写一些代码&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="id7"&gt;
+&lt;h2&gt;指标&lt;/h2&gt;
+&lt;p&gt;我将上面的需求尽量转化为一些指标用于选型：&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;使用纯文本&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;就编辑体验的一环来说，富文本往往绑定一个复杂的，羸弱（想想论坛编辑器）或者
+难以预料的（想想 MS Word）的编辑器，这当然不能怪他们，富文本编辑真是是太难了&lt;/p&gt;
+&lt;p&gt;纯文本给我一种踏实感：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;不会产生冗余代码 – 你写什么它就是什么&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不限制编辑器 – 我可以继续用 (Neo)Vim&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="admonition-title"&gt;注解&lt;/p&gt;
+&lt;p&gt;其实不一定，看看 VimWiki、Org-mode&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;容易自动化地修改&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;表达能力及格&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;笔记系统所使用的表达方式（Markup language、富文本）要有一定的表达能力，对于书写中的常用格式（链接，引用，代码块、脚注、表格、提示、图片）都要有足够支持。&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;标准可扩展&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;在前面的指标里为什么我不要求「表达能力强」呢？&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;强实际上意味着集成度高，和后面某一条指标相悖&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;强也意味着 Domain Specified，所有的通用 Markup language 都无法做到方方面面让人满意，笔记写多了总有自己的特殊需求。富文本里能打的可能只有也 OneNote 一个 —— 但我怎么可能去用它呢（笑）&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，够用就行—— 只要系统是可扩展，我们自己动手把它变强。&lt;/p&gt;
+&lt;p&gt;B.T.W. 我不喜欢所有使用 Markdown 方言的笔记软件，这是不「标准」的扩展方式。&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;自由开源&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;我不信任商业软件、共享软件：软件项目会倒闭，会改变定价，会做 Breaking Change，会停止维护——当然自由软件也会，只是你和社区并非无能为力&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;组件化&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;我希望我的系统最终是由多个组件组合而成的，组件化意味着 &lt;em&gt;复杂度被分摊到了不同的组件上&lt;/em&gt; ，在未来某一个项目跑路的时候，我只需要寻找它那一部分的替代品就好了。&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;目的单纯&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;承上，在系统里负责解释和渲染笔记的核心组件几乎是不可替代的，那么我希望那个它是目的是单纯且稳定的。如果它还多做了很多事情。比如说发布系统、帐号体系、权限控制，甚至 APP 等，又或者它是某个庞大项目的附庸，那么我也倾向于不使用它。&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/section&gt;
+&lt;section id="restructuredtext-sphinx"&gt;
+&lt;h2&gt;reStructuredText + Sphinx&lt;/h2&gt;
+&lt;p&gt;其实上面写一堆有些 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/先射箭再画靶"&gt;📖先射箭再画靶&lt;/a&gt; 的意思了，如题，最终我选择了 reStructuredText + Sphinx 作为笔记系统的核心。&lt;/p&gt;
+&lt;p&gt;现在介绍会不会太晚？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div&gt;&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;&lt;img alt="rst-badge" src="_images/rst.png" style="height: 1em;" /&gt;&lt;/a&gt; is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  &lt;a class="footnote-reference brackets" href="#id14" id="id8"&gt;3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://www.sphinx-doc.org"&gt;&lt;img alt="sphinx-badge" src="_images/sphinx.png" style="height: 4em;" /&gt;&lt;/a&gt; Sphinx is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license. It was originally created for the Python documentation, and it has excellent facilities for the documentation of software projects in a range of languages. &lt;a class="footnote-reference brackets" href="#id15" id="id9"&gt;4&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;针对上面的指标，reStructuredText（下称 reSt） + Sphinx 具有哪些优势呢？&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;p&gt;reST 虽然稍显繁琐，但其表达能力非常优秀（从本文可见一斑）&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“reST is designed for extensibility for specific application” 这不就是我想要的吗？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sphinx 作为 Python 官方的文档生产系统，久经考验，同时也被大量著名非 Python项目（Blender、DPDK、Linux Kernel）采用&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sphinx 在 reST 的基础上实现了优秀的扩展机制，同时有 &lt;a class="reference external" href="https://pypi.org/search/?q=sphinxcontrib"&gt;大量的现成的扩展&lt;/a&gt; 可用&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;更细节一点，Sphinx 提供的功能直击我的痛点（&lt;span class="sphinxnotes-strike"&gt;组合拳来一套&lt;/span&gt;）：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;toctree 指令能将文档以树状的形式组织起来&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;交叉引用功能非常全面&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html"&gt;Domain&lt;/a&gt; 机制为后续的 &lt;span class="xref std std-ref"&gt;描述、引用和索引&lt;/span&gt; 提供了基础&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;除此之外，单纯靠 Sphinx 无法达到的指标，我用扩展 + 其他组件搞定，请看下一篇文章：&lt;span class="xref std std-doc"&gt;/blog/sphinx-as-note-taking-system-2&lt;/span&gt;。&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 148)&lt;/p&gt;
+&lt;p&gt;No directive entry for “rubric” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “rubric”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p class="rubric"&gt;脚注&lt;/p&gt;
+&lt;dl class="footnote brackets"&gt;
+&lt;dt class="label" id="id11"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;和 &lt;a class="reference internal" href="about/friends.html#friend-VOID001" title="friend VOID001"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤VOID001&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的 &lt;a class="reference external" href="https://void-shana.moe/linux/zh-taking-notes-with-vim.html#comment-530"&gt;对话节选&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="label" id="id13"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id6"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.quora.com/What-is-meant-by-btw-I-use-arch"&gt;https://www.quora.com/What-is-meant-by-btw-I-use-arch&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="label" id="id14"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id8"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;https://docutils.sourceforge.io/rst.html&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class="label" id="id15"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id9"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.sphinx-doc.org"&gt;https://www.sphinx-doc.org&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr class="docutils" /&gt;
+&lt;section data-isso-id="/blog/sphinx-as-note-taking-system-1" data-title="我如何用 Sphinx 建立笔记系统（一）选择 Sphinx 的理由" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;/section&gt;
+</content>
+    <link href="https://silverrainz.me/blog/sphinx-as-note-taking-system-1.html" rel="alternate"/>
+    <summary>No directive entry for “tip” in module “docutils.parsers.rst.languages.zh_cn”.
+Using English fallback for directive “tip”.rst-badge</summary>
+    <category term="Sphinx" label="Sphinx"/>
+    <published>2021-05-24T00:00:00+00:00</published>
   </entry>
 </feed>
