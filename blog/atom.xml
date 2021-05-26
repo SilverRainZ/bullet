@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-26T04:46:31.147513+00:00</updated>
+  <updated>2021-05-26T05:18:49.496872+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -4525,6 +4525,7 @@ Read The Docs 上的文档。&lt;/p&gt;
 Using English fallback for directive “attention”.</summary>
     <category term="Sphinx" label="Sphinx"/>
     <category term="reStructuredText" label="reStructuredText"/>
+    <category term="笔记系统" label="笔记系统"/>
     <published>2017-03-29T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -4986,7 +4987,9 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。但遗�
 </content>
     <link href="https://silverrainz.me/blog/from-jekyll-to-sphinx.html" rel="alternate"/>
     <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
-    <category term="PythonSphinx" label="Python Sphinx"/>
+    <category term="Python" label="Python"/>
+    <category term="Sphinx" label="Sphinx"/>
+    <category term="变更" label="变更"/>
     <published>2020-12-26T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -5199,6 +5202,8 @@ Using English fallback for directive “rubric”.&lt;/p&gt;
     <link href="https://silverrainz.me/blog/sphinx-as-note-taking-system-1.html" rel="alternate"/>
     <summary>这是 category-我如何用-sphinx-建立笔记系统 系列的第 一 篇，你可以通过订阅 RSS 来获取后续更新。rst-badge</summary>
     <category term="Sphinx" label="Sphinx"/>
+    <category term="reStructuredText" label="reStructuredText"/>
+    <category term="笔记系统" label="笔记系统"/>
     <published>2021-05-24T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -5606,6 +5611,8 @@ Alice -&amp;gt; Bob
     <link href="https://silverrainz.me/blog/sphinx-as-note-taking-system-2.html" rel="alternate"/>
     <summary>这是 category-我如何用-sphinx-建立笔记系统 系列的第 二 篇，你可以通过订阅 RSS 来获取后续更新。</summary>
     <category term="Sphinx" label="Sphinx"/>
+    <category term="reStructuredText" label="reStructuredText"/>
+    <category term="笔记系统" label="笔记系统"/>
     <published>2021-05-25T00:00:00+00:00</published>
   </entry>
 </feed>
