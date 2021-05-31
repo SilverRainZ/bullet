@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-05-30T17:03:39.583535+00:00</updated>
+  <updated>2021-05-31T15:11:19.877707+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -5397,11 +5397,8 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artworkmediumindex.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; &lt;a class="reference internal" href="any-artworkmediumindex.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;铅笔&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
-&lt;figure class="align-default" id="id9"&gt;
+&lt;figure class="align-default"&gt;
 &lt;img alt="_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" src="_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" style="width: 80%;" /&gt;
-&lt;figcaption&gt;
-&lt;p&gt;&lt;span class="caption-text"&gt;test-1&lt;/span&gt;&lt;/p&gt;
-&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;随便找的一张 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/透纳"&gt;📖透纳&lt;/a&gt; 的画。&lt;/p&gt;
 &lt;/dd&gt;&lt;/dl&gt;
@@ -5448,7 +5445,7 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/sunpy"&gt;👥sunpy&lt;/a&gt; 社区写了一个叫 &lt;a class="reference external" href="https://pypi.org/project/ablog"&gt;📦ablog&lt;/a&gt; 的扩展，用来在 Sphinx 里建立博客，保持兼容最新版的 Sphinx 为目标，开发也非常活跃。你可以看看 ABlog 在我的笔记系统上的效果：&lt;a class="reference internal" href="#" title="Posts"&gt;&lt;em&gt;Posts&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ABlog 支持 Disqus 评论，如果你想用 Self-hosted 的 &lt;a class="reference external" href="https://posativ.org/isso/"&gt;Isso&lt;/a&gt; 的话，可以试试我写的 &lt;a class="reference external" href="https://pypi.org/project/sphinxnotes-isso"&gt;📦sphinxnotes-isso&lt;/a&gt;，文章底部可以看到 Isso 的评论框。&lt;/p&gt;
 &lt;p&gt;值得一提的是，Sphinx 生成的 HTML 文档里的侧边栏不是全局的，可以让不同的页面采用不同的侧边栏，因此 ABlog 引入的博客侧边栏不会影响现有的其他的文档：&lt;/p&gt;
-&lt;figure class="align-default" id="id10"&gt;
+&lt;figure class="align-default" id="id9"&gt;
 &lt;img alt="_images/sphinx-sidebar-with-without-ablog.png" src="_images/sphinx-sidebar-with-without-ablog.png" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;左：默认 sidebar，右：博客 sidebar&lt;/span&gt;&lt;/p&gt;
