@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-06-01T15:49:59.458569+00:00</updated>
+  <updated>2021-06-03T14:08:42.059374+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -5107,9 +5107,9 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;我希望能 &lt;em&gt;结构化地描述笔记中的对象&lt;/em&gt; ，并对它们进行引用、索引和分类，听起来有些强迫症但并非空穴来风：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="notes/zxsys/index.html"&gt;&lt;span class="doc"&gt;绘画训练计划&lt;/span&gt;&lt;/a&gt; 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：&lt;a class="reference internal" href="any-artworkmediumindex.html"&gt;&lt;span class="std std-ref"&gt;Artwork Medium Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：&lt;a class="reference internal" href="any-artistindex.html"&gt;&lt;span class="std std-ref"&gt;Artist  Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="any-friendindex.html"&gt;&lt;span class="std std-ref"&gt;朋友们&lt;/span&gt;&lt;/a&gt; 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，其实也是避免冗余的一个方式&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="notes/zxsys/index.html"&gt;&lt;span class="doc"&gt;绘画训练计划&lt;/span&gt;&lt;/a&gt; 中包含大量的习作，我用希望用统一的方式记录他们的日期、尺幅、媒介，例如：&lt;a class="reference internal" href="any-artwork.medium.html"&gt;&lt;span class="std std-ref"&gt;Artwork Medium Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我在学艺术史，以艺术家为脉络的话，我可以建立这样的索引：&lt;a class="reference internal" href="any-artist.html"&gt;&lt;span class="std std-ref"&gt;Artist Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的 &lt;a class="reference internal" href="any-friend.html"&gt;&lt;span class="std std-ref"&gt;朋友们&lt;/span&gt;&lt;/a&gt; 经常会出现在我的行文中，我想漂亮地 mention 到 TA，比如 &lt;a class="reference internal" href="about/friends.html#friend-quininer" title="friend quininer"&gt;&lt;code class="xref any any-friend docutils literal notranslate"&gt;&lt;span class="pre"&gt;👤quininer&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;，其实也是避免冗余的一个方式&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;我是 Linux 用户（B.T.W. Arch Linux &lt;a class="footnote-reference brackets" href="#id13" id="id6"&gt;2&lt;/a&gt;），我在终端下工作，&lt;em&gt;我希望我的笔记在终端能被良好地检索和浏览&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
@@ -5391,10 +5391,10 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;dd class="field-even"&gt;&lt;p&gt;1819年&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt class="field-odd"&gt;尺幅&lt;/dt&gt;
-&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artworksizeindex.html#cap-8k" title="artwork 8k"&gt;&lt;code class="xref any any-artwork.size docutils literal notranslate"&gt;&lt;span class="pre"&gt;8k&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.size.html#cap-8k" title="artwork 8k"&gt;&lt;code class="xref any any-artwork.size docutils literal notranslate"&gt;&lt;span class="pre"&gt;8k&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt class="field-even"&gt;媒介&lt;/dt&gt;
-&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artworkmediumindex.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; &lt;a class="reference internal" href="any-artworkmediumindex.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;铅笔&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; &lt;a class="reference internal" href="any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;铅笔&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;figure class="align-default"&gt;
@@ -5429,15 +5429,15 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr class="row-even"&gt;&lt;td&gt;&lt;p&gt;所有水彩画&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:artwork.medium:`水彩`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artworkmediumindex.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;《Bell&lt;/span&gt; &lt;span class="pre"&gt;Rock&lt;/span&gt; &lt;span class="pre"&gt;Lighthouse》&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class="row-odd"&gt;&lt;td&gt;&lt;p&gt;所有媒介&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:ref:`any-artworkmediumindex`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artworkmediumindex.html"&gt;&lt;span class="std std-ref"&gt;Artwork Medium Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;:ref:`any-artwork.medium`&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.medium.html"&gt;&lt;span class="std std-ref"&gt;Artwork Medium Reference Index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;我现在用这个扩展来管理我的 &lt;a class="reference internal" href="any-bookindex.html"&gt;&lt;span class="std std-ref"&gt;读书笔记&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-artworkindex.html"&gt;&lt;span class="std std-ref"&gt;习作&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-artistindex.html"&gt;&lt;span class="std std-ref"&gt;艺术家记录&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-friendindex.html"&gt;&lt;span class="std std-ref"&gt;友情链接&lt;/span&gt;&lt;/a&gt;。关于它如何工作，它还能怎么玩，也会有单独的文章来说明。&lt;/p&gt;
+&lt;p&gt;我现在用这个扩展来管理我的 &lt;a class="reference internal" href="any-book.html"&gt;&lt;span class="std std-ref"&gt;读书笔记&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-artwork.html"&gt;&lt;span class="std std-ref"&gt;习作&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-artist.html"&gt;&lt;span class="std std-ref"&gt;艺术家记录&lt;/span&gt;&lt;/a&gt;、&lt;a class="reference internal" href="any-friend.html"&gt;&lt;span class="std std-ref"&gt;友情链接&lt;/span&gt;&lt;/a&gt;。关于它如何工作，它还能怎么玩，也会有单独的文章来说明。&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id4"&gt;
 &lt;h2&gt;博客&lt;/h2&gt;
