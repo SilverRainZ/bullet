@@ -100,22 +100,7 @@
 </dl>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="dp.html">动态规划</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dp.html#id4">排列组合问题 </a></li>
-<li class="toctree-l2"><a class="reference internal" href="dp.html#id6">概念 </a></li>
-<li class="toctree-l2"><a class="reference internal" href="dp.html#id8">背包九讲 </a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dp.html#id9">01 背包问题</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="dp.html#id10">问题抽象</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dp.html#id11">空间复杂度</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dp.html#id12">恰好放满背包</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dp.html#ci-v"><code class="code docutils literal notranslate"><span class="pre">Ci..V</span></code> 的常数优化</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="dp.html#id13">参考</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="dp.html">动态规划</a></li>
 </ul>
 </div>
 <p>借鉴了 <a class="reference external" href="https://github.com/iosmanthus/leetcode-rust">⛺iosmanthus/leetcode-rust</a> 的做法，主要用 Rust 来刷题。</p>
@@ -127,6 +112,7 @@
 <li><p><a class="reference internal" href="#lru-cache" id="id4">127. LRU Cache</a></p></li>
 <li><p><a class="reference internal" href="#lfu-cache" id="id5">460. LFU Cache</a></p></li>
 <li><p><a class="reference internal" href="#add-two-numvers" id="id6">2. Add Two Numvers</a></p></li>
+<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id7">416. Partition Equal Subset Sum</a></p></li>
 </ul>
 </div>
 <section id="two-sum">
@@ -437,6 +423,59 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 
 	<span class="k">return</span> <span class="nx">head</span><span class="p">.</span><span class="nx">Next</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="partition-equal-subset-sum">
+<h2>416. Partition Equal Subset Sum<a class="headerlink" href="#partition-equal-subset-sum" title="永久链接至标题">¶</a></h2>
+<p>把一个集合分成两个，使其 sum 分别相等，可以转化为：</p>
+<p>假设原集合 sum 为 S<sub>a</sub> ，从集合中选出一个子集，使其 sum 刚好的为 S<sub>a</sub>/2 ——  这是一个 01 背包问题，背包容量为 S<sub>a</sub>/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。</p>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">max</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="kt">i32</span>::<span class="n">MAX</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">i32max</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">can_partition</span><span class="p">(</span><span class="n">nums</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">bool</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sum</span>:<span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">sum</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">sum</span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">state</span>:<span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="o">-</span><span class="n">i32max</span><span class="p">;</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// println!(&quot;{:?}&quot;, 0..nums.len());</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">base_cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">base_cost</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// 放不进去，这里可以特判，但没有必要</span>
+<span class="w">                </span><span class="c1">// println!(&quot;cost {} &gt; bag cap {}, skipped&quot;, base_cost, state.len()-1);</span>
+<span class="w">                </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">base_cost</span><span class="p">..</span><span class="n">state</span><span class="p">.</span><span class="n">len</span><span class="p">()).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">state</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">base_cost</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// println!(&quot;cap = {}, {} from ({}, {})&quot;, j, state[j], j-1, j-base_cost)</span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// println!(&quot;{} -&gt; {}&quot;, state.len()-1, base_cost);</span>
+<span class="w">            </span><span class="c1">// println!(&quot;state: {:?}&quot;, state);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// println!(&quot;fin state: {:?} {}&quot;, state, state[state.len()-1] &gt; 0);</span>
+<span class="w">        </span><span class="n">state</span><span class="p">[</span><span class="n">state</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">500</span><span class="p">]),</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
