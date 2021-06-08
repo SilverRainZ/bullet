@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHS50G6DL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-FYHS50G6DL');
+            
+        </script>
+    
+    <title>知识点 Check List &#8212; 银色子弹</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxnotes-strike.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ablog.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="canonical" href="https://silverrainz.me/notes/interview/checklist.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="大调训练计划" href="../ionian/index.html" />
+    <link rel="prev" title="面试" href="index.html" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+    <link rel="apple-touch-icon" href="../../_static/logo.png" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="银色子弹"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <section id="check-list">
+<h1>知识点 Check List<a class="headerlink" href="#check-list" title="永久链接至标题">¶</a></h1>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id34">计算机网络</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tcp-x" id="id35">TCP 三次握手 ✔️</a></p></li>
+<li><p><a class="reference internal" href="#tcp" id="id36">TCP 四次挥手</a></p></li>
+<li><p><a class="reference internal" href="#tcp-psh" id="id37">TCP PSH</a></p></li>
+<li><p><a class="reference internal" href="#tcp-udp" id="id38">TCP UDP 区别</a></p></li>
+<li><p><a class="reference internal" href="#epoll-select" id="id39">epoll 与 select</a></p></li>
+<li><p><a class="reference internal" href="#tcp-time-wait" id="id40">TCP 的 TIME_WAIT</a></p></li>
+<li><p><a class="reference internal" href="#web" id="id41">Web</a></p>
+<ul>
+<li><p><a class="reference internal" href="#https" id="id42">HTTPS 原理</a></p></li>
+<li><p><a class="reference internal" href="#session-cookie" id="id43">Session 和 Cookie</a></p></li>
+<li><p><a class="reference internal" href="#get-put-del-patch-head" id="id44">GET PUT DEL PATCH HEAD</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id3" id="id45">分布式</a></p>
+<ul>
+<li><p><a class="reference internal" href="#map-reduce" id="id46">Map-Reduce 概述</a></p></li>
+<li><p><a class="reference internal" href="#id" id="id47">分布式 ID 生成</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id48">分布式趋势 ID 生成</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id49">选主</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id50">脑裂</a></p></li>
+<li><p><a class="reference internal" href="#cap" id="id51">CAP</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id52">分布式锁</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id53">分布式定时器</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id54">一致性级别</a></p></li>
+<li><p><a class="reference internal" href="#topn" id="id55">海量数据 TopN</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id10" id="id56">关系型数据库</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id11" id="id57">数据库范式</a></p></li>
+<li><p><a class="reference internal" href="#acid" id="id58">ACID</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id59">隔离等级</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id60">索引</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id14" id="id61">架构</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id15" id="id62">微服务概述</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id63">服务降级</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id64">服务重试</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id65">限流器</a></p></li>
+<li><p><a class="reference internal" href="#id19" id="id66">负载均衡</a></p></li>
+<li><p><a class="reference internal" href="#id20" id="id67">一致性哈希</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id68">灰度测试</a></p></li>
+<li><p><a class="reference internal" href="#id22" id="id69">并发和吞吐</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id23" id="id70">中间件</a></p>
+<ul>
+<li><p><a class="reference internal" href="#redis" id="id71">Redis 等缓存</a></p></li>
+<li><p><a class="reference internal" href="#kafka" id="id72">Kafka 等消息队列</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id24" id="id73">投递语义</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#etcd-zk" id="id74">etcd zk 等集群协同</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id25" id="id75">操作系统</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id26" id="id76">进程、线程和协程</a></p></li>
+<li><p><a class="reference internal" href="#fork-exec" id="id77">fork &amp; exec</a></p></li>
+<li><p><a class="reference internal" href="#id27" id="id78">进程间通信方式概述</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#golang" id="id79">Golang</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id28" id="id80">调度问题</a></p></li>
+<li><p><a class="reference internal" href="#id29" id="id81">垃圾回收问题</a></p></li>
+<li><p><a class="reference internal" href="#channel" id="id82">Channel</a></p></li>
+<li><p><a class="reference internal" href="#id30" id="id83">调度</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id31" id="id84">算法</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id32" id="id85">树</a></p></li>
+<li><p><a class="reference internal" href="#id33" id="id86">动态规划</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="id2">
+<h2>计算机网络<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="tcp-x">
+<h3>TCP 三次握手 ✔️<a class="headerlink" href="#tcp-x" title="永久链接至标题">¶</a></h3>
+<p>由 client 执行 <em class="manpage"><a class="manpage reference external" href="https://linux.die.net/man/3/connect">connect(3)</a></em> 触发。</p>
+<a class="reference external image-reference" href="https://hit-alibaba.github.io/interview/basic/network/TCP.html"><img alt="../../_images/tcp-connection-made-three-way-handshake.png" src="../../_images/tcp-connection-made-three-way-handshake.png" /></a>
+</section>
+<section id="tcp">
+<h3>TCP 四次挥手<a class="headerlink" href="#tcp" title="永久链接至标题">¶</a></h3>
+<p>由任意一方执行 <em class="manpage"><a class="manpage reference external" href="https://linux.die.net/man/3/close">close(3)</a></em> 触发。</p>
+</section>
+<section id="tcp-psh">
+<h3>TCP PSH<a class="headerlink" href="#tcp-psh" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="tcp-udp">
+<h3>TCP UDP 区别<a class="headerlink" href="#tcp-udp" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="epoll-select">
+<h3>epoll 与 select<a class="headerlink" href="#epoll-select" title="永久链接至标题">¶</a></h3>
+<p>新潮一点的 io_uring</p>
+</section>
+<section id="tcp-time-wait">
+<h3>TCP 的 TIME_WAIT<a class="headerlink" href="#tcp-time-wait" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="web">
+<h3>Web<a class="headerlink" href="#web" title="永久链接至标题">¶</a></h3>
+<section id="https">
+<h4>HTTPS 原理<a class="headerlink" href="#https" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="session-cookie">
+<h4>Session 和 Cookie<a class="headerlink" href="#session-cookie" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="get-put-del-patch-head">
+<h4>GET PUT DEL PATCH HEAD<a class="headerlink" href="#get-put-del-patch-head" title="永久链接至标题">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="id3">
+<h2>分布式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<section id="map-reduce">
+<h3>Map-Reduce 概述<a class="headerlink" href="#map-reduce" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id">
+<h3>分布式 ID 生成<a class="headerlink" href="#id" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id4">
+<h3>分布式趋势 ID 生成<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id5">
+<h3>选主<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id6">
+<h3>脑裂<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="cap">
+<h3>CAP<a class="headerlink" href="#cap" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id7">
+<h3>分布式锁<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>etcd
+redis redlock
+codis</p>
+</section>
+<section id="id8">
+<h3>分布式定时器<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id9">
+<h3>一致性级别<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="topn">
+<h3>海量数据 TopN<a class="headerlink" href="#topn" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id10">
+<h2>关系型数据库<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<section id="id11">
+<h3>数据库范式<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="acid">
+<h3>ACID<a class="headerlink" href="#acid" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id12">
+<h3>隔离等级<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id13">
+<h3>索引<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>B、B+ 树等多叉树</p>
+<p>局部性原理</p>
+<p>不同索引的优劣</p>
+</section>
+</section>
+<section id="id14">
+<h2>架构<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<section id="id15">
+<h3>微服务概述<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id16">
+<h3>服务降级<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id17">
+<h3>服务重试<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>幂等性</p>
+</section>
+<section id="id18">
+<h3>限流器<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id19">
+<h3>负载均衡<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id20">
+<h3>一致性哈希<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id21">
+<h3>灰度测试<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<p>A/B Test</p>
+<p>实现</p>
+</section>
+<section id="id22">
+<h3>并发和吞吐<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<p>协程 异步 读写分离</p>
+</section>
+</section>
+<section id="id23">
+<h2>中间件<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<section id="redis">
+<h3>Redis 等缓存<a class="headerlink" href="#redis" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="kafka">
+<h3>Kafka 等消息队列<a class="headerlink" href="#kafka" title="永久链接至标题">¶</a></h3>
+<section id="id24">
+<h4>投递语义<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h4>
+</section>
+</section>
+<section id="etcd-zk">
+<h3>etcd zk 等集群协同<a class="headerlink" href="#etcd-zk" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id25">
+<h2>操作系统<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+<section id="id26">
+<h3>进程、线程和协程<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="fork-exec">
+<h3>fork &amp; exec<a class="headerlink" href="#fork-exec" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id27">
+<h3>进程间通信方式概述<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="golang">
+<h2>Golang<a class="headerlink" href="#golang" title="永久链接至标题">¶</a></h2>
+<section id="id28">
+<h3>调度问题<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<p>MPG</p>
+</section>
+<section id="id29">
+<h3>垃圾回收问题<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="channel">
+<h3>Channel<a class="headerlink" href="#channel" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id30">
+<h3>调度<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id31">
+<h2>算法<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h2>
+<section id="id32">
+<h3>树<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>树的遍历</p></li>
+</ul>
+</section>
+<section id="id33">
+<h3>动态规划<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>最长上升子串</p></li>
+<li><p>回文串</p></li>
+<li><p>lcs?</p></li>
+</ul>
+<p class="rubric">脚注</p>
+</section>
+</section>
+</section>
+
+<div class="section">
+   
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Yes silver bullet here.</p>
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">笔记</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interval-of-music.html">音程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../srain.html">Srain Architecture Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../artstory/index.html">增量艺术史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/index.html">读书笔记</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">面试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wizard/index.html">配置向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writeups/index.html">Capture The Flag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
+</ul>
+<p class="caption"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客首页</a></li>
+</ul>
+<p class="caption"><span class="caption-text">手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/gpg.html">GnuPG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/grep.html">Grep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/krita.html">Krita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/lily.html">LilyPond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/magick.html">ImageMagick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/make.html">Makefile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/py.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/rst.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
+</ul>
+<p class="caption"><span class="caption-text">随记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
+</ul>
+<p class="caption"><span class="caption-text">收集室</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
+</ul>
+<p class="caption"><span class="caption-text">关于</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/friends.html">友人帐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/resume.html">简历</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">面试</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">面试</a></li>
+      <li>Next: <a href="../ionian/index.html" title="下一章">大调训练计划</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020-2021, Shengyu Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

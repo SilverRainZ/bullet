@@ -260,7 +260,7 @@
 <p>想用 <code class="code docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">--user</span></code> 管理这个 mount，试了挺久没有成功，先放着</p>
 </div>
 <p>参考 <a class="reference external" href="https://www.thegeekdiary.com/how-to-auto-mount-a-filesystem-using-systemd/">这篇文章</a>
-和 <em class="manpage">SYSTEMD.MOUNT(5)</em>:</p>
+和 <em class="manpage"><a class="manpage reference external" href="https://linux.die.net/man/5/SYSTEMD.MOUNT">SYSTEMD.MOUNT(5)</a></em>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> blkid /dev/sda1
 <span class="gp">#</span> touch /usr/lib/systemd/system/<span class="k">$(</span>systemd-escape --path <span class="s1">&#39;/mnt/la-wdbuzg0010bb&#39;</span><span class="k">)</span>.mount
 </pre></div>
@@ -474,6 +474,7 @@ mnt 的地址 <code class="code docutils literal notranslate"><span class="pre">
 <li class="toctree-l1"><a class="reference internal" href="../srain.html">Srain Architecture Proposal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../artstory/index.html">增量艺术史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../books/index.html">读书笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview/index.html">面试</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ionian/index.html">大调训练计划</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../leetcode/index.html">Leetcode 刷题记录</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx-as-pim/index.html">Sphinx As PIM System</a></li>
