@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster-custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ablog.css" />
@@ -36,6 +37,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/asciinema-player_2.6.1.js"></script>
     <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <script data-isso="https://comments.silverrainz.me:30500" src="https://comments.silverrainz.me:30500/js/embed.min.js"></script>
     <link rel="canonical" href="https://silverrainz.me/blog/gen-graph-from-c-code.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
@@ -129,8 +133,17 @@
 </pre></div>
 </div>
 <p>执行 <code class="code docutils literal notranslate"><span class="pre">dot</span> <span class="pre">main.dot</span> <span class="pre">-Tpng</span> <span class="pre">-o</span> <span class="pre">main.png</span></code>，于是从整个 OS67 生成了这么一张可怕的图片：</p>
-<img alt="" src="../_images/os67-func-call-graph.png" />
-<p>这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
+<a class=""
+               data-lightbox="group-de0f3234-99cd-4d2d-80e7-9f7534d8755d"
+               href="../_images/os67-func-call-graph1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/os67-func-call-graph1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
 没法做什么简化，所以对于整个项目我只生成了后面的模块调用图。</p>
 <p>既然整个项目的图太大了，那就生成模块内部的调用图好了，OS67 的项目结构长这样，
 模块和文件夹基本上是一一对应的：</p>
@@ -168,8 +181,17 @@
 </div>
 <p>生成出来的图片除了 fs 模块比较大之外其他都还行，下面是 kern 模块的 call graph
 （用 kolourpaint 做了点调整）：</p>
-<img alt="" src="../_images/os67-kern-func-call-graph.png" />
-<blockquote>
+<a class=""
+               data-lightbox="group-05e015e4-a601-48d7-9d97-c25bd1ac2b84"
+               href="../_images/os67-kern-func-call-graph1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/os67-kern-func-call-graph1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><blockquote>
 <div><p>注意：这里没有处理 boot 模块和 usr 模块，因为 boot 里面都是汇编程序，
 而 usr 里面的用户程序都有 main 函数会导致冲突而画出奇怪的图，所以就没有包含了。</p>
 </div></blockquote>
@@ -192,8 +214,17 @@
 然后在 <code class="code docutils literal notranslate"><span class="pre">inc</span></code> 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
 如果启用 <code class="code docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">module</span></code> 的话，会把 <code class="code docutils literal notranslate"><span class="pre">xxx.c</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">xxx.h</span></code> 合并为一个模块 <code class="code docutils literal notranslate"><span class="pre">xxx</span></code>，
 然而这样生成的图片还是太大了点。</p>
-<img alt="" src="../_images/os67-mod-include-graph.png" />
-<p>cinclude2dot 还提供了一个 <code class="code docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 选项，把相同目录的文件合并为一个模块，
+<a class=""
+               data-lightbox="group-140e7278-445b-44b2-a0b2-42a6b0ec97d1"
+               href="../_images/os67-mod-include-graph1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/os67-mod-include-graph1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>cinclude2dot 还提供了一个 <code class="code docutils literal notranslate"><span class="pre">--merge</span> <span class="pre">directory</span></code> 选项，把相同目录的文件合并为一个模块，
 这正是我想要的功能，然而这样生成的图过分简单，
 所有的目录都指向了存放头文件的目录 <code class="code docutils literal notranslate"><span class="pre">inc</span></code>。试了一下 directory 和 module 选项也不能一起用，
 果然还是得自己在 dot 文件上改一改。</p>
@@ -249,8 +280,17 @@ dot <span class="nv">$dotfile</span> -Tpng -o <span class="si">${</span><span cl
 </pre></div>
 </div>
 <p>最后我们得到了一张还算不错的， OS67 的模块调用关系图：</p>
-<img alt="" src="../_images/os67-mod-include-graph-good.png" />
-<p>好困睡觉。</p>
+<a class=""
+               data-lightbox="group-f142a23a-0e41-4b74-ac2e-b794175c4032"
+               href="../_images/os67-mod-include-graph-good1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/os67-mod-include-graph-good1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>好困睡觉。</p>
 <hr class="docutils" />
 <section data-isso-id="/blog/gen-graph-from-c-code" data-title="从 C 源码生成 函数/模块 调用图" id="isso-thread"></section></section>
 </section>
