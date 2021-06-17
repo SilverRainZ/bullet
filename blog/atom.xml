@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-06-17T16:35:09.642846+00:00</updated>
+  <updated>2021-06-17T16:42:30.582654+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -151,17 +151,8 @@
 &lt;p&gt;while 循环实在是难懂, 乖乖回去看汇编好了. 右键选择Graphic View模式, 这样汇编代码显得很清晰,
 把重点放在while循环对应的那部分, 简单分析得到, 红笔标注的地方就是程序内为数不多的循环了,
 循环之后多条并排的绿线那里是多路if,最后的是正确与否的判断以及输出.&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-b61e53c0-968c-4c70-863d-eefb9b1515b0"
-               href="_images/idf-reverse-writeup-11.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/idf-reverse-writeup-11.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt="1"/&gt;
-                &lt;/a&gt;&lt;p&gt;关键代码如下, interator 对应var_14, arr_1 对应var_40, arr_2 对应 var_c0:&lt;/p&gt;
+&lt;img alt="1" src="_images/idf-reverse-writeup-1.png" /&gt;
+&lt;p&gt;关键代码如下, interator 对应var_14, arr_1 对应var_40, arr_2 对应 var_c0:&lt;/p&gt;
 &lt;div class="highlight-nasm notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nl"&gt;loc_40097C:&lt;/span&gt;
 &lt;span class="nf"&gt;cmp&lt;/span&gt;     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;rbp&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mh"&gt;10h&lt;/span&gt;    &lt;span class="c1"&gt;; 循环总次数&lt;/span&gt;
 &lt;span class="nf"&gt;setle&lt;/span&gt;   &lt;span class="nb"&gt;al&lt;/span&gt;
@@ -189,29 +180,11 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;经过以上分析可以知道 arr_1 应该是我们输入的key, 所以有必要知道arr_2 的值, 跳转到arr_2的定义:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-a5178a2f-39ec-40f4-9c86-7f829ddeb6c5"
-               href="_images/idf-reverse-writeup-21.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/idf-reverse-writeup-21.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt="2"/&gt;
-                &lt;/a&gt;&lt;p&gt;是空的…
+&lt;img alt="2" src="_images/idf-reverse-writeup-2.png" /&gt;
+&lt;p&gt;是空的…
 但是我们回到代码中, 对arr_2有这样的操作:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-d546c2c5-baa7-4629-85f6-be957d9cde74"
-               href="_images/idf-reverse-writeup-31.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/idf-reverse-writeup-31.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt="3"/&gt;
-                &lt;/a&gt;&lt;p&gt;刚好17个项(0-10h),
+&lt;img alt="3" src="_images/idf-reverse-writeup-3.png" /&gt;
+&lt;p&gt;刚好17个项(0-10h),
 所以说 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;arr_i[i]&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;((arr_2[i]&lt;/span&gt; &lt;span class="pre"&gt;–&lt;/span&gt; &lt;span class="pre"&gt;1)&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;(arr_2[i]&lt;/span&gt; &lt;span class="pre"&gt;–&lt;/span&gt; &lt;span class="pre"&gt;1)&amp;gt;&amp;gt;0x1f)&amp;gt;&amp;gt;1&lt;/span&gt;&lt;/code&gt;
 (忽略了shr 和 sar 以及各种细节问题… 所幸没有出错)
 (vim 来处理这些最爽了)&lt;/p&gt;
@@ -561,17 +534,8 @@ byte_415768 db 73h
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;最后的结果如下：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-2f37a401-c706-4c36-9159-2cdbb46d158f"
-               href="_images/2021-02-12_14:56:461.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/2021-02-12_14:56:461.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;可以看到最后一个字符串是着色错误的。&lt;/p&gt;
+&lt;img alt="_images/2021-02-12_14:56:46.png" src="_images/2021-02-12_14:56:46.png" /&gt;
+&lt;p&gt;可以看到最后一个字符串是着色错误的。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/syntax-highlight-in-haskell" data-title="Syntax Highligh.hs" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 &lt;/section&gt;
@@ -1716,17 +1680,8 @@ $ ~ ./install.sh
 &lt;/div&gt;
 &lt;p&gt;安装完成.&lt;/p&gt;
 &lt;p&gt;截图一张:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-5d4d8033-cdbd-4098-8942-8fc3a56ce8a4"
-               href="_images/vim-plugin-screenshot1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/vim-plugin-screenshot1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;hr class="docutils" /&gt;
+&lt;img alt="_images/vim-plugin-screenshot.png" src="_images/vim-plugin-screenshot.png" /&gt;
+&lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/install-vim-plugins" data-title="Vim 插件折腾记录" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 &lt;/section&gt;
 </content>
@@ -1750,17 +1705,8 @@ $ ~ ./install.sh
 &lt;/div&gt;
 &lt;p&gt;这几天一直在折腾 Arch Linux 上的桌面, 弄到今天终于差不多了.
 先上张图:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-76ed3eb6-f1d4-40a6-a87e-6c792a80aec9"
-               href="_images/archlinux-screenshot1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/archlinux-screenshot1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;div class="system-message"&gt;
+&lt;img alt="" src="_images/archlinux-screenshot.png" /&gt;
+&lt;div class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: INFO/1 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/configure-of-archlinux.rst&lt;/span&gt;, line 19)&lt;/p&gt;
 &lt;p&gt;No directive entry for “contents” in module “docutils.parsers.rst.languages.zh_cn”.
 Using English fallback for directive “contents”.&lt;/p&gt;
@@ -2129,45 +2075,18 @@ more ~/text.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;即 ssh 连上去后执行默认 shell, 用 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 打印出了 ~/text.txt 之后就退出了, 如图:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-99b63a20-5da7-439b-b09e-99ec605e9637"
-               href="_images/overthewire-bandit26-11.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/overthewire-bandit26-11.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;-t&lt;/span&gt;&lt;/code&gt; + 命令 是不行的,
+&lt;img alt="_images/overthewire-bandit26-1.png" src="_images/overthewire-bandit26-1.png" /&gt;
+&lt;p&gt;一连上就退出, 那我们怎么让它执行我们想要的命令呢? 直接用 ssh 的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;-t&lt;/span&gt;&lt;/code&gt; + 命令 是不行的,
 这个命令不会被解释, 因为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;bash&lt;/span&gt;&lt;/code&gt; 没有执行.&lt;/p&gt;
 &lt;p&gt;正确答案是通过 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 在要输出的内容行数多于终端行数的时候会停下来, 等待你翻页,
 所以我们把当前的终端调小, 差不多四行, 再次 shh 上去, &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 就停下来了. (好脑洞)&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-4c59b2d8-f631-4504-a613-ef2625178f97"
-               href="_images/overthewire-bandit26-21.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/overthewire-bandit26-21.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;在 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;vi&lt;/span&gt;&lt;/code&gt;,
+&lt;img alt="_images/overthewire-bandit26-2.png" src="_images/overthewire-bandit26-2.png" /&gt;
+&lt;p&gt;在 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;more&lt;/span&gt;&lt;/code&gt; 里面按 v, 系统会调用默认的编辑器来编辑这个文件, 默认是 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;vi&lt;/span&gt;&lt;/code&gt;,
 有了 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;vi&lt;/span&gt;&lt;/code&gt;, 就相当于有了一个终端.&lt;/p&gt;
 &lt;p&gt;在命令模式执行 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;:r&lt;/span&gt; &lt;span class="pre"&gt;/etc/bandit_pass/bandit26&lt;/span&gt;&lt;/code&gt;, 密码的内容就会被读入.&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-1dbd738b-4ff7-45d7-926c-f0992e2e8e1a"
-               href="_images/overthewire-bandit26-31.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/overthewire-bandit26-31.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;要打开 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;sh&lt;/span&gt;&lt;/code&gt; 的话, 可以:&lt;/p&gt;
+&lt;img alt="_images/overthewire-bandit26-3.png" src="_images/overthewire-bandit26-3.png" /&gt;
+&lt;p&gt;要打开 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;sh&lt;/span&gt;&lt;/code&gt; 的话, 可以:&lt;/p&gt;
 &lt;div class="highlight-vim notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="k"&gt;shell&lt;/span&gt; &lt;span class="k"&gt;sh&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="sr"&gt;/bin/&lt;/span&gt;&lt;span class="k"&gt;sh&lt;/span&gt;
 &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;sh&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -2368,17 +2287,8 @@ Zone &lt;span class="m"&gt;115&lt;/span&gt;: not in use, &lt;span class="nv"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;zone[8]&lt;/span&gt;&lt;/code&gt; 指向一个双重间接块.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;用图说话比较清晰:&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-607bd8b1-8934-425e-8ad1-c9a44bdeddbc"
-               href="_images/inode-struct1.gif"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/inode-struct1.gif"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt="Inode structure"/&gt;
-                &lt;/a&gt;&lt;p&gt;ref: &lt;a class="reference external" href="http://jan.newmarch.name/OS/l6_1.html"&gt;http://jan.newmarch.name/OS/l6_1.html&lt;/a&gt;&lt;/p&gt;
+&lt;img alt="Inode structure" src="_images/inode-struct.gif" /&gt;
+&lt;p&gt;ref: &lt;a class="reference external" href="http://jan.newmarch.name/OS/l6_1.html"&gt;http://jan.newmarch.name/OS/l6_1.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;因此, Minix FS 支持的最大文件大小为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;(7&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2*1024/2)&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;1024&lt;/span&gt; &lt;span class="pre"&gt;byte&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;256&lt;/span&gt; &lt;span class="pre"&gt;MB&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;OS67 并没有使用双重间接块, 因此支持的最大文件大小仅为 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;(7&lt;/span&gt; &lt;span class="pre"&gt;+&lt;/span&gt; &lt;span class="pre"&gt;1024/2)&lt;/span&gt; &lt;span class="pre"&gt;*&lt;/span&gt; &lt;span class="pre"&gt;1024&lt;/span&gt; &lt;span class="pre"&gt;byte&lt;/span&gt; &lt;span class="pre"&gt;=&lt;/span&gt; &lt;span class="pre"&gt;519&lt;/span&gt; &lt;span class="pre"&gt;KB&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;/section&gt;
@@ -2604,17 +2514,8 @@ i 节点位图占据 &lt;code class="code docutils literal notranslate"&gt;&lt;s
 &lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;现在不开始的话, 以后也不会开始了.&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-81af121d-f5b1-48b1-b791-a07b9867aa28"
-               href="blog/_images/7fa36c05fbb44c3a5c6637c6184d5a5a28035222"
-               title=""
-               data-title=""
-               &gt;&lt;img src="blog/_images/7fa36c05fbb44c3a5c6637c6184d5a5a28035222"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;hr class="docutils" /&gt;
+&lt;img alt="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" src="http://imglf2.nosdn.127.net/img/bEd0djMvNWs3R0x3OVJSSHNCYnZvczBnVWtBVGdpNTZ3YUpFbnRuWEdCOHd2Y1JObEdiTW5RPT0.jpg" /&gt;
+&lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/flag" data-title="立 Flag" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/flag.html" rel="alternate"/>
@@ -3263,17 +3164,8 @@ Using English fallback for directive “hint”.</summary>
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;执行 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;dot&lt;/span&gt; &lt;span class="pre"&gt;main.dot&lt;/span&gt; &lt;span class="pre"&gt;-Tpng&lt;/span&gt; &lt;span class="pre"&gt;-o&lt;/span&gt; &lt;span class="pre"&gt;main.png&lt;/span&gt;&lt;/code&gt;，于是从整个 OS67 生成了这么一张可怕的图片：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-de0f3234-99cd-4d2d-80e7-9f7534d8755d"
-               href="_images/os67-func-call-graph1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-func-call-graph1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
+&lt;img alt="" src="_images/os67-func-call-graph.png" /&gt;
+&lt;p&gt;这么大的图片用在报告里显然是不行的，不过函数间的调用逻辑也就那样了，
 没法做什么简化，所以对于整个项目我只生成了后面的模块调用图。&lt;/p&gt;
 &lt;p&gt;既然整个项目的图太大了，那就生成模块内部的调用图好了，OS67 的项目结构长这样，
 模块和文件夹基本上是一一对应的：&lt;/p&gt;
@@ -3311,17 +3203,8 @@ Using English fallback for directive “hint”.</summary>
 &lt;/div&gt;
 &lt;p&gt;生成出来的图片除了 fs 模块比较大之外其他都还行，下面是 kern 模块的 call graph
 （用 kolourpaint 做了点调整）：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-05e015e4-a601-48d7-9d97-c25bd1ac2b84"
-               href="_images/os67-kern-func-call-graph1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-kern-func-call-graph1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;blockquote&gt;
+&lt;img alt="" src="_images/os67-kern-func-call-graph.png" /&gt;
+&lt;blockquote&gt;
 &lt;div&gt;&lt;p&gt;注意：这里没有处理 boot 模块和 usr 模块，因为 boot 里面都是汇编程序，
 而 usr 里面的用户程序都有 main 函数会导致冲突而画出奇怪的图，所以就没有包含了。&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
@@ -3344,17 +3227,8 @@ Using English fallback for directive “hint”.</summary>
 然后在 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;inc&lt;/span&gt;&lt;/code&gt; 目录找对应的头文件，生成 c 文件到头文件包含关系的 dot 文件。
 如果启用 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;--merge&lt;/span&gt; &lt;span class="pre"&gt;module&lt;/span&gt;&lt;/code&gt; 的话，会把 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xxx.c&lt;/span&gt;&lt;/code&gt; 和 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xxx.h&lt;/span&gt;&lt;/code&gt; 合并为一个模块 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;xxx&lt;/span&gt;&lt;/code&gt;，
 然而这样生成的图片还是太大了点。&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-140e7278-445b-44b2-a0b2-42a6b0ec97d1"
-               href="_images/os67-mod-include-graph1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-mod-include-graph1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;cinclude2dot 还提供了一个 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;--merge&lt;/span&gt; &lt;span class="pre"&gt;directory&lt;/span&gt;&lt;/code&gt; 选项，把相同目录的文件合并为一个模块，
+&lt;img alt="" src="_images/os67-mod-include-graph.png" /&gt;
+&lt;p&gt;cinclude2dot 还提供了一个 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;--merge&lt;/span&gt; &lt;span class="pre"&gt;directory&lt;/span&gt;&lt;/code&gt; 选项，把相同目录的文件合并为一个模块，
 这正是我想要的功能，然而这样生成的图过分简单，
 所有的目录都指向了存放头文件的目录 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;inc&lt;/span&gt;&lt;/code&gt;。试了一下 directory 和 module 选项也不能一起用，
 果然还是得自己在 dot 文件上改一改。&lt;/p&gt;
@@ -3410,17 +3284,8 @@ dot &lt;span class="nv"&gt;$dotfile&lt;/span&gt; -Tpng -o &lt;span class="si"&gt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;最后我们得到了一张还算不错的， OS67 的模块调用关系图：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-f142a23a-0e41-4b74-ac2e-b794175c4032"
-               href="_images/os67-mod-include-graph-good1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/os67-mod-include-graph-good1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;好困睡觉。&lt;/p&gt;
+&lt;img alt="" src="_images/os67-mod-include-graph-good.png" /&gt;
+&lt;p&gt;好困睡觉。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/gen-graph-from-c-code" data-title="从 C 源码生成 函数/模块 调用图" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 &lt;/section&gt;
@@ -3645,17 +3510,8 @@ system&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/
 &lt;p class="admonition-title"&gt;提示&lt;/p&gt;
 &lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
 &lt;/div&gt;
-&lt;a class=""
-               data-lightbox="group-b04a14ab-9a67-4049-b14b-4045dd11cfc2"
-               href="_images/thinkpad-l4501.jpg"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/thinkpad-l4501.jpg"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
+&lt;img alt="" src="_images/thinkpad-l450.jpg" /&gt;
+&lt;p&gt;元宵的时候，我从师兄手里买下了这台机子，全新，i5 4300U，8G内存，256G SSD，14寸 1366x768 屏幕。
 只有 SSD 而没有 HDD 这点颇合我意，毕竟我没有囤积资源的癖好，256G 足矣，而且还能省下一笔 HDD 的钱。
 机子在 ebay 上是 ￥3200，到手花了 ￥3700，以国内的价格来算还是值得的。&lt;/p&gt;
 &lt;p&gt;之前用的电脑是 Lenove G455，这台 10 年生产的机器陪伴着我姐走过了四年大学，
@@ -3819,17 +3675,8 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;最后再贴一张图：&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-c770cafc-3f90-4e90-9458-600cb31a6c9a"
-               href="_images/thinkpad-l450-screenshot1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/thinkpad-l450-screenshot1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;hr class="docutils" /&gt;
+&lt;img alt="" src="_images/thinkpad-l450-screenshot.png" /&gt;
+&lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/thinkpad-l450" data-title="入手 ThinkPad L450" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/thinkpad-l450.html" rel="alternate"/>
@@ -3851,17 +3698,8 @@ cat - &lt;span class="p"&gt;|&lt;/span&gt; dzen2 &lt;span class="nv"&gt;$arg&lt;
 &lt;p&gt;这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 &lt;a class="reference external" href="https://github.com/SilverRainZ/bullet"&gt;⛺SilverRainZ/bullet&lt;/a&gt; 反馈&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;;-) 难以置信。&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-d557a54b-8a87-4af9-9850-50f3a66d2abb"
-               href="_images/gsoc-2016-mail1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/gsoc-2016-mail1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;hr class="docutils" /&gt;
+&lt;img alt="" src="_images/gsoc-2016-mail.png" /&gt;
+&lt;hr class="docutils" /&gt;
 &lt;section data-isso-id="/blog/gsoc-2016" data-title="GSoC 2016" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/gsoc-2016.html" rel="alternate"/>
@@ -4196,17 +4034,8 @@ package&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt
 &lt;p&gt;谷歌编程之夏（Google Summer of Code/GSoC）是 Google 举办的年度编程活动，
 征集学生为开源社区编写代码，时间持续三个月，成功完成项目的学生可以得到 Google
 $5500 的报酬，同时开源社区也能得到 $500 的赞助。&lt;/p&gt;
-&lt;a class=""
-               data-lightbox="group-24f37ede-45af-423e-9675-95f073ad9647"
-               href="_images/gsoc-2016-proj1.png"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/gsoc-2016-proj1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt="GSoC 2013 Project"/&gt;
-                &lt;/a&gt;&lt;p&gt;我有幸参加了 2016 年的 Google Summoer of Code，为 GNU/Hurd 项目工作并完成预期目标，
+&lt;img alt="GSoC 2013 Project" src="_images/gsoc-2016-proj.png" /&gt;
+&lt;p&gt;我有幸参加了 2016 年的 Google Summoer of Code，为 GNU/Hurd 项目工作并完成预期目标，
 在此记录。&lt;/p&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title"&gt;目录&lt;/p&gt;
@@ -5245,10 +5074,10 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 &lt;p&gt;不知何时我养成了一种奇怪的癖好，想读一本有价值的书，没有合适工具记读书笔记，所以不读。 想记录一些不成体系的知识，不知道如何组织分类这些碎片，所以不记。想写一篇博客，文章里有一些交叉引用，不想用粗暴的 &lt;code class="code docutils literal notranslate"&gt;&lt;span class="pre"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="pre"&gt;href=xxx&amp;gt;&lt;/span&gt;&lt;/code&gt; ，所以不写。因噎废食大概就是这样吧。&lt;/p&gt;
 &lt;div class="contents local topic" id="id2"&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id20"&gt;漫长的尝试&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id21"&gt;需求&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id22"&gt;指标&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#restructuredtext-sphinx" id="id23"&gt;reStructuredText + Sphinx&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id3" id="id16"&gt;漫长的尝试&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id4" id="id17"&gt;需求&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#id7" id="id18"&gt;指标&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="#restructuredtext-sphinx" id="id19"&gt;reStructuredText + Sphinx&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;section id="id3"&gt;
@@ -5329,47 +5158,9 @@ Using English fallback for directive “replace”.&lt;/p&gt;
 &lt;p&gt;其实上面写一堆有些 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/先射箭再画靶"&gt;📖先射箭再画靶&lt;/a&gt; 的意思了，如题，最终我选择了 reStructuredText + Sphinx 作为笔记系统的核心。&lt;/p&gt;
 &lt;p&gt;现在介绍会不会太晚？&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;&lt;a href="#id16"&gt;&lt;span class="problematic" id="id17"&gt;|rst-badge|&lt;/span&gt;&lt;/a&gt; is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  &lt;a class="footnote-reference brackets" href="#id14" id="id8"&gt;3&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="#id18"&gt;&lt;span class="problematic" id="id19"&gt;|sphinx-badge|&lt;/span&gt;&lt;/a&gt; Sphinx is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license. It was originally created for the Python documentation, and it has excellent facilities for the documentation of software projects in a range of languages. &lt;a class="footnote-reference brackets" href="#id15" id="id9"&gt;4&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;&lt;p&gt;&lt;a class="reference external" href="https://docutils.sourceforge.io/rst.html"&gt;&lt;img alt="rst-badge" src="_images/rst.png" style="height: 1em;" /&gt;&lt;/a&gt; is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax and parser system. …  reStructuredText is designed for extensibility for specific application domains.  &lt;a class="footnote-reference brackets" href="#id14" id="id8"&gt;3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://www.sphinx-doc.org"&gt;&lt;img alt="sphinx-badge" src="_images/sphinx.png" style="height: 4em;" /&gt;&lt;/a&gt; Sphinx is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license. It was originally created for the Python documentation, and it has excellent facilities for the documentation of software projects in a range of languages. &lt;a class="footnote-reference brackets" href="#id15" id="id9"&gt;4&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 123)&lt;/p&gt;
-&lt;p&gt;Error in “image” directive:
-unknown option: “target”.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rst&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;docutils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sourceforge&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rst&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 123)&lt;/p&gt;
-&lt;p&gt;Substitution definition “rst-badge” empty or invalid.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;rst&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;badge&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rst&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;docutils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sourceforge&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rst&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 127)&lt;/p&gt;
-&lt;p&gt;Error in “image” directive:
-unknown option: “target”.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sphinx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sphinx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;/home/runner/work/bullet/bullet/blog/sphinx-as-note-taking-system-1.rst&lt;/span&gt;, line 127)&lt;/p&gt;
-&lt;p&gt;Substitution definition “sphinx-badge” empty or invalid.&lt;/p&gt;
-&lt;div class="highlight-default notranslate"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;sphinx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;badge&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sphinx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sphinx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;
-   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;p&gt;针对上面的指标，reStructuredText（下称 reSt） + Sphinx 具有哪些优势呢？&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;p&gt;reST 虽然稍显繁琐，但其表达能力非常优秀（从本文可见一斑）&lt;/p&gt;&lt;/li&gt;
@@ -5409,7 +5200,7 @@ Using English fallback for directive “rubric”.&lt;/p&gt;
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/sphinx-as-note-taking-system-1.html" rel="alternate"/>
-    <summary>这是 category-我如何用-sphinx-建立笔记系统 系列的第 一 篇，你可以通过订阅 RSS 来获取后续更新。</summary>
+    <summary>这是 category-我如何用-sphinx-建立笔记系统 系列的第 一 篇，你可以通过订阅 RSS 来获取后续更新。rst-badge</summary>
     <category term="Sphinx" label="Sphinx"/>
     <category term="reStructuredText" label="reStructuredText"/>
     <category term="笔记系统" label="笔记系统"/>
@@ -5606,17 +5397,8 @@ Using English fallback for directive “tip”.&lt;/p&gt;
 &lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="any-artwork.medium.html#cap-水彩" title="artwork 水彩"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;水彩&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; &lt;a class="reference internal" href="any-artwork.medium.html#cap-铅笔" title="artwork 铅笔"&gt;&lt;code class="xref any any-artwork.medium docutils literal notranslate"&gt;&lt;span class="pre"&gt;铅笔&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
-&lt;a class=""
-               data-lightbox="group-27f7c53d-bdcd-42ba-81a7-dd85dee5900d"
-               href="_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project1.jpg"
-               title=""
-               data-title=""
-               &gt;&lt;img src="_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project1.jpg"
-                     class=""
-                     width="80%"
-                     height="auto"
-                     alt=""/&gt;
-                &lt;/a&gt;&lt;p&gt;随便找的一张 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/透纳"&gt;📖透纳&lt;/a&gt; 的画。&lt;/p&gt;
+&lt;img alt="_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" src="_images/800px-Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg" style="width: 80%;" /&gt;
+&lt;p&gt;随便找的一张 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/透纳"&gt;📖透纳&lt;/a&gt; 的画。&lt;/p&gt;
 &lt;/dd&gt;&lt;/dl&gt;
 
 &lt;div class="admonition note"&gt;
