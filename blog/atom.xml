@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-06-19T03:40:20.900706+00:00</updated>
+  <updated>2021-06-21T05:51:49.693645+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -4947,7 +4947,7 @@ Srain 未来会继续开发下去，跟着 IRC 一起慢慢消失在历史里。
     <published>2020-02-29T00:00:00+00:00</published>
   </entry>
   <entry>
-    <id>https://silverrainz.me/blog/from-jekyll-to-sphinx.html</id>
+    <id>https://silverrainz.me/blog/migrate-to-sphinx.html</id>
     <title>博客迁移到 Sphinx</title>
     <updated>2020-12-26T00:00:00+00:00</updated>
     <author>
@@ -4983,9 +4983,9 @@ sidebar，ablog 引入的博客侧边栏并不会影响其他的文档。但遗�
 &lt;p&gt;最重要的，新的博客地址是 &lt;a class="reference external" href="https://silverrainz.me/blog/"&gt;https://silverrainz.me/blog/&lt;/a&gt; , tech.silverrainz.me 之后会 redirect
 到新地址。&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;section data-isso-id="/blog/from-jekyll-to-sphinx" data-title="博客迁移到 Sphinx" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
+&lt;section data-isso-id="/blog/migrate-to-sphinx" data-title="博客迁移到 Sphinx" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 </content>
-    <link href="https://silverrainz.me/blog/from-jekyll-to-sphinx.html" rel="alternate"/>
+    <link href="https://silverrainz.me/blog/migrate-to-sphinx.html" rel="alternate"/>
     <summary>这是一篇迁移自 Jekyll 的文章，如有格式问题，可到 ⛺SilverRainZ/bullet 反馈</summary>
     <category term="Python" label="Python"/>
     <category term="Sphinx" label="Sphinx"/>
