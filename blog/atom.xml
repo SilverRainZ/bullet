@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://silverrainz.me/</id>
   <title>银色子弹</title>
-  <updated>2021-07-03T15:54:51.707922+00:00</updated>
+  <updated>2021-07-03T16:05:05.216468+00:00</updated>
   <link href="https://silverrainz.me/"/>
   <link href="https://silverrainz.me/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -5617,26 +5617,26 @@ Alice -&amp;gt; Bob
     <author>
       <name>Shengyu Zhang</name>
     </author>
-    <content type="html">&lt;section class="any" id="event-1489e57"&gt;
+    <content type="html">&lt;section class="any" id="event-cde63f8"&gt;
 &lt;span id="id1"&gt;&lt;/span&gt;
 &lt;dl class="field-list simple"&gt;
 &lt;dt class="field-odd"&gt;日期&lt;/dt&gt;
-&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/xzzh-after-40-yrs.html#event-1489e57" title="event 2021-06-30"&gt;&lt;code class="xref any any-event.date docutils literal notranslate"&gt;&lt;span class="pre"&gt;2021-06-30&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-odd"&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/xzzh-after-40-yrs.html#event-cde63f8" title="event 2021-06-30"&gt;&lt;code class="xref any any-event.date docutils literal notranslate"&gt;&lt;span class="pre"&gt;2021-06-30&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt class="field-even"&gt;位置&lt;/dt&gt;
-&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/xzzh-after-40-yrs.html#event-1489e57" title="event 北京 中国油画院"&gt;&lt;code class="xref any any-event.location docutils literal notranslate"&gt;&lt;span class="pre"&gt;北京&lt;/span&gt; &lt;span class="pre"&gt;中国油画院&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;dd class="field-even"&gt;&lt;p&gt;&lt;a class="reference internal" href="blog/xzzh-after-40-yrs.html#event-cde63f8" title="event 北京 中国油画院"&gt;&lt;code class="xref any any-event.location docutils literal notranslate"&gt;&lt;span class="pre"&gt;北京&lt;/span&gt; &lt;span class="pre"&gt;中国油画院&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
-&lt;p&gt;从油画院公众号上看到 &lt;a class="reference internal" href="notes/artstory/artistory.html#artist-11" title="artist 陈丹青"&gt;&lt;code class="xref any any-artist docutils literal notranslate"&gt;&lt;span class="pre"&gt;❌👤陈丹青&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的西藏组画要再展 &lt;a class="footnote-reference brackets" href="#id11" id="id2"&gt;1&lt;/a&gt;。刚好我从燕郊回广东要在北京中转几天，有机会看看陈老师最负盛名的这组作品到底是什么样子的。&lt;/p&gt;
+&lt;p&gt;从油画院公众号上看到 &lt;a class="reference internal" href="notes/artstory/artistory.html#artist-11" title="artist 陈丹青"&gt;&lt;code class="xref any any-artist docutils literal notranslate"&gt;&lt;span class="pre"&gt;❌👤陈丹青&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 的西藏组画要再展 &lt;a class="footnote-reference brackets" href="#id12" id="id2"&gt;1&lt;/a&gt;。刚好我从燕郊回广东要在北京中转几天，有机会看看陈老师最负盛名的这组作品到底是什么样子的。&lt;/p&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="admonition-title"&gt;注解&lt;/p&gt;
-&lt;p&gt;这也是我在 &lt;a class="reference internal" href="notes/zxsys/index.html#event-93e469c" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;❌📅造型实验室&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 学习一年之后的首次看展，我很期待这个不一样的我是否能看到不一样的东西。&lt;/p&gt;
+&lt;p&gt;这也是我在 &lt;a class="reference internal" href="notes/zxsys/index.html#event-fe78e8a" title="event 造型实验室"&gt;&lt;code class="xref any any-event docutils literal notranslate"&gt;&lt;span class="pre"&gt;❌📅造型实验室&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; 学习一年之后的首次看展，我很期待这个不一样的我是否能看到不一样的东西。&lt;/p&gt;
 &lt;/div&gt;
 &lt;section id="id3"&gt;
 &lt;h2&gt;最佳习作&lt;/h2&gt;
 &lt;p&gt;展览展出 7 张油画和 200 余张速写，很可惜除了进门第一张《意大利女孩》是原作之外，其他的全是高清喷绘，速写倒多是原作。&lt;/p&gt;
 &lt;p&gt;从《意大利女孩》能看出陈丹青不错的造型功底，画的感觉也非常好，颇有大师风范：&lt;/p&gt;
-&lt;figure class="align-default" id="id14"&gt;
+&lt;figure class="align-default" id="id16"&gt;
 &lt;img alt="_images/IMG_20210627_144543.jpg" src="_images/IMG_20210627_144543.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;意大利女孩&lt;/span&gt;&lt;/p&gt;
@@ -5647,7 +5647,7 @@ Alice -&amp;gt; Bob
 &lt;div&gt;&lt;p&gt;这张画居然没有丢失。这次画展，这张最好！&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;我心里暗生喜悦：原来陈老师也最喜欢这一张，我眼光不错。后来写此文的时候一查，其实这张是陈老师在 15 岁的时候临摹 &lt;code class="xref any any-artist docutils literal notranslate"&gt;&lt;span class="pre"&gt;❌👤阿列克谢&lt;/span&gt;&lt;/code&gt; 的习作，对比一下：&lt;/p&gt;
-&lt;figure class="align-default" id="id15"&gt;
+&lt;figure class="align-default" id="id17"&gt;
 &lt;img alt="_images/Alexei-Harlamoff-Italian-Girls.jpg" src="_images/Alexei-Harlamoff-Italian-Girls.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;&lt;em&gt;Italian Girls&lt;/em&gt; by Alexei Harlamoff&lt;/span&gt;&lt;/p&gt;
@@ -5658,7 +5658,7 @@ Alice -&amp;gt; Bob
 &lt;section id="id4"&gt;
 &lt;h2&gt;草图和创作思路&lt;/h2&gt;
 &lt;p&gt;这次展览，除了画本身，还节选了陈老师的绘画日记和在美术期刊上的一些文章。配合大量的小稿，陈当年创作的思路可见一二：&lt;/p&gt;
-&lt;figure class="align-default" id="id16"&gt;
+&lt;figure class="align-default" id="id18"&gt;
 &lt;img alt="_images/IMG_20210627_150342.jpg" src="_images/IMG_20210627_150342.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;我不怕不成熟的草图，一旦草图上画出精彩的效果我反而会担心，因为戏毕竟在油画上。我尽可能让我在上正稿时仿佛处在第一次画这副画的状态中，那样整个创作过程是主动积极的，充满自信和写生般的敏锐，情绪亦很愉快。为此我常把草图搁置很久才画正稿（有时放几个月），并且一旦画起来，我差不多不看草稿。这不是做不到的，既然一个演员能从头背下一台戏来，一个画家也该有这点背写的能力。事实上打腹稿已经是个默记于心的过程，而草图就是对画面各个角落熟悉把握的过程，如果到了正稿时还处处求证与草图资料，那么作者对于自己要画的还不是很还有底，至少是在被动地创作。&lt;/span&gt;&lt;/p&gt;
@@ -5667,7 +5667,7 @@ Alice -&amp;gt; Bob
 &lt;/div&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id17"&gt;
+&lt;figure class="align-default" id="id19"&gt;
 &lt;img alt="_images/IMG_20210627_151615.jpg" src="_images/IMG_20210627_151615.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;如果我们去到一个地方，想要一些创作，那我以为最好别画太多的写生，至少别光顾写生。创作不全是想出来的，也不全是画出来的，倒是留心看看看来的。到处走走转转，兴许就带回一二个有意思的印象，日后可能搞成一张创作。如果一头插进去写生，当然能带回来一大沓很像样的投降、风景，不过常常仅此而已，你心中的东西不会比写生更多。我有时为这回没画油画写生一遗憾，但念及我获得了比写生更有意思的东西，另一头则满足啦。&lt;/span&gt;&lt;/p&gt;
@@ -5684,7 +5684,7 @@ Alice -&amp;gt; Bob
 &lt;section id="id5"&gt;
 &lt;h2&gt;四十年后追记&lt;/h2&gt;
 &lt;p&gt;刚才提及展览节选了陈老师的旧文，有意思的是油画院请陈在四十年后对自己当年的文字评价一番，用歪歪扭扭的手写体注在一旁，有感慨，有自嘲。在我的感受是漂亮话居多，自嘲中有一些坦言了自己的退步：&lt;/p&gt;
-&lt;figure class="align-default" id="id18"&gt;
+&lt;figure class="align-default" id="id20"&gt;
 &lt;img alt="_images/IMG_20210627_151201.jpg" src="_images/IMG_20210627_151201.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;谢天谢地，创作的激情一直都没有离开我
@@ -5698,15 +5698,15 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id19"&gt;
+&lt;figure class="align-default" id="id21"&gt;
 &lt;img alt="_images/IMG_20210627_145435.jpg" src="_images/IMG_20210627_145435.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;继续画「三个母亲」，我觉得灵感和技巧一天比一天照顾我
 &lt;sub&gt;追记：如今，不肯照顾我了&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;这几日刚好有看到了今年陈老师的新作 &lt;a class="footnote-reference brackets" href="#id12" id="id6"&gt;2&lt;/a&gt; ，看了一眼后我想所言非虚：&lt;/p&gt;
-&lt;figure class="align-default" id="id20"&gt;
+&lt;p&gt;这几日刚好有看到了今年陈老师的新作 &lt;a class="footnote-reference brackets" href="#id13" id="id6"&gt;2&lt;/a&gt; ，看了一眼后我想所言非虚：&lt;/p&gt;
+&lt;figure class="align-default" id="id22"&gt;
 &lt;img alt="_images/1000.webp" src="_images/1000.webp" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;时尚模特写生系列，2021&lt;/span&gt;&lt;/p&gt;
@@ -5715,13 +5715,13 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id7"&gt;
 &lt;h2&gt;西藏组画好&lt;/h2&gt;
-&lt;figure class="align-default" id="id21"&gt;
+&lt;figure class="align-default" id="id23"&gt;
 &lt;img alt="_images/IMG_20210627_150753.jpg" src="_images/IMG_20210627_150753.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;康巴汉子 &lt;sub&gt;高清喷绘&lt;/sub&gt; &lt;sub&gt;局部&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id22"&gt;
+&lt;figure class="align-default" id="id24"&gt;
 &lt;img alt="_images/IMG_20210627_145244.jpg" src="_images/IMG_20210627_145244.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;母与子 &lt;sub&gt;高清喷绘&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;
@@ -5729,21 +5729,21 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/figure&gt;
 &lt;p&gt;我想对艺术作品的评价，不能脱离其历史背景，1980 年西藏组画问世，彼时文化大革命刚结束 4 年：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div&gt;&lt;p&gt;… 毕业作品《西藏组画》比他以前的作品在全国产生了更广泛的影响，被认为是冲击文革教条化创作模式的代表作品。&lt;a class="footnote-reference brackets" href="#id13" id="id8"&gt;3&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;&lt;p&gt;… 毕业作品《西藏组画》比他以前的作品在全国产生了更广泛的影响，被认为是冲击文革教条化创作模式的代表作品。&lt;a class="footnote-reference brackets" href="#id14" id="id8"&gt;3&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;/blockquote&gt;
 &lt;p&gt;那时候的绘画作品多是什么样子的呢？我们从 &lt;a class="reference external" href="https://zhuanlan.zhihu.com/p/58488380"&gt;文化大革命时期的绘画艺术&lt;/a&gt; 和 &lt;a class="reference external" href="https://zh.wikipedia.org/wiki/Template:文革时期艺术"&gt;📖Template:文革时期艺术&lt;/a&gt; 可窥一二。&lt;/p&gt;
-&lt;figure class="align-default" id="id23"&gt;
+&lt;figure class="align-default" id="id25"&gt;
 &lt;img alt="_images/220px-毛主席去安源郵票.jpg" src="_images/220px-毛主席去安源郵票.jpg" /&gt;
 &lt;figcaption&gt;
-&lt;p&gt;&lt;span class="caption-text"&gt;毛主席去安源郵票&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="caption-text"&gt;毛主席去安源郵票 &lt;a class="footnote-reference brackets" href="#id15" id="id9"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;在这个重大历史事件的余波后，西藏组画选择了一个新颖的、安全的主题，同时（即便抛开了时代背景）它又是真诚的，质朴的，有力的。它当之无愧地成为了中国艺术史上的一个里程碑。&lt;/p&gt;
 &lt;/section&gt;
-&lt;section id="id10"&gt;
+&lt;section id="id11"&gt;
 &lt;h2&gt;比正稿更好的&lt;/h2&gt;
 &lt;p&gt;相比最终的油画，我更喜欢陈老师为了这些油画而画的大量小稿：&lt;/p&gt;
-&lt;figure class="align-default" id="id24"&gt;
+&lt;figure class="align-default" id="id26"&gt;
 &lt;img alt="_images/IMG_20210627_151718.jpg" src="_images/IMG_20210627_151718.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;进城 草稿之一&lt;/span&gt;&lt;/p&gt;
@@ -5752,7 +5752,7 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id25"&gt;
+&lt;figure class="align-default" id="id27"&gt;
 &lt;img alt="_images/IMG_20210627_152420.jpg" src="_images/IMG_20210627_152420.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;我非常喜欢这张，放牧的男人在从背后搂住正在喝水的女人，贴在女人背上粗犷的五官组合起来却是一脸的撒娇和宠溺。&lt;/span&gt;&lt;/p&gt;
@@ -5762,25 +5762,25 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id26"&gt;
+&lt;figure class="align-default" id="id28"&gt;
 &lt;img alt="_images/IMG_20210627_144927.jpg" src="_images/IMG_20210627_144927.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;喜欢这样拙拙的五官&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id27"&gt;
+&lt;figure class="align-default" id="id29"&gt;
 &lt;img alt="_images/IMG_20210627_145043.jpg" src="_images/IMG_20210627_145043.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;母与子 草稿之一&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id28"&gt;
+&lt;figure class="align-default" id="id30"&gt;
 &lt;img alt="_images/IMG_20210627_152435.jpg" src="_images/IMG_20210627_152435.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;忘记下面写的啥了，其实这张看起来单薄了。&lt;/span&gt;&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id29"&gt;
+&lt;figure class="align-default" id="id31"&gt;
 &lt;img alt="_images/IMG_20210627_152144.jpg" src="_images/IMG_20210627_152144.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;当街洗头的藏民&lt;/span&gt;&lt;/p&gt;
@@ -5790,7 +5790,7 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure class="align-default" id="id30"&gt;
+&lt;figure class="align-default" id="id32"&gt;
 &lt;img alt="_images/IMG_20210627_150450.jpg" src="_images/IMG_20210627_150450.jpg" /&gt;
 &lt;figcaption&gt;
 &lt;p&gt;&lt;span class="caption-text"&gt;康巴汉子 草稿之一&lt;/span&gt;&lt;/p&gt;
@@ -5801,17 +5801,21 @@ Using English fallback for role “sub”.&lt;/p&gt;
 &lt;/figure&gt;
 &lt;p class="rubric"&gt;脚注&lt;/p&gt;
 &lt;dl class="footnote brackets"&gt;
-&lt;dt class="label" id="id11"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id2"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dt class="label" id="id12"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id2"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="http://www.xinhuanet.com/shuhua/2021-05/12/c_1127435958.htm"&gt;http://www.xinhuanet.com/shuhua/2021-05/12/c_1127435958.htm&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
-&lt;dt class="label" id="id12"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id6"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dt class="label" id="id13"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id6"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://new.qq.com/omn/20210622/20210622A0AJG500.html"&gt;https://new.qq.com/omn/20210622/20210622A0AJG500.html&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
-&lt;dt class="label" id="id13"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id8"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dt class="label" id="id14"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id8"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://zh.wikipedia.org/wiki/陈丹青#生平"&gt;📖陈丹青#生平&lt;/a&gt;&lt;/p&gt;
 &lt;/dd&gt;
+&lt;dt class="label" id="id15"&gt;&lt;span class="brackets"&gt;&lt;a class="fn-backref" href="#id9"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;&lt;a class="reference external" href="https://zh.wikipedia.org/wiki/毛主席去安源"&gt;📖毛主席去安源&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
-&lt;/section&gt;
+&lt;hr class="docutils" /&gt;
+&lt;section data-isso-id="/blog/xzzh-after-40-yrs" data-title="四十年后再看西藏组画" id="isso-thread"&gt;&lt;/section&gt;&lt;/section&gt;
 &lt;/section&gt;
 </content>
     <link href="https://silverrainz.me/blog/xzzh-after-40-yrs.html" rel="alternate"/>
