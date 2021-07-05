@@ -103,24 +103,40 @@
 <li class="toctree-l1"><a class="reference internal" href="dp.html">动态规划</a></li>
 </ul>
 </div>
-<p>借鉴了 <a class="reference external" href="https://github.com/iosmanthus/leetcode-rust">⛺iosmanthus/leetcode-rust</a> 的做法，主要用 Rust 来刷题。</p>
-<p>先从 🔥 <a class="reference external" href="https://leetcode.com/problemset/top-100-liked-questions/">Top 100 Liked Questions</a> 开始看看？</p>
+<p>借鉴了 <a class="reference external" href="https://github.com/iosmanthus/leetcode-rust">⛺iosmanthus/leetcode-rust</a> 的做法，主要用 Rust 来刷题。
+先从 🔥 <a class="reference external" href="https://leetcode.com/problemset/all/?listId=79h8rn6">Top 100 Liked Questions</a> 开始看看？</p>
 <div class="contents local topic" id="id1">
 <ul class="simple">
-<li><p><a class="reference internal" href="#two-sum" id="id2">1. Two Sum</a></p></li>
-<li><p><a class="reference internal" href="#valid-parentheses" id="id3">20. Valid Parentheses</a></p></li>
-<li><p><a class="reference internal" href="#lru-cache" id="id4">127. LRU Cache</a></p></li>
-<li><p><a class="reference internal" href="#lfu-cache" id="id5">460. LFU Cache</a></p></li>
-<li><p><a class="reference internal" href="#add-two-numvers" id="id6">2. Add Two Numvers</a></p></li>
-<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id7">416. Partition Equal Subset Sum</a></p></li>
-<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id8">21. Merge Two Sorted Lists</a></p></li>
+<li><p><a class="reference internal" href="#two-sum" id="id2">Two Sum</a></p></li>
+<li><p><a class="reference internal" href="#valid-parentheses" id="id3">Valid Parentheses</a></p></li>
+<li><p><a class="reference internal" href="#lru-cache" id="id4">LRU Cache</a></p></li>
+<li><p><a class="reference internal" href="#lfu-cache" id="id5">LFU Cache</a></p></li>
+<li><p><a class="reference internal" href="#add-two-numbers" id="id6">Add Two Numbers</a></p></li>
+<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id7">Partition Equal Subset Sum</a></p></li>
+<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id8">Merge Two Sorted Lists</a></p></li>
+<li><p><a class="reference internal" href="#maximum-subarray" id="id9">Maximum Subarray</a></p></li>
 </ul>
 </div>
-<section id="two-sum">
-<h2>1. Two Sum<a class="headerlink" href="#two-sum" title="永久链接至标题">¶</a></h2>
-<p>我居然以为是 a+b 真是太蠢了。</p>
-<p>花了一些时间来回忆 rust 的语法，工作后技术直觉好了很多，之前觉得不容易理解的地方
-（指 rust）现在觉得非常直观了。</p>
+<section class="any" id="two-sum">
+<span id="leetcode-two-sum"></span><h2>Two Sum<a class="headerlink" href="#two-sum" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/two-sum">https://leetcode.com/problems/two-sum</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="c1">// ref: https://github.com/iosmanthus/leetcode-rust/blob/master/two-sum/src/lib.rs</span>
 
 <span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">HashMap</span><span class="p">;</span><span class="w"></span>
@@ -152,15 +168,31 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+</div>
+</details><p>我居然以为是 a+b 真是太蠢了。</p>
+<p>花了一些时间来回忆 rust 的语法，工作后技术直觉好了很多，之前觉得不容易理解的地方
+（指 rust）现在觉得非常直观了。</p>
 </section>
-<section id="valid-parentheses">
-<h2>20. Valid Parentheses<a class="headerlink" href="#valid-parentheses" title="永久链接至标题">¶</a></h2>
+<section class="any" id="valid-parentheses">
+<span id="leetcode-valid-parentheses"></span><h2>Valid Parentheses<a class="headerlink" href="#valid-parentheses" title="永久链接至标题">¶</a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">URL</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/valid-parentheses/">https://leetcode.com/problems/valid-parentheses/</a></p>
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/valid-parentheses">https://leetcode.com/problems/valid-parentheses</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
 </dd>
 </dl>
-<p>熟悉语法……</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -207,13 +239,29 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+</div>
+</details><p>熟悉语法……</p>
 </section>
-<section id="lru-cache">
-<h2>127. LRU Cache<a class="headerlink" href="#lru-cache" title="永久链接至标题">¶</a></h2>
-<p>想用 rust 写个 LRU cache 吧发现 <code class="code docutils literal notranslate"><span class="pre">std::collection:LinkedList</span></code> 没有暴露出类似
-链表节点的结构体……有的话所有权也是问题，<code class="code docutils literal notranslate"><span class="pre">Cursor</span></code> 看起来像然而 nightly only，
-好像还是太菜了 —— 是说我自己。</p>
-<p>但如果换成 go 的话…… <span class="sphinxnotes-strike">这么简单的题也算 medium 吗</span> ，可能因为太实用了所以写起来不难？</p>
+<section class="any" id="lru-cache">
+<span id="leetcode-lru-cache"></span><h2>LRU Cache<a class="headerlink" href="#lru-cache" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/lru-cache">https://leetcode.com/problems/lru-cache</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;container/list&quot;</span>
@@ -271,15 +319,32 @@
 <span class="cm">*/</span>
 </pre></div>
 </div>
-</section>
-<section id="lfu-cache">
-<h2>460. LFU Cache<a class="headerlink" href="#lfu-cache" title="永久链接至标题">¶</a></h2>
-<p>在 touch 一个元素的的时候从链表尾部往上找，是一个 O(n) (?) 的操作，然而
-Leetcode 给过了…… 要是在 <a class="reference external" href="http://acm.scau.edu.cn:8000">http://acm.scau.edu.cn:8000</a> 是肯定要 TLE。</p>
-<div class="admonition note">
-<p class="admonition-title">注解</p>
-<p>看一眼输入输出限制，想想边界值，比如 <code class="code docutils literal notranslate"><span class="pre">cap</span> <span class="pre">==</span> <span class="pre">0</span></code> 的情况就忽略了</p>
 </div>
+</details><p>想用 rust 写个 LRU cache 吧发现 <code class="code docutils literal notranslate"><span class="pre">std::collection:LinkedList</span></code> 没有暴露出类似
+链表节点的结构体……有的话所有权也是问题，<code class="code docutils literal notranslate"><span class="pre">Cursor</span></code> 看起来像然而 nightly only，
+好像还是太菜了 —— 是说我自己。</p>
+<p>但如果换成 go 的话…… <span class="sphinxnotes-strike">这么简单的题也算 medium 吗</span> ，可能因为太实用了所以写起来不难？</p>
+</section>
+<section class="any" id="lfu-cache">
+<span id="leetcode-lfu-cache"></span><h2>LFU Cache<a class="headerlink" href="#lfu-cache" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/lfu-cache">https://leetcode.com/problems/lfu-cache</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;container/list&quot;</span>
@@ -356,15 +421,39 @@ Leetcode 给过了…… 要是在 <a class="reference external" href="http://ac
 <span class="cm"> */</span>
 </pre></div>
 </div>
+</div>
+</details><p>在 touch 一个元素的的时候从链表尾部往上找，是一个 O(n) 的操作，然而
+Leetcode 给过了…… 要是在 <a class="reference external" href="http://acm.scau.edu.cn:8000">SCAU OJ</a> 是肯定要 TLE。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>看一眼输入输出限制，想想边界值，比如 <code class="code docutils literal notranslate"><span class="pre">cap</span> <span class="pre">==</span> <span class="pre">0</span></code> 的情况就忽略了</p>
+</div>
 <p>更聪明的做法是按 freq 分成多个桶，每次 touch 一个元素就把它挪到对应的
 frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最应该该淘汰的桶，
 桶内部是一个小的 LRU，这样 touch 就是 O(n) 了。</p>
 <p>想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 O(n)
 的查找变成 O(logN) 而已，大量重复的 freq 值是很浪费时间和空间的。</p>
 </section>
-<section id="add-two-numvers">
-<h2>2. Add Two Numvers<a class="headerlink" href="#add-two-numvers" title="永久链接至标题">¶</a></h2>
-<p>凡是链表的题目都不能用 rust :’(</p>
+<section class="any" id="add-two-numbers">
+<span id="leetcode-add-two-numbers"></span><h2>Add Two Numbers<a class="headerlink" href="#add-two-numbers" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/add-two-numbers">https://leetcode.com/problems/add-two-numbers</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="cm">/**</span>
@@ -426,11 +515,32 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</details><p>凡是链表的题目都不能用 rust :’(</p>
 </section>
-<section id="partition-equal-subset-sum">
-<h2>416. Partition Equal Subset Sum<a class="headerlink" href="#partition-equal-subset-sum" title="永久链接至标题">¶</a></h2>
-<p>把一个集合分成两个，使其 sum 分别相等，可以转化为：</p>
-<p>假设原集合 sum 为 S<sub>a</sub> ，从集合中选出一个子集，使其 sum 刚好的为 S<sub>a</sub>/2 ——  这是一个 01 背包问题，背包容量为 S<sub>a</sub>/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。</p>
+<section class="any" id="partition-equal-subset-sum">
+<span id="leetcode-partition-equal-subset-sum"></span><h2>Partition Equal Subset Sum<a class="headerlink" href="#partition-equal-subset-sum" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/partition-equal-subset-sum">https://leetcode.com/problems/partition-equal-subset-sum</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p>[‘动态规划’]</p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">max</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"></span>
@@ -479,10 +589,30 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+</div>
+</details><p>把一个集合分成两个，使其 sum 分别相等，可以转化为：</p>
+<p>假设原集合 sum 为 S<sub>a</sub> ，从集合中选出一个子集，使其 sum 刚好的为 S<sub>a</sub>/2 ——  这是一个 01 背包问题，背包容量为 S<sub>a</sub>/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。</p>
 </section>
-<section id="merge-two-sorted-lists">
-<h2>21. Merge Two Sorted Lists<a class="headerlink" href="#merge-two-sorted-lists" title="永久链接至标题">¶</a></h2>
-<p>纯逻辑题。</p>
+<section class="any" id="merge-two-sorted-lists">
+<span id="leetcode-merge-two-sorted-lists"></span><h2>Merge Two Sorted Lists<a class="headerlink" href="#merge-two-sorted-lists" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/merge-two-sorted-lists">https://leetcode.com/problems/merge-two-sorted-lists</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="cm">/**</span>
@@ -522,6 +652,64 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</details><p>纯逻辑题。</p>
+</section>
+<section class="any" id="maximum-subarray">
+<span id="leetcode-maximum-subarray"></span><h2>Maximum Subarray<a class="headerlink" href="#maximum-subarray" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/maximum-subarray">https://leetcode.com/problems/maximum-subarray</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p>[‘动态规划’, ‘分治’]</p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nx">maxSubArray</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">max</span> <span class="o">:=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">))</span>
+	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">v</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nx">v</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">v</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">v</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">max</span> <span class="p">{</span>
+			<span class="nx">max</span> <span class="p">=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">max</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details><p>题目本身比较简单，一维 DP 或者贪心均可做。</p>
 </section>
 </section>
 
