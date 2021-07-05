@@ -113,6 +113,7 @@
 <li><p><a class="reference internal" href="#lfu-cache" id="id5">460. LFU Cache</a></p></li>
 <li><p><a class="reference internal" href="#add-two-numvers" id="id6">2. Add Two Numvers</a></p></li>
 <li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id7">416. Partition Equal Subset Sum</a></p></li>
+<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id8">21. Merge Two Sorted Lists</a></p></li>
 </ul>
 </div>
 <section id="two-sum">
@@ -476,6 +477,49 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">can_partition</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="merge-two-sorted-lists">
+<h2>21. Merge Two Sorted Lists<a class="headerlink" href="#merge-two-sorted-lists" title="永久链接至标题">¶</a></h2>
+<p>纯逻辑题。</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Definition for singly-linked list.</span>
+<span class="cm"> */</span>
+<span class="kd">type</span> <span class="nx">ListNode</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Val</span>  <span class="kt">int</span>
+	<span class="nx">Next</span> <span class="o">*</span><span class="nx">ListNode</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">move</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">ListNode</span><span class="p">,</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">to</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">to</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">from</span>
+	<span class="p">}</span>
+	<span class="nx">newFrom</span> <span class="o">:=</span> <span class="nx">from</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="nx">from</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="kc">nil</span>
+	<span class="k">return</span> <span class="nx">newFrom</span><span class="p">,</span> <span class="nx">from</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">mergeTwoLists</span><span class="p">(</span><span class="nx">l1</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">,</span> <span class="nx">l2</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="nx">resHead</span> <span class="o">:=</span> <span class="nx">ListNode</span><span class="p">{}</span>
+	<span class="nx">resTail</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">resHead</span>
+	<span class="k">for</span> <span class="nx">l1</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">l2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">l1</span><span class="p">.</span><span class="nx">Val</span> <span class="p">&lt;</span> <span class="nx">l2</span><span class="p">.</span><span class="nx">Val</span> <span class="p">{</span>
+			<span class="nx">l1</span><span class="p">,</span> <span class="nx">resTail</span> <span class="p">=</span> <span class="nx">move</span><span class="p">(</span><span class="nx">l1</span><span class="p">,</span> <span class="nx">resTail</span><span class="p">)</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">l2</span><span class="p">,</span> <span class="nx">resTail</span> <span class="p">=</span> <span class="nx">move</span><span class="p">(</span><span class="nx">l2</span><span class="p">,</span> <span class="nx">resTail</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">l1</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">resTail</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">l1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">l2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">resTail</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">l2</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">resHead</span><span class="p">.</span><span class="nx">Next</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
