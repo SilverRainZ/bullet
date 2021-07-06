@@ -36,6 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/asciinema-player_2.6.1.js"></script>
     <script src="../../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://silverrainz.me/notes/leetcode/index.html" />
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -668,7 +669,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
 </dd>
 <dt class="field-even">思路</dt>
-<dd class="field-even"><p>[‘动态规划’, ‘分治’]</p>
+<dd class="field-even"><p>[‘动态规划’, ‘分治法’]</p>
 </dd>
 </dl>
 <details class="sphinx-bs dropdown card mb-3">
@@ -679,6 +680,8 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="c1">// import &quot;fmt&quot;</span>
 
 <span class="kd">func</span> <span class="nx">maxSubArray</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="nx">max</span> <span class="o">:=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -698,6 +701,50 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 	<span class="k">return</span> <span class="nx">max</span>
 <span class="p">}</span>
 
+<span class="kd">func</span> <span class="nx">maxSubArray_Conquer</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">left</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="c1">// fmt.Println(nums, nums[0], nums[0], left)</span>
+		<span class="k">return</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="nx">lmax</span><span class="p">,</span> <span class="nx">lmid</span> <span class="o">:=</span> <span class="nx">maxSubArray_Conquer</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="kc">true</span><span class="p">)</span>
+	<span class="nx">rmax</span><span class="p">,</span> <span class="nx">rmid</span> <span class="o">:=</span> <span class="nx">maxSubArray_Conquer</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">:],</span> <span class="kc">false</span><span class="p">)</span>
+	<span class="nx">max</span> <span class="o">:=</span> <span class="nx">lmid</span> <span class="o">+</span> <span class="nx">rmid</span>
+	<span class="k">if</span> <span class="nx">lmax</span> <span class="p">&gt;</span> <span class="nx">max</span> <span class="p">{</span>
+		<span class="nx">max</span> <span class="p">=</span> <span class="nx">lmax</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">rmax</span> <span class="p">&gt;</span> <span class="nx">max</span> <span class="p">{</span>
+		<span class="nx">max</span> <span class="p">=</span> <span class="nx">rmax</span>
+	<span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">mid</span> <span class="kt">int</span>
+	<span class="k">if</span> <span class="nx">left</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">tmp</span> <span class="kt">int</span>
+		<span class="nx">mid</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+		<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span> <span class="p">{</span>
+			<span class="nx">tmp</span> <span class="o">+=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+			<span class="k">if</span> <span class="nx">tmp</span> <span class="p">&gt;</span> <span class="nx">mid</span> <span class="p">{</span>
+				<span class="nx">mid</span> <span class="p">=</span> <span class="nx">tmp</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">tmp</span> <span class="kt">int</span>
+		<span class="nx">mid</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+			<span class="nx">tmp</span> <span class="o">+=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+			<span class="k">if</span> <span class="nx">tmp</span> <span class="p">&gt;</span> <span class="nx">mid</span> <span class="p">{</span>
+				<span class="nx">mid</span> <span class="p">=</span> <span class="nx">tmp</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">// fmt.Println(nums, max, mid, left)</span>
+	<span class="k">return</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">mid</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">maxSubArray_Divide</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">max</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">maxSubArray_Conquer</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">max</span>
+<span class="p">}</span>
+
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">}))</span>
 	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
@@ -705,11 +752,36 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}))</span>
 	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
 	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">19</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">}))</span>
+
+	<span class="nb">println</span><span class="p">(</span><span class="s">&quot;------------&quot;</span><span class="p">)</span>
+
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">maxSubArray_Divide</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">19</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">}))</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
-</details><p>题目本身比较简单，一维 DP 或者贪心均可做。</p>
+</details><p>题目本身比较简单，一维 DP 或者贪心 <span class="math notranslate nohighlight">\(O(n)\)</span> 可做。</p>
+<p>题干提示可用分治法做，”which is more subtle”，是一个吃力不讨好的解法。但很有代表性：</p>
+<p>设数组最大子序列为 M ，M = max(M<sub>left</sub>, M<sub>right</sub>, M<sub>middle</sub>)，分别为左半边数组的最大子序列，右半边数组的最大子序列，或者是从中间算起，横跨左右的最大子序列。</p>
+<ul class="simple">
+<li><p>当问题规模缩减至 1 的时候， M<sub>left</sub>, M<sub>right</sub>, M<sub>middle</sub> 显然为数组里唯一的元素</p></li>
+<li><p>M<sub>middle</sub> 的值不可由子问题推导出来，只能在数组 l 和 r 分别逆序和顺序遍历，求各自的从边缘开始的最大子序列，是一个 <span class="math notranslate nohighlight">\(O(n)\)</span> 的操作 – 这就决定了这个解法比 DP 慢，在每一轮子问题的解决都要遍历一次</p></li>
+<li><p>二分法，所以问题要 <span class="math notranslate nohighlight">\(O(\log_{2}n)\)</span> 个规模的子问题</p></li>
+</ul>
+<p>复杂度为 <span class="math notranslate nohighlight">\(O(n\log n)\)</span> 。</p>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<p><a class="reference external" href="https://www.cnblogs.com/lulin1/p/9516132.html">算法复杂度中的O(logN)底数是多少</a></p>
+</div>
 </section>
 </section>
 
@@ -832,7 +904,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
