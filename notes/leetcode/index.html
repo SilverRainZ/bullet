@@ -116,6 +116,9 @@
 <li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id7">Partition Equal Subset Sum</a></p></li>
 <li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id8">Merge Two Sorted Lists</a></p></li>
 <li><p><a class="reference internal" href="#maximum-subarray" id="id9">Maximum Subarray</a></p></li>
+<li><p><a class="reference internal" href="#climbing-stairs" id="id10">Climbing Stairs</a></p></li>
+<li><p><a class="reference internal" href="#binary-tree-inorder-traversal" id="id11">Binary Tree Inorder Traversal</a></p></li>
+<li><p><a class="reference internal" href="#symmetric-tree" id="id12">Symmetric Tree</a></p></li>
 </ul>
 </div>
 <section class="any" id="two-sum">
@@ -783,6 +786,189 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <p><a class="reference external" href="https://www.cnblogs.com/lulin1/p/9516132.html">算法复杂度中的O(logN)底数是多少</a></p>
 </div>
 </section>
+<section class="any" id="climbing-stairs">
+<span id="leetcode-climbing-stairs"></span><h2>Climbing Stairs<a class="headerlink" href="#climbing-stairs" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/climbing-stairs">https://leetcode.com/problems/climbing-stairs</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p>[‘搜索’, ‘动态规划’]</p>
+</dd>
+<dt class="field-odd">他人题解</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://blog.csdn.net/zgpeace/article/details/88382121">https://blog.csdn.net/zgpeace/article/details/88382121</a></p></li>
+</ul>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">var</span> <span class="nx">memo</span> <span class="p">[]</span><span class="kt">int</span>
+
+<span class="kd">func</span> <span class="nx">climbStairs_inner</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="mi">0</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">memo</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">memo</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="nx">res</span> <span class="o">:=</span> <span class="nx">climbStairs_inner</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">climbStairs_inner</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+	<span class="nx">memo</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="p">=</span> <span class="nx">res</span>
+	<span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+
+<span class="c1">// 暴搜 + 记忆</span>
+<span class="kd">func</span> <span class="nx">climbStairs</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">memo</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">memo</span> <span class="p">{</span>
+		<span class="nx">memo</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="nx">memo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="nx">memo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">2</span> <span class="p">{</span>
+		<span class="nx">memo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">2</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">climbStairs_inner</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 递推解法</span>
+<span class="kd">func</span> <span class="nx">climbStairs2</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">2</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="mi">3</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">res</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">res</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">res</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">res</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs</span><span class="p">(</span><span class="mi">45</span><span class="p">))</span>
+
+	<span class="nb">println</span><span class="p">(</span><span class="s">&quot;--------------&quot;</span><span class="p">)</span>
+
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs2</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs2</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs2</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs2</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">climbStairs2</span><span class="p">(</span><span class="mi">45</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details><dl class="simple">
+<dt>记忆化搜索</dt><dd><p>写一个暴力版本，时间复杂度 <span class="math notranslate nohighlight">\(O(2^n)\)</span>。记忆冗余结果后复杂度应为 <span class="math notranslate nohighlight">\(O(n)\)</span></p>
+</dd>
+<dt>递推</dt><dd><p>有一点动态规划的味道，但逻辑上非常简单，时间空间复杂度都是 <span class="math notranslate nohighlight">\(O(n)\)</span></p>
+</dd>
+<dt>斐波那契数列</dt><dd><p>空间上当然可以到 <span class="math notranslate nohighlight">\(O(1)\)</span> ，不写了</p>
+</dd>
+</dl>
+</section>
+<section class="any" id="binary-tree-inorder-traversal">
+<span id="leetcode-binary-tree-inorder-traversal"></span><h2>Binary Tree Inorder Traversal<a class="headerlink" href="#binary-tree-inorder-traversal" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/binary-tree-inorder-traversal">https://leetcode.com/problems/binary-tree-inorder-traversal</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p>[‘二叉树’]</p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="c1">//* Definition for a binary tree node.</span>
+<span class="kd">type</span> <span class="nx">TreeNode</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Val</span>   <span class="kt">int</span>
+	<span class="nx">Left</span>  <span class="o">*</span><span class="nx">TreeNode</span>
+	<span class="nx">Right</span> <span class="o">*</span><span class="nx">TreeNode</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">inorderTraversal</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
+	<span class="k">if</span> <span class="nx">root</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">res</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">inorderTraversal</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span><span class="o">...</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Val</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Right</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">inorderTraversal</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span><span class="o">...</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details><p>纯数据结构题，没啥好说。</p>
+</section>
+<section class="any" id="symmetric-tree">
+<span id="leetcode-symmetric-tree"></span><h2>Symmetric Tree<a class="headerlink" href="#symmetric-tree" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/symmetric-tree">https://leetcode.com/problems/symmetric-tree</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-go" title="leetcode go"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">go</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+</div>
+</details></section>
 </section>
 
 <div class="section">
