@@ -108,11 +108,11 @@
 先从 🔥 <a class="reference external" href="https://leetcode.com/problemset/all/?listId=79h8rn6">Top 100 Liked Questions</a> 开始看看？</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>用 <code class="file docutils literal notranslate"><span class="pre">new-problem.sh</span></code> 来开始一道新题目：</p>
+<p>用 <code class="file docutils literal notranslate"><span class="pre">./new-problem.sh</span></code> 来开始一道新题目：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/bash</span>
 
 <span class="nv">title</span><span class="o">=</span><span class="k">$(</span>python -c <span class="s2">&quot;print(&#39;</span><span class="nv">$1</span><span class="s2">&#39;.replace(&#39;-&#39;, &#39; &#39;).title())&quot;</span><span class="k">)</span>
-<span class="nv">title_delim</span><span class="o">=</span><span class="k">$(</span>python -c <span class="s2">&quot;print(&#39;=&#39;*len(&#39;</span><span class="nv">$title</span><span class="s2">&#39;))&quot;</span><span class="k">)</span>
+<span class="nv">title_delim</span><span class="o">=</span><span class="k">$(</span>python -c <span class="s2">&quot;print(&#39;-&#39;*len(&#39;</span><span class="nv">$title</span><span class="s2">&#39;))&quot;</span><span class="k">)</span>
 
 cat <span class="s">&lt;&lt;EOF &gt;&gt; index.rst</span>
 
@@ -131,27 +131,41 @@ mkdir <span class="nv">$1</span>
 </pre></div>
 </div>
 </div>
-<div class="contents local topic" id="id1">
+<section id="id1">
+<h2>日记<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="simple">
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-05" title="leetcode 2021-07-05"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-05</span></code></a></dt><dd><p>刷 Easy 题练手感</p>
+</dd>
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-06" title="leetcode 2021-07-06"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-06</span></code></a></dt><dd><p>刷 Easy 题练手感</p>
+</dd>
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-07" title="leetcode 2021-07-07"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-07</span></code></a></dt><dd><p>继续刷 Easy 题练手感，尝试一道 Medium</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2>题解<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="contents local topic" id="id3">
 <ul class="simple">
-<li><p><a class="reference internal" href="#two-sum" id="id4">Two Sum</a></p></li>
-<li><p><a class="reference internal" href="#valid-parentheses" id="id5">Valid Parentheses</a></p></li>
-<li><p><a class="reference internal" href="#lru-cache" id="id6">LRU Cache</a></p></li>
-<li><p><a class="reference internal" href="#lfu-cache" id="id7">LFU Cache</a></p></li>
-<li><p><a class="reference internal" href="#add-two-numbers" id="id8">Add Two Numbers</a></p></li>
-<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id9">Partition Equal Subset Sum</a></p></li>
-<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id10">Merge Two Sorted Lists</a></p></li>
-<li><p><a class="reference internal" href="#maximum-subarray" id="id11">Maximum Subarray</a></p></li>
-<li><p><a class="reference internal" href="#climbing-stairs" id="id12">Climbing Stairs</a></p></li>
-<li><p><a class="reference internal" href="#binary-tree-inorder-traversal" id="id13">Binary Tree Inorder Traversal</a></p></li>
-<li><p><a class="reference internal" href="#symmetric-tree" id="id14">Symmetric Tree</a></p></li>
-<li><p><a class="reference internal" href="#maximum-depth-of-binary-tree" id="id15">Maximum Depth Of Binary Tree</a></p></li>
-<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock" id="id16">Best Time to Buy and Sell Stock</a></p></li>
-<li><p><a class="reference internal" href="#invert-binary-tree" id="id17">Invert Binary Tree</a></p></li>
-<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-ii" id="id18">Best Time to Buy and Sell Stock II</a></p></li>
+<li><p><a class="reference internal" href="#two-sum" id="id6">Two Sum</a></p></li>
+<li><p><a class="reference internal" href="#valid-parentheses" id="id7">Valid Parentheses</a></p></li>
+<li><p><a class="reference internal" href="#lru-cache" id="id8">LRU Cache</a></p></li>
+<li><p><a class="reference internal" href="#lfu-cache" id="id9">LFU Cache</a></p></li>
+<li><p><a class="reference internal" href="#add-two-numbers" id="id10">Add Two Numbers</a></p></li>
+<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id11">Partition Equal Subset Sum</a></p></li>
+<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id12">Merge Two Sorted Lists</a></p></li>
+<li><p><a class="reference internal" href="#maximum-subarray" id="id13">Maximum Subarray</a></p></li>
+<li><p><a class="reference internal" href="#climbing-stairs" id="id14">Climbing Stairs</a></p></li>
+<li><p><a class="reference internal" href="#binary-tree-inorder-traversal" id="id15">Binary Tree Inorder Traversal</a></p></li>
+<li><p><a class="reference internal" href="#symmetric-tree" id="id16">Symmetric Tree</a></p></li>
+<li><p><a class="reference internal" href="#maximum-depth-of-binary-tree" id="id17">Maximum Depth Of Binary Tree</a></p></li>
+<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock" id="id18">Best Time to Buy and Sell Stock</a></p></li>
+<li><p><a class="reference internal" href="#invert-binary-tree" id="id19">Invert Binary Tree</a></p></li>
+<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-ii" id="id20">Best Time to Buy and Sell Stock II</a></p></li>
+<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-iii" id="id21">Best Time to Buy and Sell Stock III</a></p></li>
 </ul>
 </div>
 <section class="any" id="two-sum">
-<span id="leetcode-two-sum"></span><h2>Two Sum<a class="headerlink" href="#two-sum" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-two-sum"></span><h3>Two Sum<a class="headerlink" href="#two-sum" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/two-sum">https://leetcode.com/problems/two-sum</a></p>
@@ -207,7 +221,7 @@ mkdir <span class="nv">$1</span>
 （指 rust）现在觉得非常直观了。</p>
 </section>
 <section class="any" id="valid-parentheses">
-<span id="leetcode-valid-parentheses"></span><h2>Valid Parentheses<a class="headerlink" href="#valid-parentheses" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-valid-parentheses"></span><h3>Valid Parentheses<a class="headerlink" href="#valid-parentheses" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/valid-parentheses">https://leetcode.com/problems/valid-parentheses</a></p>
@@ -279,7 +293,7 @@ mkdir <span class="nv">$1</span>
 </details><p>熟悉语法……</p>
 </section>
 <section class="any" id="lru-cache">
-<span id="leetcode-lru-cache"></span><h2>LRU Cache<a class="headerlink" href="#lru-cache" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-lru-cache"></span><h3>LRU Cache<a class="headerlink" href="#lru-cache" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/lru-cache">https://leetcode.com/problems/lru-cache</a></p>
@@ -365,7 +379,7 @@ mkdir <span class="nv">$1</span>
 <p>但如果换成 go 的话…… <span class="sphinxnotes-strike">这么简单的题也算 medium 吗</span> ，可能因为太实用了所以写起来不难？</p>
 </section>
 <section class="any" id="lfu-cache">
-<span id="leetcode-lfu-cache"></span><h2>LFU Cache<a class="headerlink" href="#lfu-cache" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-lfu-cache"></span><h3>LFU Cache<a class="headerlink" href="#lfu-cache" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/lfu-cache">https://leetcode.com/problems/lfu-cache</a></p>
@@ -477,7 +491,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 的查找变成 O(logN) 而已，大量重复的 freq 值是很浪费时间和空间的。</p>
 </section>
 <section class="any" id="add-two-numbers">
-<span id="leetcode-add-two-numbers"></span><h2>Add Two Numbers<a class="headerlink" href="#add-two-numbers" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-add-two-numbers"></span><h3>Add Two Numbers<a class="headerlink" href="#add-two-numbers" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/add-two-numbers">https://leetcode.com/problems/add-two-numbers</a></p>
@@ -564,7 +578,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </details><p>凡是链表的题目都不能用 rust :’(</p>
 </section>
 <section class="any" id="partition-equal-subset-sum">
-<span id="leetcode-partition-equal-subset-sum"></span><h2>Partition Equal Subset Sum<a class="headerlink" href="#partition-equal-subset-sum" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-partition-equal-subset-sum"></span><h3>Partition Equal Subset Sum<a class="headerlink" href="#partition-equal-subset-sum" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/partition-equal-subset-sum">https://leetcode.com/problems/partition-equal-subset-sum</a></p>
@@ -642,7 +656,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <p>假设原集合 sum 为 S<sub>a</sub> ，从集合中选出一个子集，使其 sum 刚好的为 S<sub>a</sub>/2 ——  这是一个 01 背包问题，背包容量为 S<sub>a</sub>/2，要求恰好装满，填充物的 cost 是数字的值，value 统一设置为 1，因为只需要证有解。</p>
 </section>
 <section class="any" id="merge-two-sorted-lists">
-<span id="leetcode-merge-two-sorted-lists"></span><h2>Merge Two Sorted Lists<a class="headerlink" href="#merge-two-sorted-lists" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-merge-two-sorted-lists"></span><h3>Merge Two Sorted Lists<a class="headerlink" href="#merge-two-sorted-lists" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/merge-two-sorted-lists">https://leetcode.com/problems/merge-two-sorted-lists</a></p>
@@ -707,7 +721,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </details><p>纯逻辑题。</p>
 </section>
 <section class="any" id="maximum-subarray">
-<span id="leetcode-maximum-subarray"></span><h2>Maximum Subarray<a class="headerlink" href="#maximum-subarray" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-maximum-subarray"></span><h3>Maximum Subarray<a class="headerlink" href="#maximum-subarray" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/maximum-subarray">https://leetcode.com/problems/maximum-subarray</a></p>
@@ -837,7 +851,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </div>
 </section>
 <section class="any" id="climbing-stairs">
-<span id="leetcode-climbing-stairs"></span><h2>Climbing Stairs<a class="headerlink" href="#climbing-stairs" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-climbing-stairs"></span><h3>Climbing Stairs<a class="headerlink" href="#climbing-stairs" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/climbing-stairs">https://leetcode.com/problems/climbing-stairs</a></p>
@@ -945,7 +959,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </dl>
 </section>
 <section class="any" id="binary-tree-inorder-traversal">
-<span id="leetcode-binary-tree-inorder-traversal"></span><h2>Binary Tree Inorder Traversal<a class="headerlink" href="#binary-tree-inorder-traversal" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-binary-tree-inorder-traversal"></span><h3>Binary Tree Inorder Traversal<a class="headerlink" href="#binary-tree-inorder-traversal" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/binary-tree-inorder-traversal">https://leetcode.com/problems/binary-tree-inorder-traversal</a></p>
@@ -1002,7 +1016,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </details><p>纯数据结构题，没啥好说。</p>
 </section>
 <section class="any" id="symmetric-tree">
-<span id="leetcode-symmetric-tree"></span><h2>Symmetric Tree<a class="headerlink" href="#symmetric-tree" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-symmetric-tree"></span><h3>Symmetric Tree<a class="headerlink" href="#symmetric-tree" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/symmetric-tree">https://leetcode.com/problems/symmetric-tree</a></p>
@@ -1126,7 +1140,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </dl>
 </section>
 <section class="any" id="maximum-depth-of-binary-tree">
-<span id="leetcode-maximum-depth-of-binary-tree"></span><h2>Maximum Depth Of Binary Tree<a class="headerlink" href="#maximum-depth-of-binary-tree" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-maximum-depth-of-binary-tree"></span><h3>Maximum Depth Of Binary Tree<a class="headerlink" href="#maximum-depth-of-binary-tree" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/maximum-depth-of-binary-tree">https://leetcode.com/problems/maximum-depth-of-binary-tree</a></p>
@@ -1182,7 +1196,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </details><p>数据结构题。</p>
 </section>
 <section class="any" id="best-time-to-buy-and-sell-stock">
-<span id="leetcode-best-time-to-buy-and-sell-stock"></span><h2>Best Time to Buy and Sell Stock<a class="headerlink" href="#best-time-to-buy-and-sell-stock" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-best-time-to-buy-and-sell-stock"></span><h3>Best Time to Buy and Sell Stock<a class="headerlink" href="#best-time-to-buy-and-sell-stock" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock">https://leetcode.com/problems/best-time-to-buy-and-sell-stock</a></p>
@@ -1198,6 +1212,9 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </dd>
 <dt class="field-odd">日期</dt>
 <dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-07" title="leetcode 2021-07-07"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-07</span></code></a></p>
+</dd>
+<dt class="field-even">参考</dt>
+<dd class="field-even"><p><a class="reference external" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/</a></p>
 </dd>
 </dl>
 <details class="sphinx-bs dropdown card mb-3">
@@ -1277,7 +1294,8 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dl>
 <dt>暴力</dt><dd><p>TLE，每次 <code class="code docutils literal notranslate"><span class="pre">i+1..prices.len()</span></code> 的回溯有大量荣誉计算，复杂度为 <span class="math notranslate nohighlight">\(O(n!)\)</span></p>
 </dd>
-<dt>DP1</dt><dd><p>其实不太算 DP，但不重要。 <code class="code docutils literal notranslate"><span class="pre">profit[i]</span></code> 第 i 天卖出股票的最大正收益（亏本不卖）。以为状态转移方程是 <code class="code docutils literal notranslate"><span class="pre">profit[i]</span> <span class="pre">=</span> <span class="pre">profit[j]</span> <span class="pre">+</span> <span class="pre">(prices[i]</span> <span class="pre">-</span> <span class="pre">prices[j])</span></code>, where <code class="code docutils literal notranslate"><span class="pre">j</span> <span class="pre">&lt;</span> <span class="pre">i</span> <span class="pre">&amp;&amp;</span> <span class="pre">prices[j]</span> <span class="pre">&lt;=</span> <span class="pre">prices[i]</span></code> 。复杂度依然为 <span class="math notranslate nohighlight">\(O(n!)\)</span> ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。</p>
+<dt>DP1</dt><dd><p>其实不太算 DP，参考里给出了非常 DP 的解法。
+<code class="code docutils literal notranslate"><span class="pre">profit[i]</span></code> 第 i 天卖出股票的最大正收益（亏本不卖）。以为状态转移方程是 <code class="code docutils literal notranslate"><span class="pre">profit[i]</span> <span class="pre">=</span> <span class="pre">profit[j]</span> <span class="pre">+</span> <span class="pre">(prices[i]</span> <span class="pre">-</span> <span class="pre">prices[j])</span></code>, where <code class="code docutils literal notranslate"><span class="pre">j</span> <span class="pre">&lt;</span> <span class="pre">i</span> <span class="pre">&amp;&amp;</span> <span class="pre">prices[j]</span> <span class="pre">&lt;=</span> <span class="pre">prices[i]</span></code> 。复杂度依然为 <span class="math notranslate nohighlight">\(O(n!)\)</span> ，只是有几率避免冗余计算，勉强 AC 但时间上只超过了 8% 的选手，有问题。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>实际上 <code class="code docutils literal notranslate"><span class="pre">profit[i]</span></code> 可以只从 <code class="code docutils literal notranslate"><span class="pre">profit[i-1]</span></code> 推断，见下</p>
@@ -1289,7 +1307,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </dl>
 </section>
 <section class="any" id="invert-binary-tree">
-<span id="leetcode-invert-binary-tree"></span><h2>Invert Binary Tree<a class="headerlink" href="#invert-binary-tree" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-invert-binary-tree"></span><h3>Invert Binary Tree<a class="headerlink" href="#invert-binary-tree" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/invert-binary-tree">https://leetcode.com/problems/invert-binary-tree</a></p>
@@ -1339,15 +1357,15 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </pre></div>
 </div>
 </div>
-</details><p>我能去 Google 了吗？<a class="footnote-reference brackets" href="#id3" id="id2">1</a></p>
+</details><p>我能去 Google 了吗？<a class="footnote-reference brackets" href="#id5" id="id4">1</a></p>
 <dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
 <dd><p><a class="reference external" href="https://twitter.com/mxcl/status/608682016205344768">https://twitter.com/mxcl/status/608682016205344768</a></p>
 </dd>
 </dl>
 </section>
 <section class="any" id="best-time-to-buy-and-sell-stock-ii">
-<span id="leetcode-best-time-to-buy-and-sell-stock-ii"></span><h2>Best Time to Buy and Sell Stock II<a class="headerlink" href="#best-time-to-buy-and-sell-stock-ii" title="永久链接至标题">¶</a></h2>
+<span id="leetcode-best-time-to-buy-and-sell-stock-ii"></span><h3>Best Time to Buy and Sell Stock II<a class="headerlink" href="#best-time-to-buy-and-sell-stock-ii" title="永久链接至标题">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">地址</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii</a></p>
@@ -1375,51 +1393,17 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 暴力 O(n!) TLE</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">max_profit</span><span class="p">(</span><span class="n">prices</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">..</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// DP1</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">max_profit2</span><span class="p">(</span><span class="n">prices</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">profit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="n">i</span><span class="p">).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}</span><span class="w"></span>
-<span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
 <span class="w">    </span><span class="c1">// DP2</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">max_profit3</span><span class="p">(</span><span class="n">prices</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">max_profit</span><span class="p">(</span><span class="n">prices</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">profit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
@@ -1428,17 +1412,112 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
 <span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-</details></section>
+</details><p><a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock" title="leetcode Best Time to Buy and Sell Stock"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Best</span> <span class="pre">Time</span> <span class="pre">to</span> <span class="pre">Buy</span> <span class="pre">and</span> <span class="pre">Sell</span> <span class="pre">Stock</span></code></a> 的一个简单变体，允许多次买卖，没啥好说。</p>
+</section>
+<section class="any" id="best-time-to-buy-and-sell-stock-iii">
+<span id="leetcode-best-time-to-buy-and-sell-stock-iii"></span><h3>Best Time to Buy and Sell Stock III<a class="headerlink" href="#best-time-to-buy-and-sell-stock-iii" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock-iii" title="leetcode Hard"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Hard</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+</dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-07" title="leetcode 2021-07-07"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-07</span></code></a></p>
+</dd>
+<dt class="field-even">参考</dt>
+<dd class="field-even"><p><a class="reference external" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-iii-by-wrnt/">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-iii-by-wrnt/</a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">max_profit</span><span class="p">(</span><span class="n">prices</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// First transaction</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">profit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">max_profit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">max_profit1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">max_profit1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// Possible second transaction</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">profit2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">2</span><span class="p">..</span><span class="n">prices</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">max_profit1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">]),</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]),</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">max_profit</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]),</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><p><a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock" title="leetcode Best Time to Buy and Sell Stock"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Best</span> <span class="pre">Time</span> <span class="pre">to</span> <span class="pre">Buy</span> <span class="pre">and</span> <span class="pre">Sell</span> <span class="pre">Stock</span></code></a> 的一个更难的变体，允许至多两次不重叠的买卖。</p>
+<dl>
+<dt>解法一</dt><dd><p>按 <a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock" title="leetcode Best Time to Buy and Sell Stock"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Best</span> <span class="pre">Time</span> <span class="pre">to</span> <span class="pre">Buy</span> <span class="pre">and</span> <span class="pre">Sell</span> <span class="pre">Stock</span></code></a> 的解法，进行一次买卖，在此基础得到一个第 i 天收入的数组 <code class="code docutils literal notranslate"><span class="pre">max_profit1</span></code> ，<em>该收入不一定是当日卖出所得</em></p>
+<p>第二次买卖，需在第一次买卖后一天（当天卖，当天买没有意义，收益和一次买卖没差）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_profit1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">profit2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">profit2</span></code> 数组为第一次买卖 <em>后</em>，第 i 天的收入的数组，若收入为负，则放弃该交易，收入为 0。</p>
+<p>可以看到 <code class="code docutils literal notranslate"><span class="pre">profit2[i]</span></code> 肯定会赚 i-1 天的差价 <code class="code docutils literal notranslate"><span class="pre">prices[i]</span> <span class="pre">-</span> <span class="pre">prices[i-1]</span></code>，但可以选择加上 i-2 天时第一次买卖的最大收入 <code class="code docutils literal notranslate"><span class="pre">max_profit1[i-2]</span></code> 或者沿用 i-1 t天做第二次买卖的最优策略。</p>
+<p>最终 <code class="code docutils literal notranslate"><span class="pre">profit2</span></code> 数组中的最大值为答案。</p>
+<p>复杂度为 <span class="math notranslate nohighlight">\(2*O(n)\)</span> ，这个常数可以优化掉，测评里只比 6.67% 的选手快，<span class="math notranslate nohighlight">\(O(n)\)</span> 已经是这个问题的极限了，暂时不知道哪里有问题。</p>
+</dd>
+</dl>
+</section>
+</section>
 </section>
 
 <div class="section">
