@@ -138,7 +138,7 @@ mkdir <span class="nv">$1</span>
 </dd>
 <dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-06" title="leetcode 2021-07-06"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-06</span></code></a></dt><dd><p>刷 Easy 题练手感</p>
 </dd>
-<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-07" title="leetcode 2021-07-07"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-07</span></code></a></dt><dd><p>继续刷 Easy 题练手感， <span class="sphinxnotes-strike">尝试一道 Medium</span> ，做 <a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock" title="leetcode Best Time to Buy and Sell Stock"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Best</span> <span class="pre">Time</span> <span class="pre">to</span> <span class="pre">Buy</span> <span class="pre">and</span> <span class="pre">Sell</span> <span class="pre">Stock</span></code></a> 系列三题，勉强出一道 Hard</p>
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-07" title="leetcode 2021-07-07"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-07</span></code></a></dt><dd><p>继续刷 Easy 题练手感，<span class="sphinxnotes-strike">尝试一道 Medium</span> ，做 <a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock" title="leetcode Best Time to Buy and Sell Stock"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Best</span> <span class="pre">Time</span> <span class="pre">to</span> <span class="pre">Buy</span> <span class="pre">and</span> <span class="pre">Sell</span> <span class="pre">Stock</span></code></a> 系列三题，勉强出一道 Hard</p>
 </dd>
 </dl>
 </section>
@@ -489,8 +489,8 @@ Leetcode 给过了…… 要是在 <a class="reference external" href="http://ac
 <p>更聪明的做法是按 freq 分成多个桶，每次 touch 一个元素就把它挪到对应的
 frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最应该该淘汰的桶，
 桶内部是一个小的 LRU，这样 touch 就是 O(n) 了。</p>
-<p>想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 O(n)
-的查找变成 O(logN) 而已，大量重复的 freq 值是很浪费时间和空间的。</p>
+<p>想过另一个做法是维护一个 freq 为结点值的最小堆，但本质上和方法一没区别，只是把 <span class="math notranslate nohighlight">\(O(n)\)</span>
+的查找变成 <span class="math notranslate nohighlight">\(O(\log n)\)</span> 而已，大量重复的 freq 值是很浪费时间和空间的。</p>
 </section>
 <section class="any" id="add-two-numbers">
 <span id="leetcode-add-two-numbers"></span><h3>Add Two Numbers<a class="headerlink" href="#add-two-numbers" title="永久链接至标题">¶</a></h3>
@@ -1593,6 +1593,12 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dt class="field-even">思路</dt>
 <dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-二叉树" title="leetcode 二叉树"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">二叉树</span></code></a></p>
 </dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#leetcode-diameter-of-binary-tree" title="leetcode 2021-07-08"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-08</span></code></a></p>
+</dd>
+<dt class="field-even">参考</dt>
+<dd class="field-even"><p><a class="reference external" href="https://www.cnblogs.com/wangxiaoyong/p/10449634.html">https://www.cnblogs.com/wangxiaoyong/p/10449634.html</a></p>
+</dd>
 </dl>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -1604,70 +1610,96 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&quot;fmt&quot;</span>
 	<span class="s">&quot;sort&quot;</span>
 <span class="p">)</span>
 
-<span class="c1">// Definition for a binary tree node.</span>
-<span class="kd">type</span> <span class="nx">TreeNode</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Val</span>   <span class="kt">int</span>
-	<span class="nx">Left</span>  <span class="o">*</span><span class="nx">TreeNode</span>
-	<span class="nx">Right</span> <span class="o">*</span><span class="nx">TreeNode</span>
-<span class="p">}</span>
-
-<span class="kd">var</span> <span class="nx">max</span> <span class="kt">int</span>
+<span class="kd">var</span> <span class="nx">res</span> <span class="kt">int</span>
 
 <span class="kd">func</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">s</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Before sort&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;After sort&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
-	<span class="p">}</span>
 	<span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
 	<span class="k">return</span> <span class="nx">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="p">}</span>
 
+<span class="c1">// Return (left, right)</span>
 <span class="kd">func</span> <span class="nx">armSpan</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">ll</span><span class="p">,</span> <span class="nx">lr</span><span class="p">,</span> <span class="nx">rl</span><span class="p">,</span> <span class="nx">rr</span><span class="p">,</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span> <span class="kt">int</span>
-	<span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="nx">max</span><span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span> <span class="kt">int</span>
+	<span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="nx">res</span><span class="p">}</span>
 	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">ll</span><span class="p">,</span> <span class="nx">lr</span> <span class="o">:=</span> <span class="nx">armSpan</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
 		<span class="nx">L</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">ll</span><span class="p">,</span> <span class="nx">lr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-		<span class="nx">ints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">ll</span><span class="o">+</span><span class="nx">lr</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Right</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">rl</span><span class="p">,</span> <span class="nx">rr</span> <span class="o">:=</span> <span class="nx">armSpan</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
 		<span class="nx">R</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">rl</span><span class="p">,</span> <span class="nx">rr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-		<span class="nx">ints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">rl</span><span class="o">+</span><span class="nx">rr</span><span class="p">)</span>
 	<span class="p">}</span>
 
-	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Right</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">ints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">ll</span><span class="o">+</span><span class="nx">rl</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="nx">ll</span><span class="o">+</span><span class="nx">rr</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="nx">lr</span><span class="o">+</span><span class="nx">rl</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="nx">lr</span><span class="o">+</span><span class="nx">rr</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="nx">max</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">ints</span><span class="o">...</span><span class="p">)</span>
-
+	<span class="nx">ints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">L</span><span class="o">+</span><span class="nx">R</span><span class="p">)</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">ints</span><span class="o">...</span><span class="p">)</span>
+	<span class="c1">// println(&quot;node&quot;, root.Val, L, R)</span>
 	<span class="k">return</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nx">diameterOfBinaryTree</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="mi">0</span>
 	<span class="nx">armSpan</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
-	<span class="k">return</span> <span class="nx">max</span>
+	<span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+
+<span class="c1">// Return (left, right)</span>
+<span class="kd">func</span> <span class="nx">armSpan2</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span> <span class="kt">int</span>
+	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">ll</span><span class="p">,</span> <span class="nx">lr</span> <span class="o">:=</span> <span class="nx">armSpan2</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
+		<span class="nx">L</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">ll</span><span class="p">,</span> <span class="nx">lr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Right</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">rl</span><span class="p">,</span> <span class="nx">rr</span> <span class="o">:=</span> <span class="nx">armSpan2</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
+		<span class="nx">R</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">rl</span><span class="p">,</span> <span class="nx">rr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="p">}</span>
+
+	<span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="nx">res</span><span class="p">}</span>
+	<span class="nx">ints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">L</span><span class="o">+</span><span class="nx">R</span><span class="p">)</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">ints</span><span class="o">...</span><span class="p">)</span>
+	<span class="c1">// println(&quot;node&quot;, root.Val, L, R)</span>
+	<span class="k">return</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nx">diameterOfBinaryTree2</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="mi">0</span>
+	<span class="nx">armSpan2</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">a</span> <span class="p">&gt;</span> <span class="nx">b</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">a</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">b</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Return (left, right)</span>
+
+<span class="kd">func</span> <span class="nx">diameterOfBinaryTree3</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="mi">0</span>
+	<span class="nx">depth</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">depth</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="k">if</span> <span class="nx">root</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="mi">0</span>
 	<span class="p">}</span>
-	<span class="kd">var</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="kt">int</span>
-	<span class="kd">var</span> <span class="nx">ints</span> <span class="p">[]</span><span class="kt">int</span>
-	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">l</span> <span class="p">=</span> <span class="nx">diameterOfBinaryTree2</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
-		<span class="nx">ints</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Right</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">r</span> <span class="p">=</span> <span class="nx">diameterOfBinaryTree2</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="nx">max</span> <span class="p">=</span> <span class="nx">maxInts</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span>
-	<span class="k">return</span> <span class="nx">max</span>
+	<span class="nx">L</span> <span class="o">:=</span> <span class="nx">depth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
+	<span class="nx">R</span> <span class="o">:=</span> <span class="nx">depth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
+	<span class="nx">res</span> <span class="p">=</span> <span class="nx">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">L</span><span class="o">+</span><span class="nx">R</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">max</span><span class="p">(</span><span class="nx">L</span><span class="p">,</span> <span class="nx">R</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">TreeNode</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Val</span>   <span class="kt">int</span>
+	<span class="nx">Left</span>  <span class="o">*</span><span class="nx">TreeNode</span>
+	<span class="nx">Right</span> <span class="o">*</span><span class="nx">TreeNode</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
@@ -1688,11 +1720,34 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 	<span class="p">}</span>
 	<span class="nb">println</span><span class="p">(</span><span class="nx">diameterOfBinaryTree</span><span class="p">(</span><span class="nx">t1</span><span class="p">))</span>
 
+	<span class="nx">t2</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">TreeNode</span><span class="p">{</span>
+		<span class="nx">Val</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+		<span class="nx">Left</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">TreeNode</span><span class="p">{</span>
+			<span class="nx">Val</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">Right</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">TreeNode</span><span class="p">{</span>
+			<span class="nx">Val</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+			<span class="nx">Left</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">TreeNode</span><span class="p">{</span>
+				<span class="nx">Val</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+			<span class="p">},</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nx">diameterOfBinaryTree</span><span class="p">(</span><span class="nx">t2</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
-</details></section>
+</details><p>这题本不难，答案是所有节点中「左子树深度 + 右子树深度」最大的值。</p>
+<dl>
+<dt>解法1</dt><dd><p>没能 AC，留下是为了提醒自己。</p>
+<p>实现稍复杂，思路上是实现一个对每个节点返回左右臂展（其实就是深度）的函数：需要考虑 <code class="code docutils literal notranslate"><span class="pre">root.Left</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">root.Right</span> <span class="pre">!=</span> <span class="pre">nil</span></code> 的情况，总之是对的，但因为思路的不明确，实现了一个 <code class="code docutils literal notranslate"><span class="pre">func</span> <span class="pre">maxInts(s</span> <span class="pre">...int)</span></code> 的函数，在递归前存了 <code class="code docutils literal notranslate"><span class="pre">res</span></code> 在数组里，在递归后拿它来做运算…… 非常典型的错误</p>
+</dd>
+<dt>解法2</dt><dd><p>仅修正了比较前的 <code class="code docutils literal notranslate"><span class="pre">res</span></code> 被覆盖的问题，AC ，但 <code class="code docutils literal notranslate"><span class="pre">maxInts</span></code> 很慢。</p>
+</dd>
+<dt>解法3</dt><dd><p>标准解法，参考里的题解有个莫名其妙的 <code class="code docutils literal notranslate"><span class="pre">+1</span></code> 再 <code class="code docutils literal notranslate"><span class="pre">-1</span></code> ，没有用。</p>
+</dd>
+</dl>
+</section>
 </section>
 </section>
 
