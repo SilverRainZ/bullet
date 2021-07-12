@@ -38,7 +38,7 @@
     <script src="../../_static/translations.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://silverrainz.me/notes/leetcode/index.html" />
-    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../../_static/_static/favicon.png"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
     <link rel="next" title="动态规划" href="dp.html" />
@@ -142,7 +142,11 @@ mkdir <span class="nv">$1</span>
 </dd>
 <dt><a class="reference internal" href="#leetcode-diameter-of-binary-tree" title="leetcode 2021-07-08"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-08</span></code></a></dt><dd><p>有事早上出门一趟，回来也累的不想做题。晚上刷了一道二叉树的题目，因为粗心浪费了很多时间。</p>
 </dd>
-<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-09" title="leetcode 2021-07-09"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-09</span></code></a></dt><dd><p>睡晚了，情绪不佳。两道 Medium 一道 Easy，就这样吧。</p>
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-09" title="leetcode 2021-07-09"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-09</span></code></a></dt><dd><p>睡晚了，情绪不佳。三道 Medium 一道 Easy，就这样吧。</p>
+</dd>
+<dt>2021-07-10 - 2021-07-11</dt><dd><p>周末情绪管理失败。</p>
+</dd>
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-12" title="leetcode 2021-07-12"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-12</span></code></a></dt><dd><p>2 Medium 1 Hard。情绪非常差，我想应该怪 <a class="reference internal" href="../books/index.html#book-ASIN-B01H6UY7XW" title="book 我们内心的冲突"><code class="xref any any-book docutils literal notranslate"><span class="pre">《我们内心的冲突》</span></code></a>。</p>
 </dd>
 </dl>
 </section>
@@ -172,6 +176,10 @@ mkdir <span class="nv">$1</span>
 <li><p><a class="reference internal" href="#maximum-product-subarray" id="id26">Maximum Product Subarray</a></p></li>
 <li><p><a class="reference internal" href="#shortest-subarray-to-be-removed-to-make-array-sorted" id="id27">Shortest Subarray To Be Removed To Make Array Sorted</a></p></li>
 <li><p><a class="reference internal" href="#house-robber" id="id28">House Robber</a></p></li>
+<li><p><a class="reference internal" href="#longest-increasing-subsequence" id="id29">Longest Increasing Subsequence</a></p></li>
+<li><p><a class="reference internal" href="#edit-distance" id="id30">Edit Distance</a></p></li>
+<li><p><a class="reference internal" href="#minimum-ascii-delete-sum-for-two-strings" id="id31">Minimum ASCII Delete Sum for Two Strings</a></p></li>
+<li><p><a class="reference internal" href="#longest-common-subsequence" id="id32">Longest Common Subsequence</a></p></li>
 </ul>
 </div>
 <section class="any" id="two-sum">
@@ -1438,7 +1446,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii</a></p>
 </dd>
 <dt class="field-even">难度</dt>
-<dd class="field-even"><p><a class="reference internal" href="#leetcode-best-time-to-buy-and-sell-stock-iii" title="leetcode Hard"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Hard</span></code></a></p>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Hard" title="leetcode Hard"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Hard</span></code></a></p>
 </dd>
 <dt class="field-odd">语言</dt>
 <dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
@@ -2073,6 +2081,301 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </details><p>抢劫第 i 间房子能获得财产 <code class="code docutils literal notranslate"><span class="pre">M[i]</span></code>，最大收入 <code class="code docutils literal notranslate"><span class="pre">R[i]</span></code>。递推方程：<code class="code docutils literal notranslate"><span class="pre">R[i]</span> <span class="pre">=</span> <span class="pre">max(R[i-2],</span> <span class="pre">R[i-2])</span> <span class="pre">+</span> <span class="pre">M[i]</span></code>，答案为最大的 <code class="code docutils literal notranslate"><span class="pre">R[i]</span></code>。</p>
 <p>手动初始化前三个 R 有点累。</p>
 </section>
+<section class="any" id="longest-increasing-subsequence">
+<span id="leetcode-longest-increasing-subsequence"></span><h3>Longest Increasing Subsequence<a class="headerlink" href="#longest-increasing-subsequence" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/longest-increasing-subsequence">https://leetcode.com/problems/longest-increasing-subsequence</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a> <a class="reference internal" href="#leetcode-longest-increasing-subsequence" title="leetcode 二分法"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">二分法</span></code></a></p>
+</dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-12" title="leetcode 2021-07-12"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-12</span></code></a></p>
+</dd>
+<dt class="field-even">参考</dt>
+<dd class="field-even"><p><a class="reference external" href="https://blog.csdn.net/lxt_Lucia/article/details/81206439">https://blog.csdn.net/lxt_Lucia/article/details/81206439</a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// DP</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">length_of_lis</span><span class="p">(</span><span class="n">nums</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="n">i</span><span class="p">).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">length_of_lis2</span><span class="p">(</span><span class="n">nums</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">low</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="o">-</span><span class="mi">100000</span><span class="p">;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">low</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lidx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">low</span><span class="p">[</span><span class="n">lidx</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">low</span><span class="p">[</span><span class="n">lidx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="n">lidx</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">sorted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">low</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="n">lidx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="k">match</span><span class="w"> </span><span class="n">sorted</span><span class="p">.</span><span class="n">binary_search</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nb">Err</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="n">low</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(),</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">lidx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">length_of_lis</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">]),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">length_of_lis</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">length_of_lis</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">]),</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">length_of_lis2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">]),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">4</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">length_of_lis2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">length_of_lis2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">]),</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><p>经典 DP 题。</p>
+<dl>
+<dt>维护以 <code class="code docutils literal notranslate"><span class="pre">i</span></code> 结尾的 LIS 的长度</dt><dd><p>设数组为 <code class="code docutils literal notranslate"><span class="pre">N</span></code>，<code class="code docutils literal notranslate"><span class="pre">F[i]</span></code> 为以 <code class="code docutils literal notranslate"><span class="pre">i</span></code> 结尾的最长上升子序列的长度，有递推式：<code class="code docutils literal notranslate"><span class="pre">F[i]</span> <span class="pre">=</span> <span class="pre">F[j]+1</span></code>，where <code class="code docutils literal notranslate"><span class="pre">N[i]</span> <span class="pre">&lt;</span> <span class="pre">N[j]</span></code>，这个 j 得通过一个 <code class="code docutils literal notranslate"><span class="pre">0..i</span></code> 的循环获取，因此复杂度 为 <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
+</dd>
+<dt>维护长度为 <code class="code docutils literal notranslate"><span class="pre">i</span></code> 的 LIS 结尾元素的最小值</dt><dd><p>复杂度 <span class="math notranslate nohighlight">\(O(n\log n)\)</span>，是我想不出来的解法 T_T。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>感觉没有说明白，算了。</p>
+</div>
+</dd>
+</dl>
+</section>
+<section class="any" id="edit-distance">
+<span id="leetcode-edit-distance"></span><h3>Edit Distance<a class="headerlink" href="#edit-distance" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/edit-distance">https://leetcode.com/problems/edit-distance</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Hard" title="leetcode Hard"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Hard</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+</dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-12" title="leetcode 2021-07-12"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-12</span></code></a></p>
+</dd>
+<dt class="field-even">参考</dt>
+<dd class="field-even"><p><a class="reference external" href="https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/">https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/</a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">min_distance</span><span class="p">(</span><span class="n">word1</span>: <span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">word2</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">word1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word1</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">word2</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word2</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">word2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">word1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">word1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">word2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">word1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">word2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">word1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">word2</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">word1</span><span class="p">.</span><span class="n">len</span><span class="p">()][</span><span class="n">word2</span><span class="p">.</span><span class="n">len</span><span class="p">()]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">min_distance</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;horse&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;ros&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">min_distance</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;intention&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;execution&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">5</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><p>太难了……毫无思路直接看题解。</p>
+</section>
+<section class="any" id="minimum-ascii-delete-sum-for-two-strings">
+<span id="leetcode-minimum-ascii-delete-sum-for-two-strings"></span><h3>Minimum ASCII Delete Sum for Two Strings<a class="headerlink" href="#minimum-ascii-delete-sum-for-two-strings" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings">https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+</dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-12" title="leetcode 2021-07-12"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-12</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">minimum_delete_sum</span><span class="p">(</span><span class="n">s1</span>: <span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">s1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">s2</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">s1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">s2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">del</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">del</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">s1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">s2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="w"></span>
+<span class="w">                        </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="w"></span>
+<span class="w">                            </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="p">),</span><span class="w"></span>
+<span class="w">                        </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="w"></span>
+<span class="w">                        </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="w"></span>
+<span class="w">                            </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="p">),</span><span class="w"></span>
+<span class="w">                        </span><span class="n">del</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">del</span><span class="p">[</span><span class="n">s1</span><span class="p">.</span><span class="n">len</span><span class="p">()][</span><span class="n">s2</span><span class="p">.</span><span class="n">len</span><span class="p">()]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">minimum_delete_sum</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;sea&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;eat&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">231</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">minimum_delete_sum</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;delete&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;leet&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">403</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><p><a class="reference internal" href="#leetcode-edit-distance" title="leetcode Edit Distance"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Edit</span> <span class="pre">Distance</span></code></a> 的变种，将最少操作数变成了最少的 ASCII 之和而已。</p>
+<p>一开始审错题，难受。</p>
+</section>
+<section class="any" id="longest-common-subsequence">
+<span id="leetcode-longest-common-subsequence"></span><h3>Longest Common Subsequence<a class="headerlink" href="#longest-common-subsequence" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/longest-common-subsequence">https://leetcode.com/problems/longest-common-subsequence</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+</div>
+</details></section>
 </section>
 </section>
 
@@ -2103,7 +2406,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 
 
 <h3>导航</h3>
-<p class="caption"><span class="caption-text">笔记</span></p>
+<p class="caption" role="heading"><span class="caption-text">笔记</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../6-lectures-on-sketch.html">素描六讲</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cadge-system.html">CAGED 系统</a></li>
@@ -2119,11 +2422,11 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <li class="toctree-l1"><a class="reference internal" href="../writeups/index.html">Capture The Flag</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zxsys/index.html">造型实验室</a></li>
 </ul>
-<p class="caption"><span class="caption-text">博客</span></p>
+<p class="caption" role="heading"><span class="caption-text">博客</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客首页</a></li>
 </ul>
-<p class="caption"><span class="caption-text">手册</span></p>
+<p class="caption" role="heading"><span class="caption-text">手册</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../man/awk.html">Awk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/gdb.html">GDB</a></li>
@@ -2141,18 +2444,18 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <li class="toctree-l1"><a class="reference internal" href="../../man/sh.html">Shell Script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../man/vim.html">Vim</a></li>
 </ul>
-<p class="caption"><span class="caption-text">随记</span></p>
+<p class="caption" role="heading"><span class="caption-text">随记</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2021/index.html">2021</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2020/index.html">2020</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/2017/index.html">2017</a></li>
 </ul>
-<p class="caption"><span class="caption-text">收集室</span></p>
+<p class="caption" role="heading"><span class="caption-text">收集室</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/art-works/index.html">Art Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../collections/scores/index.html">乐谱夹</a></li>
 </ul>
-<p class="caption"><span class="caption-text">关于</span></p>
+<p class="caption" role="heading"><span class="caption-text">关于</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../about/me.html">我</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/site.html">本站</a></li>
@@ -2173,7 +2476,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
   <h3 id="searchlabel">快速搜索</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="转向" />
     </form>
     </div>
@@ -2195,7 +2498,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
       &copy;2020-2021, Shengyu Zhang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
