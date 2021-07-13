@@ -180,6 +180,8 @@ mkdir <span class="nv">$1</span>
 <li><p><a class="reference internal" href="#edit-distance" id="id30">Edit Distance</a></p></li>
 <li><p><a class="reference internal" href="#minimum-ascii-delete-sum-for-two-strings" id="id31">Minimum ASCII Delete Sum for Two Strings</a></p></li>
 <li><p><a class="reference internal" href="#longest-common-subsequence" id="id32">Longest Common Subsequence</a></p></li>
+<li><p><a class="reference internal" href="#longest-palindromic-subsequence" id="id33">Longest Palindromic Subsequence</a></p></li>
+<li><p><a class="reference internal" href="#longest-palindromic-substring" id="id34">Longest Palindromic Substring</a></p></li>
 </ul>
 </div>
 <section class="any" id="two-sum">
@@ -2365,6 +2367,164 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </dd>
 <dt class="field-even">思路</dt>
 <dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+</dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-13" title="leetcode 2021-07-13"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-13</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">longest_common_subsequence</span><span class="p">(</span><span class="n">text1</span>: <span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">text2</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">text1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text1</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">text2</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text2</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">text2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">text1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">text1</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">text2</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">text1</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">text2</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">text1</span><span class="p">.</span><span class="n">len</span><span class="p">()][</span><span class="n">text2</span><span class="p">.</span><span class="n">len</span><span class="p">()]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">longest_common_subsequence</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;abcde&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">longest_common_subsequence</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">longest_common_subsequence</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;def&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;def&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><p>涉及两个数组的 DP 问题常常是二维 DP，和 <code class="code docutils literal notranslate"><span class="pre">:leetcode:`Edit</span> <span class="pre">Distance</span></code> 的思路有相似之处。</p>
+<p>两串为 <code class="code docutils literal notranslate"><span class="pre">S1</span></code>, <code class="code docutils literal notranslate"><span class="pre">S2</span></code>。<code class="code docutils literal notranslate"><span class="pre">定义数组</span> <span class="pre">`D[i][j]</span></code> 表示 <code class="code docutils literal notranslate"><span class="pre">S1[0..i]</span></code> <code class="code docutils literal notranslate"><span class="pre">S2[0..j]</span></code> 的 LCS 长度：</p>
+<ul class="simple">
+<li><p>讨论 <code class="code docutils literal notranslate"><span class="pre">D[i-1][j]</span></code>, <code class="code docutils literal notranslate"><span class="pre">D[i][j-1]</span></code>, <code class="code docutils literal notranslate"><span class="pre">D[i-1][j-1]</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">D[i][j]</span></code> 的递推关系</p></li>
+<li><p>讨论可能的 <code class="code docutils literal notranslate"><span class="pre">D[0..i][j]</span></code>, <code class="code docutils literal notranslate"><span class="pre">D[i][0..j]</span></code> 的初始化</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当 <code class="code docutils literal notranslate"><span class="pre">S1[0..i]</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span> <span class="pre">D</span></code> <code class="code docutils literal notranslate"><span class="pre">S2[0..j]</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">D</span></code>，不需要在 <code class="code docutils literal notranslate"><span class="pre">D[i-1][j]</span></code> 中讨论
+<code class="code docutils literal notranslate"><span class="pre">S1[i-1]</span> <span class="pre">==</span> <span class="pre">D</span></code> 的加入对 LCS 长度的影响，这部分情况完全由 <code class="code docutils literal notranslate"><span class="pre">D[i-1][j-1]</span></code> 覆盖。</p>
+</div>
+<p>因此递推公式为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="n">where</span> <span class="n">X</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">when</span> <span class="n">S1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">S2</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>当 <code class="code docutils literal notranslate"><span class="pre">S1[i-1]</span> <span class="pre">==</span> <span class="pre">S2[j-1]</span></code> 时，LCS 延长。</p>
+</section>
+<section class="any" id="longest-palindromic-subsequence">
+<span id="leetcode-longest-palindromic-subsequence"></span><h3>Longest Palindromic Subsequence<a class="headerlink" href="#longest-palindromic-subsequence" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/longest-palindromic-subsequence">https://leetcode.com/problems/longest-palindromic-subsequence</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Medium" title="leetcode Medium"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Medium</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+</dd>
+<dt class="field-odd">日期</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-13" title="leetcode 2021-07-13"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-13</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">longest_palindrome_subseq</span><span class="p">(</span><span class="n">s</span>: <span class="nb">String</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()][</span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">Solution</span>::<span class="n">longest_palindrome_subseq</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;bbbab&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">            </span><span class="mi">4</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">longest_palindrome_subseq</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;cbbd&quot;</span><span class="p">)),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><p>最长回文串。</p>
+<dl class="simple">
+<dt>作为 <a class="reference internal" href="#leetcode-longest-common-subsequence" title="leetcode Longest Common Subsequence"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Longest</span> <span class="pre">Common</span> <span class="pre">Subsequence</span></code></a> 的变种</dt><dd><p>将字符串翻转过来作为第二个数组，求 LCS 即可。</p>
+</dd>
+<dt>常规解法</dt><dd><p>TODO</p>
+</dd>
+</dl>
+</section>
+<section class="any" id="longest-palindromic-substring">
+<span id="leetcode-longest-palindromic-substring"></span><h3>Longest Palindromic Substring<a class="headerlink" href="#longest-palindromic-substring" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/longest-palindromic-substring">https://leetcode.com/problems/longest-palindromic-substring</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p>:leetcode.diffculty:` &lt;&gt;`</p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">日期</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-13" title="leetcode 2021-07-13"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-13</span></code></a></p>
 </dd>
 </dl>
 <details class="sphinx-bs dropdown card mb-3">
