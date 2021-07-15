@@ -133,7 +133,7 @@ mkdir <span class="nv">$1</span>
 </div>
 <section id="id1">
 <h2>日记<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<dl class="simple">
+<dl>
 <dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-05" title="leetcode 2021-07-05"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-05</span></code></a></dt><dd><p>刷 Easy 题练手感</p>
 </dd>
 <dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-06" title="leetcode 2021-07-06"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-06</span></code></a></dt><dd><p>刷 Easy 题练手感</p>
@@ -144,7 +144,7 @@ mkdir <span class="nv">$1</span>
 </dd>
 <dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-09" title="leetcode 2021-07-09"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-09</span></code></a></dt><dd><p>睡晚了，情绪不佳。三道 Medium 一道 Easy，就这样吧。</p>
 </dd>
-<dt>2021-07-10 - 2021-07-11</dt><dd><p>周末情绪管理失败。</p>
+<dt><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-10</span></code> - <code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-11</span></code></dt><dd><p>周末情绪管理失败。</p>
 </dd>
 <dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-12" title="leetcode 2021-07-12"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-12</span></code></a></dt><dd><p>2 Medium 1 Hard。情绪非常差，我想应该怪 <a class="reference internal" href="../books/index.html#book-ASIN-B01H6UY7XW" title="book 我们内心的冲突"><code class="xref any any-book docutils literal notranslate"><span class="pre">《我们内心的冲突》</span></code></a>。</p>
 </dd>
@@ -152,51 +152,65 @@ mkdir <span class="nv">$1</span>
 </dd>
 <dt><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-14</span></code></dt><dd><p>崩溃一天。</p>
 </dd>
-<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-15" title="leetcode 2021-07-15"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-15</span></code></a></dt><dd><p>TODO</p>
+<dt><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-15" title="leetcode 2021-07-15"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">🧮2021-07-15</span></code></a></dt><dd><p>1 Hard 2 Medium。</p>
+<p>看题解的一天，遇见不熟悉的类型这也正常。速度应该提上去，明天计时看看。</p>
+<p>情绪回复了一些，因为昨晚给 <a class="reference internal" href="../books/the-story-of-art.html#book-9787807463726" title="book 艺术的故事"><code class="xref any any-book docutils literal notranslate"><span class="pre">《艺术的故事》</span></code></a> 做笔记很开心。</p>
 </dd>
 </dl>
 </section>
 <section id="id2">
 <h2>复习<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>重点题目</p>
-<p>多解法</p>
-</section>
 <section id="id3">
-<h2>题解<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<div class="contents local topic" id="id4">
+<h3>思路总结<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>一时没有思路</dt><dd><p>先暴力解，再优化。暴力并非暴力模拟，而是不计复杂度地「优雅」地解决问题。当涉及复杂的模拟的时候，往往是思路出了错</p>
+<p>优雅：即找到核心的子问题</p>
+</dd>
+<dt>20 分钟后还没有思路</dt><dd><p>看题解，保证做题量</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h3>重点题目<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id5">
+<h2>题解<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="contents local topic" id="id6">
 <ul class="simple">
-<li><p><a class="reference internal" href="#two-sum" id="id10">Two Sum</a></p></li>
-<li><p><a class="reference internal" href="#valid-parentheses" id="id11">Valid Parentheses</a></p></li>
-<li><p><a class="reference internal" href="#lru-cache" id="id12">LRU Cache</a></p></li>
-<li><p><a class="reference internal" href="#lfu-cache" id="id13">LFU Cache</a></p></li>
-<li><p><a class="reference internal" href="#add-two-numbers" id="id14">Add Two Numbers</a></p></li>
-<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id15">Partition Equal Subset Sum</a></p></li>
-<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id16">Merge Two Sorted Lists</a></p></li>
-<li><p><a class="reference internal" href="#maximum-subarray" id="id17">Maximum Subarray</a></p></li>
-<li><p><a class="reference internal" href="#climbing-stairs" id="id18">Climbing Stairs</a></p></li>
-<li><p><a class="reference internal" href="#binary-tree-inorder-traversal" id="id19">Binary Tree Inorder Traversal</a></p></li>
-<li><p><a class="reference internal" href="#symmetric-tree" id="id20">Symmetric Tree</a></p></li>
-<li><p><a class="reference internal" href="#maximum-depth-of-binary-tree" id="id21">Maximum Depth Of Binary Tree</a></p></li>
-<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock" id="id22">Best Time to Buy and Sell Stock</a></p></li>
-<li><p><a class="reference internal" href="#invert-binary-tree" id="id23">Invert Binary Tree</a></p></li>
-<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-ii" id="id24">Best Time to Buy and Sell Stock II</a></p></li>
-<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-iii" id="id25">Best Time to Buy and Sell Stock III</a></p></li>
-<li><p><a class="reference internal" href="#single-number" id="id26">Single Number</a></p></li>
-<li><p><a class="reference internal" href="#diameter-of-binary-tree" id="id27">Diameter Of Binary Tree</a></p></li>
-<li><p><a class="reference internal" href="#merge-two-binary-trees" id="id28">Merge Two Binary Trees</a></p></li>
-<li><p><a class="reference internal" href="#maximum-product-subarray" id="id29">Maximum Product Subarray</a></p></li>
-<li><p><a class="reference internal" href="#shortest-subarray-to-be-removed-to-make-array-sorted" id="id30">Shortest Subarray To Be Removed To Make Array Sorted</a></p></li>
-<li><p><a class="reference internal" href="#house-robber" id="id31">House Robber</a></p></li>
-<li><p><a class="reference internal" href="#longest-increasing-subsequence" id="id32">Longest Increasing Subsequence</a></p></li>
-<li><p><a class="reference internal" href="#edit-distance" id="id33">Edit Distance</a></p></li>
-<li><p><a class="reference internal" href="#minimum-ascii-delete-sum-for-two-strings" id="id34">Minimum ASCII Delete Sum for Two Strings</a></p></li>
-<li><p><a class="reference internal" href="#longest-common-subsequence" id="id35">Longest Common Subsequence</a></p></li>
-<li><p><a class="reference internal" href="#longest-palindromic-subsequence" id="id36">Longest Palindromic Subsequence</a></p></li>
-<li><p><a class="reference internal" href="#longest-palindromic-substring" id="id37">Longest Palindromic Substring</a></p></li>
-<li><p><a class="reference internal" href="#linked-list-cycle" id="id38">Linked List Cycle</a></p></li>
-<li><p><a class="reference internal" href="#linked-list-cycle-ii" id="id39">Linked List Cycle II</a></p></li>
-<li><p><a class="reference internal" href="#product-of-array-except-self" id="id40">Product of Array Except Self</a></p></li>
-<li><p><a class="reference internal" href="#trapping-rain-water" id="id41">Trapping Rain Water</a></p></li>
+<li><p><a class="reference internal" href="#two-sum" id="id16">Two Sum</a></p></li>
+<li><p><a class="reference internal" href="#valid-parentheses" id="id17">Valid Parentheses</a></p></li>
+<li><p><a class="reference internal" href="#lru-cache" id="id18">LRU Cache</a></p></li>
+<li><p><a class="reference internal" href="#lfu-cache" id="id19">LFU Cache</a></p></li>
+<li><p><a class="reference internal" href="#add-two-numbers" id="id20">Add Two Numbers</a></p></li>
+<li><p><a class="reference internal" href="#partition-equal-subset-sum" id="id21">Partition Equal Subset Sum</a></p></li>
+<li><p><a class="reference internal" href="#merge-two-sorted-lists" id="id22">Merge Two Sorted Lists</a></p></li>
+<li><p><a class="reference internal" href="#maximum-subarray" id="id23">Maximum Subarray</a></p></li>
+<li><p><a class="reference internal" href="#climbing-stairs" id="id24">Climbing Stairs</a></p></li>
+<li><p><a class="reference internal" href="#binary-tree-inorder-traversal" id="id25">Binary Tree Inorder Traversal</a></p></li>
+<li><p><a class="reference internal" href="#symmetric-tree" id="id26">Symmetric Tree</a></p></li>
+<li><p><a class="reference internal" href="#maximum-depth-of-binary-tree" id="id27">Maximum Depth Of Binary Tree</a></p></li>
+<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock" id="id28">Best Time to Buy and Sell Stock</a></p></li>
+<li><p><a class="reference internal" href="#invert-binary-tree" id="id29">Invert Binary Tree</a></p></li>
+<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-ii" id="id30">Best Time to Buy and Sell Stock II</a></p></li>
+<li><p><a class="reference internal" href="#best-time-to-buy-and-sell-stock-iii" id="id31">Best Time to Buy and Sell Stock III</a></p></li>
+<li><p><a class="reference internal" href="#single-number" id="id32">Single Number</a></p></li>
+<li><p><a class="reference internal" href="#diameter-of-binary-tree" id="id33">Diameter Of Binary Tree</a></p></li>
+<li><p><a class="reference internal" href="#merge-two-binary-trees" id="id34">Merge Two Binary Trees</a></p></li>
+<li><p><a class="reference internal" href="#maximum-product-subarray" id="id35">Maximum Product Subarray</a></p></li>
+<li><p><a class="reference internal" href="#shortest-subarray-to-be-removed-to-make-array-sorted" id="id36">Shortest Subarray To Be Removed To Make Array Sorted</a></p></li>
+<li><p><a class="reference internal" href="#house-robber" id="id37">House Robber</a></p></li>
+<li><p><a class="reference internal" href="#longest-increasing-subsequence" id="id38">Longest Increasing Subsequence</a></p></li>
+<li><p><a class="reference internal" href="#edit-distance" id="id39">Edit Distance</a></p></li>
+<li><p><a class="reference internal" href="#minimum-ascii-delete-sum-for-two-strings" id="id40">Minimum ASCII Delete Sum for Two Strings</a></p></li>
+<li><p><a class="reference internal" href="#longest-common-subsequence" id="id41">Longest Common Subsequence</a></p></li>
+<li><p><a class="reference internal" href="#longest-palindromic-subsequence" id="id42">Longest Palindromic Subsequence</a></p></li>
+<li><p><a class="reference internal" href="#longest-palindromic-substring" id="id43">Longest Palindromic Substring</a></p></li>
+<li><p><a class="reference internal" href="#linked-list-cycle" id="id44">Linked List Cycle</a></p></li>
+<li><p><a class="reference internal" href="#linked-list-cycle-ii" id="id45">Linked List Cycle II</a></p></li>
+<li><p><a class="reference internal" href="#product-of-array-except-self" id="id46">Product of Array Except Self</a></p></li>
+<li><p><a class="reference internal" href="#trapping-rain-water" id="id47">Trapping Rain Water</a></p></li>
+<li><p><a class="reference internal" href="#next-greater-element-i" id="id48">Next Greater Element I</a></p></li>
 </ul>
 </div>
 <section class="any" id="two-sum">
@@ -1392,12 +1406,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </pre></div>
 </div>
 </div>
-</details><p>我能去 Google 了吗？<a class="footnote-reference brackets" href="#id6" id="id5">1</a></p>
-<dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id5">1</a></span></dt>
-<dd><p><a class="reference external" href="https://twitter.com/mxcl/status/608682016205344768">https://twitter.com/mxcl/status/608682016205344768</a></p>
-</dd>
-</dl>
+</details><p>我能去 Google 了吗？<a class="footnote-reference brackets" href="#id14" id="id7">1</a></p>
 </section>
 <section class="any" id="best-time-to-buy-and-sell-stock-ii">
 <span id="leetcode-best-time-to-buy-and-sell-stock-ii"></span><h3>Best Time to Buy and Sell Stock II<a class="headerlink" href="#best-time-to-buy-and-sell-stock-ii" title="永久链接至标题">¶</a></h3>
@@ -1551,7 +1560,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <p>复杂度为 <span class="math notranslate nohighlight">\(2*O(n)\)</span> ，这个常数可以优化掉，测评里只比 6.67% 的选手快，<span class="math notranslate nohighlight">\(O(n)\)</span> 已经是这个问题的极限了，暂时不知道哪里有问题。</p>
 </dd>
 </dl>
-<div class="admonition-todo admonition" id="id7">
+<div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">待处理</p>
 <p>更快的解法</p>
 </div>
@@ -2523,9 +2532,11 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dl class="simple">
 <dt>作为 <a class="reference internal" href="#leetcode-longest-common-subsequence" title="leetcode Longest Common Subsequence"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Longest</span> <span class="pre">Common</span> <span class="pre">Subsequence</span></code></a> 的变种</dt><dd><p>将字符串翻转过来作为第二个数组，求 LCS 即可。</p>
 </dd>
-<dt>常规解法</dt><dd><p>TODO</p>
-</dd>
 </dl>
+<div class="admonition-todo admonition" id="id9">
+<p class="admonition-title">待处理</p>
+<p>常规解法</p>
+</div>
 </section>
 <section class="any" id="longest-palindromic-substring">
 <span id="leetcode-longest-palindromic-substring"></span><h3>Longest Palindromic Substring<a class="headerlink" href="#longest-palindromic-substring" title="永久链接至标题">¶</a></h3>
@@ -2649,7 +2660,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 </div>
 </dd>
 </dl>
-<div class="admonition-todo admonition" id="id8">
+<div class="admonition-todo admonition" id="id10">
 <p class="admonition-title">待处理</p>
 <p>听说有 <span class="math notranslate nohighlight">\(O(n)\)</span> 的做法，改日再学习吧。</p>
 </div>
@@ -2847,7 +2858,7 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
 </dd>
 <dt class="field-even">思路</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a></p>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-动态规划" title="leetcode 动态规划"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">动态规划</span></code></a> <a class="reference internal" href="../../any-leetcode.key.html#cap-双指针" title="leetcode 双指针"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">双指针</span></code></a> <a class="reference internal" href="../../any-leetcode.key.html#cap-单调栈" title="leetcode 单调栈"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">单调栈</span></code></a></p>
 </dd>
 <dt class="field-odd">日期</dt>
 <dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.date.html#cap-2021-07-15" title="leetcode 2021-07-15"><code class="xref any any-leetcode.date docutils literal notranslate"><span class="pre">2021-07-15</span></code></a></p>
@@ -2860,8 +2871,141 @@ frequency 的桶里，并且 cache 内维护一个 minFreq 方便立刻找到最
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">trap</span><span class="p">(</span><span class="n">height</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">right</span><span class="p">[</span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">right</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">max</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">water</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">water</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">right</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">water</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">trap2</span><span class="p">(</span><span class="n">height</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">water</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="n">ptr</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">[</span><span class="n">ptr</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="n">ptr</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">[</span><span class="n">ptr</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">water_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmp</span>::<span class="n">min</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">left</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">bottom</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">water_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="n">water</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">water_height</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">water_width</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">ptr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">stack</span><span class="p">[</span><span class="n">ptr</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">water</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">Solution</span>::<span class="n">trap2</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]),</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </div>
 </details><p>似乎 <code class="xref any any-friend docutils literal notranslate"><span class="pre">❌👤pcf</span></code> 也和我提到过，然而完全忘了。</p>
+<p>看题解。</p>
+<dl>
+<dt>动态规划</dt><dd><p>其实也不像动态规划……倒不如说是 <a class="reference internal" href="#leetcode-product-of-array-except-self" title="leetcode Product of Array Except Self"><code class="xref any any-leetcode docutils literal notranslate"><span class="pre">🧮Product</span> <span class="pre">of</span> <span class="pre">Array</span> <span class="pre">Except</span> <span class="pre">Self</span></code></a> 的变种，同样用到两个数组。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">L[i]</span></code>, <code class="code docutils literal notranslate"><span class="pre">R[i]</span></code> 为以第 <code class="code docutils literal notranslate"><span class="pre">i</span></code> 格为中心，左右的最高点的高度，每一格可能容纳的水量为 <code class="code docutils literal notranslate"><span class="pre">W[i]</span> <span class="pre">=</span> <span class="pre">min(L[i],</span> <span class="pre">R[i])</span> <span class="pre">-</span> <span class="pre">Height[i]</span></code>。</p>
+</dd>
+<dt>单调栈 <a class="footnote-reference brackets" href="#id15" id="id12">2</a></dt><dd><p>利用单调栈的性质，维护一个由高到低的水洼左边，每次 pop 的时候，算该水洼里的一层水</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id13">
+<p class="admonition-title">待处理</p>
+<p>还有 <span class="math notranslate nohighlight">\(O(1)\)</span> 解法…… 歇会儿。</p>
+</div>
+</section>
+<section class="any" id="next-greater-element-i">
+<span id="leetcode-next-greater-element-i"></span><h3>Next Greater Element I<a class="headerlink" href="#next-greater-element-i" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">地址</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://leetcode.com/problems/next-greater-element-i">https://leetcode.com/problems/next-greater-element-i</a></p>
+</dd>
+<dt class="field-even">难度</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.diffculty.html#cap-Easy" title="leetcode Easy"><code class="xref any any-leetcode.diffculty docutils literal notranslate"><span class="pre">Easy</span></code></a></p>
+</dd>
+<dt class="field-odd">语言</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../any-leetcode.language.html#cap-rust" title="leetcode rust"><code class="xref any any-leetcode.language docutils literal notranslate"><span class="pre">rust</span></code></a></p>
+</dd>
+<dt class="field-even">思路</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../any-leetcode.key.html#cap-单调栈" title="leetcode 单调栈"><code class="xref any any-leetcode.key docutils literal notranslate"><span class="pre">单调栈</span></code></a></p>
+</dd>
+</dl>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+题解<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Solution</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">next_greater_element</span><span class="p">(</span><span class="n">nums1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">nums2</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[cfg(test)]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[test]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</details><hr class="docutils" />
+<p class="rubric">脚注</p>
+<dl class="footnote brackets">
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">1</a></span></dt>
+<dd><p><a class="reference external" href="https://twitter.com/mxcl/status/608682016205344768">https://twitter.com/mxcl/status/608682016205344768</a></p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id12">2</a></span></dt>
+<dd><p><a class="reference external" href="https://oi-wiki.org/ds/monotonous-stack/">https://oi-wiki.org/ds/monotonous-stack/</a></p>
+</dd>
+</dl>
 </section>
 </section>
 </section>
